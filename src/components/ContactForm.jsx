@@ -71,7 +71,7 @@ export const ContactForm = () => {
             </h2>
           </div>
 
-          <div className="bg-[#1b222b] backdrop-blur-md rounded-[30px] p-6 sm:p-10 w-full max-w-2xl mx-auto">
+          <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-[30px] p-6 sm:p-10 w-full max-w-2xl mx-auto">
             <form onSubmit={handleSubmit} className="space-y-5">
               {/* Name Field */}
               <div className="space-y-2">
@@ -123,7 +123,7 @@ export const ContactForm = () => {
                   rows={4}
                   placeholder="Write your message"
                   className="w-full px-4 py-4 m-2 bg-lime-100/10 border border-lime-400/20 rounded-[20px] text-sm text-lime-200 placeholder-black"
-                  style={{ fontFamily: "Inter",resize:"none" }}
+                  style={{ fontFamily: "Inter" }}
                 />
                 {errors.message && (
                   <p className="text-xs text-red-400 ml-2">{errors.message}</p>

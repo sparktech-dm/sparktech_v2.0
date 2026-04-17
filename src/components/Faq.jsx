@@ -69,9 +69,9 @@ export const Faq = () => {
               color: "rgb(255, 255, 255)",
             }}
           >
-            Got Questions?
+            Got <span className="text-yellow-400">Questions?</span>
             <br />
-            We've Got Answers!
+            We've Got  <span className="text-yellow-400">Answers!</span>
           </h2>
         </div>
 

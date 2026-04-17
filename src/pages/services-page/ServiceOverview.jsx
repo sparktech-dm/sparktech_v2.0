@@ -14,8 +14,8 @@ export default function Services() {
     },
     {
       number: "02",
-      title: "Content Creation",
-      details: "Creative and high-quality content tailored to your audience.",
+      title: "Lead Generation Systems",
+      details: "Strategic funnels and capture mechanisms designed to turn strangers into qualified prospects.",
       link: "/services/content-creation",
     },
     {
@@ -26,21 +26,21 @@ export default function Services() {
     },
     {
       number: "04",
-      title: "Video Editing",
-      details: "Professional video editing to tell your story effectively.",
+      title: "Ad Creatives & Campaigns",
+      details: "Data-driven advertising across major platforms to maximize ROI and scale brand reach.",
       link: "/services/video-editing",
     },
     {
       number: "05",
-      title: "Email Marketing",
-      details: "Targeted campaigns that convert and nurture your audience.",
+      title: "Automated Email Flows",
+      details: "Smart sequence triggers that nurture leads and drive repeat business on autopilot.",
       link: "/services/email-marketing",
     },
     {
       number: "06",
-      title: " SEO",
+      title: "Search Visibility & SEO",
       details:
-        "Visual designs that enhance your brand identity + SEO strategies to rank higher.",
+        "Technical and content-based optimization to dominate organic search results.",
       link: "/services/seo",
     },
   ];

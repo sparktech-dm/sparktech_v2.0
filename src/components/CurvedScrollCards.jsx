@@ -1,6 +1,6 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, useCallback } from "react";
 import "../flip-cards.css";
-import mar from "../assets/services/Marketing.jpg";
+import mar from "../assets/services/marketing.jpg";
 import per from "../assets/services/Performance-Marketing.jpg";
 import seo from "../assets/services/SEO.jpg";
 import brand from "../assets/services/Branding.jpg";
@@ -12,185 +12,245 @@ const CurvedScrollCards = () => {
   const [position, setPosition] = useState(0);
   const [activeIndex, setActiveIndex] = useState(null);
   const [hoveredIndex, setHoveredIndex] = useState(null);
+  const [flippedIndex, setFlippedIndex] = useState(null);
+  const [manualClosedIndex, setManualClosedIndex] = useState(null);
+  const [isUserControlled, setIsUserControlled] = useState(false);
   const containerRef = useRef(null);
   const intervalRef = useRef(null);
+  const userControlTimerRef = useRef(null);
+  const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
+
+  const cardWidth = 240 + 16; // 240 width + 16 gap
 
   const cardData = [
-    {
-      id: 1,
-      title: "SEO",
-      description:
-        "Strategic SEO that aligns with how your audience thinks, searches, and acts.",
-      icon: "🔍",
-      frontImage: seo,
-      backColor: "#16213E",
-      link: "/services/seo",
-    },
-    {
-      id: 2,
-      title: "Performance Marketing",
-      description: "Data-led campaigns that convert curiosity into consistent revenue.",
-      icon: "📈",
-      frontImage: per,
-      backColor: "#16213E",
-      link: "/services/email-marketing",
-    },
-    {
-      id: 3,
-      title: "Social Media Marketing",
-      description: "We balance story and strategy to build engagement and community.",
-      icon: "📱",
-      frontImage: soc,
-      backColor: "#16213E",
-      link: "/services/social-media-marketing",
-    },
-    {
-      id: 4,
-      title: "Content Marketing",
-      description: "Intentional storytelling that earns trust and drives growth.",
-      icon: "✍️",
-      frontImage: mar,
-      backColor: "#16213E",
-      link: "/services/content-creation",
-    },
-    {
-      id: 5,
-      title: "Branding",
-      description:
-        "We shape identities that are consistent, credible, and unmistakably you.",
-      icon: "🎨",
-      frontImage: brand,
-      backColor: "#16213E",
-      link: "/services/video-editing",
-    },
-    {
-      id: 6,
-      title: "Website Development",
-      description:
-        "Digital foundations that support your story, scale, and success.",
-      icon: "💻",
-      frontImage: web,
-      backColor: "#16213E",
-      link: "/services/website-development",
-    },
+    { id: 1, title: "Search Visibility & SEO", description: "Technical and content-based optimization to dominate organic search results.", icon: "🔍", frontImage: seo, backColor: "#16213E", link: "/services/seo" },
+    { id: 2, title: "Lead Generation Systems", description: "Data-led campaigns that convert curiosity into consistent revenue.", icon: "📈", frontImage: per, backColor: "#16213E", link: "/services/email-marketing" },
+    { id: 3, title: "Social Media Marketing", description: "Boost your brand presence across platforms with engaging strategies.", icon: "📱", frontImage: soc, backColor: "#16213E", link: "/services/social-media-marketing" },
+    { id: 4, title: "Ad Creatives & Campaigns", description: "We turn clicks into customers with scroll-stopping visuals and copy.", icon: "✍️", frontImage: mar, backColor: "#16213E", link: "/services/content-creation" },
+    { id: 5, title: "Automated Email Flows", description: "Nurture leads and drive repeat business with automated email sequences.", icon: "🎨", frontImage: brand, backColor: "#16213E", link: "/services/video-editing" },
+    { id: 6, title: "Website Development", description: "High-performance, custom websites designed to convert and scale.", icon: "💻", frontImage: web, backColor: "#16213E", link: "/services/website-development" },
   ];
 
   const allCards = [...cardData, ...cardData, ...cardData, ...cardData, ...cardData];
-  const cardWidth = 240 + 16; // card width + margin
-  const totalWidth = cardWidth * cardData.length;
+  const totalBaseWidth = cardWidth * cardData.length;
 
-  // Auto-scroll
   useEffect(() => {
-    startScroll();
-    return () => stopScroll();
-  }, [totalWidth]);
+    const handleResize = () => setViewportWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
-  const startScroll = () => {
+  const getPositionForIndex = useCallback((index) => {
+    return (viewportWidth / 2) - (index * cardWidth + cardWidth / 2);
+  }, [viewportWidth, cardWidth]);
+
+  useEffect(() => {
+    setPosition(getPositionForIndex(cardData.length));
+  }, [viewportWidth, cardData.length, getPositionForIndex]);
+
+  // ─── Auto-scroll ───────────────────────────────────────────────────────────
+  const startScroll = useCallback(() => {
     if (intervalRef.current) return;
     intervalRef.current = setInterval(() => {
       setPosition((prev) => {
-        const newPos = prev - 1;
-        if (Math.abs(newPos) >= totalWidth) {
-          return 0;
-        }
+        let newPos = prev - 0.7;
+        const minPos = getPositionForIndex(cardData.length * 3);
+        const maxPos = getPositionForIndex(cardData.length);
+        if (newPos < minPos) newPos += totalBaseWidth;
+        else if (newPos > maxPos) newPos -= totalBaseWidth;
         return newPos;
       });
     }, 16);
-  };
+  }, [cardData.length, getPositionForIndex, totalBaseWidth]);
 
-  const stopScroll = () => {
+  const stopScroll = useCallback(() => {
     if (intervalRef.current) {
       clearInterval(intervalRef.current);
       intervalRef.current = null;
     }
-  };
+  }, []);
 
-  // Detect center card
   useEffect(() => {
-    if (!containerRef.current) return;
-    const containerCenter = window.innerWidth / 2;
-    const children = containerRef.current.children;
-    let closestIndex = null;
-    let minDistance = Infinity;
+    if (!isUserControlled) startScroll();
+    return () => stopScroll();
+  }, [startScroll, stopScroll, isUserControlled]);
 
-    Array.from(children).forEach((child, index) => {
-      const rect = child.getBoundingClientRect();
-      const cardCenter = rect.left + rect.width / 2;
-      const distance = Math.abs(containerCenter - cardCenter);
-      if (distance < minDistance) {
-        minDistance = distance;
-        closestIndex = index;
-      }
+  // ─── Interaction Handlers ───────────────────────────────────────────────────
+  const scrollByCard = useCallback((direction) => {
+    stopScroll();
+    setIsUserControlled(true);
+    setFlippedIndex(null); // Unflip when moving
+    
+    setPosition((prev) => {
+      const centerPoint = viewportWidth / 2;
+      const currentIndex = Math.round((centerPoint - prev - cardWidth / 2) / cardWidth);
+      const targetIndex = currentIndex + direction;
+      return getPositionForIndex(targetIndex);
     });
 
-    setActiveIndex(closestIndex);
-  }, [position]);
+    if (userControlTimerRef.current) clearTimeout(userControlTimerRef.current);
+    userControlTimerRef.current = setTimeout(() => {
+      setIsUserControlled(false);
+    }, 4000);
+  }, [stopScroll, viewportWidth, cardWidth, getPositionForIndex]);
+
+  const handleCardClick = (index) => {
+    // If it's currently showing the back (either pinned or hovered)
+    const isCurrentlyShowingBack = flippedIndex === index || (hoveredIndex === index && manualClosedIndex !== index);
+
+    if (isCurrentlyShowingBack) {
+      setFlippedIndex(null);
+      setManualClosedIndex(index);
+    } else {
+      setFlippedIndex(index);
+      setManualClosedIndex(null);
+      stopScroll();
+      setIsUserControlled(true);
+      setPosition(getPositionForIndex(index));
+      
+      if (userControlTimerRef.current) clearTimeout(userControlTimerRef.current);
+      userControlTimerRef.current = setTimeout(() => {
+        setIsUserControlled(false);
+      }, 6000);
+    }
+  };
+
+  // ─── Center Active Identification ──────────────────────────────────────────
+  useEffect(() => {
+    const centerPoint = viewportWidth / 2;
+    const index = Math.round((centerPoint - position - cardWidth / 2) / cardWidth);
+    setActiveIndex(index);
+  }, [position, viewportWidth, cardWidth]);
 
   return (
-    <div className="w-full py-20 bg-transparent overflow-hidden">
-      <div className="text-center mb-10">
-        <h2 className="text-4xl font-bold text-white">
+    <div className="w-full py-16 md:py-24 bg-transparent overflow-hidden">
+      {/* Heading */}
+      <div className="text-center mb-12 px-6">
+        <h2 className="text-3xl md:text-5xl font-extrabold text-white tracking-tight">
           Our <span className="text-yellow-400">Services</span>
         </h2>
-        <p className="text-gray-300 mt-2">Explore what we offer</p>
+        <div className="w-20 h-1.5 bg-yellow-400 mx-auto mt-4 rounded-full" />
+        <p className="text-gray-400 mt-4 text-sm md:text-lg max-w-lg mx-auto">
+          Scale your business with our data-driven digital strategies.
+        </p>
       </div>
 
-      <div className="relative w-full h-[420px]">
+      {/* Main Carousel area */}
+      <div className="relative w-full h-[460px] flex items-center group/carousel">
+        
+        {/* ← LEFT ARROW */}
+        <button
+          onClick={(e) => { e.stopPropagation(); scrollByCard(-1); }}
+          className="
+            absolute left-4 md:left-10 z-40
+            w-12 h-12 md:w-16 md:h-16 rounded-full
+            flex items-center justify-center
+            border-2 border-yellow-400/50 text-yellow-400
+            bg-black/40 backdrop-blur-md
+            hover:bg-yellow-400 hover:text-black hover:border-yellow-400
+            hover:scale-110 active:scale-90
+            transition-all duration-300 shadow-[0_0_20px_rgba(240,196,23,0.3)]
+            text-xl md:text-2xl font-bold select-none
+          "
+        >
+          &#8592;
+        </button>
+
+        {/* → RIGHT ARROW */}
+        <button
+          onClick={(e) => { e.stopPropagation(); scrollByCard(1); }}
+          className="
+            absolute right-4 md:right-10 z-40
+            w-12 h-12 md:w-16 md:h-16 rounded-full
+            flex items-center justify-center
+            border-2 border-yellow-400/50 text-yellow-400
+            bg-black/40 backdrop-blur-md
+            hover:bg-yellow-400 hover:text-black hover:border-yellow-400
+            hover:scale-110 active:scale-90
+            transition-all duration-300 shadow-[0_0_20px_rgba(240,196,23,0.3)]
+            text-xl md:text-2xl font-bold select-none
+          "
+        >
+          &#8594;
+        </button>
+
+        {/* Card Track */}
         <div
-          ref={containerRef}
-          className="absolute flex gap-4"
+          className="absolute flex gap-4 pointer-events-none"
           style={{
             transform: `translateX(${position}px)`,
             willChange: "transform",
-            transition: "transform 0.02s linear",
+            transition: isUserControlled
+              ? "transform 0.6s cubic-bezier(0.2, 0, 0, 1)"
+              : "transform 0.02s linear",
+            left: 0,
           }}
         >
           {allCards.map((card, i) => {
             const isActive = i === activeIndex;
             const isHovered = i === hoveredIndex;
+            const isFlipped = i === flippedIndex;
+            
+            const activeGlow = viewportWidth < 768
+              ? "0 0 40px rgba(240, 196, 23, 0.4)"
+              : "0 0 60px rgba(240, 196, 23, 0.6)";
 
             return (
               <div
                 key={i}
-                className={`card w-60 h-[400px] rounded-2xl flex-shrink-0 transition-all duration-300 ${
-                  isActive ? "scale-105 z-10" : "scale-95 opacity-80"
-                }`}style={{
-  boxShadow:
-    isHovered || (!hoveredIndex && isActive)
-      ? "0px 0px 25px rgba(255, 230, 0, 0.9), 0px 0px 60px rgba(255, 230, 0, 0.8)"
-      : "none",
-}}
-
-                onMouseEnter={() => {
-                  stopScroll();
-                  setHoveredIndex(i);
+                onClick={() => handleCardClick(i)}
+                className={`
+                  card pointer-events-auto w-60 h-[400px] rounded-3xl flex-shrink-0 cursor-pointer
+                  transition-all duration-700 ease-out relative
+                  ${isActive ? "scale-105 z-20 opacity-100" : "scale-90 z-10 opacity-40 blur-[0.5px]"}
+                  ${(i === flippedIndex || (i === hoveredIndex && i !== manualClosedIndex)) ? "flipped" : ""}
+                `}
+                style={{
+                  boxShadow: (isActive || hoveredIndex === i || i === flippedIndex) ? activeGlow : "none",
                 }}
-                onMouseLeave={() => {
-                  setHoveredIndex(null);
-                  startScroll();
+                onMouseEnter={() => { 
+                  stopScroll(); 
+                  setHoveredIndex(i); 
+                  setManualClosedIndex(null); // Reset when mouse enters to allow hover-flip again
+                }}
+                onMouseLeave={() => { 
+                  setHoveredIndex(null); 
+                  if (!isUserControlled) startScroll(); 
                 }}
               >
-                <div className="card-inner">
+                <div className="card-inner w-full h-full rounded-3xl border border-white/10">
                   {/* FRONT */}
                   <div
-                    className="card-front flex items-center justify-center text-white rounded-2xl bg-cover bg-center relative"
+                    className="card-front flex items-center justify-center text-white bg-cover bg-center relative cursor-pointer"
                     style={{ backgroundImage: `url(${card.frontImage})` }}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleCardClick(i);
+                    }}
                   >
-                    <div className="absolute inset-0 bg-black/40 rounded-2xl"></div>
-                    <h2 className="relative z-10 text-xl font-bold text-center px-4">
-                      {card.title}
-                    </h2>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                    <div className="relative z-10 text-center px-4">
+                      <h3 className="text-xl md:text-2xl font-bold uppercase tracking-wide">
+                        {card.title}
+                      </h3>
+                    </div>
                   </div>
 
                   {/* BACK */}
                   <div
-                    className="card-back flex flex-col items-center justify-center p-4 text-white rounded-2xl"
+                    className="card-back flex flex-col items-center justify-center p-6 text-white cursor-pointer"
                     style={{ backgroundColor: card.backColor }}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleCardClick(i); // This will toggle flippedIndex to null if it matches
+                    }}
                   >
-                    <p className="text-sm mb-4 text-center">{card.description}</p>
-                    <Link to={card.link}>
-                      <button className="bg-[#f0c417] text-black px-4 py-2 rounded-lg text-sm">
-                        Learn More
+                    <p className="text-baseline leading-relaxed mb-6 text-center text-gray-200">
+                      {card.description}
+                    </p>
+                    <Link to={card.link} onClick={(e) => e.stopPropagation()}>
+                      <button className="bg-yellow-400 text-black px-6 py-2.5 rounded-full font-bold text-sm tracking-wide shadow-lg hover:shadow-yellow-400/40 hover:scale-105 active:scale-95 transition-all">
+                        LEARN MORE
                       </button>
                     </Link>
                   </div>
@@ -199,6 +259,21 @@ const CurvedScrollCards = () => {
             );
           })}
         </div>
+      </div>
+
+      {/* Progress indicators */}
+      <div className="flex justify-center gap-2 mt-10">
+        {cardData.map((_, idx) => {
+          const currentRealIndex = activeIndex ? ((activeIndex % cardData.length) + cardData.length) % cardData.length : 0;
+          return (
+            <div 
+              key={idx}
+              className={`h-1.5 rounded-full transition-all duration-500 ${
+                idx === currentRealIndex ? "w-10 bg-yellow-400" : "w-3 bg-white/10"
+              }`}
+            />
+          );
+        })}
       </div>
     </div>
   );

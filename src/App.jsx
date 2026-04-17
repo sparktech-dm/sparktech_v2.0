@@ -13,6 +13,8 @@ import { Faq } from "./components/Faq";
 import ChatBot from "./components/Chat";
 import Top from "./components/Top"; 
 import * as THREE from "three";
+import NET from "vanta/dist/vanta.net.min";
+window.THREE = THREE; // Required for Vanta effects
 import ScrollToTop from "./components/ScrollToTop";
 // import Wuc from "./pages/Wuc";
 import CurvedScrollCards from "./components/CurvedScrollCards";
@@ -26,7 +28,7 @@ import WhyChooseUs from "./components/WhyChooseUs";
 
 const Home = () => (
   <>
-    <section id="home" className="min-h-screen scroll-mt-24">
+    <section id="home" className="min-h-screen scroll-mt-24 ">
       <Hero />
     </section>
     {/* <section id="services" className="min-h-screen scroll-mt-24 px-4 py-10">
@@ -41,9 +43,9 @@ const Home = () => (
     <section id="whychooseus" className=" overflow-hidden">
         <WhyChooseUs/>
       </section>
-    <section id="faq" className="min-h-screen scroll-mt-24 px-4 py-10">
+    {/* <section id="faq" className="min-h-screen scroll-mt-24 px-4 py-10">
       <Faq />
-    </section>
+    </section> */}
     <section id="contact" className="min-h-screen scroll-mt-24 px-4 py-10">
       <ContactForm />
     </section>
@@ -102,7 +104,7 @@ const App = () => {
         className="fixed inset-0 w-screen h-screen -z-10 overflow-hidden"
       /> */}
 
-      <div className="relative z-10  text-white overflow-x-hidden min-h-screen bg-cover bg-center bg-fixed  bg-[#1d4065]">
+      <div className="relative z-10 text-white overflow-x-hidden min-h-screen bg-cover bg-center bg-fixed bg-black">
         <GlassCursor/>
         <Navbar />
         <ChatBot />
@@ -115,8 +117,8 @@ const App = () => {
           <Route path="/" element={<Home />} />
           {/* <Route path="/about" element={<About />} /> */}
           <Route path="/about" element={<ProjectsSection />} />
-          <Route path="/blogs" element={<BlogsPage />} />
-          <Route path="/blog/:id" element={<Blo gDetail />} />
+          {/* <Route path="/blogs" element={<BlogsPage />} /> */}
+          <Route path="/blog/:id" element={<BlogDetail />} />
           <Route path="/services/*" element={<Services />} />
            <Route path="/contact" element={<ContactForm1/>} />
             <Route path="*" element={<NotFound />} />

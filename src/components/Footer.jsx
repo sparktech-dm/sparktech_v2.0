@@ -1,15 +1,13 @@
 import React from 'react';
 import { Lightbulb, Mail, Phone, MapPin, Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
 import { Link, useNavigate, useLocation } from "react-router-dom";
-import Logo from "../assets/Logo.png";
-
 
 const Footer = () => {
   const quickLinks = ['Review', 'About', 'Internship',];
   const socialLinks = [
      { icon: MapPin, href:'https://maps.app.goo.gl/4sYLYqWiS9KQRijP8',color:'hover:text-[#f0c417]'},
     { icon: Instagram, href: 'https://www.instagram.com/sparktech.dm?igsh=MTA5dzFmNW9uYzVlMg== ', color: 'hover:text-[#f0c417]' },
-    { icon: Linkedin, href: 'https://www.linkedin.com/company/sparktech-digital-marketing/', color: 'hover:text-[#f0c417]' }
+    { icon: Linkedin, href: 'https://www.linkedin.com/company/112620752/admin/dashboard/', color: 'hover:text-[#f0c417]' }
   ];
 
   const scrollToSection = (id) => {
@@ -20,13 +18,13 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-[#1b222b] text-white rounded-[30px]">
+    <footer className="bg-white/10 backdrop-blur-xl border border-white/20 text-white rounded-[30px]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Brand Section */}
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-2 mb-6">
-              <img src={Logo} alt="Sparktech Logo" className="h-[80px] w-[80px] text-white" />
+              <img src="src/assets/Logo.png" alt="Sparktech Logo" className="h-8 w-8 text-white" />
               <span className="text-2xl font-bold bg-gradient-to-r from-[#f0c417] to-lime-100 bg-clip-text text-transparent">
                 Sparktech
               </span>
@@ -61,14 +59,14 @@ const Footer = () => {
                   <ul className="space-y-3">
                     <li>
                       <Link
-                        to="/blogs"
+                        to="/services"
                         className="text-white/80 text-base font-normal hover:text-[#f0c417] transition-colors"
                         style={{
                           fontFamily:
                             'Satoshi, "Satoshi Placeholder", sans-serif',
                         }}
                       >
-                        Review
+                        Services
                       </Link>
                     </li>
                     <li>
@@ -81,6 +79,18 @@ const Footer = () => {
                         }}
                       >
                         About
+                      </Link>
+                    </li>
+                     <li>
+                      <Link
+                        to="/contact"
+                        className="text-white/80 text-base font-normal hover:text-[#f0c417] transition-colors"
+                        style={{
+                          fontFamily:
+                            'Satoshi, "Satoshi Placeholder", sans-serif',
+                        }}
+                      >
+                        Contact
                       </Link>
                     </li>
                     <li>
@@ -140,7 +150,7 @@ const Footer = () => {
             <p className="text-gray-400 text-sm">
               © 2025 Sparktech. All rights reserved.
             </p>
-            <div className="flex space-x-6 mt-4 md:mt-0">
+            {/* <div className="flex space-x-6 mt-4 md:mt-0">
               <a href="#" className="text-gray-400 hover:text-purple-400 text-sm transition-colors duration-200">
                 Privacy Policy
               </a>
@@ -150,7 +160,7 @@ const Footer = () => {
               <a href="#" className="text-gray-400 hover:text-purple-400 text-sm transition-colors duration-200">
                 Cookie Policy
               </a>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

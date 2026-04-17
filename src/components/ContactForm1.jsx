@@ -65,29 +65,28 @@ export const ContactForm1 = () => {
           <p className="mt-2 mb-2 text-sm text-gray-400">We'd love to hear from you! Fill out the form below and our team will get back to you soon.</p>
           <form onSubmit={handleSubmit} className="space-y-5">
             {/* Name */}
-            <div className="space-y-2">
-  <label className="text-xs font-medium text-white block mb-1">Name</label>
-  <input
-    type="text"
-    name="name"
-    value={formData.name}
-    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-    className="w-full px-4 py-4 bg-lime-100/10 border border-lime-400/20 rounded-[20px] text-sm text-lime-200 placeholder-lime-400"
-    style={{ fontFamily: "Inter" }}
-  />
-  {errors.name && <p className="text-xs text-red-400 ml-2">{errors.name}</p>}
-</div>
-
+            <div className="space-y-2 ">
+              <label className=" text-xs font-medium text-white p-5">Name</label>
+              <input
+                type="text"
+                name="name"
+                value={formData.name}
+                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                className="w-full mt-2 px-4 py-4 bg-lime-100/10 border border-lime-400/20 rounded-[20px] text-sm text-lime-200 placeholder-lime-400"
+                style={{ fontFamily: "Inter" }}
+              />
+              {errors.name && <p className="text-xs text-red-400 ml-2">{errors.name}</p>}
+            </div>
 
             {/* Email */}
             <div className="space-y-2">
-              <label className="text-xs font-medium text-white block mb-1">Email</label>
+              <label className="text-xs font-medium text-white p-5">Email</label>
               <input
                 type="email"
                 name="email"
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                className="w-full   px-4 py-4 bg-lime-100/10 border border-lime-400/20 rounded-[20px] text-sm text-lime-200 placeholder-lime-400"
+                className="w-full  mt-2 px-4 py-4 bg-lime-100/10 border border-lime-400/20 rounded-[20px] text-sm text-lime-200 placeholder-lime-400"
                 style={{ fontFamily: "Inter" }}
               />
               {errors.email && <p className="text-xs text-red-400 ml-2">{errors.email}</p>}
@@ -95,15 +94,15 @@ export const ContactForm1 = () => {
 
             {/* Message */}
             <div className="space-y-2">
-              <label className="text-xs font-medium text-white block mb-5">Message</label>
+              <label className="text-xs font-medium text-white p-5">Message</label>
               <textarea
                 name="message"
                 value={formData.message}
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                 rows={4}
                 placeholder="Write your message"
-                className="w-full   px-4 py-4 bg-lime-100/10 border border-lime-400/20 rounded-[20px] text-sm text-lime-200 placeholder-black"
-                style={{ fontFamily: "Inter",resize:"none" }}
+                className="w-full  mt-2 px-4 py-4 bg-lime-100/10 border border-lime-400/20 rounded-[20px] text-sm text-lime-200 placeholder-black"
+                style={{ fontFamily: "Inter" }}
               />
               {errors.message && <p className="text-xs text-red-400 ml-2">{errors.message}</p>}
             </div>
@@ -155,7 +154,9 @@ export const ContactForm1 = () => {
                 />
               </svg>
             </div>
-            <span className="text-white md:text-xl text-base font-normal">+91 9876543210</span>
+            <span className="text-white md:text-xl text-base font-normal">+91 8939892219
+
+</span>
           </div>
 
           {/* Address Box */}

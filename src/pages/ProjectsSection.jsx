@@ -2,15 +2,9 @@ import React, { useRef, useEffect, useState } from "react";
 import Seo from "../components/Seo";
 import Footer from "../components/Footer";
 import ProfileCard from "../helper/ProfileCard";
-import AnimatedCircularTeam from "../helper/AnimatedCircularTeam";
-import WebTeam from "../helper/WebTeam";
-import EditTeam from "../helper/EditTeam";
-import ManTeam from "../helper/ManTeam";
+import PremiumTeamSection from "../components/PremiumTeamSection";
 
 const ProjectsSection = () => {
-  const containerRef = useRef(null);
-  const [scrollY, setScrollY] = useState(0);
-
   // ✅ Track mobile flip state
   const [flippedCard, setFlippedCard] = useState(null);
 
@@ -21,39 +15,28 @@ const ProjectsSection = () => {
   };
 
   const projects = [
-    {
-      title: "Collaboration, not hierarchy",
-      description: "Ideas can come from anywhere. We listen, challenge, and build together.",
-      image: "https://images.unsplash.com/photo-1604210740327-dfd2dc1b2dc8?auto=format&fit=crop&w=800&q=80",
+    // {
+    //   title: "Collaboration, not hierarchy",
+    //   description: "Ideas can come from anywhere. We listen, challenge, and build together.",
+    //   image: "https://images.unsplash.com/photo-1604210740327-dfd2dc1b2dc8?auto=format&fit=crop&w=800&q=80",
       
-    },
-    {
-      title: "Courage to do it differently",
-      description: "We’re not afraid to say no, challenge the brief, or take a different path. Means we do the work better.",
-      image: "https://images.unsplash.com/photo-1522199873713-4f1117c1a9f8?auto=format&fit=crop&w=800&q=80",
+    // },
+    // {
+    //   title: "Courage to do it differently",
+    //   description: "We’re not afraid to say no, challenge the brief, or take a different path. Means we do the work better.",
+    //   image: "https://images.unsplash.com/photo-1522199873713-4f1117c1a9f8?auto=format&fit=crop&w=800&q=80",
       
-    },
+    // },
     {
       title: "Creativity with purpose",
       description: "For us, creativity isn’t just flair; it is zeal. Everything we create has a purpose to act upon",
-      image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=80",
+      image: "./creativity with purpose.webp",
     }
   ];
   
-  const cards = Array.from({ length: 6 }, (_, i) => ({
-    id: i + 1,
-    name: `Card ${i + 1}`,
-    image: "/sanjay.png",
-  }));
 
-  useEffect(() => {
-    const container = containerRef.current;
-    const updateScroll = () => setScrollY(container.scrollTop);
-    const onScroll = () => window.requestAnimationFrame(updateScroll);
 
-    container.addEventListener("scroll", onScroll);
-    return () => container.removeEventListener("scroll", onScroll);
-  }, []);
+
 
   return (
     <>
@@ -63,15 +46,12 @@ const ProjectsSection = () => {
       />
 
       {/* Projects Card Section */}
-      <div
-        ref={containerRef}
-        className="h-screen w-screen overflow-y-scroll overflow-x-hidden text-[#f0c417] font-[Inter] relative pt-20"
-      >
-        <div className="sticky top-0 flex flex-col md:flex-row items-center justify-center gap-8 px-4 md:px-12 max-w-7xl mx-auto py-6">
+      <div className="w-full text-[#f0c417] font-[Inter] relative pt-20 pb-12">
+        <div className="flex flex-col md:flex-row items-center justify-center gap-8 px-4 md:px-12 max-w-7xl mx-auto py-6">
           {/* Text Block */}
           <div className="w-full md:w-1/2 text-center md:text-left">
             <h1 className="text-2xl sm:text-3xl md:text-5xl font-extrabold leading-tight tracking-tight mb-4">
-              We’re not here to follow the digital crowd. We’re here to build
+              We’re not here to follow the Digital crowd. We’re here to build
               things that matter.
             </h1>
             <p className="text-gray-300 text-sm sm:text-base max-w-md mx-auto md:mx-0">
@@ -87,43 +67,30 @@ const ProjectsSection = () => {
             </p>
           </div>
 
-          {/* Card Stack */}
-          <div className="relative w-full sm:w-[250px] md:w-[400px] h-[420px] sm:h-[400px]">
-            {projects.map((project, index) => {
-              const progress = scrollY / (window.innerHeight * 0.7);
-              const visible = index <= progress;
-              const offset = visible ? (index - progress) * 14 : 120;
-
-              return (
-                <div
-                  key={index}
-                  className="absolute w-full h-full bg-[#1b222b] rounded-2xl shadow-2xl p-5 flex flex-col justify-between transition-all"
-                  style={{
-                    transform: `translateY(${offset}px)`,
-                    zIndex: index,
-                    opacity: visible ? 1 : 0,
-                  }}
-                >
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="rounded-xl h-[160px] sm:h-[220px] w-full object-cover"
-                  />
-                  <div>
-                    <h3 className="text-lg sm:text-2xl font-bold mt-3">
-                      {project.title}
-                    </h3>
-                    <p className="text-gray-300 text-sm mt-2">
-                      {project.description}
-                    </p>
-                  </div>
-                  <div></div>
+          {/* Static Card Container */}
+          <div className="relative w-full sm:w-[250px] md:w-[400px]">
+            {projects.map((project, index) => (
+              <div
+                key={index}
+                className="w-full bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl shadow-2xl p-5 flex flex-col justify-between"
+              >
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="rounded-xl h-[160px] sm:h-[220px] w-full object-cover"
+                />
+                <div>
+                  <h3 className="text-lg sm:text-2xl font-bold mt-3">
+                    {project.title}
+                  </h3>
+                  <p className="text-gray-300 text-sm mt-2">
+                    {project.description}
+                  </p>
                 </div>
-              );
-            })}
+              </div>
+            ))}
           </div>
         </div>
-        <div style={{ height: `${projects.length * 90}vh` }} />
       </div>
 
       {/* Founder Section */}
@@ -152,25 +119,30 @@ const ProjectsSection = () => {
             <div className="w-[260px] sm:w-[300px]">
               <ProfileCard
                 name="Rajesh"
-                title="CEO"
+                title="Founder & CEO"
                 handle="ram"
                 status="Online"
                 contactText="Contact Me"
-                avatarUrl="/CEO1.png"
+                avatarUrl="/CEO3.png"
                 showUserInfo={true}
                 enableTilt={true}
-                enableMobileTilt={false}
+                enableMobileTilt={true}
+                innerGradient="linear-gradient(145deg, rgba(20,20,20,0.95) 0%, rgba(240,196,23,0.15) 100%)"
+                showBehindGradient={false}
                 onContactClick={() => console.log("Contact clicked")}
               />
             </div>
 
             {/* Founder Bio */}
             <div className="text-gray-300 text-base sm:text-xl leading-relaxed max-w-2xl text-center md:text-left md:ml-25">
-              James Andrews is a visionary entrepreneur and the driving force
-              behind Spark Tech. With a background in full-stack development and
-              a knack for turning complex challenges into simple solutions, he
-              has led the company to new heights. His leadership is built on
-              innovation, integrity, and relentless focus on quality.
+              Every brand has a story worth telling and I started Sparktech to help those stories spark action.
+              <br/>
+              I come from a mix of tech and business — a B.Tech in IT, an MBA in Marketing from LIBA, and certifications in Cybersecurity, SAP, and Penetration Testing. That background gave me a simple perspective: creativity shines brightest when it’s backed by systems that are secure, scalable, and smart.
+              <br/>
+              Before Spark Tech, I had the privilege of working with brands like BMW, creating IPL-themed campaigns and digital strategies that turned bold ideas into measurable results. Those experiences taught me that good marketing doesn’t shout — it connects.
+              <br/>
+              For us, every campaign is personal. Every idea is sharpened by data. And every success belongs just as much to our clients as it does to us.
+
             </div>
           </div>
         </div>
@@ -194,8 +166,8 @@ const ProjectsSection = () => {
                 ${flippedCard === "vision" ? "rotate-y-180" : ""}`}
               >
                 {/* Front */}
-                <div className="absolute inset-0 bg-[#222b36] rounded-2xl shadow-lg flex items-center justify-center p-6 backface-hidden transition-all duration-500 group-hover:shadow-[0_0_40px_15px_#ffd700] group-hover:brightness-150">
-                  <h3 className="text-[#f0c417] text-2xl font-bold">Our Vision</h3>
+                <div className="absolute inset-0 bg-[#222b36] rounded-2xl shadow-lg flex items-center justify-center overflow-hidden backface-hidden transition-all duration-500 group-hover:shadow-[0_0_40px_15px_#ffd700] group-hover:brightness-150">
+                  <img className="w-full h-full object-cover object-center" src="./visison.webp" alt="Our Vision" />
                 </div>
                 {/* Back */}
                 <div className="absolute inset-0 bg-[#1b1f29] rounded-2xl shadow-lg p-6 flex items-center justify-center backface-hidden rotate-y-180 transition-all duration-500 group-hover:shadow-[0_0_40px_15px_#ffd700] group-hover:brightness-150">
@@ -220,11 +192,11 @@ const ProjectsSection = () => {
                 ${flippedCard === "mission" ? "rotate-y-180" : ""}`}
               >
                 {/* Front */}
-                <div className="absolute inset-0 bg-[#222b36]  rounded-2xl shadow-lg flex items-center justify-center p-6 backface-hidden transition-all duration-500 group-hover:shadow-[0_0_40px_15px_#ffd700] group-hover:brightness-120">
-                  <h3 className="text-[#f0c417] text-2xl font-bold">Our Mission</h3>
+                <div className="absolute inset-0 bg-[#222b36] rounded-2xl shadow-lg flex items-center justify-center overflow-hidden backface-hidden transition-all duration-500 group-hover:shadow-[0_0_40px_15px_#ffd700] group-hover:brightness-125">
+                  <img className="w-full h-full object-cover object-center" src="./mission.webp" alt="Our Mission" />
                 </div>
                 {/* Back */}
-                <div className="absolute inset-0 bg-[#1b1f29] rounded-2xl shadow-lg p-6 flex items-center justify-center backface-hidden rotate-y-180 transition-all duration-500 group-hover:shadow-[0_0_40px_15px_#ffd700] group-hover:brightness-120">
+                <div className="absolute inset-0 bg-[#1b1f29] rounded-2xl shadow-lg p-6 flex items-center justify-center backface-hidden rotate-y-180 transition-all duration-500 group-hover:shadow-[0_0_40px_15px_#ffd700] group-hover:brightness-125">
                   <p className="text-gray-300 text-lg leading-relaxed text-center">
                     We dig deep before we move fast. Every strategy we craft is backed 
                     by research, sharpened by data, and brought to life through storytelling 
@@ -267,24 +239,25 @@ const ProjectsSection = () => {
       `}</style>
 
       {/* Team Section */}
-      <div className="max-w-6xl mx-auto text-center mt-20 px-4">
-        <div className="inline-flex items-center px-3 py-1 rounded-full bg-white/10 mb-4">
-          <span className="text-[#f0c417] text-xs font-black uppercase tracking-wide">
-            Team Members
+      <div className="max-w-7xl mx-auto text-center mt-32 px-6">
+        <div className="inline-flex items-center px-4 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-md mb-6">
+          <span className="text-[#f0c417] text-xs font-black uppercase tracking-widest">
+            Creative Minds
           </span>
         </div>
-        <h2 className="text-3xl sm:text-4xl font-bold text-white mb-12">
-          Say Hello to Our Team
+        <h2 className="text-4xl sm:text-5xl font-extrabold text-white mb-6">
+          The Team Behind the Spark
         </h2>
+        <p className="text-gray-400 text-lg max-w-2xl mx-auto mb-16">
+          A collective of strategists, designers, and developers dedicated to transforming your digital presence.
+        </p>
         
-         <ManTeam/>
-          <WebTeam />
-          <EditTeam/>
-       
+        <div className="flex justify-center mb-40 w-full">
+          <PremiumTeamSection />
+        </div>
       </div>
 
       <Footer />
-
     </>
   );
 };

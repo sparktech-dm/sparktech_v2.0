@@ -5,6 +5,7 @@ import ContactForm from '../components/ContactForm.jsx';
 import Wuc from './Wuc.jsx';
 import AboutUs from '../components/AboutUs.jsx';
 import WhyChooseUs from '../components/WhyChooseUs.jsx';
+import ServicesCarousel from '../components/ServicesCarousel.jsx';
 
 
 function Home() {
@@ -17,9 +18,7 @@ function Home() {
         <div className='overflow-hidden'>
           <Hero />
           </div>
-          <div>
-            
-          </div>
+          <ServicesCarousel />
           <Faq />
           <div id="contact">
             <ContactForm />

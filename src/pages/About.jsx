@@ -152,11 +152,11 @@ const About = () => {
 
             {/* Bio */}
             <div className="flex-1 bg-[#2B2B2B] rounded-2xl p-6 md:p-8 text-gray-300 text-sm md:text-base leading-relaxed mt-6 md:mt-0">
-              James Andrews is a visionary entrepreneur and the driving force
-              behind Spark Tech. With a background in full-stack development and
-              a knack for turning complex challenges into simple solutions, he
-              has led the company to new heights. His leadership is built on
-              innovation, integrity, and relentless focus on quality...
+              Every brand has a story worth telling and I started Sparktech to help those stories spark action.
+I come from a mix of tech and business — a B.Tech in IT, an MBA in Marketing from LIBA, and certifications in Cybersecurity, SAP, and Penetration Testing. That background gave me a simple perspective: creativity shines brightest when it’s backed by systems that are secure, scalable, and smart.
+Before Spark Tech, I had the privilege of working with brands like BMW, creating IPL-themed campaigns and digital strategies that turned bold ideas into measurable results. Those experiences taught me that good marketing doesn’t shout — it connects.
+For us, every campaign is personal. Every idea is sharpened by data. And every success belongs just as much to our clients as it does to us.
+
             </div>
           </div>
         </section>

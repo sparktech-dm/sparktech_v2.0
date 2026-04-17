@@ -79,10 +79,10 @@ const DesktopWhyChooseUs = () => {
     <div ref={containerRef} className="hidden md:flex items-center justify-center min-h-screen py-16">
       <div className="relative" style={{ width: SIZE + 390, height: SIZE }}>
         <div className="absolute rounded-full bg-gray-100 opacity-90 z-10" style={{ width: SIZE, height: SIZE, left: 110, top: 0 }} />
-        <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[250px] h-[250px] rounded-full bg-gradient-to-br from-violet-500 to-purple-600 z-20 flex flex-col items-center justify-center shadow-xl text-white font-bold font-['Noto Sans']">
-          <span className="text-3xl mb-1 ">WHY</span>
-          <span className="text-xl mb-1 font-semibold">CHOOSE</span>
-          <span className="text-3xl">US ?</span>
+        <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[250px] h-[250px] rounded-full bg-yellow-400 z-20 flex flex-col items-center justify-center shadow-xl text-white font-bold font-['Noto Sans']">
+          <span className="text-4xl mb-1 font-extrabold">WHY</span>
+          <span className="text-2xl mb-1 font-semibold">CHOOSE</span>
+          <span className="text-4xl font-extrabold">US ?</span>
         </div>
 
         {smallCircles.map((pos, idx) => {
@@ -135,27 +135,61 @@ const MobileWhyChooseUs = () => {
   useEffect(() => {
     if (isInView) {
       iconControls.start("visible");
-      setTimeout(() => contentControls.start("visible"), 400);
+      setTimeout(() => contentControls.start("visible"), 200);
     }
   }, [isInView, iconControls, contentControls]);
 
-  const iconVariants = { hidden: { opacity: 0, y: 50 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, staggerChildren: 0.1 } } };
-  const contentVariants = { hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, staggerChildren: 0.1 } } };
+  const iconVariants = { 
+    hidden: { opacity: 0, scale: 0.5 }, 
+    visible: { opacity: 1, scale: 1, transition: { duration: 0.4 } } 
+  };
+  
+  const contentVariants = { 
+    hidden: { opacity: 0, x: -20 }, 
+    visible: { opacity: 1, x: 0, transition: { duration: 0.5 } } 
+  };
 
   return (
-    <div ref={containerRef} className="flex flex-col items-center justify-center px-6 py-12 space-y-10 md:hidden">
-      <h2 className="text-3xl font-bold text-center text-purple-600">WHY CHOOSE US?</h2>
-      {contentItems.map((item, idx) => (
-        <div key={idx} className="flex flex-col items-center text-center space-y-3">
-          <motion.div className={`flex justify-center items-center w-16 h-16 rounded-full ${circleColors[idx % circleColors.length]} shadow-lg`} initial="hidden" animate={iconControls} variants={iconVariants}>
-            {icons[idx]}
+    <div ref={containerRef} className="flex flex-col items-stretch px-4 py-16 space-y-5 md:hidden overflow-hidden">
+      <div className="text-center mb-6">
+        <h2 className="text-3xl font-extrabold text-white tracking-widest uppercase mb-3">
+          WHY <span className="text-yellow-400">CHOOSE US?</span>
+        </h2>
+        <div className="w-16 h-1 bg-yellow-400 mx-auto rounded-full" />
+      </div>
+
+      <div className="space-y-4">
+        {contentItems.map((item, idx) => (
+          <motion.div 
+            key={idx} 
+            className="relative flex items-center bg-white/5 backdrop-blur-lg rounded-2xl p-4 md:p-5 border border-white/10 shadow-lg overflow-hidden group"
+            initial="hidden" animate={contentControls} variants={contentVariants}
+            transition={{ delay: idx * 0.1 }}
+          >
+            {/* Background Hint */}
+            <div className={`absolute right-0 top-0 w-24 h-24 rounded-full blur-[40px] opacity-[0.35] ${circleColors[idx % circleColors.length]}`} />
+            
+            {/* Index Number */}
+            <div className="absolute right-3 top-1/2 -translate-y-1/2 text-6xl font-black text-white/[0.08] select-none pointer-events-none">
+              0{idx + 1}
+            </div>
+
+            {/* Icon */}
+            <motion.div 
+              className={`flex-shrink-0 flex justify-center items-center w-12 h-12 md:w-14 md:h-14 rounded-xl ${circleColors[idx % circleColors.length]} shadow-md mr-4 z-10`}
+              initial="hidden" animate={iconControls} variants={iconVariants} transition={{ delay: idx * 0.1 }}
+            >
+              {icons[idx]}
+            </motion.div>
+
+            {/* Text */}
+            <div className="flex-1 z-10">
+              <h3 className="font-bold text-[#f0c417] text-[15px] md:text-lg mb-1.5 leading-tight">{item.title}</h3>
+              <p className="text-[13px] md:text-sm text-gray-300 leading-snug w-[95%]">{item.desc}</p>
+            </div>
           </motion.div>
-          <motion.div className="flex flex-col items-center" initial="hidden" animate={contentControls} variants={contentVariants}>
-            <div className="font-bold bg-gradient-to-r from-[#f0c417] to-lime-100 bg-clip-text text-transparent text-lg">{item.title}</div>
-            <div className="text-sm text-grey-500">{item.desc}</div>
-          </motion.div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 };

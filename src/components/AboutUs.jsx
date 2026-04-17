@@ -2,84 +2,53 @@ import { motion } from "framer-motion";
 
 export default function AboutUs() {
   return (
-    <section className="py-20 w-full h-full" id="about">
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7 }}
-        viewport={{ once: true }}
-        className="w-full px-6 lg:px-20 text-center relative"
-      >
-        {/* Gradient highlight line */}
-        <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 w-28 h-1 bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 rounded-full" />
-
-        <motion.h2
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6 }}
-          className="text-3xl lg:text-5xl font-bold text-amber-300 mb-10"
-        >
-          About Us
-        </motion.h2>
-
+    <section className="py-16" id="about">
+      <div className="max-w-6xl mx-auto px-6 lg:px-12">
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="bg-gradient-to-r from-gray-100 via-gray-200 to-gray-100 border-l-8 border-indigo-500 shadow-2xl rounded-3xl p-10 w-full"
+          className="text-center relative"
         >
-          <motion.p
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-lg text-gray-700 mb-6 font-medium"
-          >
-            If it doesn’t connect or convert, we don’t do it.
-          </motion.p>
+          {/* Gradient highlight line */}
+        
+           <h2 className="text-4xl md:text-5xl font-extrabold text-white">
+          About <span className="text-yellow-400" >Us</span>
+          </h2>
+        
+        <div className="mt-3 mx-auto w-16 h-1 rounded-full bg-yellow-400 mb-7 p-1"  />
+          <div className="bg-gradient-to-r from-gray-100 via-grey to-gray-50 border-l-7 border-indigo-500 shadow-lg rounded-2xl p-8">
+            <p className="text-lg text-gray-700 mb-4 font-medium">
+              If it doesn’t connect or convert, we don’t do it.
+            </p>
+            <p className="text-gray-600 leading-relaxed mb-4">
+              We know there is no one-size-fits-all formula. That is why we
+              believe in work done with a purpose and backed by data.
+            </p>
+            <p className="text-gray-600 leading-relaxed mb-4">
+              <span className="font-semibold text-gray-900">Spark Tech</span> is
+              a digital marketing agency in Chennai helping brands rise above
+              the noise with strategies that are clear, creative, and
+              conversion-ready.
+            </p>
+            <p className="text-gray-600 leading-relaxed">
+              We play with ideas that spark action and results that speak for
+              themselves.
+            </p>
+             <motion.a
+              href="/about"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="inline-block px-6 py-3 bg-gradient-to-r from-yellow-500 to-yellow-600 text-white font-semibold rounded-xl shadow-md hover:shadow-lg transition-all duration-300  mt-7"
+            >
+              Know More About us
+            </motion.a>
 
-          <motion.p
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-gray-600 leading-relaxed mb-6"
-          >
-            We know there is no one-size-fits-all formula. That is why we
-            believe in work done with a purpose and backed by data.
-          </motion.p>
-
-          <motion.p
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-gray-600 leading-relaxed mb-6"
-          >
-            <span className="font-semibold text-gray-900">Spark Tech</span> is a
-            digital marketing agency in Chennai helping brands rise above the
-            noise with strategies that are clear, creative, and
-            conversion-ready.
-          </motion.p>
-
-          <motion.p
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="text-gray-600 leading-relaxed"
-          >
-            We play with ideas that spark action and results that speak for
-            themselves.
-          </motion.p>
-
-          <motion.a
-            href="/about"
-            whileHover={{ scale: 1.07 }}
-            whileTap={{ scale: 0.95 }}
-            className="inline-block px-8 py-3 bg-gradient-to-r from-indigo-500 to-purple-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 mt-10"
-          >
-            Know More About us
-          </motion.a>
+          </div>
         </motion.div>
-      </motion.div>
+           
+      </div>
     </section>
   );
 }

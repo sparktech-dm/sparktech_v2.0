@@ -5,9 +5,14 @@ const GlassCursor = () => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    setIsMobile(/Mobi|Android|iPhone|iPad|iPod|Tablet/i.test(navigator.userAgent));
+    // Detect mobile/touch devices
+    const checkMobile = () => {
+      setIsMobile(/Mobi|Android|iPhone|iPad|iPod|Tablet/i.test(navigator.userAgent));
+    };
+    checkMobile();
 
     const cursor = cursorRef.current;
+
     const moveCursor = (e) => {
       if (cursor) {
         cursor.style.left = e.clientX + "px";
@@ -22,16 +27,13 @@ const GlassCursor = () => {
     return () => window.removeEventListener("mousemove", moveCursor);
   }, [isMobile]);
 
-  if (isMobile) {
-    // ✅ On mobile/tablet: do not render rocket cursor and do not hide system cursor
-    return null;
-  }
+  if (isMobile) return null; // 🚫 Don’t render on mobile
 
   return (
     <>
-      {/* ✅ Cursor hidden only for desktop */}
       <style>
         {`
+          /* Hide system cursor everywhere */
           body, a, button, input, textarea, select {
             cursor: none !important;
           }
@@ -40,7 +42,7 @@ const GlassCursor = () => {
             position: fixed;
             width: 70px;
             height: 70px;
-            pointer-events: none;
+            pointer-events: none; /* so clicks pass through */
             transform: translate(-50%, -50%);
             z-index: 9999;
           }
@@ -72,14 +74,24 @@ const GlassCursor = () => {
           }
 
           @keyframes flameFlicker {
-            0% { transform: translateX(-50%) scaleY(1); opacity: 0.9; }
-            100% { transform: translateX(-50%) scaleY(1.3); opacity: 0.6; }
+            0% {
+              transform: translateX(-50%) scaleY(1);
+              opacity: 0.9;
+            }
+            100% {
+              transform: translateX(-50%) scaleY(1.3);
+              opacity: 0.6;
+            }
           }
         `}
       </style>
 
       <div className="rocket-cursor" ref={cursorRef}>
-        <img src="/rockect.png" alt="rocket" className="rocket-img" />
+        <img
+          src="/rockect.png"
+          alt="rocket"
+          className="rocket-img"
+        />
         <div className="flame"></div>
       </div>
     </>

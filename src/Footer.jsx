@@ -1,8 +1,7 @@
 import React from 'react';
-import { Lightbulb, Mail, Phone, MapPin,  Instagram, Linkedin } from 'lucide-react';
+import { Lightbulb, Mail, Phone, MapPin, Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
 import { Link, useNavigate, useLocation, href } from "react-router-dom";
-import Logo from "./assets/Logo.png"
-
+import { color } from 'framer-motion';
 
 const Footer = () => {
   const quickLinks = ['Review', 'About', 'Internship',];
@@ -27,7 +26,7 @@ const Footer = () => {
           {/* Brand Section */}
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-2 mb-6">
-              <img src={Logo} alt="Sparktech Logo" className="h-8 w-8 text-white" />
+              <img src="src/assets/Logo.png" alt="Sparktech Logo" className="h-8 w-8 text-white" />
               <span className="text-2xl font-bold bg-gradient-to-r from-[#f0c417] to-lime-100 bg-clip-text text-transparent">
                 Sparktech
               </span>

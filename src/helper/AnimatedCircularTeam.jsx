@@ -30,7 +30,7 @@ const HorizontalCylindricalCarousel = ({ cards }) => {
     let rotationY = 0;
 
     const rotate = () => {
-      rotationY += 0.1; // slower speed for smooth rotation
+      rotationY += 0.5; // slower speed for smooth rotation
       if (containerRef.current) {
         containerRef.current.style.transform = `perspective(1000px) rotateY(${rotationY}deg)`;
       }
