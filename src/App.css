@@ -1,0 +1,202 @@
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+.cursor-video:hover {
+  cursor: url('https://cdn-icons-png.flaticon.com/128/2875/2875433.png') 0 0, pointer;
+}
+
+
+.cursor-seo:hover {
+  cursor: url('/mouse/seo.svg') 0 0, auto;
+}
+
+.cursor-pen:hover {
+  cursor: url('/mouse/pen.svg') 0 0, auto;
+}
+
+.cursor-dev:hover {
+  cursor: url('/mouse/dev.svg') 0 0, auto;
+}
+
+.cursor-social:hover {
+  cursor: url('/mouse/insta.svg') 0 0, auto;
+}
+
+.cursor-mail:hover {
+  cursor: url('/mouse/mail.svg') 0 0, auto;
+}
+
+.cursor-person:hover {
+  cursor: url('/mouse/person.svg') 0 0, auto;
+}
+
+.cursor-brand:hover {
+  cursor: url('/mouse/brand.svg') 0 0, auto;
+}
+
+.cursor-graph:hover {
+  cursor: url('/mouse/graph.svg') 0 0, auto;
+}
+
+@keyframes fadeInZoom {
+  0% {
+    opacity: 0;
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-zoom {
+  animation: fadeInZoom 1s ease-out forwards;
+}
+
+.slide-up {
+  animation: slideUp 1s ease-out forwards;
+}
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  width: 100%;
+}
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeUp 0.7s ease-out forwards;
+}
+@keyframes shine {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.shiny-text {
+  background-image: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0) 40%,
+    rgba(255, 255, 255, 0.8) 50%,
+    rgba(255, 255, 255, 0) 60%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shine 3s linear infinite;
+}
+
+@keyframes fire {
+  0% {
+    transform: scaleY(1) scaleX(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scaleY(1.2) scaleX(0.8);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scaleY(1) scaleX(1);
+    opacity: 1;
+  }
+}
+
+.fire-effect {
+  animation: fire 0.3s infinite ease-in-out;
+  transform-origin: top center;
+}
+
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+  
+/* Hide scrollbar for Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+@media (hover: hover) and (pointer: fine) {
+  * {
+    cursor: url('/rocket.png') 16 16, auto !important;
+  }
+  button,
+  a,
+  input,
+  select,
+  textarea {
+    cursor: url('/rocket.png') 16 16, auto !important;
+  }
+}
