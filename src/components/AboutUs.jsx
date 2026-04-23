@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 export default function AboutUs() {
   return (
@@ -36,14 +37,15 @@ export default function AboutUs() {
               We play with ideas that spark action and results that speak for
               themselves.
             </p>
-             <motion.a
-              href="/about"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="inline-block px-6 py-3 bg-gradient-to-r from-yellow-500 to-yellow-600 text-white font-semibold rounded-xl shadow-md hover:shadow-lg transition-all duration-300  mt-7"
-            >
-              Know More About us
-            </motion.a>
+             <Link to="/about">
+               <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="inline-block px-10 py-3 bg-gradient-to-r from-yellow-500 to-yellow-600 text-white font-semibold rounded-xl shadow-md hover:shadow-lg transition-all duration-300 mt-7"
+              >
+                Know More About us
+              </motion.button>
+             </Link>
 
           </div>
         </motion.div>

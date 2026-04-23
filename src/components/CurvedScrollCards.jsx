@@ -50,7 +50,7 @@ const CurvedScrollCards = () => {
 
   // ─── Auto-scroll ───────────────────────────────────────────────────────────
   const startScroll = useCallback(() => {
-    if (intervalRef.current) return;
+    if (intervalRef.current || window.innerWidth < 768) return; // Disable on mobile
     intervalRef.current = setInterval(() => {
       setPosition((prev) => {
         let newPos = prev - 0.7;
@@ -71,9 +71,80 @@ const CurvedScrollCards = () => {
   }, []);
 
   useEffect(() => {
-    if (!isUserControlled) startScroll();
-    return () => stopScroll();
+    let scrollTimeout;
+    const handleWindowScroll = () => {
+      stopScroll();
+      if (scrollTimeout) clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => {
+        if (!isUserControlled && window.innerWidth >= 768) startScroll();
+      }, 500); // Resume 500ms after scroll stops
+    };
+
+    const handleResize = () => {
+      setViewportWidth(window.innerWidth);
+      if (window.innerWidth < 768) {
+        stopScroll();
+      } else if (!isUserControlled) {
+        startScroll();
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    window.addEventListener("scroll", handleWindowScroll);
+    
+    if (!isUserControlled && window.innerWidth >= 768) startScroll();
+    
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      window.removeEventListener("scroll", handleWindowScroll);
+      stopScroll();
+      if (scrollTimeout) clearTimeout(scrollTimeout);
+    };
   }, [startScroll, stopScroll, isUserControlled]);
+
+  // ─── Touch Swiping ────────────────────────────────────────────────────────
+  const touchStartX = useRef(null);
+  const touchStartPos = useRef(null);
+
+  const handleTouchStart = (e) => {
+    stopScroll();
+    setIsUserControlled(true);
+    touchStartX.current = e.touches[0].clientX;
+    touchStartPos.current = position;
+  };
+
+  const handleTouchMove = (e) => {
+    if (touchStartX.current === null) return;
+    const currentX = e.touches[0].clientX;
+    const diff = currentX - touchStartX.current;
+    setPosition(touchStartPos.current + diff);
+  };
+
+  const handleTouchEnd = (e) => {
+    if (touchStartX.current === null) return;
+    const touchEndX = e.changedTouches[0].clientX;
+    const diff = touchEndX - touchStartX.current;
+    
+    // Snap to nearest card
+    const centerPoint = viewportWidth / 2;
+    let targetIndex;
+    
+    if (Math.abs(diff) > 50) { // Swipe threshold
+      const direction = diff > 0 ? -1 : 1;
+      const currentIndex = Math.round((centerPoint - touchStartPos.current - cardWidth / 2) / cardWidth);
+      targetIndex = currentIndex + direction;
+    } else {
+      targetIndex = Math.round((centerPoint - position - cardWidth / 2) / cardWidth);
+    }
+    
+    setPosition(getPositionForIndex(targetIndex));
+    touchStartX.current = null;
+    
+    if (userControlTimerRef.current) clearTimeout(userControlTimerRef.current);
+    userControlTimerRef.current = setTimeout(() => {
+      setIsUserControlled(false);
+    }, 4000);
+  };
 
   // ─── Interaction Handlers ───────────────────────────────────────────────────
   const scrollByCard = useCallback((direction) => {
@@ -84,7 +155,16 @@ const CurvedScrollCards = () => {
     setPosition((prev) => {
       const centerPoint = viewportWidth / 2;
       const currentIndex = Math.round((centerPoint - prev - cardWidth / 2) / cardWidth);
-      const targetIndex = currentIndex + direction;
+      let targetIndex = currentIndex + direction;
+      
+      // If we are getting close to the boundaries of our total cards (5 sets),
+      // we snap back to the middle zone (sets 1-3) to keep it infinite.
+      if (targetIndex < cardData.length) {
+        targetIndex += cardData.length * 2;
+      } else if (targetIndex >= cardData.length * 4) {
+        targetIndex -= cardData.length * 2;
+      }
+      
       return getPositionForIndex(targetIndex);
     });
 
@@ -92,7 +172,7 @@ const CurvedScrollCards = () => {
     userControlTimerRef.current = setTimeout(() => {
       setIsUserControlled(false);
     }, 4000);
-  }, [stopScroll, viewportWidth, cardWidth, getPositionForIndex]);
+  }, [stopScroll, viewportWidth, cardWidth, getPositionForIndex, cardData.length]);
 
   const handleCardClick = (index) => {
     // If it's currently showing the back (either pinned or hovered)
@@ -123,7 +203,7 @@ const CurvedScrollCards = () => {
   }, [position, viewportWidth, cardWidth]);
 
   return (
-    <div className="w-full py-16 md:py-24 bg-transparent overflow-hidden">
+    <div className="w-full py-16 md:py-24 bg-transparent overflow-hidden" style={{ touchAction: "pan-y" }}>
       {/* Heading */}
       <div className="text-center mb-12 px-6">
         <h2 className="text-3xl md:text-5xl font-extrabold text-white tracking-tight">
@@ -136,15 +216,15 @@ const CurvedScrollCards = () => {
       </div>
 
       {/* Main Carousel area */}
-      <div className="relative w-full h-[460px] flex items-center group/carousel">
+      <div className="relative w-full h-[460px] flex items-center group/carousel" style={{ touchAction: "pan-y" }}>
         
         {/* ← LEFT ARROW */}
         <button
           onClick={(e) => { e.stopPropagation(); scrollByCard(-1); }}
           className="
-            absolute left-4 md:left-10 z-40
+            hidden md:flex absolute left-4 md:left-10 z-40
             w-12 h-12 md:w-16 md:h-16 rounded-full
-            flex items-center justify-center
+            items-center justify-center
             border-2 border-yellow-400/50 text-yellow-400
             bg-black/40 backdrop-blur-md
             hover:bg-yellow-400 hover:text-black hover:border-yellow-400
@@ -160,9 +240,9 @@ const CurvedScrollCards = () => {
         <button
           onClick={(e) => { e.stopPropagation(); scrollByCard(1); }}
           className="
-            absolute right-4 md:right-10 z-40
+            hidden md:flex absolute right-4 md:right-10 z-40
             w-12 h-12 md:w-16 md:h-16 rounded-full
-            flex items-center justify-center
+            items-center justify-center
             border-2 border-yellow-400/50 text-yellow-400
             bg-black/40 backdrop-blur-md
             hover:bg-yellow-400 hover:text-black hover:border-yellow-400
@@ -178,13 +258,18 @@ const CurvedScrollCards = () => {
         <div
           className="absolute flex gap-4 pointer-events-none"
           style={{
-            transform: `translateX(${position}px)`,
+            transform: `translateX(${position}px) translateZ(0)`,
             willChange: "transform",
-            transition: isUserControlled
-              ? "transform 0.6s cubic-bezier(0.2, 0, 0, 1)"
-              : "transform 0.02s linear",
+            transition: isUserControlled 
+              ? "transform 0.6s cubic-bezier(0.2, 0, 0, 1)" 
+              : "none",
             left: 0,
+            transformStyle: "preserve-3d",
+            touchAction: "pan-y"
           }}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
         >
           {allCards.map((card, i) => {
             const isActive = i === activeIndex;
@@ -209,13 +294,17 @@ const CurvedScrollCards = () => {
                   boxShadow: (isActive || hoveredIndex === i || i === flippedIndex) ? activeGlow : "none",
                 }}
                 onMouseEnter={() => { 
-                  stopScroll(); 
-                  setHoveredIndex(i); 
-                  setManualClosedIndex(null); // Reset when mouse enters to allow hover-flip again
+                  if (viewportWidth >= 768) {
+                    stopScroll(); 
+                    setHoveredIndex(i); 
+                    setManualClosedIndex(null);
+                  }
                 }}
                 onMouseLeave={() => { 
-                  setHoveredIndex(null); 
-                  if (!isUserControlled) startScroll(); 
+                  if (viewportWidth >= 768) {
+                    setHoveredIndex(null); 
+                    if (!isUserControlled) startScroll();
+                  }
                 }}
               >
                 <div className="card-inner w-full h-full rounded-3xl border border-white/10">

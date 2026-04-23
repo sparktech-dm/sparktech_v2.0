@@ -158,13 +158,25 @@ export default function ServicesCarousel() {
   const goLeft = () => {
     if (!trackRef.current || trackRef.current.children.length === 0) return;
     const cardWidth = trackRef.current.children[0].offsetWidth + 24;
-    trackRef.current.scrollBy({ left: -cardWidth, behavior: 'smooth' });
+    
+    if (trackRef.current.scrollLeft <= 10) {
+      // Loop to end
+      trackRef.current.scrollTo({ left: trackRef.current.scrollWidth, behavior: 'smooth' });
+    } else {
+      trackRef.current.scrollBy({ left: -cardWidth, behavior: 'smooth' });
+    }
   };
 
   const goRight = () => {
     if (!trackRef.current || trackRef.current.children.length === 0) return;
     const cardWidth = trackRef.current.children[0].offsetWidth + 24;
-    trackRef.current.scrollBy({ left: cardWidth, behavior: 'smooth' });
+    
+    if (trackRef.current.scrollLeft + trackRef.current.clientWidth >= trackRef.current.scrollWidth - 24) {
+      // Loop to beginning
+      trackRef.current.scrollTo({ left: 0, behavior: 'smooth' });
+    } else {
+      trackRef.current.scrollBy({ left: cardWidth, behavior: 'smooth' });
+    }
   };
 
 
@@ -195,16 +207,8 @@ export default function ServicesCarousel() {
         <button
           id="services-arrow-left"
           onClick={goLeft}
-          disabled={currentIndex === 0}
           aria-label="Previous services"
-          className={`
-            hidden md:flex flex-shrink-0 w-12 h-12 md:w-14 md:h-14 rounded-full border-2 items-center justify-center
-            transition-all duration-300 font-bold text-xl
-            ${currentIndex === 0
-              ? "border-white/20 text-white/25 cursor-not-allowed bg-white/5"
-              : "border-yellow-400 text-yellow-400 bg-yellow-400/10 hover:bg-yellow-400 hover:text-black cursor-pointer shadow-lg hover:shadow-yellow-400/40"
-            }
-          `}
+          className="hidden md:flex flex-shrink-0 w-12 h-12 md:w-14 md:h-14 rounded-full border-2 items-center justify-center transition-all duration-300 font-bold text-xl border-yellow-400 text-yellow-400 bg-yellow-400/10 hover:bg-yellow-400 hover:text-black cursor-pointer shadow-lg hover:shadow-yellow-400/40"
         >
           &#8592;
         </button>
@@ -229,16 +233,8 @@ export default function ServicesCarousel() {
         <button
           id="services-arrow-right"
           onClick={goRight}
-          disabled={currentIndex >= maxIndex}
           aria-label="Next services"
-          className={`
-            hidden md:flex flex-shrink-0 w-12 h-12 md:w-14 md:h-14 rounded-full border-2 items-center justify-center
-            transition-all duration-300 font-bold text-xl
-            ${currentIndex >= maxIndex
-              ? "border-white/20 text-white/25 cursor-not-allowed bg-white/5"
-              : "border-yellow-400 text-yellow-400 bg-yellow-400/10 hover:bg-yellow-400 hover:text-black cursor-pointer shadow-lg hover:shadow-yellow-400/40"
-            }
-          `}
+          className="hidden md:flex flex-shrink-0 w-12 h-12 md:w-14 md:h-14 rounded-full border-2 items-center justify-center transition-all duration-300 font-bold text-xl border-yellow-400 text-yellow-400 bg-yellow-400/10 hover:bg-yellow-400 hover:text-black cursor-pointer shadow-lg hover:shadow-yellow-400/40"
         >
           &#8594;
         </button>
