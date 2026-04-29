@@ -163,9 +163,9 @@ const ProjectsSection = () => {
                 />
 
                 <img
-                  src="/CEO.png"
+                  src="/CEO3.png"
                   alt="Founder"
-                  className="w-full h-full object-cover grayscale-0 md:grayscale md:brightness-90 md:group-hover:grayscale-0 md:group-hover:brightness-110 transition-all duration-1000 scale-100 group-hover:scale-110"
+                  className="w-full h-full object-cover grayscale-0  md:grayscale md:brightness-90 md:group-hover:grayscale-0 md:group-hover:brightness-110 transition-all duration-1000 scale-98 group-hover:scale-105 pt-1"
                 />
 
                 {/* Glass Badge */}
