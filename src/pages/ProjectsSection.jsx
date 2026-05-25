@@ -52,7 +52,7 @@ const ProjectsSection = () => {
   return (
     <>
       <Seo
-        title="Projects | Spark Tech Digital"
+        title="About Us | Spark Tech Digital"
         description="Explore our recent digital marketing, branding, and web development projects delivered to satisfied clients."
       />
 
