@@ -20,6 +20,7 @@ import ScrollToTop from "./components/ScrollToTop";
 import CurvedScrollCards from "./components/CurvedScrollCards";
 import ContactForm1 from "./components/ContactForm1";
 import GlassCursor from "./components/GlassCursor";
+import Career from "./pages/Career";
 import AboutUs from "./components/AboutUs";
 import WhyChooseUs from "./components/WhyChooseUs";
 
@@ -43,9 +44,9 @@ const Home = () => (
     <section id="whychooseus" className=" overflow-hidden">
         <WhyChooseUs/>
       </section>
-    {/* <section id="faq" className="min-h-screen scroll-mt-24 px-4 py-10">
+    <section id="faq" className="min-h-screen scroll-mt-24 px-4 py-10">
       <Faq />
-    </section> */}
+    </section>
     <section id="contact" className="min-h-screen scroll-mt-24 px-4 py-10">
       <ContactForm />
     </section>
@@ -120,7 +121,8 @@ const App = () => {
           {/* <Route path="/blogs" element={<BlogsPage />} /> */}
           <Route path="/blog/:id" element={<BlogDetail />} />
           <Route path="/services/*" element={<Services />} />
-           <Route path="/contact" element={<ContactForm1/>} />
+            <Route path="/contact" element={<ContactForm1/>} />
+            <Route path="/career" element={<Career/>} />
             <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
