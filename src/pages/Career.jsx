@@ -402,12 +402,13 @@ export default function Career() {
                   <div className="flex flex-col gap-1.5 mt-1">
                     <label htmlFor="resume" className="flex items-center justify-center gap-2 p-3 border border-dashed border-white/25 rounded-md cursor-pointer bg-white/2 text-[0.9rem] text-white/80 transition-all duration-300 hover:border-brand-yellow hover:bg-brand-yellow/5 hover:text-brand-yellow">
                       <Upload size={15} />
-                      <span>{formData.resume ? formData.resume.name : "Upload Resume (PDF/Doc)"}</span>
+                      <span>{formData.resume ? formData.resume.name : "Upload Resume (PDF/Doc) *"}</span>
                     </label>
                     <input
                       type="file"
                       id="resume"
                       name="resume"
+                      required
                       accept=".pdf,.doc,.docx"
                       onChange={handleFileChange}
                       className="hidden"

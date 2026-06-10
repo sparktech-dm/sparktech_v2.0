@@ -1,132 +1,151 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { CheckCircle2, ChevronRight, Activity, Search, Globe, MapPin, Cpu, BarChart2 } from "lucide-react";
 
 const SEO = () => {
   const navigate = useNavigate();
+  const [isMobile, setIsMobile] = useState(() => typeof window !== "undefined" ? window.innerWidth < 768 : false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  const MotionDiv = isMobile ? "div" : motion.div;
 
   const offerings = [
-    { title: "Technical SEO", desc: "Speed, structure, and searchability — we get the backend right so the front end performs. We audit, fix, and fine-tune everything that makes search engines take notice.", icon: Activity },
-    { title: "On-Page SEO", desc: "From keyword-rich original content to intelligent internal linking, we turn every page into a high-performing asset.", icon: Search },
-    { title: "Off-Page SEO", desc: "With our white-hat on, we boost your authority with high-quality backlinks, digital PR, and link-building that earns trust and traffic.", icon: Globe },
-    { title: "Local SEO", desc: "We help you show up and stand out in local searches, Google Maps, and hyper-local listings.", icon: MapPin },
-    { title: "AI-Powered SEO", desc: "We use AI for keyword mapping, predictive ranking, and competitor analysis — so you’re always two steps ahead.", icon: Cpu },
-    { title: "Search Engine Marketing (SEM)", desc: "We create and manage paid search campaigns that get actual results with no wasted ad spend. If SEO is the long game, SEM is your fast lane.", icon: BarChart2 },
+    {
+      title: "Technical SEO",
+      desc: "Boost your brand presence across platforms with engaging strategies.",
+    },
+    {
+      title: "On-Page SEO",
+      desc: "From keyword-rich original content to intelligent internal linking, we turn every page into a high-performing asset.",
+    },
+    {
+      title: "Off-Page SEO",
+      desc: "With our white-hat on, we boost your authority with high-quality backlinks that earn trust and traffic.",
+    },
+    {
+      title: "Local SEO",
+      desc: "We help you show up and stand out in local searches, Google Maps, and hyper-local listings.",
+    },
+    {
+      title: "AI-powered SEO",
+      desc: "We use AI for keyword mapping, predictive ranking, and competitor analysis - so you're always two steps ahead.",
+    },
+    {
+      title: "Searching Engine Marketing",
+      desc: "We create and manage paid search campaigns that get actual results with no wasted ad spend. If SEO is the long game, SEM is your fast lane.",
+    },
   ];
 
   const reasons = [
-    "We don’t believe in one-size-fits-all roadmaps.",
+    "We don't believe in one-size-fits-all roadmaps.",
     "Every keyword is researched.",
-    "We combine automation with human judgment.",
-    "We track what matters — not vanity metrics.",
+    "We combine automation with human judgement.",
+    "We track what matters - not vanity metrics.",
     "We care about your goals, not just your rankings.",
   ];
 
   return (
-    <div className="min-h-screen text-white relative overflow-hidden py-24">
-      {/* Background Orbs */}
-      <div className="fixed top-[-10%] left-[-10%] w-[40%] h-[40%] bg-[#f0c417] rounded-full blur-[150px] opacity-10 pointer-events-none" />
-      <div className="fixed bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-[#f0c417] rounded-full blur-[150px] opacity-10 pointer-events-none" />
-
-      <section className="px-6 max-w-6xl mx-auto relative z-20">
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-20"
-        >
-          <div className="inline-block px-4 py-1.5 rounded-full border border-[#f0c417]/30 bg-[#f0c417]/10 text-[#f0c417] font-medium text-sm mb-6">
-            Search Engine Optimization
-          </div>
-          <h1 className="text-5xl md:text-6xl font-extrabold mb-6 tracking-tight">
-            SEO that <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#f0c417] to-amber-300">dominates.</span>
+    <div className="min-h-screen text-white py-12 px-6">
+      <section className="max-w-5xl mx-auto">
+        {/* Title & Header */}
+        <div className="text-center mb-16 animate-fadeIn">
+          <h1 className="text-3xl md:text-4xl font-extrabold uppercase tracking-widest text-[#f0c417] font-oswald mb-6">
+            SEARCH VISIBILITY & SEO
           </h1>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed mb-4">
-            Every brand wants to rank. But not everyone knows why or how to make it stick.
+          <p className="text-white/80 font-light text-sm md:text-base leading-relaxed italic max-w-3xl mx-auto">
+            Unlock your website's full potential with smart SEO strategies. By
+            optimizing keywords, improving site speed, and building quality
+            backlinks, you can attract the right audience and boost your search
+            rankings. Stay ahead of competitors and drive consistent growth with
+            a strong digital presence.
           </p>
-          <p className="text-lg text-gray-500 max-w-3xl mx-auto leading-relaxed">
-            We go beyond the surface-level SEO checklist. We build systems that search engines concede and users actually want to engage with.
-          </p>
-        </motion.div>
-
-        {/* Offerings Grid */}
-        <div className="mb-24">
-          <motion.h2
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="text-3xl font-bold mb-10 text-center"
-          >
-            Here’s What We Bring to the Table
-          </motion.h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {offerings.map((item, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.1, duration: 0.5 }}
-                className="bg-white/10 border-2 border-white/20 p-8 rounded-2xl hover:bg-white/20 hover:border-[#f0c417]/60 transition-all duration-300 group"
-              >
-                <div className="w-12 h-12 rounded-xl bg-[#f0c417]/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <item.icon className="w-6 h-6 text-[#f0c417]" />
-                </div>
-                <h3 className="text-xl font-semibold mb-3 text-gray-100">{item.title}</h3>
-                <p className="text-gray-400 leading-relaxed text-sm">{item.desc}</p>
-              </motion.div>
-            ))}
-          </div>
         </div>
 
-        {/* Two Column Layout for Trust & CTA */}
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="bg-gradient-to-br from-white/10 to-transparent border-2 border-white/20 p-10 rounded-3xl"
+        {/* Offerings Grid - 6 cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+          {offerings.map((item, idx) => (
+            <MotionDiv
+              key={idx}
+              {...(!isMobile && {
+                initial: { opacity: 0, y: 20 },
+                whileInView: { opacity: 1, y: 0 },
+                viewport: { once: true },
+                transition: { delay: idx * 0.08, duration: 0.5 },
+                whileHover: {
+                  scale: 1.03,
+                  boxShadow: "0px 0px 15px rgba(240, 196, 23, 0.25)",
+                }
+              })}
+              className="bg-gradient-to-b from-[#182335] to-[#0a0f18] border-2 border-[#f0c417] p-8 rounded-2xl flex flex-col justify-center text-center h-[200px]"
+            >
+              <h3 className="text-[#f0c417] font-oswald text-base font-bold uppercase tracking-wider mb-3">
+                {item.title}
+              </h3>
+              <p className="text-white/80 text-xs md:text-sm font-light leading-relaxed">
+                {item.desc}
+              </p>
+            </MotionDiv>
+          ))}
+        </div>
+
+        {/* Center Card: Why Choose Us */}
+        <div className="flex justify-center mb-20">
+          <MotionDiv
+            {...(!isMobile && {
+              initial: { opacity: 0, y: 25 },
+              whileInView: { opacity: 1, y: 0 },
+              viewport: { once: true },
+              whileHover: {
+                scale: 1.01,
+                boxShadow: "0px 0px 20px rgba(240, 196, 23, 0.2)",
+              },
+              transition: { duration: 0.5 }
+            })}
+            className="w-full max-w-2xl bg-gradient-to-b from-[#182335] to-[#0a0f18] border-2 border-[#f0c417] p-8 rounded-2xl text-center"
           >
-            <h2 className="text-2xl font-bold mb-8">Why Choose Spark Tech for SEO?</h2>
+            <h2 className="text-lg md:text-xl font-bold font-oswald text-[#f0c417] uppercase tracking-wider mb-6">
+              Why Choose Spark Tech for SEO?
+            </h2>
             <ul className="space-y-4">
               {reasons.map((reason, idx) => (
-                <li key={idx} className="flex items-start gap-4">
-                  <CheckCircle2 className="w-6 h-6 text-[#f0c417] shrink-0 mt-0.5" />
-                  <span className="text-gray-300">{reason}</span>
+                <li
+                  key={idx}
+                  className="text-white/95 text-xs md:text-sm font-light tracking-wide leading-relaxed"
+                >
+                  {reason}
                 </li>
               ))}
             </ul>
-          </motion.div>
+          </MotionDiv>
+        </div>
 
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="flex flex-col items-start lg:pl-10"
+        {/* Bottom CTA Section */}
+        <div className="text-center max-w-3xl mx-auto">
+          <h3 className="text-2xl md:text-3xl font-extrabold uppercase font-oswald text-[#f0c417] tracking-wider mb-2">
+            SEO isn't just about being found
+          </h3>
+          <h3 className="text-xl md:text-2xl font-bold uppercase font-oswald text-white tracking-wider mb-6">
+            -it's about being chosen.
+          </h3>
+          <p className="text-white/80 font-light text-sm leading-relaxed mb-8 max-w-2xl mx-auto">
+            Let's craft an SEO strategy that not only reaches the top but stays
+            there. Partner with us to scale your organic presence sustainably.
+          </p>
+
+          <button
+            onClick={() => navigate("/contact")}
+            className="px-8 py-3.5 bg-gradient-to-r from-[#172033] to-black hover:from-[#f0c417] hover:to-[#e1b514] text-[#f0c417] hover:text-black font-bold uppercase tracking-wider text-xs md:text-sm border-2 border-[#f0c417] rounded-full transition-all duration-300 shadow-md hover:shadow-[0_0_20px_rgba(240,196,23,0.4)] cursor-pointer"
           >
-            <h3 className="text-3xl font-bold mb-6">
-              SEO isn’t just about being found — <span className="text-[#f0c417]">it’s about being chosen.</span>
-            </h3>
-            <p className="text-gray-400 mb-10 text-lg">
-              Let's craft an SEO strategy that not only reaches the top but stays there. Partner with us to scale your organic presence sustainably.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 w-full">
-              <button
-                onClick={() => navigate("/contact")}
-                className="flex items-center justify-center gap-2 bg-[#f0c417] text-black px-8 py-4 rounded-xl font-bold hover:bg-[#e1b514] hover:shadow-[0_0_20px_rgba(240,196,23,0.3)] transition-all duration-300"
-              >
-                Book an SEO consultation <ChevronRight className="w-5 h-5" />
-              </button>
-              <button
-                onClick={() => navigate("/contact")}
-                className="flex items-center justify-center gap-2 border-2 border-[#f0c417]/50 text-[#f0c417] px-8 py-4 rounded-xl font-bold hover:bg-[#f0c417]/10 transition-all duration-300"
-              >
-                Get your free site audit
-              </button>
-            </div>
-          </motion.div>
+            Book a SEO consult
+          </button>
         </div>
       </section>
     </div>

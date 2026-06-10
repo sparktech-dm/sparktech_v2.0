@@ -1,6 +1,7 @@
 // src/pages/Services.jsx
 import React from "react";
 import { Routes, Route } from "react-router-dom";
+import Footer from "../components/Footer";
 
 // Import your overview (main services page)
 import ServiceOverview from "./services-page/ServiceOverview";
@@ -16,19 +17,26 @@ import Seo from "./services-page/Seo";
 
 const Services = () => {
   return (
-    <Routes>
-      {/* /services — the overview page showing all service cards */}
-      <Route path="/" element={<ServiceOverview />} />
+    <div className="services-mesh-bg min-h-screen flex flex-col justify-between pt-24">
+      <div className="w-full flex-grow">
+        <Routes>
+          {/* /services — the overview page showing all service cards */}
+          <Route path="/" element={<ServiceOverview />} />
 
-      {/* /services/individual-path — detailed service pages */}
-      <Route path="social-media-marketing" element={<Social />} />
-      <Route path="content-creation" element={<Content/>} />
-      <Route path="website-development" element={<Web />} />
-      <Route path="video-editing" element={<Video />} />
-      <Route path="email-marketing" element={<Email />} />
-      <Route path="graphics-designing" element={<Graph/>} />
-      <Route path="seo" element={<Seo/>} />
-    </Routes>
+          {/* /services/individual-path — detailed service pages */}
+          <Route path="social-media-marketing" element={<Social />} />
+          <Route path="content-creation" element={<Content />} />
+          <Route path="website-development" element={<Web />} />
+          <Route path="video-editing" element={<Video />} />
+          <Route path="email-marketing" element={<Email />} />
+          <Route path="graphics-designing" element={<Graph />} />
+          <Route path="seo" element={<Seo />} />
+        </Routes>
+      </div>
+      <div className="w-full max-w-7xl mx-auto px-6 py-10">
+        <Footer />
+      </div>
+    </div>
   );
 };
 
