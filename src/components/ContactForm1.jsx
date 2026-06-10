@@ -59,7 +59,7 @@ export const ContactForm1 = () => {
 
         {/* Left: Form Section */}
         <div className="w-full md:w-2/3 space-y-5">
-          <span className="text-2xl font-bold text-white underline decoration-4 decoration-[#f0c417] underline-offset-4">
+          <span className="text-2xl font-bold text-white decoration-[#f0c417] underline-offset-4">
             Get in Touch
           </span>
           <p className="mt-2 mb-2 text-sm text-gray-400">We'd love to hear from you! Fill out the form below and our team will get back to you soon.</p>
@@ -129,7 +129,7 @@ export const ContactForm1 = () => {
 
         {/* Right: Contact Info */}
         <div className=" w-full text-xl md:w-1/3 md:text-xl  space-y-6 ">
-          <h2 className="text-2xl font-bold text-white underline decoration-4 decoration-[#f0c417] underline-offset-4">Contact Information</h2>
+          <h2 className="text-2xl font-bold text-white decoration-[#f0c417] underline-offset-4">Contact Information</h2>
           {/* Email Box */}
           <div  className="pt-5">
           <div className=" rounded-[30px] pb-5 flex items-center space-x-1">

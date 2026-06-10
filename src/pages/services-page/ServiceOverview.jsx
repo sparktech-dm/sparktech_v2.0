@@ -1,99 +1,129 @@
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import { Rss, Target, Megaphone, Zap, Send, Search } from "lucide-react";
 
-export default function Services() {
+export default function ServiceOverview() {
   const navigate = useNavigate();
+  const [isMobile, setIsMobile] = useState(() => typeof window !== "undefined" ? window.innerWidth < 768 : false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  const CardComponent = isMobile ? "div" : motion.div;
 
   const segments = [
     {
-      number: "01",
+      title: "Website Development",
+      details:
+        "At Spark Tech, we offer website development services that go beyond code and templates. We craft digital experiences that perform.",
+      link: "/services/website-development",
+      buttonText: "DISCOVER WEB SOLUTIONS",
+      icon: Rss,
+    },
+    {
+      title: "Lead Generation",
+      details:
+        "At Spark Tech, we design automated lead generation systems and high-converting funnels to capture prospects and turn clicks into revenue.",
+      link: "/services/content-creation",
+      buttonText: "CAPTURE LEADS",
+      icon: Target,
+    },
+    {
+      title: "Ads Creative & Campaign",
+      details:
+        "At Spark Tech, we build high-performing ad creatives and manage data-driven campaigns that maximize your ROI and lower acquisition costs.",
+      link: "/services/video-editing",
+      buttonText: "LAUNCH CAMPAIGN",
+      icon: Megaphone,
+    },
+    {
       title: "Social Media Marketing",
       details:
-        "Boost your brand presence across platforms with engaging strategies.",
+        "At Spark Tech, we craft high-impact social media strategies that elevate your brand voice, engage audiences, and build active communities.",
       link: "/services/social-media-marketing",
+      buttonText: "DRIVE SOCIAL SUCCESS",
+      icon: Zap,
     },
     {
-      number: "02",
-      title: "Lead Generation Systems",
-      details: "Strategic funnels and capture mechanisms designed to turn strangers into qualified prospects.",
-      link: "/services/content-creation",
-    },
-    {
-      number: "03",
-      title: "Website Development",
-      details: "Modern, responsive, and scalable websites for your business.",
-      link: "/services/website-development",
-    },
-    {
-      number: "04",
-      title: "Ad Creatives & Campaigns",
-      details: "Data-driven advertising across major platforms to maximize ROI and scale brand reach.",
-      link: "/services/video-editing",
-    },
-    {
-      number: "05",
-      title: "Automated Email Flows",
-      details: "Smart sequence triggers that nurture leads and drive repeat business on autopilot.",
+      title: "Automate Email Flow",
+      details:
+        "At Spark Tech, we deploy intelligent email automation and nurturing flows that drive customer loyalty and repeat business on autopilot.",
       link: "/services/email-marketing",
+      buttonText: "AUTOMATE YOUR GROWTH",
+      icon: Send,
     },
     {
-      number: "06",
       title: "Search Visibility & SEO",
       details:
-        "Technical and content-based optimization to dominate organic search results.",
+        "At Spark Tech, we implement technical search engine optimization that elevates your search visibility, ranking you higher to dominate results.",
       link: "/services/seo",
+      buttonText: "BOOST YOUR SEO",
+      icon: Search,
     },
   ];
 
   return (
-    <div className="relative min-h-screen text-white py-20 px-6 overflow-hidden">
-      {/* Animated glowing background */}
-      <div className="absolute inset-0">
-        <div className="absolute w-[500px] h-[500px] bg-purple-500/20 rounded-full blur-3xl top-20 left-10 animate-pulse"></div>
-      </div>
-
-      <div className="relative z-10 max-w-7xl mx-auto">
-        <h1 className="text-5xl font-extrabold text-center mb-16">
-          Our <span className="text-yellow-300">Services</span>
+    <div className="relative min-h-[70vh] text-white py-12 px-6 overflow-hidden">
+      <div className="relative z-10 max-w-7xl mx-auto animate-fadeIn">
+        <h1 className="text-4xl md:text-5xl font-bold font-oswald text-center uppercase tracking-wider mb-16">
+          OUR <span className="text-[#f0c417]">SERVICES</span>
         </h1>
 
-        {/* Floating creative cards */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
+        {/* 3 columns on desktop, 1 on mobile */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
           {segments.map((segment, index) => (
-            <motion.div
+            <CardComponent
               key={index}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
-              viewport={{ once: true }}
-              whileHover={{
-                scale: 1.05,
-                rotateX: 8,
-                rotateY: -8,
-                boxShadow: "0px 0px 40px rgba(255, 215, 0, 0.6)",
-              }}
-              onClick={() => navigate(segment.link)} // ✅ Navigate on click
-              className="relative group bg-white/5 backdrop-blur-lg rounded-3xl p-8 overflow-hidden border border-white/10 shadow-2xl cursor-pointer"
+              {...(!isMobile && {
+                initial: { opacity: 0, y: 30 },
+                whileInView: { opacity: 1, y: 0 },
+                transition: { duration: 0.5, delay: index * 0.1 },
+                viewport: { once: true },
+                whileHover: {
+                  scale: 1.03,
+                  boxShadow: "0px 0px 25px rgba(240, 196, 23, 0.35)",
+                }
+              })}
+              onClick={() => navigate(segment.link)}
+              className="group bg-gradient-to-b from-[#182335] to-[#0a0f18] rounded-[24px] p-8 border-2 border-[#f0c417] flex flex-col justify-between h-[300px] cursor-pointer transition-all duration-300"
             >
-              {/* Glow Effect */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-yellow-400/20 via-pink-400/10 to-transparent opacity-0 group-hover:opacity-100 transition duration-100"></div>
+              <div>
+                {/* Header: Icon + Title */}
+                <div className="flex items-center mb-5">
+                  <div className="w-10 h-10 rounded-full border-2 border-[#f0c417] bg-black flex items-center justify-center text-[#f0c417] shrink-0 mr-4">
+                    <segment.icon className="w-5 h-5" />
+                  </div>
+                  <h2 className="text-[#f0c417] font-oswald text-base md:text-lg font-bold uppercase tracking-wider">
+                    {segment.title}
+                  </h2>
+                </div>
 
-              {/* Floating number watermark */}
-              <span className="absolute -top-6 -right-4 text-8xl font-extrabold text-white/10 group-hover:text-yellow-400/20 transition">
-                {segment.number}
-              </span>
+                {/* Description */}
+                <p className="text-white/80 text-sm leading-relaxed mb-6 font-inter font-light">
+                  {segment.details}
+                </p>
+              </div>
 
-              {/* Content */}
-              <h2 className="text-2xl font-bold mb-4 relative group-hover:text-yellow-300 transition">
-                {segment.title}
-              </h2>
-              <p className="text-white/70 mb-6 relative z-10">
-                {segment.details}
-              </p>
-              <span className="inline-block px-5 py-2 rounded-full bg-yellow-300 text-black font-semibold shadow-md group-hover:shadow-yellow-300/50 group-hover:bg-white transition">
-                Learn More →
-              </span>
-            </motion.div>
+              {/* Pill Button at Bottom Center */}
+              <div className="flex justify-center">
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation(); // prevent card click triggers
+                    navigate(segment.link);
+                  }}
+                  className="bg-black hover:bg-[#f0c417] text-[#f0c417] hover:text-black border border-[#f0c417] font-bold tracking-wider uppercase text-[11px] rounded-full px-6 py-2.5 transition-all duration-300 cursor-pointer"
+                >
+                  {segment.buttonText}
+                </button>
+              </div>
+            </CardComponent>
           ))}
         </div>
       </div>

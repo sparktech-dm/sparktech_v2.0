@@ -50,69 +50,92 @@ const segments = [
 const ServiceCard = ({ segment }) => {
   const navigate = useNavigate();
   const [isFlipped, setIsFlipped] = useState(false);
+  const [isMobile, setIsMobile] = useState(() => typeof window !== "undefined" ? window.innerWidth < 768 : false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  const CardContent = isMobile ? "div" : motion.div;
 
   return (
     <div
       className="relative w-full h-[320px] cursor-pointer group"
-      style={{ perspective: "1000px" }}
+      style={{ perspective: isMobile ? undefined : "1000px" }}
     >
-      <motion.div
+      <CardContent
         className="w-full h-full relative"
-        initial={false}
-        animate={{ rotateY: isFlipped ? 180 : 0 }}
-        transition={{ duration: 0.6, type: "spring", stiffness: 260, damping: 20 }}
-        style={{ transformStyle: "preserve-3d" }}
+        {...(!isMobile && {
+          initial: false,
+          animate: { rotateY: isFlipped ? 180 : 0 },
+          transition: { duration: 0.5, type: "spring", stiffness: 260, damping: 20 }
+        })}
+        style={{ transformStyle: isMobile ? undefined : "preserve-3d" }}
       >
         {/* FRONT FACE */}
         <div
-          className="absolute inset-0 bg-white/5 backdrop-blur-lg rounded-3xl p-7 border border-white/10 shadow-xl overflow-hidden hover:border-yellow-400/50 hover:shadow-yellow-400/20 hover:shadow-2xl transition-all duration-300 flex flex-col items-center justify-center text-center"
-          style={{ backfaceVisibility: "hidden", WebkitBackfaceVisibility: "hidden" }}
+          className="absolute inset-0 bg-[#0f233f]/95 backdrop-blur-lg rounded-3xl p-7 border border-white/10 shadow-xl overflow-hidden md:hover:border-yellow-400/50 md:hover:shadow-yellow-400/20 md:hover:shadow-2xl transition-all duration-300 flex flex-col items-center justify-center text-center"
+          style={{ backfaceVisibility: isMobile ? undefined : "hidden", WebkitBackfaceVisibility: isMobile ? undefined : "hidden" }}
           onClick={(e) => {
             e.stopPropagation();
-            setIsFlipped(true);
+            if (isMobile) {
+              navigate(segment.link);
+            } else {
+              setIsFlipped(true);
+            }
           }}
         >
-          <div className="absolute inset-0 bg-gradient-to-tr from-yellow-400/15 via-pink-400/10 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 rounded-3xl pointer-events-none" />
-          <span className="absolute -top-5 -right-3 text-7xl font-extrabold text-white/8 group-hover:text-yellow-400/15 transition select-none">
+          <div className="absolute inset-0 bg-gradient-to-tr from-yellow-400/15 via-pink-400/10 to-transparent opacity-0 md:group-hover:opacity-100 transition duration-300 rounded-3xl pointer-events-none" />
+          <span className="absolute -top-5 -right-3 text-7xl font-extrabold text-white/8 md:group-hover:text-yellow-400/15 transition select-none">
             {segment.number}
           </span>
-          <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-yellow-300 transition relative z-10">
+          <h3 className="text-2xl font-bold text-white mb-3 md:group-hover:text-yellow-300 transition relative z-10">
             {segment.title}
           </h3>
-          <p className="text-yellow-300/80 text-sm opacity-0 group-hover:opacity-100 transition mt-2 md:hidden">Tap to view details</p>
-          <p className="text-yellow-300/80 text-sm opacity-0 group-hover:opacity-100 transition mt-2 hidden md:block">Click to view details</p>
+          {!isMobile && (
+            <p className="text-yellow-300/80 text-sm opacity-0 group-hover:opacity-100 transition mt-2 hidden md:block">
+              Click to view details
+            </p>
+          )}
         </div>
 
         {/* BACK FACE */}
-        <div
-          className="absolute inset-0 bg-[#0f233f]/95 backdrop-blur-lg rounded-3xl p-7 border border-yellow-400/30 shadow-xl overflow-hidden flex flex-col items-center justify-center text-center cursor-pointer"
-          style={{
-            backfaceVisibility: "hidden",
-            WebkitBackfaceVisibility: "hidden",
-            transform: "rotateY(180deg)",
-          }}
-          onClick={(e) => {
-            e.stopPropagation();
-            setIsFlipped(false);
-          }}
-        >
-          <h3 className="text-xl font-bold text-yellow-300 mb-3">
-            {segment.title}
-          </h3>
-          <p className="text-white/80 text-sm leading-relaxed mb-6">
-            {segment.details}
-          </p>
-          <button
+        {!isMobile && (
+          <div
+            className="absolute inset-0 bg-[#0f233f]/95 backdrop-blur-lg rounded-3xl p-7 border border-yellow-400/30 shadow-xl overflow-hidden flex flex-col items-center justify-center text-center cursor-pointer"
+            style={{
+              backfaceVisibility: "hidden",
+              WebkitBackfaceVisibility: "hidden",
+              transform: "rotateY(180deg)",
+            }}
             onClick={(e) => {
               e.stopPropagation();
-              navigate(segment.link);
+              setIsFlipped(false);
             }}
-            className="px-6 py-2 rounded-full bg-yellow-400 text-black text-sm font-bold shadow hover:bg-white hover:scale-105 transition-all w-max mx-auto relative z-20"
           >
-            Learn More →
-          </button>
-        </div>
-      </motion.div>
+            <h3 className="text-xl font-bold text-yellow-300 mb-3">
+              {segment.title}
+            </h3>
+            <p className="text-white/80 text-sm leading-relaxed mb-6">
+              {segment.details}
+            </p>
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                navigate(segment.link);
+              }}
+              className="px-6 py-2 rounded-full bg-yellow-400 text-black text-sm font-bold shadow hover:bg-white hover:scale-105 transition-all w-max mx-auto relative z-20"
+            >
+              Learn More →
+            </button>
+          </div>
+        )}
+      </CardContent>
     </div>
   );
 };
@@ -123,7 +146,13 @@ export default function ServicesCarousel() {
   const [direction, setDirection] = useState(1); // 1 = forward, -1 = backward
   const trackRef = useRef(null);
 
-  const [cardsVisible, setCardsVisible] = useState(3);
+  const [cardsVisible, setCardsVisible] = useState(() => {
+    if (typeof window !== "undefined") {
+      if (window.innerWidth < 640) return 1;
+      if (window.innerWidth < 1024) return 2;
+    }
+    return 3;
+  });
 
   useEffect(() => {
     const handleResize = () => {
