@@ -1,7 +1,7 @@
 import React, { useRef, useState, useLayoutEffect } from "react";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
+import Home from "./pages/Home";
 import Services from "./pages/Services"; // make sure this page has nested <Routes>
 import About from "./pages/About";
 import BlogsPage from "./pages/BlogsPage";
@@ -27,23 +27,18 @@ import WhyChooseUs from "./components/WhyChooseUs";
 
 
 
-const Home = () => (
+
+const AppHome = () => (
   <>
-    <section id="home" className="min-h-screen scroll-mt-24 ">
-      <Hero />
-    </section>
-    {/* <section id="services" className="min-h-screen scroll-mt-24 px-4 py-10">
-      <HomeServices />
-    </section> */}
-    <section>
-      <AboutUs/>
+    <section id="home" className="min-h-screen scroll-mt-24">
+      <Home />
     </section>
    <section id="services" className="py-20 px-4 scroll-mt-24">
       <CurvedScrollCards />
     </section> 
     <section id="whychooseus" className=" overflow-hidden">
         <WhyChooseUs/>
-      </section>
+      </section>
     <section id="faq" className="min-h-screen scroll-mt-24 px-4 py-10">
       <Faq />
     </section>
@@ -115,7 +110,7 @@ const App = () => {
          
          {/* <Wuc/> */}
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<AppHome />} />
           {/* <Route path="/about" element={<About />} /> */}
           <Route path="/about" element={<ProjectsSection />} />
           {/* <Route path="/blogs" element={<BlogsPage />} /> */}

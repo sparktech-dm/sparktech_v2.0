@@ -7,6 +7,43 @@
   --font-inter: 'Inter', sans-serif;
   --color-brand-yellow: #ffcc00;
   --color-brand-dark: #0d0d0f;
+  
+  --animate-hero-bob: hero-bob 2.8s ease-in-out infinite;
+  --animate-marquee: marquee 35s linear infinite;
+  --animate-marquee-mobile: marquee-mobile 35s linear infinite;
+
+  @keyframes hero-bob {
+    0%, 100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    25% {
+      transform: translateY(-10px) rotate(0.4deg);
+    }
+    50% {
+      transform: translateY(-16px) rotate(0deg);
+    }
+    75% {
+      transform: translateY(-10px) rotate(-0.4deg);
+    }
+  }
+
+  @keyframes marquee {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  @keyframes marquee-mobile {
+    0% {
+      transform: translateX(calc(50vw - 107px));
+    }
+    100% {
+      transform: translateX(calc(50vw - 107px - 50%));
+    }
+  }
 }
 
 /* Custom background pattern for career page */
