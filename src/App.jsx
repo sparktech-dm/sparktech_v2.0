@@ -23,11 +23,12 @@ import GlassCursor from "./components/GlassCursor";
 import Career from "./pages/Career";
 import AboutUs from "./components/AboutUs";
 import WhyChooseUs from "./components/WhyChooseUs";
+import GrowingBrands from "./pages/Home";
 
 
 
 
-const Home = () => (
+const HomePage = () => (
   <>
     <section id="home" className="min-h-screen scroll-mt-24 ">
       <Hero />
@@ -43,7 +44,7 @@ const Home = () => (
     </section> 
     <section id="whychooseus" className=" overflow-hidden">
         <WhyChooseUs/>
-      </section>
+      </section>
     <section id="faq" className="min-h-screen scroll-mt-24 px-4 py-10">
       <Faq />
     </section>
@@ -115,9 +116,10 @@ const App = () => {
          
          {/* <Wuc/> */}
         <Routes>
-          <Route path="/" element={<Home />} />
-          {/* <Route path="/about" element={<About />} /> */}
-          <Route path="/about" element={<ProjectsSection />} />
+          <Route path="/" element={<GrowingBrands />} />
+          <Route path="/home" element={<HomePage />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/projects" element={<ProjectsSection />} />
           {/* <Route path="/blogs" element={<BlogsPage />} /> */}
           <Route path="/blog/:id" element={<BlogDetail />} />
           <Route path="/services/*" element={<Services />} />

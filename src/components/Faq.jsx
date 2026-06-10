@@ -1,5 +1,15 @@
 import React, { useState } from "react";
 
+const chevronPatternBg = {
+  backgroundColor: "#0a0a0c",
+  backgroundImage: `
+        linear-gradient(45deg, #111115 25%, transparent 25%, transparent 75%, #111115 75%, #111115),
+        linear-gradient(45deg, #111115 25%, transparent 25%, transparent 75%, #111115 75%, #111115)
+    `,
+  backgroundSize: "8px 8px",
+  backgroundPosition: "0 0, 4px 4px",
+};
+
 export const Faq = () => {
   const [activeIndex, setActiveIndex] = useState(null);
 
@@ -47,7 +57,7 @@ export const Faq = () => {
   };
 
   return (
-    <section className=" py-16 px-6 sm:px-10 md:px-20 lg:px-40 xl:px-60 ">
+    <section style={chevronPatternBg} className=" py-16 px-6 sm:px-10 md:px-20 lg:px-40 xl:px-60 ">
       <div className="max-w-7xl mx-auto">
         {/* Heading */}
         <div className="text-center mb-12 sm:mb-16">
