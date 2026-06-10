@@ -15,7 +15,7 @@ const Top = () => {
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
-    
+
   };
 
   return (
@@ -32,7 +32,7 @@ const Top = () => {
           aria-label="Scroll to top"
         >
           <FaArrowUp className="text-xl sm:text-2xl transition-transform duration-300 group-hover:-translate-y-1" />
-          
+
           {/* Subtle glow pulse */}
           <div className="absolute inset-0 rounded-2xl bg-yellow-400/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
         </motion.button>
