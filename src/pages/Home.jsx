@@ -503,49 +503,6 @@ function WhyChooseUs() {
               transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut", repeatType: "mirror" }}
             />
           </div>
-
-          <div className="flex-1 flex flex-col gap-1.5 sm:gap-2.5 justify-between">
-            {reasons.map((item, index) => (
-              <motion.div
-                key={item.id}
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, ease: "easeOut", delay: index * 0.06 }}
-                className="flex items-center gap-1 sm:gap-2"
-              >
-                {/* Arrow pointing right */}
-                <div className="flex-shrink-0 flex items-center justify-center mx-1.5 sm:mx-2.5">
-                  <svg
-                    viewBox="0 0 40 24"
-                    fill="none"
-                    stroke="rgba(255,255,255,0.95)"
-                    strokeWidth="3.5"
-                    className="w-[18px] sm:w-[26px] h-6 flex-shrink-0"
-                  >
-                    <line x1="0" y1="12" x2="32" y2="12" />
-                    <polyline points="24 6 32 12 24 18" />
-                  </svg>
-                </div>
-
-                {/* Card component */}
-                <div
-                  className="flex-1 rounded-xl border border-[#f0c417]/40 p-1.5 sm:p-2 text-center transition-all duration-300 hover:border-[#f0c417]"
-                  style={{
-                    background: "gradient-to-b from-[#182335] to-[#0a0f18]",
-                    backgroundImage: "linear-gradient(135deg, #1a3a4a 0%, #0d2233 100%)",
-                  }}
-                >
-                  <p className="text-[#f0c417] font-bold italic text-[0.66rem] sm:text-[0.74rem] mb-0.5 leading-snug">
-                    {item.title}
-                  </p>
-                  <p className="text-slate-200 text-[0.58rem] sm:text-[0.66rem] italic leading-normal">
-                    {item.desc}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
         </div>
 
         {/* DESKTOP VIEW */}
