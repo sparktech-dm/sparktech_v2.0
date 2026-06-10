@@ -1,60 +1,20 @@
 import React, { useRef, useState, useLayoutEffect } from "react";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
 import Services from "./pages/Services"; // make sure this page has nested <Routes>
-import About from "./pages/About";
-import BlogsPage from "./pages/BlogsPage";
-import BlogDetail from "./components/BlogDetail";
+import BlogsPage from "./components/Blogs";
 import ProjectsSection from "./pages/ProjectsSection";
-import Footer from "./components/Footer";
-import ContactForm from "./components/ContactForm";
-import { Faq } from "./components/Faq";
+import ContactForm1 from "./components/ContactForm1";
 import ChatBot from "./components/Chat";
-import Top from "./components/Top"; 
+import Top from "./components/Top";
 import * as THREE from "three";
 import NET from "vanta/dist/vanta.net.min";
 window.THREE = THREE; // Required for Vanta effects
 import ScrollToTop from "./components/ScrollToTop";
-// import Wuc from "./pages/Wuc";
-import CurvedScrollCards from "./components/CurvedScrollCards";
-import ContactForm1 from "./components/ContactForm1";
 import GlassCursor from "./components/GlassCursor";
 import Career from "./pages/Career";
-import AboutUs from "./components/AboutUs";
-import WhyChooseUs from "./components/WhyChooseUs";
+import Home from "./pages/Home";
 
-
-
-
-const Home = () => (
-  <>
-    <section id="home" className="min-h-screen scroll-mt-24 ">
-      <Hero />
-    </section>
-    {/* <section id="services" className="min-h-screen scroll-mt-24 px-4 py-10">
-      <HomeServices />
-    </section> */}
-    <section>
-      <AboutUs/>
-    </section>
-   <section id="services" className="py-20 px-4 scroll-mt-24">
-      <CurvedScrollCards />
-    </section> 
-    <section id="whychooseus" className=" overflow-hidden">
-        <WhyChooseUs/>
-      </section>
-    <section id="faq" className="min-h-screen scroll-mt-24 px-4 py-10">
-      <Faq />
-    </section>
-    <section id="contact" className="min-h-screen scroll-mt-24 px-4 py-10">
-      <ContactForm />
-    </section>
-    <section id="footer" className="px-4 py-10">
-      <Footer />
-    </section>
-  </>
-);
 
 const App = () => {
   const vantaRef = useRef(null);
@@ -118,8 +78,7 @@ const App = () => {
           <Route path="/" element={<Home />} />
           {/* <Route path="/about" element={<About />} /> */}
           <Route path="/about" element={<ProjectsSection />} />
-          {/* <Route path="/blogs" element={<BlogsPage />} /> */}
-          <Route path="/blog/:id" element={<BlogDetail />} />
+          <Route path="/blogs" element={<BlogsPage />} />
           <Route path="/services/*" element={<Services />} />
             <Route path="/contact" element={<ContactForm1/>} />
             <Route path="/career" element={<Career/>} />

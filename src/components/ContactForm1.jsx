@@ -1,183 +1,213 @@
-import React, { useState } from "react";
-import { BsSend } from "react-icons/bs";
+import { useState } from "react";
 import Footer from "./Footer";
 
-export const ContactForm1 = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-
+const ContactPage = () => {
+  const [formData, setFormData] = useState({ name: "", email: "", phone: "", message: "" });
+  const [submitted, setSubmitted] = useState(false);
   const [errors, setErrors] = useState({});
-  const [showToast, setShowToast] = useState(false);
 
-  const validateForm = () => {
-    let tempErrors = {};
-
-    if (!formData.name.trim()) {
-      tempErrors.name = "Name is required";
-    }
-
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!formData.email.trim()) {
-      tempErrors.email = "Email is required";
-    } else if (!emailRegex.test(formData.email)) {
-      tempErrors.email = "Enter a valid email";
-    }
-
-    if (!formData.message.trim()) {
-      tempErrors.message = "Message is required";
-    }
-
-    setErrors(tempErrors);
-    return Object.keys(tempErrors).length === 0;
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setErrors({ ...errors, [e.target.name]: "" });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!validateForm()) return;
+    let newErrors = {};
+    if (!formData.name.trim()) newErrors.name = "Name is required";
+    if (!formData.email.trim()) newErrors.email = "Email is required";
+    if (!formData.phone.trim()) newErrors.phone = "Phone number is required";
+    
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
+    }
 
-    setShowToast(true);
-    setFormData({ name: "", email: "", message: "" });
-    setTimeout(() => setShowToast(false), 3000);
-
-    fetch("https://script.google.com/macros/s/AKfycbxryuSqXMLcdttGGc_tRy-BvT4_7HkbhoSetOPk2OY91PYHyzSZtyCp1Vam4joFuKWC/exec", {
-      method: "POST",
-      mode: "no-cors",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(formData),
-    }).catch((error) => {
-      console.error("Sheet error (but form submitted visually):", error);
-    });
+    setSubmitted(true);
+    setTimeout(() => setSubmitted(false), 3000);
   };
 
   return (
-    <>  
-<section className="w-full flex justify-center px-4 sm:px-8  md:px-16 my-10 mt-30">
-      <div className="bg-[#2B2B2B] backdrop-blur-mdd rounded-[30px] p-9 sm:p-10 w-full max-w-6xl flex flex-col md:flex-row gap-8 ">
+    <div className="min-h-screen text-white font-sans career-bg-pattern">
+      {/* ── NAVBAR ── */}
+      <nav className="flex items-center justify-between px-8 py-4">
+        <div className="w-16 h-16 rounded-full border-2 border-yellow-400 flex items-center justify-center bg-[#1a1a2e] overflow-hidden">
+          <span className="text-2xl">🚀</span>
+        </div>
 
-        {/* Left: Form Section */}
-        <div className="w-full md:w-2/3 space-y-5">
-          <span className="text-2xl font-bold text-white underline decoration-4 decoration-[#f0c417] underline-offset-4">
-            Get in Touch
-          </span>
-          <p className="mt-2 mb-2 text-sm text-gray-400">We'd love to hear from you! Fill out the form below and our team will get back to you soon.</p>
-          <form onSubmit={handleSubmit} className="space-y-5">
-            {/* Name */}
-            <div className="space-y-2 ">
-              <label className=" text-xs font-medium text-white p-5">Name</label>
+        <div className="hidden md:flex items-center bg-white rounded-full px-3 py-2 gap-2">
+          {["HOME", "SERVICES", "ABOUT", "CAREER", "BLOGS"].map((item) => (
+            <button
+              key={item}
+              className="bg-[#1a1a1a] text-white text-sm font-bold px-5 py-2 rounded-full hover:bg-yellow-400 hover:text-black transition-all duration-200"
+            >
+              {item}
+            </button>
+          ))}
+        </div>
+
+        <button className="border-2 border-[#c0395a] text-white font-bold px-6 py-2 rounded-full hover:bg-[#c0395a] transition-all duration-200 tracking-wider text-sm">
+          GET MORE LEADS
+        </button>
+      </nav>
+
+      {/* ── SECTION 1: "Let's Spark Together" + Info Cards ── */}
+      <section className="px-8 md:px-16 py-16">
+        {/* Heading */}
+        <div className="text-center mb-14">
+          <h1
+            className="text-yellow-400 font-extrabold text-5xl not-italic"
+            style={{ fontFamily: "'Anton', sans-serif", fontSize: "48px", fontWeight: 400 }}
+          >
+            Let's Spark Together
+          </h1>
+          <p className="text-gray-300 font-poppins italic mt-5 max-w-xl mx-auto text-base leading-relaxed">
+            Need help with branding, social media growth, SEO, website design, or digital campaigns?
+            Share your idea and our team will turn it into results.
+          </p>
+        </div>
+
+        {/* Info Cards */}
+        <div className="flex flex-col md:flex-row justify-between gap-6 md:gap-8">
+          {/* Map */}
+          <div className="border-2 border-yellow-400 rounded-2xl p-7 bg-black hover:bg-yellow-400/5 transition-all duration-300 w-full md:w-[29%]">
+            <div className="flex items-center justify-between gap-6 mb-4">
+              <h3 className="text-yellow-400 font-extrabold text-2xl">We're on map</h3>
+              <span className="text-yellow-400">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+              </span>
+            </div>
+            <p className="text-gray-300 text-sm leading-relaxed">
+              C1, Honey tone Apartments,<br />
+              Shankarapuram 1st Street,<br />
+              Choolaimedu, Chennai 600094
+            </p>
+          </div>
+
+          {/* Call */}
+          <div className="border-2 border-yellow-400 rounded-2xl p-7 bg-black hover:bg-yellow-400/5 transition-all duration-300 flex flex-col justify-between w-full md:w-[29%]">
+            <div className="flex items-center justify-between gap-6 mb-4">
+              <h3 className="text-yellow-400 font-extrabold text-2xl">Get us a call</h3>
+              <span className="text-yellow-400">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                  <path d="M14.05 2a9 9 0 0 1 8 7.94"></path>
+                  <path d="M14.05 6A5 5 0 0 1 18 10"></path>
+                </svg>
+              </span>
+            </div>
+            <p className="text-gray-200 text-lg font-semibold">+91 8939892219</p>
+          </div>
+
+          {/* Email */}
+          <div className="border-2 border-yellow-400 rounded-2xl p-7 bg-black hover:bg-yellow-400/5 transition-all duration-300 flex flex-col justify-between w-full md:w-[29%]">
+            <div className="flex items-center justify-between gap-6 mb-4">
+              <h3 className="text-yellow-400 font-extrabold text-2xl">Send us email</h3>
+              <span className="text-yellow-400">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="22" y1="2" x2="11" y2="13"></line>
+                  <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
+              </span>
+            </div>
+            <p className="text-gray-200 text-base font-semibold">sparktechdm@gmail.com</p>
+          </div>
+        </div>
+      </section>
+
+      {/* ── SECTION 2: "Let's Get Connect" Contact Form ── */}
+      <section className="px-8 md:px-16 py-12">
+        <div className="bg-black border-2 border-yellow-400 rounded-[40px] p-8 md:p-12 lg:p-16 grid grid-cols-1 md:grid-cols-2 gap-12 items-start shadow-2xl">
+          {/* Left: Form */}
+        <div className="flex flex-col gap-6">
+          <div>
+            <p className="text-white text-3xl font-bold">Let's Get</p>
+            <p className="text-yellow-400 text-5xl font-extrabold italic">Connect !</p>
+          </div>
+
+          <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-5 mt-2">
+            <div>
+              <label className="text-yellow-400 italic font-semibold text-lg mb-2 block">Name <span className="text-red-500">*</span></label>
               <input
                 type="text"
                 name="name"
                 value={formData.name}
-                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                className="w-full mt-2 px-4 py-4 bg-lime-100/10 border border-lime-400/20 rounded-[20px] text-sm text-lime-200 placeholder-lime-400"
-                style={{ fontFamily: "Inter" }}
+                onChange={handleChange}
+                className={`w-full bg-transparent border rounded-full px-5 py-3 text-white outline-none transition-all ${
+                  errors.name ? "border-[#e25c5c] focus:ring-1 focus:ring-[#e25c5c]" : "border-yellow-400 focus:border-yellow-300 focus:ring-1 focus:ring-yellow-400"
+                }`}
               />
-              {errors.name && <p className="text-xs text-red-400 ml-2">{errors.name}</p>}
+              {errors.name && <p className="text-[#e25c5c] text-sm mt-1 ml-4">{errors.name}</p>}
             </div>
 
-            {/* Email */}
-            <div className="space-y-2">
-              <label className="text-xs font-medium text-white p-5">Email</label>
+            <div>
+              <label className="text-yellow-400 italic font-semibold text-lg mb-2 block">Email <span className="text-red-500">*</span></label>
               <input
                 type="email"
                 name="email"
                 value={formData.email}
-                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                className="w-full  mt-2 px-4 py-4 bg-lime-100/10 border border-lime-400/20 rounded-[20px] text-sm text-lime-200 placeholder-lime-400"
-                style={{ fontFamily: "Inter" }}
+                onChange={handleChange}
+                className={`w-full bg-transparent border rounded-full px-5 py-3 text-white outline-none transition-all ${
+                  errors.email ? "border-[#e25c5c] focus:ring-1 focus:ring-[#e25c5c]" : "border-yellow-400 focus:border-yellow-300 focus:ring-1 focus:ring-yellow-400"
+                }`}
               />
-              {errors.email && <p className="text-xs text-red-400 ml-2">{errors.email}</p>}
+              {errors.email && <p className="text-[#e25c5c] text-sm mt-1 ml-4">{errors.email}</p>}
             </div>
 
-            {/* Message */}
-            <div className="space-y-2">
-              <label className="text-xs font-medium text-white p-5">Message</label>
+            <div>
+              <label className="text-yellow-400 italic font-semibold text-lg mb-2 block">Phone <span className="text-red-500">*</span></label>
+              <input
+                type="tel"
+                name="phone"
+                value={formData.phone}
+                onChange={handleChange}
+                className={`w-full bg-transparent border rounded-full px-5 py-3 text-white outline-none transition-all ${
+                  errors.phone ? "border-[#e25c5c] focus:ring-1 focus:ring-[#e25c5c]" : "border-yellow-400 focus:border-yellow-300 focus:ring-1 focus:ring-yellow-400"
+                }`}
+              />
+              {errors.phone && <p className="text-[#e25c5c] text-sm mt-1 ml-4">{errors.phone}</p>}
+            </div>
+
+            <div>
+              <label className="text-yellow-400 italic font-semibold text-lg mb-2 block">Message</label>
               <textarea
                 name="message"
                 value={formData.message}
-                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                rows={4}
-                placeholder="Write your message"
-                className="w-full  mt-2 px-4 py-4 bg-lime-100/10 border border-lime-400/20 rounded-[20px] text-sm text-lime-200 placeholder-black"
-                style={{ fontFamily: "Inter" }}
+                onChange={handleChange}
+                rows={5}
+                className="w-full bg-transparent border border-yellow-400 rounded-2xl px-5 py-3 text-white outline-none focus:border-yellow-300 focus:ring-1 focus:ring-yellow-400 transition-all resize-none"
               />
-              {errors.message && <p className="text-xs text-red-400 ml-2">{errors.message}</p>}
             </div>
 
-            {/* Submit */}
-            <button
-              type="submit"
-              className="w-full py-3 bg-[#f0c417] rounded-[10px] text-[#0A0A0A] font-semibold hover:bg-[#e6751f] transition-all duration-200 transform hover:scale-105 transition-transform duration-300"
-              style={{ fontFamily: "Unbounded", fontWeight: 400 }}
-            >
-<div className="flex items-center justify-center text-l  ">
-               <span className="text-xl flex ml-4 mr-1 sm:text-l "><BsSend /></span>Send Message
-               </div>
-            </button>
-
-            {/* Toast */}
-            {showToast && (
-              <div className="mt-4 p-3 bg-green-500/20 border border-green-500/30 rounded-[10px] text-green-400 text-sm font-medium text-center transition-all duration-300">
-                Our team will contact you!
-              </div>
-            )}
+            <div className="flex justify-center mt-2">
+              <button
+                type="submit"
+                className="border-2 border-yellow-400 text-yellow-400 font-bold tracking-widest px-14 py-3 rounded-full hover:bg-yellow-400 hover:text-black transition-all duration-300 text-base"
+              >
+                {submitted ? "✓ SENT!" : "SUBMIT"}
+              </button>
+            </div>
           </form>
         </div>
 
-        {/* Right: Contact Info */}
-        <div className=" w-full text-xl md:w-1/3 md:text-xl  space-y-6 ">
-          <h2 className="text-2xl font-bold text-white underline decoration-4 decoration-[#f0c417] underline-offset-4">Contact Information</h2>
-          {/* Email Box */}
-          <div  className="pt-5">
-          <div className=" rounded-[30px] pb-5 flex items-center space-x-1">
-            <div className="w-8 h-8 flex items-center justify-center shrink-0">
-              <svg width="30" height="31" viewBox="0 0 30 31" fill="none">
-                <path
-                  d="M26.25 6.14502H3.75C3.50136 6.14502 3.2629 6.24379 3.08709 6.41961C2.91127 6.59542 2.8125 6.83388 2.8125 7.08252V23.02C2.8125 23.5173 3.01004 23.9942 3.36167 24.3458C3.71331 24.6975 4.19022 24.895 4.6875 24.895H25.3125C25.8098 24.895 26.2867 24.6975 26.6383 24.3458C26.99 23.9942 27.1875 23.5173 27.1875 23.02V7.08252C27.1875 6.83388 27.0887 6.59542 26.9129 6.41961C26.7371 6.24379 26.4986 6.14502 26.25 6.14502ZM15 16.1235L6.16055 8.02002H23.8395L15 16.1235ZM11.5676 15.52L4.6875 21.8259V9.21416L11.5676 15.52ZM12.9551 16.7915L14.3613 18.0864C14.5343 18.2452 14.7605 18.3333 14.9953 18.3333C15.2301 18.3333 15.4563 18.2452 15.6293 18.0864L17.0355 16.7915L23.8324 23.02H6.16055L12.9551 16.7915ZM18.4324 15.52L25.3125 9.21299V21.8271L18.4324 15.52Z"
-                  fill="#f0c417"
-                />
-              </svg>
-            </div>
-            <span className="text-white text-base md:text-[20px] font-normal">sparktechdm@gmail.com</span>
-          </div>
-
-          {/* Phone Box */}
-          <div className=" rounded-[30px] pb-5 flex items-center space-x-1">
-            <div className="w-8 h-8 flex items-center justify-center shrink-0">
-              <svg width="30" height="31" viewBox="0 0 30 31" fill="none">
-                <path
-                  d="M26.059 19.0893L20.5383 16.6155L20.5231 16.6085C20.2365 16.4859 19.9238 16.4367 19.6134 16.4653C19.303 16.494 19.0047 16.5996 18.7453 16.7725C18.7148 16.7927 18.6854 16.8146 18.6574 16.8381L15.8051 19.2698C13.9981 18.392 12.1324 16.5405 11.2547 14.7569L13.6899 11.8612C13.7133 11.8319 13.7356 11.8026 13.7567 11.771C13.9259 11.5123 14.0286 11.2159 14.0556 10.908C14.0826 10.6 14.033 10.2902 13.9113 10.0061V9.99205L11.4305 4.46197C11.2696 4.0908 10.993 3.7816 10.642 3.58053C10.291 3.37946 9.88437 3.29731 9.48282 3.34634C7.8949 3.5553 6.43733 4.33514 5.38235 5.54021C4.32738 6.74528 3.74714 8.29317 3.75001 9.89478C3.75001 19.1995 11.3203 26.7698 20.625 26.7698C22.2266 26.7727 23.7745 26.1924 24.9796 25.1374C26.1847 24.0825 26.9645 22.6249 27.1734 21.037C27.2226 20.6356 27.1406 20.229 26.9397 19.878C26.7389 19.527 26.43 19.2504 26.059 19.0893Z"
-                  fill="#f0c417"
-                />
-              </svg>
-            </div>
-            <span className="text-white md:text-xl text-base font-normal">+91 8939892219
-
-</span>
-          </div>
-
-          {/* Address Box */}
-          <div className=" rounded-[30px]  flex items-center space-x-1">
-            <div className="w-8 h-8 flex items-center justify-center shrink-0">
-              <svg width="30" height="31" viewBox="0 0 30 31" fill="none">
-                <path
-                  d="M15 2.39502C12.2659 2.39812 9.64468 3.48561 7.71139 5.41891C5.77809 7.3522 4.6906 9.97343 4.6875 12.7075C4.6875 16.3872 6.38789 20.2872 9.60938 23.9868C11.0569 25.6586 12.6861 27.1639 14.4668 28.4751C14.6244 28.5855 14.8122 28.6448 15.0047 28.6448C15.1971 28.6448 15.3849 28.5855 15.5426 28.4751C17.32 27.1634 18.946 25.658 20.3906 23.9868C23.6074 20.2872 25.3125 16.3872 25.3125 12.7075C25.3094 9.97343 24.2219 7.3522 22.2886 5.41891C20.3553 3.48561 17.7341 2.39812 15 2.39502ZM15 15.52C14.4437 15.52 13.9 15.3551 13.4375 15.046C12.9749 14.737 12.6145 14.2977 12.4016 13.7838C12.1887 13.2699 12.133 12.7044 12.2415 12.1588C12.3501 11.6133 12.6179 11.1121 13.0113 10.7188C13.4046 10.3254 13.9057 10.0576 14.4513 9.94906C14.9969 9.84054 15.5624 9.89624 16.0763 10.1091C16.5902 10.322 17.0295 10.6825 17.3385 11.145C17.6476 11.6075 17.8125 12.1513 17.8125 12.7075C17.8125 13.4534 17.5162 14.1688 16.9887 14.6963C16.4613 15.2237 15.7459 15.52 15 15.52Z"
-                  fill="#f0c417"
-                />
-              </svg>
-            </div>
-            <span className="text-white text-[15px]  md:text-[17px]   font-normal">C1, Honey tone Apartments, shankarapuram 1st Street, Choolaimedu, Chennai 600094</span>
-          </div>
-          </div>
+        {/* Right: Illustration */}
+        <div className="hidden md:flex items-start justify-center relative min-h-[480px] mt-32">
+          <img
+            src="/BOY FINAL.webp"
+            alt="Contact Illustration"
+            className="w-full max-w-[500px] object-contain rounded-[10px]"
+          />
         </div>
-      </div>
-    </section>
-    <Footer/>
-    </>
+        </div>
+      </section>
+
+      {/* ── FOOTER ── */}
+      <Footer />
+    </div>
   );
 };
 
-export default ContactForm1;
+export default ContactPage;
