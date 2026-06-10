@@ -86,12 +86,14 @@ const About = () => {
 
   const scrollToIndex = (index) => {
     if (scrollRef.current) {
-      const children = scrollRef.current.children;
+      const container = scrollRef.current;
+      const children = container.children;
       if (children && children[index]) {
-        children[index].scrollIntoView({
-          behavior: "smooth",
-          block: "nearest",
-          inline: "center",
+        const targetElement = children[index];
+        const scrollPosition = targetElement.offsetLeft - container.clientWidth / 2 + targetElement.clientWidth / 2;
+        container.scrollTo({
+          left: scrollPosition,
+          behavior: "smooth"
         });
         setActiveStepIndex(index);
         setActiveYear(index < 4 ? "2025" : "2026");

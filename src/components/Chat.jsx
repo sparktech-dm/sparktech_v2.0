@@ -21,7 +21,7 @@ const ChatBot = () => {
     setTimeout(() => {
       setMessages((prev) => [...prev, { type: "bot", text: faq.a }]);
       setIsTyping(false);
-    }, 1500); 
+    }, 1500);
   };
 
   return (
@@ -37,11 +37,10 @@ const ChatBot = () => {
             {messages.map((msg, index) => (
               <div
                 key={index}
-                className={`p-2 rounded-md w-fit max-w-[90%] ${
-                  msg.type === "bot"
+                className={`p-2 rounded-md w-fit max-w-[90%] ${msg.type === "bot"
                     ? "bg-gray-500 text-left"
                     : "bg-purple-500 text-right ml-auto"
-                }`}
+                  }`}
               >
                 {msg.text}
               </div>

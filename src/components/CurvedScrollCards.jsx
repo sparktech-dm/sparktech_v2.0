@@ -1,11 +1,5 @@
 import React, { useEffect, useState, useRef, useCallback } from "react";
 import "../flip-cards.css";
-import mar from "../assets/services/marketing.jpg";
-import per from "../assets/services/Performance-Marketing.jpg";
-import seo from "../assets/services/SEO.jpg";
-import brand from "../assets/services/Branding.jpg";
-import soc from "../assets/services/Social Media Marketing.jpg";
-import web from "../assets/services/Website Development.jpg";
 import { Link } from "react-router-dom";
 
 const CurvedScrollCards = () => {
@@ -23,12 +17,12 @@ const CurvedScrollCards = () => {
   const cardWidth = 240 + 16; // 240 width + 16 gap
 
   const cardData = [
-    { id: 1, title: "Search Visibility & SEO", description: "Technical and content-based optimization to dominate organic search results.", icon: "🔍", frontImage: seo, backColor: "#16213E", link: "/services/seo" },
-    { id: 2, title: "Lead Generation Systems", description: "Data-led campaigns that convert curiosity into consistent revenue.", icon: "📈", frontImage: per, backColor: "#16213E", link: "/services/email-marketing" },
-    { id: 3, title: "Social Media Marketing", description: "Boost your brand presence across platforms with engaging strategies.", icon: "📱", frontImage: soc, backColor: "#16213E", link: "/services/social-media-marketing" },
-    { id: 4, title: "Ad Creatives & Campaigns", description: "We turn clicks into customers with scroll-stopping visuals and copy.", icon: "✍️", frontImage: mar, backColor: "#16213E", link: "/services/content-creation" },
-    { id: 5, title: "Automated Email Flows", description: "Nurture leads and drive repeat business with automated email sequences.", icon: "🎨", frontImage: brand, backColor: "#16213E", link: "/services/video-editing" },
-    { id: 6, title: "Website Development", description: "High-performance, custom websites designed to convert and scale.", icon: "💻", frontImage: web, backColor: "#16213E", link: "/services/website-development" },
+    { id: 1, title: "Search Visibility & SEO", description: "Technical and content-based optimization to dominate organic search results.", icon: "🔍", frontImage: "linear-gradient(135deg, #1e293b 0%, #0f172a 100%)", backColor: "#16213E", link: "/services/seo" },
+    { id: 2, title: "Lead Generation Systems", description: "Data-led campaigns that convert curiosity into consistent revenue.", icon: "📈", frontImage: "linear-gradient(135deg, #0d5c3a 0%, #062e1c 100%)", backColor: "#16213E", link: "/services/email-marketing" },
+    { id: 3, title: "Social Media Marketing", description: "Boost your brand presence across platforms with engaging strategies.", icon: "📱", frontImage: "linear-gradient(135deg, #581c87 0%, #2e1065 100%)", backColor: "#16213E", link: "/services/social-media-marketing" },
+    { id: 4, title: "Ad Creatives & Campaigns", description: "We turn clicks into customers with scroll-stopping visuals and copy.", icon: "✍️", frontImage: "linear-gradient(135deg, #701a75 0%, #3b0764 100%)", backColor: "#16213E", link: "/services/content-creation" },
+    { id: 5, title: "Automated Email Flows", description: "Nurture leads and drive repeat business with automated email sequences.", icon: "🎨", frontImage: "linear-gradient(135deg, #0369a1 0%, #0c4a6e 100%)", backColor: "#16213E", link: "/services/video-editing" },
+    { id: 6, title: "Website Development", description: "High-performance, custom websites designed to convert and scale.", icon: "💻", frontImage: "linear-gradient(135deg, #1b233d 0%, #0c101a 100%)", backColor: "#16213E", link: "/services/website-development" },
   ];
 
   const allCards = [...cardData, ...cardData, ...cardData, ...cardData, ...cardData];
@@ -146,7 +140,7 @@ const CurvedScrollCards = () => {
     }, 4000);
   };
 
-  // ─── Interaction Handlers ───────────────────────────────────────────────────
+  // ─── Interaction Handlers ─────────────────────────────────────────────────
   const scrollByCard = useCallback((direction) => {
     stopScroll();
     setIsUserControlled(true);
@@ -311,7 +305,7 @@ const CurvedScrollCards = () => {
                   {/* FRONT */}
                   <div
                     className="card-front flex items-center justify-center text-white bg-cover bg-center relative cursor-pointer"
-                    style={{ backgroundImage: `url(${card.frontImage})` }}
+                    style={{ backgroundImage: card.frontImage.startsWith('linear-gradient') ? card.frontImage : `url(${card.frontImage})` }}
                     onClick={(e) => {
                       e.stopPropagation();
                       handleCardClick(i);
