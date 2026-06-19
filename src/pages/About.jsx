@@ -7,12 +7,6 @@ import Footer from "../components/Footer";
 
 const chevronPatternBg = {
   backgroundColor: "#0a0a0c",
-  backgroundImage: `
-    linear-gradient(45deg, #111115 25%, transparent 25%, transparent 75%, #111115 75%, #111115),
-    linear-gradient(45deg, #111115 25%, transparent 25%, transparent 75%, #111115 75%, #111115)
-  `,
-  backgroundSize: "8px 8px",
-  backgroundPosition: "0 0, 4px 4px",
 };
 
 const About = () => {
@@ -108,7 +102,7 @@ const About = () => {
     const containerCenter = container.scrollLeft + container.clientWidth / 2;
     let minDiff = Infinity;
     let activeIndex = 0;
-    
+
     Array.from(container.children).forEach((child, index) => {
       const childCenter = child.offsetLeft + child.clientWidth / 2;
       const diff = Math.abs(containerCenter - childCenter);
@@ -119,7 +113,7 @@ const About = () => {
     });
 
     const year = activeIndex < 4 ? "2025" : "2026";
-    
+
     setActiveStepIndex((prevIndex) => {
       if (prevIndex !== activeIndex) {
         return activeIndex;
@@ -133,7 +127,7 @@ const About = () => {
       }
       return prevYear;
     });
-    
+
     lastInteraction.current = Date.now();
   };
 
@@ -163,14 +157,14 @@ const About = () => {
         description="Learn about the journey, values, and milestone of Spark Tech Digital as we build foundation and scale new heights."
       />
 
-      <div style={chevronPatternBg} className="min-h-screen text-white pt-32 pb-0 px-0 sm:px-6 md:px-12 lg:px-20 relative overflow-hidden">
+      <div style={chevronPatternBg} className="min-h-screen text-white pt-32 pb-0 relative overflow-hidden">
 
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-16 md:mb-24 px-4 sm:px-0"
+          className="text-center mb-16 md:mb-24 px-8 md:px-16"
         >
           <h1 className="text-4xl md:text-6xl font-black text-[#f0c417] uppercase tracking-wider">
             Our Journey
@@ -182,7 +176,7 @@ const About = () => {
         </motion.div>
 
         {/* Timeline Rows Container (Desktop View) */}
-        <div className="hidden lg:block max-w-7xl mx-auto space-y-20 lg:space-y-32">
+        <div className="hidden lg:block w-full px-8 md:px-16 space-y-20 lg:space-y-32">
           {journey.map((row, rowIndex) => (
             <motion.div
               key={row.year}
@@ -267,7 +261,7 @@ const About = () => {
         </div>
 
         {/* Timeline Carousel (Mobile/Tablet View) */}
-        <div className="lg:hidden mx-auto relative">
+        <div className="lg:hidden mx-auto relative px-4 sm:px-8 md:px-16">
           {/* Year selector badge */}
           <div className="flex items-center justify-center gap-6 mb-8">
             {activeYear === "2026" ? (
@@ -314,11 +308,10 @@ const About = () => {
             {/* Left arrow - outside image */}
             <button
               onClick={() => activeStepIndex > 0 && scrollToIndex(activeStepIndex - 1)}
-              className={`flex-shrink-0 w-10 h-10 rounded-full border flex items-center justify-center transition-all duration-200 cursor-pointer shadow-md ${
-                activeStepIndex > 0
+              className={`flex-shrink-0 w-10 h-10 rounded-full border flex items-center justify-center transition-all duration-200 cursor-pointer shadow-md ${activeStepIndex > 0
                   ? "bg-black/70 border-[#f0c417]/60 text-[#f0c417] hover:bg-[#f0c417]/20"
                   : "bg-black/20 border-zinc-700/40 text-zinc-600 cursor-default"
-              }`}
+                }`}
               aria-label="Previous step"
               disabled={activeStepIndex === 0}
             >
@@ -340,9 +333,8 @@ const About = () => {
                 return (
                   <div
                     key={`${step.year}-${step.title}`}
-                    className={`flex-shrink-0 w-full snap-center transition-all duration-400 flex flex-col items-center ${
-                      isActive ? "opacity-100" : "opacity-40"
-                    }`}
+                    className={`flex-shrink-0 w-full snap-center transition-all duration-400 flex flex-col items-center ${isActive ? "opacity-100" : "opacity-40"
+                      }`}
                   >
                     {/* Step Title */}
                     <span className="text-slate-200 text-center font-bold text-xs uppercase tracking-wider mb-3 min-h-[28px] flex items-center justify-center">
@@ -351,9 +343,8 @@ const About = () => {
 
                     {/* Step Image - bigger, full width */}
                     <div
-                      className={`w-full aspect-[4/3] rounded-[1.25rem] overflow-hidden border-2 transition-all duration-300 relative ${
-                        isActive ? "border-[#f0c417] shadow-[0_0_24px_rgba(240,196,23,0.35)]" : "border-zinc-800/60 shadow-lg"
-                      }`}
+                      className={`w-full aspect-[4/3] rounded-[1.25rem] overflow-hidden border-2 transition-all duration-300 relative ${isActive ? "border-[#f0c417] shadow-[0_0_24px_rgba(240,196,23,0.35)]" : "border-zinc-800/60 shadow-lg"
+                        }`}
                     >
                       <img
                         src={step.image}
@@ -370,11 +361,10 @@ const About = () => {
             {/* Right arrow - outside image */}
             <button
               onClick={() => activeStepIndex < 7 && scrollToIndex(activeStepIndex + 1)}
-              className={`flex-shrink-0 w-10 h-10 rounded-full border flex items-center justify-center transition-all duration-200 cursor-pointer shadow-md ${
-                activeStepIndex < 7
+              className={`flex-shrink-0 w-10 h-10 rounded-full border flex items-center justify-center transition-all duration-200 cursor-pointer shadow-md ${activeStepIndex < 7
                   ? "bg-black/70 border-[#f0c417]/60 text-[#f0c417] hover:bg-[#f0c417]/20"
                   : "bg-black/20 border-zinc-700/40 text-zinc-600 cursor-default"
-              }`}
+                }`}
               aria-label="Next step"
               disabled={activeStepIndex === 7}
             >
@@ -387,7 +377,7 @@ const About = () => {
       </div>
 
       {/* ── VISION & MISSION SECTION ── */}
-      <div style={chevronPatternBg} className="pt-0 pb-20 md:py-32 px-4 sm:px-8 md:px-16 lg:px-24">
+      <div style={chevronPatternBg} className="pt-0 pb-20 md:py-32 px-8 md:px-16">
         {/* Section Heading */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -402,7 +392,7 @@ const About = () => {
 
         </motion.div>
 
-        <div className="max-w-6xl mx-auto space-y-20 md:space-y-28">
+        <div className="w-full space-y-20 md:space-y-28">
 
           {/* ── OUR VISION ROW: Image LEFT | Text RIGHT ── */}
           <motion.div
@@ -454,7 +444,7 @@ const About = () => {
               <img
                 src="/mission img.webp"
                 alt="Our Mission"
-                className="w-full h-[280px] md:h-[360px] object-cover rounded-[2rem] transition-transform duration-700 hover:scale-105"
+                className="w-full h-[280px] md:h-[580px] object-cover rounded-[2rem] transition-transform duration-700 hover:scale-105"
                 style={{ objectPosition: "center 20%" }}
               />
             </div>

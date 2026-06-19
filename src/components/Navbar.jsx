@@ -56,11 +56,11 @@ const Navbar = () => {
   }, [location, navigate]);
 
   const NAV_ITEMS = [
-    { name: 'home',     path: '/' },
+    { name: 'home', path: '/' },
     { name: 'services', path: '/services' },
-    { name: 'about',    path: '/about' },
-    { name: 'career',   path: '/career' },
-    { name: 'blogs',    path: '/blogs' },
+    { name: 'about', path: '/about' },
+    { name: 'career', path: '/career' },
+    { name: 'blogs', path: '/blogs' },
   ];
 
   const handleScrollTop = () => {
@@ -75,7 +75,7 @@ const Navbar = () => {
     <div className="w-full fixed top-0 z-50 font-[Inter] bg-[#080808] border-b border-white/5 shadow-md">
 
       {/* ══════════════ DESKTOP NAVBAR ══════════════ */}
-      <header className="hidden md:flex w-full h-[76px] items-center justify-between px-10 lg:px-20 xl:px-40 2xl:px-60">
+      <header className="hidden md:flex w-full h-[76px] items-center justify-between px-10 lg:px-12 xl:px-20 2xl:px-24">
 
         {/* Left: Logo */}
         <div onClick={handleScrollTop} className="cursor-pointer flex-shrink-0">
@@ -146,9 +146,8 @@ const Navbar = () => {
       )}
 
       <div
-        className={`md:hidden fixed top-0 right-0 h-auto pb-8 w-[200px] bg-gradient-to-b from-[#517B98]/80 via-[#375367]/80 to-[#1B2832]/80 backdrop-blur-sm shadow-2xl z-50 transform transition-transform duration-300 ease-in-out ${
-          menuOpen ? 'translate-x-0' : 'translate-x-full'
-        }`}
+        className={`md:hidden fixed top-0 right-0 h-auto pb-8 w-[200px] bg-gradient-to-b from-[#517B98]/80 via-[#375367]/80 to-[#1B2832]/80 backdrop-blur-sm shadow-2xl z-50 transform transition-transform duration-300 ease-in-out ${menuOpen ? 'translate-x-0' : 'translate-x-full'
+          }`}
       >
         <div className="flex justify-end p-4">
           <button
@@ -172,9 +171,8 @@ const Navbar = () => {
               >
                 <RouterLink
                   to={item.path}
-                  className={`text-[15px] font-bold tracking-wide transition-all duration-200 ${
-                    active === item.name ? 'text-white' : 'text-gray-200 hover:text-white'
-                  }`}
+                  className={`text-[15px] font-bold tracking-wide transition-all duration-200 ${active === item.name ? 'text-white' : 'text-gray-200 hover:text-white'
+                    }`}
                 >
                   {displayName}
                 </RouterLink>

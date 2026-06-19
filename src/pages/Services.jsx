@@ -33,9 +33,7 @@ const Services = () => {
           <Route path="seo" element={<Seo />} />
         </Routes>
       </div>
-      <div className="w-full max-w-7xl mx-auto px-6 py-10">
-        <Footer />
-      </div>
+      <Footer />
     </div>
   );
 };

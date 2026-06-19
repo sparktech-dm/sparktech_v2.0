@@ -34,12 +34,6 @@ const Counter = ({ value, duration = 2 }) => {
 
 const chevronPatternBg = {
   backgroundColor: "#0a0a0c",
-  backgroundImage: `
-        linear-gradient(45deg, #111115 25%, transparent 25%, transparent 75%, #111115 75%, #111115),
-        linear-gradient(45deg, #111115 25%, transparent 25%, transparent 75%, #111115 75%, #111115)
-    `,
-  backgroundSize: "8px 8px",
-  backgroundPosition: "0 0, 4px 4px",
 };
 
 export function GrowingBrands({
@@ -64,7 +58,7 @@ export function GrowingBrands({
         style={chevronPatternBg}
         className="relative py-24 md:py-32 px-6 overflow-hidden flex items-center justify-center"
       >
-        <div className="max-w-6xl w-full grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-8 items-center">
+        <div className="max-w-6xl lg:max-w-full lg:px-16 w-full grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-8 items-center">
           <div className="flex flex-col items-center lg:items-start text-center lg:text-left space-y-6">
             <div className="relative inline-flex flex-col items-center lg:items-start">
               <span className="text-zinc-400 font-bold text-xs md:text-sm tracking-wider uppercase block mb-1 italic lg:not-italic">
@@ -376,26 +370,28 @@ function Home() {
       <section className="career-bg-pattern relative w-full min-h-[700px] md:h-screen flex items-start md:items-center justify-center overflow-hidden bg-[#0a0a0c] pt-24 pb-12 md:py-0">
 
         {/* === RAYS: Absolutely pinned to the far-left of the section === */}
-        {/* Desktop rays — z-30 to render above the z-20 layout stacking context */}
+        {/* Desktop rays — z-10 to render behind the z-20 layout stacking context */}
         <img
           src="/bg rays.webp"
           alt=""
           aria-hidden="true"
-          className="hidden md:block absolute left-[-70px] top-[65%] -translate-y-1/2 w-[550px] lg:w-[650px] h-full z-30 pointer-events-none opacity-60 select-none"
+          className="hidden md:block absolute left-[-70px] top-[65%] -translate-y-1/2 w-[550px] lg:w-[650px] h-full z-10 pointer-events-none opacity-60 select-none"
         />
 
 
         {/* Desktop View Layout */}
-        <div className="hidden md:flex relative z-20 w-full max-w-7xl mx-auto px-6 md:px-16 flex-row items-center justify-between gap-12">
+        <div className="hidden md:flex relative z-20 w-full max-w-7xl lg:max-w-full mx-auto px-6 md:px-16 lg:px-16 flex-row items-center justify-between gap-12">
 
           {/* LEFT: Text Content (Left Aligned) */}
-          <div className="flex-1 flex flex-col justify-center pr-8 py-16">
-            <p
-              className="text-white text-5xl md:text-4xl font-extrabold mb-1 leading-snug"
-              style={{ fontFamily: "'Georgia', serif", fontStyle: "italic" }}
-            >
-              Struggling to get
-            </p>
+          <div className="flex-1 flex flex-col justify-center pl-[80px] lg:pl-[120px] xl:pl-[180px] pr-8 py-16 xl:pr-16">
+            <div className="relative inline-block w-fit">
+              <p
+                className="text-white text-5xl md:text-4xl lg:text-5xl font-extrabold mb-1 leading-snug"
+                style={{ fontFamily: "'Georgia', serif", fontStyle: "italic" }}
+              >
+                Struggling to get
+              </p>
+            </div>
             <h1
               className="text-[#FFCC00] font-medium leading-tight mb-3"
               style={{
@@ -569,7 +565,7 @@ function Home() {
         </div>
 
         {/* ===== DESKTOP VIEW: 2 cards per slide ===== */}
-        <div className="hidden md:flex items-center justify-between gap-8 w-full max-w-6xl mx-auto px-8">
+        <div className="hidden md:flex items-center justify-between gap-8 w-full max-w-6xl lg:max-w-full mx-auto px-8 lg:px-16">
 
           {/* Left Nav */}
           <button
@@ -922,7 +918,7 @@ export function LetsTalkSection() {
 
       {/* ── DESKTOP: grid ── */}
       <div className="hidden lg:block relative w-full px-6 py-32" style={{ zIndex: 10 }}>
-        <div className="max-w-7xl mx-auto grid grid-cols-12 gap-8 items-center">
+        <div className="max-w-7xl lg:max-w-full lg:px-16 mx-auto grid grid-cols-12 gap-8 items-center">
 
           {/* COL 1: spans 7 columns, shifted to the left, next to the absolute phone */}
           <div className="col-span-7 pl-[260px] xl:pl-[300px] select-none flex flex-col justify-center">
@@ -1000,10 +996,9 @@ export function WhyChooseUs() {
   return (
     <section
       style={chevronPatternBg}
-      className="py-16 md:py-24 lg:py-32 px-4 sm:px-6 relative overflow-hidden"
       className="career-bg-pattern py-16 md:py-24 lg:py-32 px-4 sm:px-6 relative overflow-hidden bg-[#0a0a0c]"
     >
-      <div className="relative max-w-5xl mx-auto z-10">
+      <div className="relative max-w-5xl lg:max-w-full lg:px-16 mx-auto z-10">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}

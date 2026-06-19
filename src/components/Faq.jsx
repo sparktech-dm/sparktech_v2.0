@@ -2,12 +2,6 @@ import React, { useState } from "react";
 
 const chevronPatternBg = {
   backgroundColor: "#0a0a0c",
-  backgroundImage: `
-        linear-gradient(45deg, #111115 25%, transparent 25%, transparent 75%, #111115 75%, #111115),
-        linear-gradient(45deg, #111115 25%, transparent 25%, transparent 75%, #111115 75%, #111115)
-    `,
-  backgroundSize: "8px 8px",
-  backgroundPosition: "0 0, 4px 4px",
 };
 
 export const Faq = () => {
