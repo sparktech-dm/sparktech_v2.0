@@ -71,7 +71,7 @@ export default function ServiceOverview() {
 
   return (
     <div className="relative min-h-[70vh] text-white py-12 px-6 overflow-hidden">
-      <div className="relative z-10 max-w-7xl mx-auto animate-fadeIn">
+      <div className="relative z-10 max-w-7xl lg:max-w-full lg:px-16 xl:px-24 mx-auto w-full animate-fadeIn">
         <h1 className="text-4xl md:text-5xl font-bold font-oswald text-center uppercase tracking-wider mb-16">
           OUR <span className="text-[#f0c417]">SERVICES</span>
         </h1>
