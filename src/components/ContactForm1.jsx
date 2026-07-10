@@ -23,8 +23,22 @@ const ContactPage = () => {
       return;
     }
 
+    const dataToSend = { ...formData };
     setSubmitted(true);
     setTimeout(() => setSubmitted(false), 3000);
+    setFormData({ name: "", email: "", phone: "", message: "" });
+    
+    // Send to Google Sheets
+    fetch("https://script.google.com/macros/s/AKfycbybOdzrGK9kTDdP0zh1vlYP8dZSGbTXOIxOM0o6eRn2zGYPsIqBG53th8FRpbsPjcBpYA/exec", {
+      method: "POST",
+      mode: "no-cors",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(dataToSend),
+    }).catch((error) => {
+      console.error("Error submitting form:", error);
+    });
   };
 
   return (

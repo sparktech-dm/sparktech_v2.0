@@ -1,5 +1,5 @@
 import React, { useState, useRef, useMemo, useEffect } from "react";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { FiUsers, FiTrendingUp, FiTarget, FiZap, FiShield, FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import { FaRocket } from "react-icons/fa";
 import Seo from "../components/Seo";
@@ -73,10 +73,24 @@ const About = () => {
     },
   ];
 
-  const [activeYear, setActiveYear] = useState("2025");
+  const [activeYear, setActiveYear] = useState(journey[0]?.year || "2025");
   const [activeStepIndex, setActiveStepIndex] = useState(0);
   const scrollRef = useRef(null);
   const lastInteraction = useRef(Date.now());
+
+  const horizontalScrollRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: horizontalScrollRef,
+    offset: ["start start", "end end"]
+  });
+  
+  const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
+  
+  const horizontalX = useTransform(smoothProgress, [0, 1], ["0%", "-50%"]);
 
   const allSteps = useMemo(() => {
     return journey.flatMap((row) =>
@@ -96,7 +110,12 @@ const About = () => {
           behavior: "smooth"
         });
         setActiveStepIndex(index);
-        setActiveYear(index < 4 ? "2025" : "2026");
+        
+        const yearIndex = Math.floor(index / 4);
+        if (journey[yearIndex]) {
+          setActiveYear(journey[yearIndex].year);
+        }
+        
         lastInteraction.current = Date.now();
       }
     }
@@ -118,7 +137,8 @@ const About = () => {
       }
     });
 
-    const year = activeIndex < 4 ? "2025" : "2026";
+    const yearIndex = Math.floor(activeIndex / 4);
+    const year = journey[yearIndex]?.year || journey[0].year;
     
     setActiveStepIndex((prevIndex) => {
       if (prevIndex !== activeIndex) {
@@ -144,17 +164,18 @@ const About = () => {
         return;
       }
 
-      if (activeYear === "2025") {
-        const nextIndex = activeStepIndex >= 3 || activeStepIndex < 0 ? 0 : activeStepIndex + 1;
-        scrollToIndex(nextIndex);
-      } else {
-        const nextIndex = activeStepIndex >= 7 || activeStepIndex < 4 ? 4 : activeStepIndex + 1;
-        scrollToIndex(nextIndex);
-      }
+      const currentYearIndex = journey.findIndex((r) => r.year === activeYear);
+      if (currentYearIndex === -1) return;
+      
+      const startIdx = currentYearIndex * 4;
+      const endIdx = startIdx + 3;
+      
+      const nextIndex = activeStepIndex >= endIdx || activeStepIndex < startIdx ? startIdx : activeStepIndex + 1;
+      scrollToIndex(nextIndex);
     }, 1000);
 
     return () => clearInterval(interval);
-  }, [activeYear, activeStepIndex]);
+  }, [activeYear, activeStepIndex, journey]);
 
   return (
     <>
@@ -170,7 +191,7 @@ const About = () => {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-16 md:mb-24 px-4 sm:px-0"
+          className="text-center mb-6 md:mb-10 px-4 sm:px-0"
         >
           <h1 className="text-4xl md:text-6xl font-black text-[#f0c417] uppercase tracking-wider">
             Our Journey
@@ -181,15 +202,39 @@ const About = () => {
 
         </motion.div>
 
+        {/* Year Toggle Tabs */}
+        <div className="flex justify-center gap-3 md:gap-6 mb-12 flex-wrap px-4 max-w-4xl mx-auto">
+          {journey.map((row, index) => (
+            <button
+              key={row.year}
+              onClick={() => {
+                setActiveYear(row.year);
+                const startIndex = index * 4;
+                setActiveStepIndex(startIndex);
+                scrollToIndex(startIndex);
+                lastInteraction.current = Date.now();
+              }}
+              className={`px-6 py-2 md:px-8 md:py-3 rounded-full font-bold text-base md:text-lg transition-all duration-300 cursor-pointer ${
+                activeYear === row.year
+                  ? "bg-[#f0c417] text-black shadow-[0_0_15px_rgba(240,196,23,0.4)]"
+                  : "bg-[#111115] text-white border border-[#f0c417]/30 hover:border-[#f0c417] hover:bg-[#1a3a4a]"
+              }`}
+            >
+              {row.year}
+            </button>
+          ))}
+        </div>
+
         {/* Timeline Rows Container (Desktop View) */}
-        <div className="hidden lg:block max-w-7xl mx-auto space-y-20 lg:space-y-32">
-          {journey.map((row, rowIndex) => (
+        <div className="hidden lg:block max-w-7xl mx-auto">
+          {journey
+            .filter((row) => row.year === activeYear)
+            .map((row) => (
             <motion.div
               key={row.year}
               initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.1 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
               className="rounded-[2rem] p-6 md:p-8"
               style={{
                 border: "1.5px solid #f0c417",
@@ -268,46 +313,6 @@ const About = () => {
 
         {/* Timeline Carousel (Mobile/Tablet View) */}
         <div className="lg:hidden mx-auto relative">
-          {/* Year selector badge */}
-          <div className="flex items-center justify-center gap-6 mb-8">
-            {activeYear === "2026" ? (
-              <button
-                onClick={() => scrollToIndex(0)}
-                className="text-white hover:text-[#f0c417] transition-colors duration-200 cursor-pointer"
-                aria-label="Go to 2025"
-              >
-                <FiChevronLeft size={28} />
-              </button>
-            ) : (
-              <div className="w-7 h-7" />
-            )}
-
-            <motion.div
-              key={activeYear}
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 0.3 }}
-              className="px-8 py-2 rounded-full border border-[#f0c417] text-white font-extrabold text-xl italic tracking-wider shadow-[0_0_15px_rgba(240,196,23,0.2)]"
-              style={{
-                background: "linear-gradient(135deg, #1a3a4a 0%, #0d2233 100%)",
-              }}
-            >
-              {activeYear}
-            </motion.div>
-
-            {activeYear === "2025" ? (
-              <button
-                onClick={() => scrollToIndex(4)}
-                className="text-white hover:text-[#f0c417] transition-colors duration-200 cursor-pointer"
-                aria-label="Go to 2026"
-              >
-                <FiChevronRight size={28} />
-              </button>
-            ) : (
-              <div className="w-7 h-7" />
-            )}
-          </div>
-
           {/* Slider with flanking arrows */}
           <div className="flex items-center gap-1 px-1">
 
@@ -369,14 +374,14 @@ const About = () => {
 
             {/* Right arrow - outside image */}
             <button
-              onClick={() => activeStepIndex < 7 && scrollToIndex(activeStepIndex + 1)}
+              onClick={() => activeStepIndex < allSteps.length - 1 && scrollToIndex(activeStepIndex + 1)}
               className={`flex-shrink-0 w-10 h-10 rounded-full border flex items-center justify-center transition-all duration-200 cursor-pointer shadow-md ${
-                activeStepIndex < 7
+                activeStepIndex < allSteps.length - 1
                   ? "bg-black/70 border-[#f0c417]/60 text-[#f0c417] hover:bg-[#f0c417]/20"
                   : "bg-black/20 border-zinc-700/40 text-zinc-600 cursor-default"
               }`}
               aria-label="Next step"
-              disabled={activeStepIndex === 7}
+              disabled={activeStepIndex === allSteps.length - 1}
             >
               <FiChevronRight size={20} />
             </button>
@@ -386,101 +391,142 @@ const About = () => {
 
       </div>
 
-      {/* ── VISION & MISSION SECTION ── */}
-      <div style={chevronPatternBg} className="pt-0 pb-20 md:py-32 px-4 sm:px-8 md:px-16 lg:px-24">
-        {/* Section Heading */}
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-16 md:mb-24"
-        >
-          <h2 className="text-3xl md:text-5xl font-black text-white tracking-tight">
-            Vision <span className="text-[#f0c417]">&amp;</span> Mission
-          </h2>
-
-        </motion.div>
-
-        <div className="max-w-6xl mx-auto space-y-20 md:space-y-28">
-
-          {/* ── OUR VISION ROW: Image LEFT | Text RIGHT ── */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
+      {/* ── WHY SPARKTECH EXIST SECTION ── */}
+      <section className="relative w-full py-24 px-6 lg:px-12 bg-[#0a0a0c] border-y border-white/5 overflow-hidden">
+        {/* Abstract Glowing Shapes */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#f0c417]/5 blur-[150px] rounded-full pointer-events-none" />
+        
+        <div className="relative z-10 max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12 lg:gap-20">
+          
+          <motion.div 
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="flex flex-col md:flex-row items-center gap-10 md:gap-16"
+            transition={{ duration: 0.7 }}
+            className="w-full md:w-1/2 flex flex-col items-start text-left"
           >
-            {/* Vision Image */}
-            <div className="w-full md:w-1/2 flex-shrink-0">
-              <img
-                src="/VISION (1).webp"
-                alt="Our Vision"
-                className="w-full h-[280px] md:h-[360px] object-cover rounded-[2rem] transition-transform duration-700 hover:scale-105"
-              />
+            <div className="mb-4 inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#f0c417]/30 bg-[#f0c417]/10">
+              <span className="w-2 h-2 rounded-full bg-[#f0c417] animate-pulse" />
+              <span className="text-[#f0c417] text-xs font-bold tracking-widest uppercase">Our Purpose</span>
             </div>
-            {/* Vision Text */}
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.15 }}
-              className="w-full md:w-1/2 text-center md:text-left"
-            >
-              <h3 className="text-4xl md:text-5xl font-black text-white mb-6 leading-tight">
-                Our <span className="text-[#f0c417]">Vision</span>
-              </h3>
-
-              <p className="text-slate-300 text-base md:text-lg leading-relaxed mb-4 italic">
-                To reshape digital into a space where data meets depth — and brands grow through clarity, not chaos.
-              </p>
-              <p className="text-slate-300 text-base md:text-lg leading-relaxed italic">
-                At Spark Tech, our vision is to fuse creativity with clarity, building bold ideas on a bedrock of insight and intention.
-              </p>
-            </motion.div>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-none mb-6">
+              WHY <br/>
+              <span className="text-[#f0c417] italic">SPARKTECH</span> <br/>
+              EXISTS
+            </h2>
           </motion.div>
 
-          {/* ── OUR MISSION ROW: Text LEFT | Image RIGHT ── */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
+          <motion.div 
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="flex flex-col md:flex-row-reverse items-center gap-10 md:gap-16"
+            transition={{ duration: 0.7, delay: 0.2 }}
+            className="w-full md:w-1/2"
           >
-            {/* Mission Image */}
-            <div className="w-full md:w-1/2 flex-shrink-0">
-              <img
-                src="/mission img.webp"
-                alt="Our Mission"
-                className="w-full h-[280px] md:h-[360px] object-cover rounded-[2rem] transition-transform duration-700 hover:scale-105"
-                style={{ objectPosition: "center 20%" }}
-              />
+            <div className="p-8 md:p-10 rounded-[2rem] bg-[#111115]/60 backdrop-blur-md border border-white/10 shadow-[0_10px_40px_rgba(0,0,0,0.5)] relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-[#f0c417]/10 rounded-bl-full blur-2xl" />
+              <p className="text-white/90 text-lg leading-relaxed mb-6 font-medium italic relative z-10 border-l-2 border-[#f0c417] pl-4">
+                "We realized that too many businesses were forced to choose between stunning creative design and rigorous technical functionality. SparkTech was born to bridge that gap."
+              </p>
+              <p className="text-white/70 text-base leading-relaxed relative z-10">
+                We exist to empower brands with digital solutions that don't just look incredible, but actually solve complex business problems. Our core belief is that every brand has a unique spark—our job is to fan it into a flame that dominates the digital landscape.
+              </p>
             </div>
-            {/* Mission Text */}
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.15 }}
-              className="w-full md:w-1/2 text-center md:text-left"
-            >
-              <h3 className="text-4xl md:text-5xl font-black text-white mb-6 leading-tight">
-                Our <span className="text-[#f0c417]">Mission</span>
-              </h3>
-
-              <p className="text-slate-300 text-base md:text-lg leading-relaxed mb-4">
-                We dig deep before we move fast. Every strategy we craft is backed by research, sharpened by data, and brought to life through storytelling that connects.
-              </p>
-              <p className="text-slate-300 text-base md:text-lg leading-relaxed">
-                Helping brands grow with purpose is what drives Spark Tech — a digital marketing agency in Chennai that believes in data-backed decisions and content with conviction.
-              </p>
-            </motion.div>
           </motion.div>
-
+          
         </div>
-      </div>
+      </section>
+
+      {/* ── VISION & MISSION SECTION (Horizontal Scroll) ── */}
+      <section ref={horizontalScrollRef} style={chevronPatternBg} className="relative h-[200vh]">
+        <div className="sticky top-0 flex h-screen items-center overflow-hidden">
+          
+          {/* Static Heading */}
+          <div className="absolute top-12 sm:top-16 md:top-32 left-0 w-full text-center z-20 px-4">
+            <motion.h2 
+              initial={{ opacity: 0, y: -20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              className="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight"
+            >
+              Vision <span className="text-[#f0c417]">&amp;</span> Mission
+            </motion.h2>
+          </div>
+
+          {/* Scrolling Container */}
+          <motion.div style={{ x: horizontalX }} className="flex w-[200vw] items-center h-full pt-24 sm:pt-28 md:pt-16">
+            
+            {/* ── OUR VISION CARD ── */}
+            <div className="w-[100vw] flex-shrink-0 px-5 sm:px-8 md:px-16 lg:px-24 flex items-center justify-center">
+              <div className="max-w-6xl w-full flex flex-col md:flex-row items-center gap-5 sm:gap-8 md:gap-16">
+                {/* Vision Image */}
+                <div className="w-full md:w-1/2 flex-shrink-0">
+                  <motion.img
+                    initial={{ opacity: 0, scale: 0.8, filter: "blur(10px)" }}
+                    whileInView={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+                    transition={{ duration: 0.8, ease: "easeOut" }}
+                    src="/VISION (1).webp"
+                    alt="Our Vision"
+                    className="w-full h-[200px] sm:h-[260px] md:h-[400px] object-cover rounded-[1.25rem] md:rounded-[2rem]"
+                  />
+                </div>
+                {/* Vision Text */}
+                <motion.div
+                  initial={{ opacity: 0, x: 50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+                  className="w-full md:w-1/2 text-center md:text-left"
+                >
+                  <h3 className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-3 sm:mb-4 md:mb-6 leading-tight">
+                    Our <span className="text-[#f0c417]">Vision</span>
+                  </h3>
+                  <p className="text-slate-300 text-sm sm:text-base md:text-lg leading-relaxed mb-3 md:mb-4 italic">
+                    To reshape digital into a space where data meets depth — and brands grow through clarity, not chaos.
+                  </p>
+                  <p className="text-slate-300 text-sm sm:text-base md:text-lg leading-relaxed italic">
+                    At Spark Tech, our vision is to fuse creativity with clarity, building bold ideas on a bedrock of insight and intention.
+                  </p>
+                </motion.div>
+              </div>
+            </div>
+
+            {/* ── OUR MISSION CARD ── */}
+            <div className="w-[100vw] flex-shrink-0 px-5 sm:px-8 md:px-16 lg:px-24 flex items-center justify-center">
+              <div className="max-w-6xl w-full flex flex-col md:flex-row-reverse items-center gap-5 sm:gap-8 md:gap-16">
+                {/* Mission Image */}
+                <div className="w-full md:w-1/2 flex-shrink-0">
+                  <motion.img
+                    initial={{ opacity: 0, scale: 0.8, filter: "blur(10px)" }}
+                    whileInView={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+                    transition={{ duration: 0.8, ease: "easeOut" }}
+                    src="/mission img.webp"
+                    alt="Our Mission"
+                    className="w-full h-[200px] sm:h-[260px] md:h-[400px] object-cover rounded-[1.25rem] md:rounded-[2rem]"
+                    style={{ objectPosition: "center 20%" }}
+                  />
+                </div>
+                {/* Mission Text */}
+                <motion.div
+                  initial={{ opacity: 0, x: -50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+                  className="w-full md:w-1/2 text-center md:text-left"
+                >
+                  <h3 className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-3 sm:mb-4 md:mb-6 leading-tight">
+                    Our <span className="text-[#f0c417]">Mission</span>
+                  </h3>
+                  <p className="text-slate-300 text-sm sm:text-base md:text-lg leading-relaxed mb-3 md:mb-4">
+                    We dig deep before we move fast. Every strategy we craft is backed by research, sharpened by data, and brought to life through storytelling that connects.
+                  </p>
+                  <p className="text-slate-300 text-sm sm:text-base md:text-lg leading-relaxed">
+                    Helping brands grow with purpose is what drives Spark Tech — a digital marketing agency in Chennai that believes in data-backed decisions and content with conviction.
+                  </p>
+                </motion.div>
+              </div>
+            </div>
+
+          </motion.div>
+        </div>
+      </section>
 
       <Footer />
     </>

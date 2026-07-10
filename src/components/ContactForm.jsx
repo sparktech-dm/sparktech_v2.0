@@ -43,7 +43,7 @@ export const ContactForm = () => {
   setTimeout(() => setShowToast(false), 3000);
 
   // Fire off the request (no await, no blocking)
-  fetch("https://script.google.com/macros/s/AKfycbxryuSqXMLcdttGGc_tRy-BvT4_7HkbhoSetOPk2OY91PYHyzSZtyCp1Vam4joFuKWC/exec", {
+  fetch("https://script.google.com/macros/s/AKfycbybOdzrGK9kTDdP0zh1vlYP8dZSGbTXOIxOM0o6eRn2zGYPsIqBG53th8FRpbsPjcBpYA/exec", {
     method: "POST",
     mode: "no-cors",
     headers: {

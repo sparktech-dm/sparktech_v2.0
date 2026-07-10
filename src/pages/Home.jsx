@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { scroller } from "react-scroll";
 import { useInView } from "react-intersection-observer";
-import { motion } from "framer-motion";
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { FiUsers, FiSmile, FiTrendingUp, FiTarget, FiZap, FiShield, FiBarChart2, FiHeart, FiPhoneCall } from "react-icons/fi";
 import Faq from "../components/Faq";
 import Footer from "../components/Footer";
@@ -280,6 +280,25 @@ function Home() {
     });
   };
 
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+  const springConfig = { damping: 25, stiffness: 120 };
+  const smoothX = useSpring(mouseX, springConfig);
+  const smoothY = useSpring(mouseY, springConfig);
+
+  const handleMouseMove = (e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
+    
+    // Normalize between -1 and 1
+    const xPos = (e.clientX - centerX) / (rect.width / 2);
+    const yPos = (e.clientY - centerY) / (rect.height / 2);
+    
+    mouseX.set(xPos * 40);
+    mouseY.set(yPos * 40);
+  };
+
   // ─── Clients state ────────────────────────────────────────────────
   const doubleDesktopLogos = [...desktopLogos, ...desktopLogos];
   // Using 4 sets for seamless loop resetting
@@ -373,16 +392,9 @@ function Home() {
       {/* ═══════════════════════════════════════════════════════════════ */}
       {/* HERO SECTION                                                   */}
       {/* ═══════════════════════════════════════════════════════════════ */}
-      <section className="career-bg-pattern relative w-full min-h-[700px] md:h-screen flex items-start md:items-center justify-center overflow-hidden bg-[#0a0a0c] pt-24 pb-12 md:py-0">
-
-        {/* === RAYS: Absolutely pinned to the far-left of the section === */}
-        {/* Desktop rays — z-30 to render above the z-20 layout stacking context */}
-        <img
-          src="/bg rays.webp"
-          alt=""
-          aria-hidden="true"
-          className="hidden md:block absolute left-[-70px] top-[65%] -translate-y-1/2 w-[550px] lg:w-[650px] h-full z-30 pointer-events-none opacity-60 select-none"
-        />
+      <section 
+        className="career-bg-pattern relative w-full min-h-[700px] md:h-screen flex items-start md:items-center justify-center overflow-hidden bg-[#0a0a0c] pt-24 pb-12 md:py-0"
+      >
 
 
         {/* Desktop View Layout */}
@@ -423,15 +435,22 @@ function Home() {
           </div>
 
           {/* RIGHT: Laptop container */}
-          <div className="flex-1 relative flex items-center justify-center w-full max-w-[900px] h-[650px] z-30">
-            {/* Bobbing Laptop */}
-            <div className="relative z-20 animate-hero-bob">
-              <img
-                src="/laptop-removebg-preview.webp"
-                alt="Digital Marketing Laptop"
-                className="w-full max-w-[650px] lg:max-w-[780px] h-auto block drop-shadow-[0_25px_60px_rgba(0,0,0,0.7)]"
-              />
-            </div>
+          <div 
+            className="flex-1 relative flex items-center justify-center w-full max-w-[900px] h-[650px] z-30"
+            onMouseMove={handleMouseMove}
+            onMouseLeave={() => { mouseX.set(0); mouseY.set(0); }}
+          >
+            {/* Parallax Wrapper */}
+            <motion.div style={{ x: smoothX, y: smoothY }} className="relative z-20">
+              {/* Bobbing Laptop */}
+              <div className="animate-hero-bob">
+                <img
+                  src="/laptop-removebg-preview.webp"
+                  alt="Digital Marketing Laptop"
+                  className="w-full max-w-[650px] lg:max-w-[780px] h-auto block drop-shadow-[0_25px_60px_rgba(0,0,0,0.7)]"
+                />
+              </div>
+            </motion.div>
           </div>
         </div>
 
@@ -443,16 +462,22 @@ function Home() {
             Digital Marketing Services That Drive Business Growth
           </h2>
 
-          {/* 2. Second: Laptop container */}
-          <div className="relative z-20 -ml-8 w-full flex items-center justify-center min-h-[300px]">
-            {/* Bobbing Laptop */}
-            <div className="relative z-20 animate-hero-bob">
-              <img
-                src="/laptop-removebg-preview.webp"
-                alt="Digital Marketing Laptop"
-                className="w-[280px] sm:w-[380px] h-auto block relative z-20 drop-shadow-[0_15px_35px_rgba(0,0,0,0.6)]"
-              />
-            </div>
+          <div 
+            className="relative z-20 -ml-8 w-full flex items-center justify-center min-h-[300px]"
+            onMouseMove={handleMouseMove}
+            onMouseLeave={() => { mouseX.set(0); mouseY.set(0); }}
+          >
+            {/* Parallax Wrapper */}
+            <motion.div style={{ x: smoothX, y: smoothY }} className="relative z-20">
+              {/* Bobbing Laptop */}
+              <div className="animate-hero-bob">
+                <img
+                  src="/laptop-removebg-preview.webp"
+                  alt="Digital Marketing Laptop"
+                  className="w-[280px] sm:w-[380px] h-auto block relative z-20 drop-shadow-[0_15px_35px_rgba(0,0,0,0.6)]"
+                />
+              </div>
+            </motion.div>
           </div>
 
           {/* 3. Third: Button */}
@@ -665,10 +690,98 @@ function Home() {
         </div>
 
       </section>
+      <BusinessProblem />
 
     </div>
   );
 }
+
+// =============================================================================
+// BUSINESS PROBLEM COMPONENT
+// =============================================================================
+export function BusinessProblem() {
+  const problems = [
+    {
+      id: 1,
+      title: "Invisible Brand Identity",
+      desc: "Struggling to stand out in a crowded market where competitors look identical.",
+      icon: <FiTarget className="w-8 h-8 text-[#f0c417]" />
+    },
+    {
+      id: 2,
+      title: "Low Digital Footprint",
+      desc: "Missing out on organic online visibility, leading to lost traffic and potential leads.",
+      icon: <FiBarChart2 className="w-8 h-8 text-[#f0c417]" />
+    },
+    {
+      id: 3,
+      title: "Outdated Tech Stacks",
+      desc: "Inefficient and slow workflows that bottleneck scaling and limit business growth.",
+      icon: <FiZap className="w-8 h-8 text-[#f0c417]" />
+    },
+    {
+      id: 4,
+      title: "Poor User Experience",
+      desc: "Customers bouncing from clunky, unoptimized interfaces before converting.",
+      icon: <FiSmile className="w-8 h-8 text-[#f0c417]" />
+    }
+  ];
+
+  return (
+    <section className="relative w-full py-24 px-6 lg:px-12 bg-[#0a0a0c] border-t border-white/5 overflow-hidden">
+      {/* Background Glows */}
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#f0c417]/10 blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#1a3a4a]/30 blur-[120px] rounded-full pointer-events-none" />
+
+      <div className="relative z-10 max-w-7xl mx-auto flex flex-col items-center">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl md:text-6xl font-extrabold text-white tracking-tight leading-none mb-6">
+            THE <span className="text-[#f0c417] italic">BUSINESS PROBLEM</span>
+          </h2>
+          <p className="text-white/60 max-w-2xl mx-auto text-base md:text-lg leading-relaxed">
+            Every great journey has its hurdles. Before finding the right spark, many businesses face these critical roadblocks.
+          </p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 w-full max-w-5xl">
+          {problems.map((prob, idx) => (
+            <motion.article
+              key={prob.id}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: idx * 0.15 }}
+              className="group relative flex flex-col p-8 rounded-3xl bg-[#111115]/80 backdrop-blur-md border border-white/10 hover:border-[#f0c417]/50 transition-all duration-500 overflow-hidden"
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-[#f0c417]/0 to-[#f0c417]/0 group-hover:from-[#f0c417]/5 group-hover:to-transparent transition-all duration-500" />
+              
+              <div className="mb-6 p-4 rounded-2xl bg-black w-max border border-white/5 shadow-[0_0_15px_rgba(240,196,23,0.1)] group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500">
+                {prob.icon}
+              </div>
+              
+              <h3 className="text-xl md:text-2xl font-bold text-white mb-3 tracking-wide">
+                {prob.title}
+              </h3>
+              
+              <p className="text-white/70 leading-relaxed text-sm md:text-base">
+                {prob.desc}
+              </p>
+            </motion.article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+
+
 
 
 
@@ -710,9 +823,26 @@ function ContactForm({ mobile = false }) {
   const handleChange = (e) => setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   const handleSubmit = (e) => {
     e.preventDefault();
+    
+    // Store data to send
+    const dataToSend = { ...formData };
+    
+    // UI feedback immediately
     setSubmitted(true);
     setTimeout(() => setSubmitted(false), 3500);
     setFormData({ name: "", email: "", phone: "", message: "" });
+
+    // Send to Google Sheets
+    fetch("https://script.google.com/macros/s/AKfycbybOdzrGK9kTDdP0zh1vlYP8dZSGbTXOIxOM0o6eRn2zGYPsIqBG53th8FRpbsPjcBpYA/exec", {
+      method: "POST",
+      mode: "no-cors",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(dataToSend),
+    }).catch((error) => {
+      console.error("Error submitting form:", error);
+    });
   };
 
   const inputBase = {
@@ -830,18 +960,7 @@ export function LetsTalkSection() {
       className="career-bg-pattern relative overflow-hidden bg-[#0a0a0c]"
       style={{ minHeight: "680px" }}
     >
-      {/* ── bg_rays.webp — covers full left half of section ── */}
-      <div
-        style={{
-          position: "absolute", inset: 0, zIndex: 0, pointerEvents: "none",
-          backgroundImage: "url('/bg rays.webp')",
-          backgroundSize: "50% 100%",
-          backgroundPosition: "left top",
-          backgroundRepeat: "no-repeat",
-          opacity: 0.65,
-          mixBlendMode: "screen",
-        }}
-      />
+
       {/* ── dark overlay ── */}
       <div style={{ position: "absolute", inset: 0, background: "transparent", zIndex: 1, pointerEvents: "none" }} />
 
@@ -1000,7 +1119,6 @@ export function WhyChooseUs() {
   return (
     <section
       style={chevronPatternBg}
-      className="py-16 md:py-24 lg:py-32 px-4 sm:px-6 relative overflow-hidden"
       className="career-bg-pattern py-16 md:py-24 lg:py-32 px-4 sm:px-6 relative overflow-hidden bg-[#0a0a0c]"
     >
       <div className="relative max-w-5xl mx-auto z-10">

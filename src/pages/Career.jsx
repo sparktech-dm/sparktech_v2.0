@@ -155,9 +155,52 @@ export default function Career() {
     setFormData(prev => ({ ...prev, resume: e.target.files[0] }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitted(true);
+    
+    let base64File = "";
+    let mimeType = "";
+    let filename = "";
+    
+    if (formData.resume) {
+      filename = formData.resume.name;
+      mimeType = formData.resume.type;
+      
+      const toBase64 = (file) => new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => resolve(reader.result.split(',')[1]);
+        reader.onerror = (error) => reject(error);
+      });
+      
+      try {
+        base64File = await toBase64(formData.resume);
+      } catch (err) {
+        console.error("Error reading file:", err);
+      }
+    }
+    
+    const dataToSend = {
+      ...formData,
+      resumeData: base64File,
+      resumeMimeType: mimeType,
+      resumeName: filename
+    };
+    delete dataToSend.resume; // Remove the File object itself
+
+    // Send to Google Sheets
+    fetch("https://script.google.com/macros/s/AKfycbw0PDjjHFBOFSC0AdRQEvt7YPl_EPxLap6nU95LmMABuuoq7dRuGLxvqG-srmR6oiM/exec", {
+      method: "POST",
+      mode: "no-cors",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(dataToSend),
+    }).catch((error) => {
+      console.error("Error submitting form:", error);
+    });
+
     setTimeout(() => {
       setIsSubmitted(false);
       setFormData({

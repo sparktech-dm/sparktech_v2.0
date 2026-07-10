@@ -12,7 +12,7 @@ import NET from "vanta/dist/vanta.net.min";
 window.THREE = THREE; // Required for Vanta effects
 import ScrollToTop from "./components/ScrollToTop";
 import ContactForm1 from "./components/ContactForm1";
-import GlassCursor from "./components/GlassCursor";
+
 import Career from "./pages/Career";
 import { Faq } from "./components/Faq";
 import Footer from "./components/Footer";
@@ -77,8 +77,8 @@ const App = () => {
         className="fixed inset-0 w-screen h-screen -z-10 overflow-hidden"
       /> */}
 
-      <div className="relative z-10 text-white overflow-x-hidden min-h-screen bg-cover bg-center bg-fixed bg-black">
-        <GlassCursor />
+      <div className="relative z-10 text-white overflow-x-clip min-h-screen bg-cover bg-center bg-fixed bg-black">
+
         <Navbar />
         <ChatBot />
         <Top />
