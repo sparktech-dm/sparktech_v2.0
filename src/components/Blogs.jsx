@@ -173,6 +173,11 @@ const caseStudyData = [
 
 /* ─────────────────────────────────────────
    Mobile single-card carousel component
+   Left arrow  → previous card
+   Right arrow → next card
+   Swipe left  → next card
+   Swipe right → previous card
+   Read More button → expand card only
 ───────────────────────────────────────── */
 const MobileCarousel = ({ data, cardType }) => {
   const [index, setIndex] = useState(0);
@@ -183,19 +188,30 @@ const MobileCarousel = ({ data, cardType }) => {
   const total = data.length;
 
   const goNext = () => {
-    if (index < total - 1) { setExpandedId(null); setIndex((i) => i + 1); }
+    if (index < total - 1) {
+      setExpandedId(null);
+      setIndex((i) => i + 1);
+    }
   };
   const goPrev = () => {
-    if (index > 0) { setExpandedId(null); setIndex((i) => i - 1); }
+    if (index > 0) {
+      setExpandedId(null);
+      setIndex((i) => i - 1);
+    }
   };
 
   const onTouchStart = (e) => { touchStartX.current = e.touches[0].clientX; };
-  const onTouchMove  = (e) => { touchEndX.current = e.touches[0].clientX; };
-  const onTouchEnd   = () => {
+  const onTouchMove = (e) => { touchEndX.current = e.touches[0].clientX; };
+
+  // ✅ CHANGED: removed tap-to-toggle and e.preventDefault()
+  // Now only handles swipe navigation — expand is Read More button only
+  const onTouchEnd = () => {
     if (touchStartX.current === null) return;
     const endX = touchEndX.current ?? touchStartX.current;
     const diff = touchStartX.current - endX;
-    if (Math.abs(diff) >= MIN_SWIPE) { diff > 0 ? goNext() : goPrev(); }
+    if (Math.abs(diff) >= MIN_SWIPE) {
+      diff > 0 ? goNext() : goPrev();
+    }
     touchStartX.current = null;
     touchEndX.current = null;
   };
@@ -206,15 +222,26 @@ const MobileCarousel = ({ data, cardType }) => {
 
   return (
     <div className="flex items-center gap-3 w-full">
+      {/* LEFT arrow → previous card */}
       <div className="flex-shrink-0 w-10">
         {index > 0 && (
-          <button onClick={goPrev} className="flex items-center justify-center w-10 h-10 rounded-xl border-2 border-[#f0c417] text-[#f0c417] bg-[#111111] hover:bg-[#f0c417]/10 active:bg-[#f0c417]/20 transition-all duration-200 shadow-[0_4px_12px_rgba(240,196,23,0.15)]" aria-label="Previous card">
+          <button
+            onClick={goPrev}
+            className="flex items-center justify-center w-10 h-10 rounded-xl border-2 border-[#cc7722] text-[#cc7722] bg-[#111111] hover:bg-[#cc7722]/10 active:bg-[#cc7722]/20 transition-all duration-200 shadow-[0_4px_12px_rgba(240,196,23,0.15)]"
+            aria-label="Previous card"
+          >
             <ChevronLeft size={20} />
           </button>
         )}
       </div>
 
-      <div className="flex-1 min-w-0" onTouchStart={onTouchStart} onTouchMove={onTouchMove} onTouchEnd={onTouchEnd}>
+      {/* Single card — ✅ CHANGED: removed onClick from wrapper div */}
+      <div
+        className="flex-1 min-w-0"
+        onTouchStart={onTouchStart}
+        onTouchMove={onTouchMove}
+        onTouchEnd={onTouchEnd}
+      >
         <AnimatePresence mode="wait">
           <motion.div
             key={item.id}
@@ -225,45 +252,79 @@ const MobileCarousel = ({ data, cardType }) => {
             className="bg-white/[0.03] border border-white/[0.02] border-l-4 border-l-[#f0c417] rounded-lg p-5 flex flex-col justify-between shadow-[0_4px_20px_rgba(0,0,0,0.15)] select-none"
           >
             <div className="flex flex-col gap-3">
-              <h3 className="text-lg font-bold leading-snug text-[#f0c417] font-[Inter]">{item.title}</h3>
+              <h3 className="text-lg font-bold leading-snug text-[#cc7722] font-[Inter]">
+                {item.title}
+              </h3>
               <div className={`relative overflow-hidden rounded-lg h-44 w-full ${isBlog ? "bg-[#1a1a2e]" : "bg-[#1a2a4a]"} flex items-center justify-center`}>
-                <img src={item.image} alt={item.title} className="w-full h-full object-cover"
-                  onError={(e) => { e.target.style.display = "none"; e.target.parentElement.innerHTML = `<span class="text-gray-400 font-medium text-sm">${item.fallbackText}</span>`; }} />
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="w-full h-full object-cover"
+                  onError={(e) => {
+                    e.target.style.display = "none";
+                    e.target.parentElement.innerHTML = `<span class="text-white/80 font-medium text-sm">${item.fallbackText}</span>`;
+                  }}
+                />
               </div>
-              {!isBlog && item.subtitle && <p className="text-sm font-semibold text-white leading-normal">{item.subtitle}</p>}
-              <p className="text-gray-300 text-sm italic leading-relaxed">{item.excerpt}</p>
+              {!isBlog && item.subtitle && (
+                <p className="text-sm font-semibold text-white leading-normal">{item.subtitle}</p>
+              )}
+              <p className="text-white/90 text-sm leading-relaxed">{item.excerpt}</p>
               <AnimatePresence initial={false}>
                 {isOpen && (
-                  <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.35, ease: "easeInOut" }} className="overflow-hidden">
-                    <div className="pt-3 mt-3 border-t border-[#f0c417]/20 flex flex-col gap-3 text-sm text-gray-300 leading-relaxed">
-                      {item.content.map((paragraph, idx) => <p key={idx}>{paragraph}</p>)}
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.35, ease: "easeInOut" }}
+                    className="overflow-hidden"
+                  >
+                    <div className="pt-3 mt-3 border-t border-[#cc7722]/20 flex flex-col gap-3 text-sm text-gray-300 leading-relaxed">
+                      {item.content.map((paragraph, idx) => (<p key={idx}>{paragraph}</p>))}
                     </div>
                     <div className="flex flex-wrap gap-2 mt-3 pt-2">
-                      {item.tags.map((tag) => <span key={tag} className="bg-[#f0c417]/10 border border-[#f0c417]/35 text-[#f0c417] rounded-full px-3 py-1 text-xs font-semibold tracking-wide">{tag}</span>)}
+                      {item.tags.map((tag) => (
+                        <span key={tag} className="bg-[#cc7722]/10 border border-[#cc7722]/35 text-[#cc7722] rounded-full px-3 py-1 text-xs font-semibold tracking-wide">{tag}</span>
+                      ))}
                     </div>
                   </motion.div>
                 )}
               </AnimatePresence>
             </div>
+
+            {/* ✅ CHANGED: added e.stopPropagation() so button works cleanly */}
             <button
-              onClick={(e) => { e.stopPropagation(); setExpandedId((prev) => (prev === item.id ? null : item.id)); }}
-              className="mt-4 flex items-center gap-2 text-sm text-white font-medium italic transition-colors duration-200 hover:text-[#f0c417] active:text-[#f0c417] self-start"
+              onClick={(e) => {
+                e.stopPropagation();
+                setExpandedId((prev) => (prev === item.id ? null : item.id));
+              }}
+              className="mt-4 flex items-center gap-2 text-sm text-white font-medium italic transition-colors duration-200 hover:text-[#cc7722] active:text-[#cc7722] self-start"
             >
               <span>{isOpen ? "Read Less" : "Read More"}</span>
               <ChevronDown size={16} className={`transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`} />
             </button>
+
+            {/* Dot indicator */}
             <div className="flex justify-center gap-1.5 mt-4">
               {data.map((_, i) => (
-                <span key={i} className={`inline-block rounded-full transition-all duration-300 ${i === index ? "w-5 h-1.5 bg-[#f0c417]" : "w-1.5 h-1.5 bg-white/25"}`} />
+                <span
+                  key={i}
+                  className={`inline-block rounded-full transition-all duration-300 ${i === index ? "w-5 h-1.5 bg-[#cc7722]" : "w-1.5 h-1.5 bg-white/25"}`}
+                />
               ))}
             </div>
           </motion.div>
         </AnimatePresence>
       </div>
 
+      {/* RIGHT arrow → next card */}
       <div className="flex-shrink-0 w-10">
         {index < total - 1 && (
-          <button onClick={goNext} className="flex items-center justify-center w-10 h-10 rounded-xl border-2 border-[#f0c417] text-[#f0c417] bg-[#111111] hover:bg-[#f0c417]/10 active:bg-[#f0c417]/20 transition-all duration-200 shadow-[0_4px_12px_rgba(240,196,23,0.15)]" aria-label="Next card">
+          <button
+            onClick={goNext}
+            className="flex items-center justify-center w-10 h-10 rounded-xl border-2 border-[#cc7722] text-[#cc7722] bg-[#111111] hover:bg-[#cc7722]/10 active:bg-[#cc7722]/20 transition-all duration-200 shadow-[0_4px_12px_rgba(240,196,23,0.15)]"
+            aria-label="Next card"
+          >
             <ChevronRight size={20} />
           </button>
         )}
@@ -291,60 +352,81 @@ const Blogs = () => {
   const currentBlogs = blogData.slice(blogStartIndex, blogStartIndex + 3);
   const currentCases = caseStudyData.slice(caseStartIndex, caseStartIndex + 3);
 
-  const cardBase = "bg-white/[0.03] border border-white/[0.02] border-l-4 border-l-[#f0c417] rounded-lg p-5 md:p-6 flex flex-col justify-between transition-all duration-300 shadow-[0_4px_20px_rgba(0,0,0,0.15)] hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(240,196,23,0.15)]";
-  const arrowBtn = "flex items-center justify-center w-11 h-11 rounded-xl border-2 border-[#f0c417] text-[#f0c417] bg-[#111111] hover:bg-[#f0c417]/10 active:bg-[#f0c417]/20 transition-all duration-200 shadow-[0_4px_12px_rgba(240,196,23,0.15)]";
+  const cardBase = "bg-[#1f3a58] rounded-xl p-5 md:p-6 flex flex-col justify-between transition-all duration-300 shadow-md hover:-translate-y-1 active:scale-[0.99]";
+  const arrowBtn = "flex items-center justify-center w-11 h-11 rounded-xl border-2 border-[#cc7722] text-[#cc7722] bg-[#111111] hover:bg-[#cc7722]/10 active:bg-[#cc7722]/20 transition-all duration-200 shadow-[0_4px_12px_rgba(240,196,23,0.15)]";
 
   return (
-    <div className="career-bg-pattern min-h-screen text-white font-[Inter] relative overflow-hidden">
-      <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-[#f0c417]/5 rounded-full blur-[120px] -z-10 pointer-events-none" />
+    <div className="min-h-screen bg-white text-black font-[Inter] relative overflow-hidden">
+      {/* Ambient glow blobs */}
+      <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-[#cc7722]/5 rounded-full blur-[120px] -z-10 pointer-events-none" />
       <div className="absolute bottom-1/3 right-1/4 w-[600px] h-[600px] bg-indigo-500/5 rounded-full blur-[150px] -z-10 pointer-events-none" />
 
       {/* ── BLOGS SECTION ── */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 pt-20 sm:pt-24 md:pt-28 pb-10 md:pb-20">
-        <h2 className="text-3xl sm:text-4xl md:text-6xl font-black text-center text-[#f0c417] mb-10 md:mb-16 tracking-tight" style={{ fontFamily: "Unbounded" }}>
+      <section className="max-w-7xl lg:max-w-full mx-auto px-4 sm:px-6 lg:px-16 pt-20 sm:pt-24 md:pt-28 pb-10 md:pb-20">
+        <h2
+          className="text-3xl sm:text-4xl md:text-6xl font-black text-center text-[#cc7722] mb-10 md:mb-16 tracking-tight"
+          style={{ fontFamily: "Unbounded" }}
+        >
           BLOGS
         </h2>
 
+        {/* ── MOBILE carousel (hidden on md+) ── */}
         <div className="block md:hidden">
           <MobileCarousel data={blogData} cardType="blog" />
         </div>
 
+        {/* ── DESKTOP 3-col grid with flanking arrows (hidden on mobile) ── */}
         <div className="hidden md:flex items-center gap-4">
           <div className="flex-shrink-0 w-11">
             {blogStartIndex > 0 && (
-              <button onClick={prevBlogs} className={arrowBtn} aria-label="Previous Blogs"><ChevronLeft size={20} /></button>
+              <button onClick={prevBlogs} className={arrowBtn} aria-label="Previous Blogs">
+                <ChevronLeft size={20} />
+              </button>
             )}
           </div>
           <div className="flex-1 grid grid-cols-3 gap-8 items-start">
             {currentBlogs.map((blog) => {
               const isOpen = !!expandedBlogs[blog.id];
               return (
-                /* ✅ removed onClick and cursor-pointer from wrapper */
-                <div key={blog.id} className={cardBase}>
+                <div key={blog.id} className={cardBase + " cursor-pointer"} onClick={() => toggleBlog(blog.id)}>
                   <div className="flex flex-col gap-3">
-                    <h3 className="text-xl font-bold leading-snug text-[#f0c417] font-[Inter]">{blog.title}</h3>
+                    <h3 className="text-xl font-bold leading-snug text-[#cc7722] font-[Inter]">{blog.title}</h3>
                     <div className="relative overflow-hidden rounded-lg h-48 w-full bg-[#1a1a2e] flex items-center justify-center">
-                      <img src={blog.image} alt={blog.title} className="w-full h-full object-cover"
-                        onError={(e) => { e.target.style.display = "none"; e.target.parentElement.innerHTML = `<span class="text-gray-400 font-medium text-sm">${blog.fallbackText}</span>`; }} />
+                      <img
+                        src={blog.image}
+                        alt={blog.title}
+                        className="w-full h-full object-cover"
+                        onError={(e) => {
+                          e.target.style.display = "none";
+                          e.target.parentElement.innerHTML = `<span class="text-white/80 font-medium text-sm">${blog.fallbackText}</span>`;
+                        }}
+                      />
                     </div>
-                    <p className="text-gray-300 text-sm italic leading-relaxed">{blog.excerpt}</p>
+                    <p className="text-white/90 text-sm leading-relaxed">{blog.excerpt}</p>
                     <AnimatePresence initial={false}>
                       {isOpen && (
-                        <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.35, ease: "easeInOut" }} className="overflow-hidden">
-                          <div className="pt-3 mt-3 border-t border-[#f0c417]/20 flex flex-col gap-3 text-sm text-gray-300 leading-relaxed">
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.35, ease: "easeInOut" }}
+                          className="overflow-hidden"
+                        >
+                          <div className="pt-3 mt-3 border-t border-[#cc7722]/20 flex flex-col gap-3 text-sm text-gray-300 leading-relaxed">
                             {blog.content.map((p, idx) => <p key={idx}>{p}</p>)}
                           </div>
                           <div className="flex flex-wrap gap-2 mt-3 pt-2">
-                            {blog.tags.map((tag) => <span key={tag} className="bg-[#f0c417]/10 border border-[#f0c417]/35 text-[#f0c417] rounded-full px-3 py-1 text-xs font-semibold tracking-wide">{tag}</span>)}
+                            {blog.tags.map((tag) => (
+                              <span key={tag} className="bg-[#cc7722]/10 border border-[#cc7722]/35 text-[#cc7722] rounded-full px-3 py-1 text-xs font-semibold tracking-wide">{tag}</span>
+                            ))}
                           </div>
                         </motion.div>
                       )}
                     </AnimatePresence>
                   </div>
-                  {/* ✅ added e.stopPropagation() */}
                   <button
-                    onClick={(e) => { e.stopPropagation(); toggleBlog(blog.id); }}
-                    className="mt-4 flex items-center gap-2 text-sm text-white font-medium italic transition-colors duration-200 hover:text-[#f0c417] active:text-[#f0c417] self-start cursor-pointer"
+                    onClick={() => toggleBlog(blog.id)}
+                    className="mt-4 flex items-center gap-2 text-sm text-white font-medium italic transition-colors duration-200 hover:text-[#cc7722] active:text-[#cc7722] self-start"
                   >
                     <span>{isOpen ? "Read Less" : "Read More"}</span>
                     <ChevronDown size={16} className={`transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`} />
@@ -355,59 +437,81 @@ const Blogs = () => {
           </div>
           <div className="flex-shrink-0 w-11">
             {blogStartIndex + 3 < blogData.length && (
-              <button onClick={nextBlogs} className={arrowBtn} aria-label="Next Blogs"><ChevronRight size={20} /></button>
+              <button onClick={nextBlogs} className={arrowBtn} aria-label="Next Blogs">
+                <ChevronRight size={20} />
+              </button>
             )}
           </div>
         </div>
       </section>
 
       {/* ── CASE STUDIES SECTION ── */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 py-10 md:py-16">
-        <h2 className="text-3xl sm:text-4xl md:text-6xl font-black text-center text-[#f0c417] mb-10 md:mb-16 tracking-tight" style={{ fontFamily: "Unbounded" }}>
+      <section className="max-w-7xl lg:max-w-full mx-auto px-4 sm:px-6 lg:px-16 py-10 md:py-16">
+        <h2
+          className="text-3xl sm:text-4xl md:text-6xl font-black text-center text-[#cc7722] mb-10 md:mb-16 tracking-tight"
+          style={{ fontFamily: "Unbounded" }}
+        >
           CASE STUDIES
         </h2>
 
+        {/* ── MOBILE carousel (hidden on md+) ── */}
         <div className="block md:hidden">
           <MobileCarousel data={caseStudyData} cardType="case" />
         </div>
 
+        {/* ── DESKTOP 3-col grid with flanking arrows (hidden on mobile) ── */}
         <div className="hidden md:flex items-center gap-4">
           <div className="flex-shrink-0 w-11">
             {caseStartIndex > 0 && (
-              <button onClick={prevCases} className={arrowBtn} aria-label="Previous Case Studies"><ChevronLeft size={20} /></button>
+              <button onClick={prevCases} className={arrowBtn} aria-label="Previous Case Studies">
+                <ChevronLeft size={20} />
+              </button>
             )}
           </div>
           <div className="flex-1 grid grid-cols-3 gap-8 items-start">
             {currentCases.map((study) => {
               const isOpen = !!expandedCases[study.id];
               return (
-                /* ✅ removed onClick and cursor-pointer from wrapper */
-                <div key={study.id} className={cardBase}>
+                <div key={study.id} className={cardBase + " cursor-pointer"} onClick={() => toggleCase(study.id)}>
                   <div className="flex flex-col gap-3">
-                    <h3 className="text-xl font-bold leading-snug text-[#f0c417] font-[Inter]">{study.title}</h3>
+                    <h3 className="text-xl font-bold leading-snug text-[#cc7722] font-[Inter]">{study.title}</h3>
                     <div className="relative overflow-hidden rounded-lg h-48 w-full bg-[#1a2a4a] flex items-center justify-center">
-                      <img src={study.image} alt={study.title} className="w-full h-full object-cover"
-                        onError={(e) => { e.target.style.display = "none"; e.target.parentElement.innerHTML = `<span class="text-gray-400 font-medium text-sm">${study.fallbackText}</span>`; }} />
+                      <img
+                        src={study.image}
+                        alt={study.title}
+                        className="w-full h-full object-cover"
+                        onError={(e) => {
+                          e.target.style.display = "none";
+                          e.target.parentElement.innerHTML = `<span class="text-white/80 font-medium text-sm">${study.fallbackText}</span>`;
+                        }}
+                      />
                     </div>
                     <p className="text-sm font-semibold text-white leading-normal">{study.subtitle}</p>
-                    <p className="text-gray-300 text-sm italic leading-relaxed">{study.excerpt}</p>
+                    <p className="text-white/90 text-sm leading-relaxed">{study.excerpt}</p>
                     <AnimatePresence initial={false}>
                       {isOpen && (
-                        <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.35, ease: "easeInOut" }} className="overflow-hidden">
-                          <div className="pt-3 mt-3 border-t border-[#f0c417]/20 flex flex-col gap-3 text-sm text-gray-300 leading-relaxed">
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.35, ease: "easeInOut" }}
+                          className="overflow-hidden"
+                        >
+                          <div className="pt-3 mt-3 border-t border-[#cc7722]/20 flex flex-col gap-3 text-sm text-gray-300 leading-relaxed">
                             {study.content.map((p, idx) => <p key={idx}>{p}</p>)}
                           </div>
                           <div className="flex flex-wrap gap-2 mt-3 pt-2">
-                            {study.tags.map((tag) => <span key={tag} className="bg-[#f0c417]/10 border border-[#f0c417]/35 text-[#f0c417] rounded-full px-3 py-1 text-xs font-semibold tracking-wide">{tag}</span>)}
+                            {study.tags.map((tag) => (
+                              <span key={tag} className="bg-[#cc7722]/10 border border-[#cc7722]/35 text-[#cc7722] rounded-full px-3 py-1 text-xs font-semibold tracking-wide">{tag}</span>
+                            ))}
                           </div>
                         </motion.div>
                       )}
                     </AnimatePresence>
                   </div>
-                  {/* ✅ added e.stopPropagation() */}
                   <button
-                    onClick={(e) => { e.stopPropagation(); toggleCase(study.id); }}
-                    className="mt-4 flex items-center gap-2 text-sm text-white font-medium italic transition-colors duration-200 hover:text-[#f0c417] active:text-[#f0c417] self-start cursor-pointer"
+                    onClick={() => toggleCase(study.id)}
+                    className="mt-4 flex items-center gap-2 text-sm text-white font-medium italic transition-colors duration-200 hover:text-[#cc7722] active:text-[#cc7722] self-start"
                   >
                     <span>{isOpen ? "Read Less" : "Read More"}</span>
                     <ChevronDown size={16} className={`transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`} />
@@ -418,12 +522,15 @@ const Blogs = () => {
           </div>
           <div className="flex-shrink-0 w-11">
             {caseStartIndex + 3 < caseStudyData.length && (
-              <button onClick={nextCases} className={arrowBtn} aria-label="Next Case Studies"><ChevronRight size={20} /></button>
+              <button onClick={nextCases} className={arrowBtn} aria-label="Next Case Studies">
+                <ChevronRight size={20} />
+              </button>
             )}
           </div>
         </div>
       </section>
 
+      {/* Footer */}
       <div className="pt-10">
         <Footer />
       </div>

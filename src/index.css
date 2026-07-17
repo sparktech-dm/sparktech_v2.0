@@ -101,3 +101,8 @@ html, body, #root {
 .animate-ping-slow {
   animation: ping-slow 3s infinite;
 }
+
+/* Global Heading Font Override */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Unbounded', sans-serif !important;
+}

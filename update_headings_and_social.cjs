@@ -1,4 +1,54 @@
-import React, { useState, useEffect } from "react";
+const fs = require('fs');
+const path = require('path');
+const dir = path.join(__dirname, 'src', 'pages', 'services-page');
+
+const replacements = {
+  'Content.jsx': {
+    from: />\s*LEAD GENERATION\s*<\/h1>/,
+    to: '>\n            <span className="text-[#cc7722]">LEAD </span>\n            <span className="text-[#1b365d]">GENERATION</span>\n          </h1>'
+  },
+  'Web.jsx': {
+    from: />\s*WEBSITE DEVELOPMENT\s*<\/h1>/,
+    to: '>\n            <span className="text-[#cc7722]">WEBSITE </span>\n            <span className="text-[#1b365d]">DEVELOPMENT</span>\n          </h1>'
+  },
+  'Email.jsx': {
+    from: />\s*EMAIL MARKETING\s*<\/h1>/,
+    to: '>\n            <span className="text-[#cc7722]">EMAIL </span>\n            <span className="text-[#1b365d]">MARKETING</span>\n          </h1>'
+  },
+  'Video.jsx': {
+    from: />\s*VIDEO PRODUCTION\s*<\/h1>/,
+    to: '>\n            <span className="text-[#cc7722]">VIDEO </span>\n            <span className="text-[#1b365d]">PRODUCTION</span>\n          </h1>'
+  },
+  'Graph.jsx': {
+    from: />\s*GRAPHIC DESIGN\s*<\/h1>/,
+    to: '>\n            <span className="text-[#cc7722]">GRAPHIC </span>\n            <span className="text-[#1b365d]">DESIGN</span>\n          </h1>'
+  },
+  'Branding.jsx': {
+    from: />\s*BRANDING & IDENTITY\s*<\/h1>/,
+    to: '>\n            <span className="text-[#cc7722]">BRANDING </span>\n            <span className="text-[#1b365d]">& IDENTITY</span>\n          </h1>'
+  },
+  'PerformanceMarketing.jsx': {
+    from: />\s*PERFORMANCE MARKETING\s*<\/h1>/,
+    to: '>\n            <span className="text-[#cc7722]">PERFORMANCE </span>\n            <span className="text-[#1b365d]">MARKETING</span>\n          </h1>'
+  }
+};
+
+for (const [file, config] of Object.entries(replacements)) {
+  const p = path.join(dir, file);
+  if (fs.existsSync(p)) {
+    let content = fs.readFileSync(p, 'utf8');
+    // We only want to remove text-[#1b365d] from the h1 parent if we are adding it inside,
+    // actually it's fine to leave it since the spans override or just change it.
+    content = content.replace(/className="text-3xl md:text-4xl font-extrabold uppercase tracking-widest text-\[#1b365d\] font-oswald mb-6"/, 'className="text-3xl md:text-4xl font-extrabold uppercase tracking-widest font-oswald mb-6"');
+    
+    content = content.replace(config.from, config.to);
+    fs.writeFileSync(p, content);
+    console.log('Updated heading in ' + file);
+  }
+}
+
+// Now let's completely overwrite Social.jsx to match the new theme structure
+const socialCode = `import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 
@@ -121,3 +171,7 @@ const SocialMediaMarketing = () => {
 };
 
 export default SocialMediaMarketing;
+`;
+
+fs.writeFileSync(path.join(dir, 'Social.jsx'), socialCode);
+console.log('Overwrote Social.jsx to match template');

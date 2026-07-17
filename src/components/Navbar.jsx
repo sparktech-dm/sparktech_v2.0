@@ -56,11 +56,11 @@ const Navbar = () => {
   }, [location, navigate]);
 
   const NAV_ITEMS = [
-    { name: 'home',     path: '/' },
+    { name: 'home', path: '/' },
     { name: 'services', path: '/services' },
-    { name: 'about',    path: '/about' },
-    { name: 'career',   path: '/career' },
-    { name: 'blogs',    path: '/blogs' },
+    { name: 'about', path: '/about' },
+    { name: 'career', path: '/career' },
+    { name: 'blogs', path: '/blogs' },
   ];
 
   const handleScrollTop = () => {
@@ -72,10 +72,10 @@ const Navbar = () => {
   };
 
   return (
-    <div className="w-full fixed top-0 z-50 font-[Inter] bg-[#080808] border-b border-white/5 shadow-md">
+    <div className="w-full fixed top-0 z-50 font-[Inter] bg-[#f2eee0] shadow-sm">
 
       {/* ══════════════ DESKTOP NAVBAR ══════════════ */}
-      <header className="hidden md:flex w-full h-[76px] items-center justify-between px-10 lg:px-20 xl:px-40 2xl:px-60">
+      <header className="hidden md:flex w-full h-[76px] items-center justify-between px-10 lg:px-12 xl:px-20 2xl:px-24">
 
         {/* Left: Logo */}
         <div onClick={handleScrollTop} className="cursor-pointer flex-shrink-0">
@@ -97,11 +97,11 @@ const Navbar = () => {
                     className={`
                       inline-flex items-center justify-center
                       px-5 py-[7px] rounded-full
-                      text-[13px] font-bold tracking-[0.1em] uppercase
+                      text-[14px] font-black tracking-[0.02em] uppercase
                       transition-all duration-300 select-none
                       ${isActive
-                        ? 'bg-white text-black'
-                        : 'bg-transparent text-gray-400 hover:text-white hover:bg-white/10'
+                        ? 'text-[#23425e]'
+                        : 'text-[#395c7a] hover:text-[#23425e]'
                       }
                     `}
                   >
@@ -113,13 +113,13 @@ const Navbar = () => {
           </ul>
         </nav>
 
-        {/* Right: CTA Button — UNTOUCHED */}
+        {/* Right: CTA Button */}
         <div className="relative flex justify-center items-center">
           <button
             onClick={() => navigate('/contact')}
             className="text-white text-[13px] font-extrabold uppercase tracking-[0.06em] px-8 py-3 rounded-full
-                       border-[5px] border-[#f50a0a] bg-black
-                       transition duration-300 hover:bg-[#f50a0a]/20"
+                       border-[5px] border-[#92143c] bg-black
+                       transition duration-300 hover:bg-[#92143c]/20"
           >
             Get More Leads
           </button>
@@ -146,9 +146,8 @@ const Navbar = () => {
       )}
 
       <div
-        className={`md:hidden fixed top-0 right-0 h-auto pb-8 w-[200px] bg-gradient-to-b from-[#517B98]/80 via-[#375367]/80 to-[#1B2832]/80 backdrop-blur-sm shadow-2xl z-50 transform transition-transform duration-300 ease-in-out ${
-          menuOpen ? 'translate-x-0' : 'translate-x-full'
-        }`}
+        className={`md:hidden fixed top-0 right-0 h-auto pb-8 w-[200px] bg-gradient-to-b from-[#517B98]/80 via-[#375367]/80 to-[#1B2832]/80 backdrop-blur-sm shadow-2xl z-50 transform transition-transform duration-300 ease-in-out ${menuOpen ? 'translate-x-0' : 'translate-x-full'
+          }`}
       >
         <div className="flex justify-end p-4">
           <button
@@ -172,9 +171,8 @@ const Navbar = () => {
               >
                 <RouterLink
                   to={item.path}
-                  className={`text-[15px] font-bold tracking-wide transition-all duration-200 ${
-                    active === item.name ? 'text-white' : 'text-gray-200 hover:text-white'
-                  }`}
+                  className={`text-[15px] font-bold tracking-wide transition-all duration-200 ${active === item.name ? 'text-white' : 'text-gray-200 hover:text-white'
+                    }`}
                 >
                   {displayName}
                 </RouterLink>

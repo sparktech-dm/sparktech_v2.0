@@ -17,7 +17,7 @@ import Seo from "./services-page/Seo";
 
 const Services = () => {
   return (
-    <div className="services-mesh-bg min-h-screen flex flex-col justify-between pt-24">
+    <div className="bg-[#ffffff] min-h-screen flex flex-col justify-between pt-24">
       <div className="w-full flex-grow">
         <Routes>
           {/* /services — the overview page showing all service cards */}
@@ -33,9 +33,7 @@ const Services = () => {
           <Route path="seo" element={<Seo />} />
         </Routes>
       </div>
-      <div className="w-full max-w-7xl mx-auto px-6 py-10">
-        <Footer />
-      </div>
+      <Footer />
     </div>
   );
 };

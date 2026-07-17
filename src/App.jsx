@@ -1,7 +1,7 @@
 import React, { useRef, useState, useLayoutEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import Home, { GrowingBrands, WhyChooseUs, LetsTalkSection } from "./pages/Home";
+import Home, { GrowingBrands, LetsTalkSection } from "./pages/Home";
 import Services from "./pages/Services"; // make sure this page has nested <Routes>
 import BlogsPage from "./components/Blogs";
 import About from "./pages/About";
@@ -12,7 +12,6 @@ import NET from "vanta/dist/vanta.net.min";
 window.THREE = THREE; // Required for Vanta effects
 import ScrollToTop from "./components/ScrollToTop";
 import ContactForm1 from "./components/ContactForm1";
-
 import Career from "./pages/Career";
 import { Faq } from "./components/Faq";
 import Footer from "./components/Footer";

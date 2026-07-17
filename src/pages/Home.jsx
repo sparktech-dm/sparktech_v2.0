@@ -33,13 +33,7 @@ const Counter = ({ value, duration = 2 }) => {
 };
 
 const chevronPatternBg = {
-  backgroundColor: "#0a0a0c",
-  backgroundImage: `
-        linear-gradient(45deg, #111115 25%, transparent 25%, transparent 75%, #111115 75%, #111115),
-        linear-gradient(45deg, #111115 25%, transparent 25%, transparent 75%, #111115 75%, #111115)
-    `,
-  backgroundSize: "8px 8px",
-  backgroundPosition: "0 0, 4px 4px",
+  backgroundColor: "#ffffff",
 };
 
 export function GrowingBrands({
@@ -51,10 +45,10 @@ export function GrowingBrands({
   };
 
   const stats = [
-    { id: 1, value: yearsValue, label: yearsText, icon: <FiUsers className="w-10 h-10 text-yellow-400" /> },
-    { id: 2, value: "50+", label: "Happy clients", icon: <FiSmile className="w-10 h-10 text-yellow-400" /> },
-    { id: 3, value: "100+", label: "Projects", icon: <img src="/rocket-removebg-preview.webp" alt="Projects" className="w-10 h-10 object-contain" /> },
-    { id: 4, value: "20+", label: "Team members", icon: <FiTrendingUp className="w-10 h-10 text-yellow-400" /> }
+    { id: 1, value: yearsValue, label: yearsText, icon: <FiUsers className="w-10 h-10 text-[#cc7722]" /> },
+    { id: 2, value: "50+", label: "Happy clients", icon: <FiSmile className="w-10 h-10 text-[#cc7722]" /> },
+    { id: 3, value: "100+", label: "Projects", icon: <img src="/rocket-removebg-preview.webp" alt="Projects" className="w-10 h-10 object-contain brightness-0" style={{ filter: "invert(48%) sepia(85%) saturate(1450%) hue-rotate(345deg) brightness(91%) contrast(85%)" }} /> },
+    { id: 4, value: "20+", label: "Team members", icon: <FiTrendingUp className="w-10 h-10 text-[#cc7722]" /> }
   ];
 
   return (
@@ -62,34 +56,34 @@ export function GrowingBrands({
       {/* ── TRUSTED BY GROWING BRANDS ── */}
       <section
         style={chevronPatternBg}
-        className="relative py-24 md:py-32 px-6 overflow-hidden flex items-center justify-center"
+        className="relative py-24 md:py-32 px-6 overflow-hidden flex items-center justify-center bg-white"
       >
-        <div className="max-w-6xl w-full grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-8 items-center">
+        <div className="max-w-6xl lg:max-w-full lg:px-16 w-full grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-8 items-center">
           <div className="flex flex-col items-center lg:items-start text-center lg:text-left space-y-6">
             <div className="relative inline-flex flex-col items-center lg:items-start">
-              <span className="text-zinc-400 font-bold text-xs md:text-sm tracking-wider uppercase block mb-1 italic lg:not-italic">
+              <span className="text-[#395c7a] font-bold text-xs md:text-sm tracking-wider uppercase block mb-1 italic lg:not-italic">
                 TRUSTED BY
               </span>
               <h2 className="text-5xl md:text-7xl font-extrabold leading-none tracking-tight flex flex-row flex-wrap justify-center lg:justify-start gap-x-3 gap-y-1">
-                <span className="text-[#f0c417]">GROWING</span>
-                <span className="text-white">
+                <span className="text-[#cc7722]">GROWING</span>
+                <span className="text-[#1b365d]">
                   BRANDS
                 </span>
               </h2>
             </div>
-            <p className="hidden lg:block text-zinc-400 text-base md:text-lg max-w-md pt-6 leading-relaxed">
+            <p className="hidden lg:block text-[#395c7a] text-base md:text-lg max-w-md pt-6 leading-relaxed">
               We partner with ambitious businesses to create powerful digital experiences that drive real results.
             </p>
-            <p className="block lg:hidden text-zinc-300 text-sm sm:text-base leading-relaxed max-w-2xl pt-4">
+            <p className="block lg:hidden text-[#395c7a] text-sm sm:text-base leading-relaxed max-w-2xl pt-4">
               We partner with ambitious businesses to create powerful digital experiences that drive real results. By combining strategic thinking, creative execution, and data-driven marketing, we help brands strengthen their online presence, engage their target audience, and achieve sustainable business growth. Our tailored solutions are designed to deliver measurable outcomes that support long-term success.
             </p>
             <div className="pt-4">
               <button
                 onClick={handleReachUsClick}
-                className="flex items-center gap-4 px-6 py-3 rounded-full border border-[#f0c417]/40 bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 text-[#f0c417] font-bold shadow-lg shadow-black/50 hover:border-[#f0c417] hover:shadow-[#f0c417]/10 hover:shadow-xl transition-all duration-300 group cursor-pointer"
+                className="flex items-center gap-4 px-6 py-3 rounded-full border border-[#1b365d] bg-[#1b365d] text-white font-bold shadow-lg hover:bg-[#152a48] hover:shadow-xl transition-all duration-300 group cursor-pointer"
               >
                 <span className="tracking-widest text-xs uppercase">REACH US</span>
-                <div className="flex items-center justify-center w-7 h-7 rounded-full bg-[#f0c417] text-slate-950 group-hover:translate-x-1 transition-transform duration-300">
+                <div className="flex items-center justify-center w-7 h-7 rounded-full bg-[#cc7722] text-white group-hover:translate-x-1 transition-transform duration-300">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" className="w-3.5 h-3.5">
                     <line x1="5" y1="12" x2="19" y2="12" />
                     <polyline points="12 5 19 12 12 19" />
@@ -109,14 +103,14 @@ export function GrowingBrands({
                 viewport={{ once: true }}
                 className="flex flex-col items-center lg:items-start text-center lg:text-left space-y-4"
               >
-                <div className="p-2 rounded-lg bg-zinc-900/30 border border-zinc-800/40 shadow-inner flex items-center justify-center">
+                <div className="p-2 flex items-center justify-center">
                   {stat.icon}
                 </div>
                 <div className="flex items-baseline gap-2 justify-center lg:justify-start">
-                  <span className="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight">
+                  <span className="text-3xl sm:text-4xl md:text-5xl font-black text-[#1b365d] tracking-tight">
                     <Counter value={stat.value} />
                   </span>
-                  <span className="text-xs sm:text-sm md:text-base font-semibold text-zinc-300 tracking-wide">
+                  <span className="text-xs sm:text-sm md:text-base font-semibold text-[#395c7a] tracking-wide">
                     {stat.label}
                   </span>
                 </div>
@@ -127,7 +121,6 @@ export function GrowingBrands({
       </section>
 
       <LetsTalkSection />
-      <WhyChooseUs />
       <Faq />
       <Footer />
     </>
@@ -221,7 +214,7 @@ const Stars = ({ count }) => (
     {[...Array(5)].map((_, i) => (
       <svg
         key={i}
-        className={`w-3 h-3 md:w-4 md:h-4 ${i < count ? "text-[#FFCC00]" : "text-white/20"}`}
+        className={`w-3 h-3 md:w-4 md:h-4 ${i < count ? "text-[#cc7722]" : "text-white/20"}`}
         fill="currentColor"
         viewBox="0 0 20 20"
       >
@@ -233,10 +226,10 @@ const Stars = ({ count }) => (
 
 // ─── TESTIMONIAL CARD COMPONENT ─────────────────────────────────────
 const TestimonialCard = ({ testimonial }) => (
-  <div className="flex-1 min-w-0 h-[320px] md:h-[480px] bg-black border-2 border-[#FFCC00] rounded-xl p-5 md:p-8 flex flex-col shadow-2xl transition-all duration-300 hover:border-[#FFCC00]/80">
+  <div className="flex-1 min-w-0 h-[320px] md:h-[480px] bg-[#1f3a58] border-2 border-transparent rounded-xl p-5 md:p-8 flex flex-col shadow-2xl transition-all duration-300 hover:border-[#1b365d]/80">
     {/* Logo */}
     <div className="w-full flex justify-center mb-4 md:mb-6">
-      <div className="w-14 h-14 md:w-20 md:h-20 rounded-full bg-white flex items-center justify-center overflow-hidden border-2 border-[#FFCC00]/40 shadow-lg">
+      <div className="w-14 h-14 md:w-20 md:h-20 rounded-full bg-white flex items-center justify-center overflow-hidden shadow-lg">
         <img
           src={testimonial.logo}
           alt={testimonial.author}
@@ -251,8 +244,8 @@ const TestimonialCard = ({ testimonial }) => (
     </p>
 
     {/* Author name + Stars */}
-    <div className="flex items-center justify-between mt-4 pt-3 border-t border-[#FFCC00]/20">
-      <span className="font-bebas text-[14px] sm:text-base md:text-xl tracking-wider uppercase text-[#FFCC00] leading-none">
+    <div className="flex items-center justify-between mt-4 pt-3 border-t border-white/20">
+      <span className="font-bebas text-[14px] sm:text-base md:text-xl tracking-wider uppercase text-[#cc7722] leading-none">
         {testimonial.author}
       </span>
       <Stars count={testimonial.rating} />
@@ -393,23 +386,26 @@ function Home() {
       {/* HERO SECTION                                                   */}
       {/* ═══════════════════════════════════════════════════════════════ */}
       <section 
-        className="career-bg-pattern relative w-full min-h-[700px] md:h-screen flex items-start md:items-center justify-center overflow-hidden bg-[#0a0a0c] pt-24 pb-12 md:py-0"
+        style={{ backgroundColor: "#ffffff" }}
+        className="career-bg-pattern relative w-full min-h-[700px] md:h-screen flex items-start md:items-center justify-center overflow-hidden pt-24 pb-12 md:py-0"
       >
 
 
         {/* Desktop View Layout */}
-        <div className="hidden md:flex relative z-20 w-full max-w-7xl mx-auto px-6 md:px-16 flex-row items-center justify-between gap-12">
+        <div className="hidden md:flex relative z-20 w-full max-w-7xl lg:max-w-full mx-auto px-6 md:px-16 lg:px-16 flex-row items-center justify-between gap-12">
 
           {/* LEFT: Text Content (Left Aligned) */}
-          <div className="flex-1 flex flex-col justify-center pr-8 py-16">
-            <p
-              className="text-white text-5xl md:text-4xl font-extrabold mb-1 leading-snug"
-              style={{ fontFamily: "'Georgia', serif", fontStyle: "italic" }}
-            >
-              Struggling to get
-            </p>
+          <div className="flex-1 flex flex-col justify-center pl-[40px] lg:pl-[60px] xl:pl-[80px] pr-8 py-16 xl:pr-16">
+            <div className="relative inline-block w-fit">
+              <p
+                className="text-[#1b365d] text-5xl md:text-4xl lg:text-5xl font-extrabold mb-1 leading-snug"
+                style={{ fontFamily: "'Georgia', serif", fontStyle: "italic" }}
+              >
+                Struggling to get
+              </p>
+            </div>
             <h1
-              className="text-[#FFCC00] font-medium leading-tight mb-3"
+              className="text-[#cc7722] font-medium leading-tight mb-3"
               style={{
                 fontFamily: "'Impact', 'Arial Black', sans-serif",
                 fontSize: "clamp(2.2rem, 4.5vw, 9rem)",
@@ -419,7 +415,7 @@ function Home() {
               Consistent Leads?
             </h1>
             <p
-              className="text-white font-extrabold text-lg md:text-4xl mb-8"
+              className="text-[#1b365d] font-extrabold text-lg md:text-4xl mb-8"
               style={{ fontFamily: "'Georgia', serif", fontStyle: "italic" }}
             >
               We fix that.
@@ -428,7 +424,7 @@ function Home() {
             <button
               ref={buttonRef}
               onClick={handleExploreClick}
-              className="w-fit inline-flex font-['Impact','Arial_Black',sans-serif] font-extrabold text-[25px] tracking-[1px] text-[#FFD000] px-9 py-3 border border-[#FFD000] rounded-full bg-gradient-to-b from-[#537A97] to-[#1D2935] shadow-[0_8px_25px_rgba(0,0,0,0.45)] hover:scale-105 transition-all duration-300"
+              className="w-fit inline-flex font-['Impact','Arial_Black',sans-serif] font-extrabold text-[25px] tracking-[1px] text-white px-9 py-3 border border-[#1b365d] rounded-full bg-[#1b365d] hover:bg-[#152a48] shadow-[0_8px_25px_rgba(27,54,93,0.3)] hover:scale-105 transition-all duration-300"
             >
               BOOST YOUR GROWTH
             </button>
@@ -458,7 +454,7 @@ function Home() {
         <div className="flex md:hidden flex-col items-center justify-start text-center gap-6 w-full px-6 z-20 mt-2">
 
           {/* 1. First: Headline */}
-          <h2 className="font-bebas text-4xl sm:text-5xl text-[#FFCC00] font-bold leading-tight tracking-wide max-w-md">
+          <h2 className="font-bebas text-4xl sm:text-5xl text-[#cc7722] font-bold leading-tight tracking-wide max-w-md">
             Digital Marketing Services That Drive Business Growth
           </h2>
 
@@ -483,13 +479,13 @@ function Home() {
           {/* 3. Third: Button */}
           <button
             onClick={handleExploreClick}
-            className="font-['Impact','Arial_Black',sans-serif] font-extrabold text-[15px] sm:text-[18px] tracking-[0.5px] text-[#FFCC00] px-8 py-3.5 border-2 border-[#FFCC00] rounded-full bg-gradient-to-r from-[#517B98] to-[#1B2832] hover:brightness-110 active:scale-95 transition-all duration-200 shadow-[0_0_15px_rgba(255,204,0,0.2)] cursor-pointer mt-2 mb-6"
+            className="font-['Impact','Arial_Black',sans-serif] font-extrabold text-[15px] sm:text-[18px] tracking-[0.5px] text-white px-8 py-3.5 border-2 border-[#1b365d] rounded-full bg-[#1b365d] hover:bg-[#152a48] active:scale-95 transition-all duration-200 shadow-[0_0_15px_rgba(27,54,93,0.2)] cursor-pointer mt-2 mb-6"
           >
             BOOST YOUR GROWTH
           </button>
 
           {/* 4. Fourth: Content (4-5 sentences) */}
-          <p className="font-inter text-sm sm:text-base text-white opacity-90 leading-relaxed max-w-md">
+          <p className="font-inter text-sm sm:text-base text-[#395c7a] leading-relaxed max-w-md">
             At SparkTech, we craft high-impact digital marketing strategies that connect your brand with the right audience.
             Through targeted ads, scroll-stopping creatives, and optimized conversion funnels, we turn casual clicks into loyal customers.
             Our data-driven approach ensures your marketing budget is spent where it matters most, driving measurable return on investment.
@@ -504,21 +500,22 @@ function Home() {
       {/* ═══════════════════════════════════════════════════════════════ */}
       <section
         ref={sectionRef}
-        className="career-bg-pattern relative w-full py-10 overflow-hidden bg-[#0a0a0c] select-none"
+        style={{ backgroundColor: "#ffffff" }}
+        className="career-bg-pattern relative w-full py-10 overflow-hidden select-none"
       >
 
         {/* Title section */}
         <div className="text-center mb-8">
           <h2 className="font-bebas text-5xl md:text-6xl tracking-wider uppercase m-0 leading-none">
-            <span className="text-[#FFCC00]">OUR </span>
-            <span className="text-[#FFFFFF]">CLIENTS</span>
+            <span className="text-[#395c7a]">OUR </span>
+            <span className="text-[#cc7722]">CLIENTS</span>
           </h2>
         </div>
 
         {/* DESKTOP MARQUEE */}
         <div className="hidden md:block w-full overflow-hidden relative">
-          <div className="absolute left-0 top-0 h-full w-24 bg-gradient-to-r from-[#0a0a0c] to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 h-full w-24 bg-gradient-to-l from-[#0a0a0c] to-transparent z-10 pointer-events-none" />
+          <div className="absolute left-0 top-0 h-full w-24 bg-gradient-to-r from-[#ffffff] to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 h-full w-24 bg-gradient-to-l from-[#ffffff] to-transparent z-10 pointer-events-none" />
 
           <div className={`flex gap-8 w-max py-2 hover:[animation-play-state:paused] cursor-pointer ${animate ? "animate-marquee" : ""}`}>
             {doubleDesktopLogos.map((logo, idx) => (
@@ -527,7 +524,7 @@ function Home() {
                 className="flex flex-col items-center w-[260px] flex-shrink-0"
               >
                 {/* White background box containing logo */}
-                <div className="w-full h-[140px] bg-white rounded-lg flex items-center justify-center p-4 shadow-lg border-transparent hover:scale-105 transition-transform duration-300">
+                <div className="w-full h-[140px] bg-white rounded-lg flex items-center justify-center p-4 shadow-sm border border-gray-100 hover:scale-105 transition-transform duration-300">
                   <img
                     src={logo.src}
                     alt={logo.name}
@@ -535,7 +532,7 @@ function Home() {
                   />
                 </div>
                 {/* Text label below box */}
-                <span className="text-[#FFFFFF] text-sm font-inter font-bold mt-3 tracking-widest text-center uppercase opacity-90">
+                <span className="text-[#1b365d] text-sm font-inter font-bold mt-3 tracking-widest text-center uppercase opacity-90">
                   {logo.name}
                 </span>
               </div>
@@ -545,8 +542,8 @@ function Home() {
 
         {/* MOBILE SWIPER & MARQUEE */}
         <div className="block md:hidden w-full relative">
-          <div className="absolute left-0 top-0 h-full w-8 bg-gradient-to-r from-[#0a0a0c] to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 h-full w-8 bg-gradient-to-l from-[#0a0a0c] to-transparent z-10 pointer-events-none" />
+          <div className="absolute left-0 top-0 h-full w-8 bg-gradient-to-r from-[#ffffff] to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 h-full w-8 bg-gradient-to-l from-[#ffffff] to-transparent z-10 pointer-events-none" />
 
           <div
             ref={mobileClientScrollRef}
@@ -561,7 +558,7 @@ function Home() {
                 className="flex flex-col items-center w-[190px] flex-shrink-0"
               >
                 {/* Box with #636363 bg, #FFCC00 border, containing logo & label inside */}
-                <div className="w-full h-[190px] bg-[#636363] border-2 border-[#FFCC00] rounded-lg flex flex-col items-center justify-start pt-3.5 px-3.5 pb-4 shadow-md">
+                <div className="w-full h-[190px] bg-white border-2 border-gray-100 rounded-lg flex flex-col items-center justify-start pt-3.5 px-3.5 pb-4 shadow-sm">
                   <div className="flex items-center justify-center w-full h-[110px]">
                     <img
                       src={logo.src}
@@ -570,7 +567,7 @@ function Home() {
                     />
                   </div>
                   {/* Text label inside the box, under the logo */}
-                  <span className="text-[#FFFFFF] text-[11px] font-inter font-bold tracking-wide text-center uppercase mt-4 w-full truncate">
+                  <span className="text-[#1b365d] text-[11px] font-inter font-bold tracking-wide text-center uppercase mt-4 w-full truncate">
                     {logo.name}
                   </span>
                 </div>
@@ -584,22 +581,22 @@ function Home() {
       {/* ═══════════════════════════════════════════════════════════════ */}
       {/* TESTIMONIALS SECTION                                           */}
       {/* ═══════════════════════════════════════════════════════════════ */}
-      <section className="career-bg-pattern relative w-full py-12 bg-[#0a0a0c] select-none">
+      <section style={{ backgroundColor: "#ffffff" }} className="career-bg-pattern relative w-full py-12 select-none">
 
         {/* Title */}
         <div className="text-center mb-10">
-          <h2 className="font-bebas text-5xl md:text-6xl tracking-wider uppercase m-0 leading-none text-[#FFCC00]">
+          <h2 className="font-bebas text-5xl md:text-6xl tracking-wider uppercase m-0 leading-none text-[#cc7722]">
             TESTIMONIALS
           </h2>
         </div>
 
         {/* ===== DESKTOP VIEW: 2 cards per slide ===== */}
-        <div className="hidden md:flex items-center justify-between gap-8 w-full max-w-6xl mx-auto px-8">
+        <div className="hidden md:flex items-center justify-between gap-8 w-full max-w-6xl lg:max-w-full mx-auto px-8 lg:px-16">
 
           {/* Left Nav */}
           <button
             onClick={prevDesktop}
-            className="w-12 h-12 flex-shrink-0 rounded-lg border-2 border-[#FFCC00] bg-black flex items-center justify-center text-[#FFCC00] hover:bg-[#FFCC00]/10 transition-all duration-200 active:scale-90 cursor-pointer shadow-[0_0_10px_rgba(255,204,0,0.15)]"
+            className="w-12 h-12 flex-shrink-0 rounded-lg bg-[#1b365d] flex items-center justify-center text-white hover:bg-[#152a48] transition-all duration-200 active:scale-90 cursor-pointer shadow-md"
             aria-label="Previous testimonials"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
@@ -617,7 +614,7 @@ function Home() {
           {/* Right Nav */}
           <button
             onClick={nextDesktop}
-            className="w-12 h-12 flex-shrink-0 rounded-lg border-2 border-[#FFCC00] bg-black flex items-center justify-center text-[#FFCC00] hover:bg-[#FFCC00]/10 transition-all duration-200 active:scale-90 cursor-pointer shadow-[0_0_10px_rgba(255,204,0,0.15)]"
+            className="w-12 h-12 flex-shrink-0 rounded-lg bg-[#1b365d] flex items-center justify-center text-white hover:bg-[#152a48] transition-all duration-200 active:scale-90 cursor-pointer shadow-md"
             aria-label="Next testimonials"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
@@ -632,7 +629,7 @@ function Home() {
             <button
               key={`desktop-dot-${idx}`}
               onClick={() => setDesktopIdx(idx)}
-              className={`w-2 h-2 rounded-full transition-all duration-300 cursor-pointer ${idx === desktopIdx ? "bg-[#FFCC00] w-6" : "bg-white/20 hover:bg-white/45"
+              className={`w-2 h-2 rounded-full transition-all duration-300 cursor-pointer ${idx === desktopIdx ? "bg-[#1b365d] w-6" : "bg-gray-300 hover:bg-gray-400"
                 }`}
               aria-label={`Go to slide ${idx + 1}`}
             />
@@ -645,7 +642,7 @@ function Home() {
           {/* Left Nav */}
           <button
             onClick={prevMobile}
-            className="w-8 h-8 flex-shrink-0 rounded-lg border-2 border-[#FFCC00] bg-black flex items-center justify-center text-[#FFCC00] hover:bg-[#FFCC00]/10 transition-all duration-200 active:scale-90 cursor-pointer shadow-[0_0_10px_rgba(255,204,0,0.15)]"
+            className="w-8 h-8 flex-shrink-0 rounded-lg bg-[#1b365d] flex items-center justify-center text-white hover:bg-[#152a48] transition-all duration-200 active:scale-90 cursor-pointer shadow-md"
             aria-label="Previous testimonial"
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
@@ -667,7 +664,7 @@ function Home() {
           {/* Right Nav */}
           <button
             onClick={nextMobile}
-            className="w-8 h-8 flex-shrink-0 rounded-lg border-2 border-[#FFCC00] bg-black flex items-center justify-center text-[#FFCC00] hover:bg-[#FFCC00]/10 transition-all duration-200 active:scale-90 cursor-pointer shadow-[0_0_10px_rgba(255,204,0,0.15)]"
+            className="w-8 h-8 flex-shrink-0 rounded-lg bg-[#1b365d] flex items-center justify-center text-white hover:bg-[#152a48] transition-all duration-200 active:scale-90 cursor-pointer shadow-md"
             aria-label="Next testimonial"
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
@@ -682,7 +679,7 @@ function Home() {
             <button
               key={`mobile-dot-${idx}`}
               onClick={() => setMobileIdx(idx)}
-              className={`w-2 h-2 rounded-full transition-all duration-300 cursor-pointer ${idx === mobileIdx ? "bg-[#FFCC00] w-6" : "bg-white/20 hover:bg-white/45"
+              className={`w-2 h-2 rounded-full transition-all duration-300 cursor-pointer ${idx === mobileIdx ? "bg-[#1b365d] w-6" : "bg-gray-300 hover:bg-gray-400"
                 }`}
               aria-label={`Go to testimonial ${idx + 1}`}
             />
@@ -705,33 +702,33 @@ export function BusinessProblem() {
       id: 1,
       title: "Invisible Brand Identity",
       desc: "Struggling to stand out in a crowded market where competitors look identical.",
-      icon: <FiTarget className="w-8 h-8 text-[#f0c417]" />
+      icon: <FiTarget className="w-8 h-8 text-[#cc7722]" />
     },
     {
       id: 2,
       title: "Low Digital Footprint",
       desc: "Missing out on organic online visibility, leading to lost traffic and potential leads.",
-      icon: <FiBarChart2 className="w-8 h-8 text-[#f0c417]" />
+      icon: <FiBarChart2 className="w-8 h-8 text-[#cc7722]" />
     },
     {
       id: 3,
       title: "Outdated Tech Stacks",
       desc: "Inefficient and slow workflows that bottleneck scaling and limit business growth.",
-      icon: <FiZap className="w-8 h-8 text-[#f0c417]" />
+      icon: <FiZap className="w-8 h-8 text-[#cc7722]" />
     },
     {
       id: 4,
       title: "Poor User Experience",
       desc: "Customers bouncing from clunky, unoptimized interfaces before converting.",
-      icon: <FiSmile className="w-8 h-8 text-[#f0c417]" />
+      icon: <FiSmile className="w-8 h-8 text-[#cc7722]" />
     }
   ];
 
   return (
-    <section className="relative w-full py-24 px-6 lg:px-12 bg-[#0a0a0c] border-t border-white/5 overflow-hidden">
+    <section className="relative w-full py-24 px-6 lg:px-12 bg-white border-t border-gray-100 overflow-hidden">
       {/* Background Glows */}
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#f0c417]/10 blur-[120px] rounded-full pointer-events-none" />
-      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#1a3a4a]/30 blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#cc7722]/5 blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#395c7a]/10 blur-[120px] rounded-full pointer-events-none" />
 
       <div className="relative z-10 max-w-7xl mx-auto flex flex-col items-center">
         <motion.div 
@@ -741,11 +738,12 @@ export function BusinessProblem() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-6xl font-extrabold text-white tracking-tight leading-none mb-6">
-            THE <span className="text-[#f0c417] italic">BUSINESS PROBLEM</span>
+          <h2 className="text-4xl md:text-6xl font-extrabold tracking-tight leading-none mb-6">
+            <span className="text-[#395c7a]">The </span>
+            <span className="text-[#cc7722]">Business Problems</span>
           </h2>
-          <p className="text-white/60 max-w-2xl mx-auto text-base md:text-lg leading-relaxed">
-            Every great journey has its hurdles. Before finding the right spark, many businesses face these critical roadblocks.
+          <p className="text-[#1b365d] max-w-2xl mx-auto text-base md:text-lg leading-relaxed">
+            Marketing isn't broken. The system around it is.
           </p>
         </motion.div>
 
@@ -757,19 +755,19 @@ export function BusinessProblem() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.15 }}
-              className="group relative flex flex-col p-8 rounded-3xl bg-[#111115]/80 backdrop-blur-md border border-white/10 hover:border-[#f0c417]/50 transition-all duration-500 overflow-hidden"
+              className="group relative flex flex-col p-8 rounded-3xl bg-[#f2eee0] border border-[#cc7722]/30 hover:border-[#1f3a58] hover:bg-[#1f3a58] transition-all duration-500 overflow-hidden"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-[#f0c417]/0 to-[#f0c417]/0 group-hover:from-[#f0c417]/5 group-hover:to-transparent transition-all duration-500" />
+              <div className="absolute inset-0 bg-gradient-to-br from-[#cc7722]/0 to-[#cc7722]/0 group-hover:from-[#cc7722]/10 group-hover:to-transparent transition-all duration-500" />
               
-              <div className="mb-6 p-4 rounded-2xl bg-black w-max border border-white/5 shadow-[0_0_15px_rgba(240,196,23,0.1)] group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500">
+              <div className="mb-6 p-4 rounded-2xl bg-white w-max border border-gray-200 shadow-sm group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500">
                 {prob.icon}
               </div>
               
-              <h3 className="text-xl md:text-2xl font-bold text-white mb-3 tracking-wide">
+              <h3 className="text-xl md:text-2xl font-bold text-[#1b365d] mb-3 tracking-wide group-hover:text-white transition-colors duration-500">
                 {prob.title}
               </h3>
               
-              <p className="text-white/70 leading-relaxed text-sm md:text-base">
+              <p className="text-[#395c7a] leading-relaxed text-sm md:text-base group-hover:text-white transition-colors duration-500">
                 {prob.desc}
               </p>
             </motion.article>
@@ -846,8 +844,8 @@ function ContactForm({ mobile = false }) {
   };
 
   const inputBase = {
-    background: "rgba(7, 7, 8, 0.4)",
-    border: "1.5px solid #f0c417",
+    background: "transparent",
+    border: "1.5px solid #395c7a",
     borderRadius: "999px",
     color: "#fff",
     padding: mobile ? "10px 16px" : "12px 20px",
@@ -858,7 +856,7 @@ function ContactForm({ mobile = false }) {
   };
 
   const labelStyle = {
-    color: "#f0c417",
+    color: "#fff",
     fontSize: mobile ? "0.82rem" : "0.95rem",
     fontWeight: "600",
     fontStyle: "italic",
@@ -875,13 +873,13 @@ function ContactForm({ mobile = false }) {
       transition={{ duration: 0.65, ease: "easeOut" }}
       viewport={{ once: true }}
       style={{
-        background: "linear-gradient(180deg, rgba(27,58,75,0.4) 0%, rgba(13,34,51,0.5) 60%, rgba(7,7,8,0.6) 100%)",
-        border: "2px solid #f0c417",
+        background: "#1b365d",
+        border: "1px solid #152a48",
         borderRadius: mobile ? "20px" : "32px",
         padding: mobile ? "24px 20px" : "40px 32px",
         width: "100%",
         maxWidth: mobile ? "none" : "460px",
-        boxShadow: "0 12px 48px rgba(0,0,0,0.6), 0 0 0 1px rgba(240,196,23,0.1)",
+        boxShadow: "0 12px 48px rgba(0,0,0,0.15)",
         position: "relative",
         backdropFilter: "blur(12px)",
       }}
@@ -933,11 +931,11 @@ function ContactForm({ mobile = false }) {
         <div style={{ display: "flex", justifyContent: "center", marginTop: "4px" }}>
           <motion.button
             type="submit"
-            whileHover={{ scale: 1.05, backgroundColor: "#f0c417", color: "#070708" }}
+            whileHover={{ scale: 1.05, backgroundColor: "#395c7a", color: "#fff", borderColor: "#395c7a" }}
             whileTap={{ scale: 0.95 }}
             style={{
-              border: "1.5px solid #f0c417", borderRadius: "999px",
-              background: "transparent", color: "#f0c417",
+              border: "1.5px solid #395c7a", borderRadius: "999px",
+              background: "transparent", color: "#fff",
               fontWeight: "700", fontSize: mobile ? "0.82rem" : "0.9rem",
               fontStyle: "italic", letterSpacing: "0.15em",
               padding: mobile ? "9px 36px" : "10px 48px", cursor: "pointer",
@@ -957,22 +955,12 @@ export function LetsTalkSection() {
   return (
     <section
       name="contact"
-      className="career-bg-pattern relative overflow-hidden bg-[#0a0a0c]"
-      style={{ minHeight: "680px" }}
+      style={{ backgroundColor: "#ffffff", minHeight: "680px" }}
+      className="career-bg-pattern relative overflow-hidden"
     >
 
       {/* ── dark overlay ── */}
       <div style={{ position: "absolute", inset: 0, background: "transparent", zIndex: 1, pointerEvents: "none" }} />
-
-      {/* ── gold glow — upper right ── */}
-      <div
-        style={{
-          position: "absolute", top: "-15%", right: "0%",
-          width: "520px", height: "520px",
-          background: "radial-gradient(circle, rgba(240,196,23,0.08) 0%, transparent 70%)",
-          pointerEvents: "none", zIndex: 2,
-        }}
-      />
 
       {/* ── DESKTOP PHONE HANDSET ── */}
       <div className="hidden lg:block absolute left-[5%] xl:left-[8%] top-0 h-full w-[350px] pointer-events-none" style={{ zIndex: 11 }}>
@@ -1004,7 +992,7 @@ export function LetsTalkSection() {
                 ease: "easeInOut",
                 repeatDelay: 1.5
               }}
-              className="text-[#f0c417]"
+              className="text-[#cc7722]"
             >
               <FiPhoneCall size={52} />
             </motion.div>
@@ -1012,13 +1000,13 @@ export function LetsTalkSection() {
           {/* Text */}
           <div className="w-fit flex flex-col items-start">
             <p
-              className="text-white font-bold tracking-wide leading-none mb-1"
+              className="text-[#395c7a] font-bold tracking-wide leading-none mb-1"
               style={{ fontSize: "clamp(0.8rem, 4vw, 1.1rem)" }}
             >
               Give us a
             </p>
             <h2
-              className="text-[#f0c417] font-black leading-none"
+              className="text-[#cc7722] font-black leading-none"
               style={{
                 fontFamily: "'Impact', 'Arial Black', sans-serif",
                 fontSize: "clamp(2rem, 9.5vw, 3.2rem)",
@@ -1028,7 +1016,7 @@ export function LetsTalkSection() {
               Tring Tring
             </h2>
             <p
-              className="text-white font-bold tracking-wide leading-none mt-2 self-end"
+              className="text-[#395c7a] font-bold tracking-wide leading-none mt-2 self-end"
               style={{ fontSize: "clamp(0.8rem, 4vw, 1.1rem)" }}
             >
               let's talk
@@ -1041,19 +1029,19 @@ export function LetsTalkSection() {
 
       {/* ── DESKTOP: grid ── */}
       <div className="hidden lg:block relative w-full px-6 py-32" style={{ zIndex: 10 }}>
-        <div className="max-w-7xl mx-auto grid grid-cols-12 gap-8 items-center">
+        <div className="max-w-7xl lg:max-w-full lg:px-16 mx-auto grid grid-cols-12 gap-8 items-center">
 
           {/* COL 1: spans 7 columns, shifted to the left, next to the absolute phone */}
           <div className="col-span-7 pl-[260px] xl:pl-[300px] select-none flex flex-col justify-center">
             <div className="w-fit flex flex-col items-start">
               <p
-                className="text-white font-bold tracking-wide leading-none mb-2"
+                className="text-[#395c7a] font-bold tracking-wide leading-none mb-2"
                 style={{ fontSize: "clamp(0.95rem, 1.4vw, 1.35rem)" }}
               >
                 Give us a
               </p>
               <h2
-                className="text-[#f0c417] font-black leading-none whitespace-nowrap"
+                className="text-[#cc7722] font-black leading-none whitespace-nowrap"
                 style={{
                   fontFamily: "'Impact', 'Arial Black', sans-serif",
                   fontSize: "clamp(2.8rem, 4.8vw, 5.2rem)",
@@ -1063,7 +1051,7 @@ export function LetsTalkSection() {
                 Tring Tring
               </h2>
               <p
-                className="text-white font-bold tracking-wide leading-none mt-3 self-end"
+                className="text-[#395c7a] font-bold tracking-wide leading-none mt-3 self-end"
                 style={{ fontSize: "clamp(0.95rem, 1.4vw, 1.35rem)" }}
               >
                 let's talk
@@ -1081,221 +1069,4 @@ export function LetsTalkSection() {
     </section>
   );
 }
-
-export function WhyChooseUs() {
-  const reasons = [
-    { id: 1, title: "-We're new; not naive", desc: "We may be starting fresh, but we come in with industry insight, lived experience, right", position: "top-left" },
-    { id: 2, title: "-No jargon. Just results", desc: "We won't drown you in buzzwords. We'll show you what's working, what's not, and what's next.", position: "top-right" },
-    { id: 3, title: "-Creative but commercially aware", desc: "We love bold ideas, but never lose sight of performance and ROI.", position: "mid-left" },
-    { id: 4, title: "-Stories with spine", desc: "We create content that connects — not just with eyeballs, but with real emotion and action", position: "mid-right" },
-    { id: 5, title: "-A win-win partnership", desc: "Our success is tied to yours. So, we put everything into building results that last beyond a campaign", position: "bot-left" },
-    { id: 6, title: "-Data before drama", desc: "Our ideas are creative but are never random. We dig deep & analyse smart.", position: "bot-right" },
-  ];
-  const arrows = {
-    "top-left": { x1: "42%", y1: "38%", x2: "26%", y2: "18%" },
-    "top-right": { x1: "58%", y1: "38%", x2: "74%", y2: "18%" },
-    "mid-left": { x1: "40%", y1: "50%", x2: "26%", y2: "50%" },
-    "mid-right": { x1: "60%", y1: "50%", x2: "74%", y2: "50%" },
-    "bot-left": { x1: "42%", y1: "62%", x2: "26%", y2: "82%" },
-    "bot-right": { x1: "58%", y1: "62%", x2: "74%", y2: "82%" },
-  };
-  const cardStyle = {
-    background: "linear-gradient(135deg, #1a3a4a 0%, #0d2233 100%)",
-    border: "1.5px solid rgba(240,196,23,0.35)",
-    borderRadius: "12px",
-    padding: "18px 20px",
-    width: "100%",
-    textAlign: "center",
-  };
-  const positions = {
-    "top-left": { top: "18%", left: "0%", transform: "translateY(-50%)" },
-    "top-right": { top: "18%", right: "0%", transform: "translateY(-50%)" },
-    "mid-left": { top: "50%", left: "0%", transform: "translateY(-50%)" },
-    "mid-right": { top: "50%", right: "0%", transform: "translateY(-50%)" },
-    "bot-left": { top: "82%", left: "0%", transform: "translateY(-50%)" },
-    "bot-right": { top: "82%", right: "0%", transform: "translateY(-50%)" },
-  };
-
-  return (
-    <section
-      style={chevronPatternBg}
-      className="career-bg-pattern py-16 md:py-24 lg:py-32 px-4 sm:px-6 relative overflow-hidden bg-[#0a0a0c]"
-    >
-      <div className="relative max-w-5xl mx-auto z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.55 }}
-          viewport={{ once: true }}
-          className="text-center mb-10 lg:mb-16"
-        >
-          <h2 className="text-4xl md:text-6xl font-extrabold leading-none tracking-tight">
-            <span className="text-[#f0c417] italic">WHY </span>
-            <span className="text-white font-black"> CHOOSE </span>
-            <span className="text-[#f0c417] italic"> US</span>
-          </h2>
-        </motion.div>
-
-        {/* MOBILE VIEW */}
-        <div className="md:hidden flex gap-1.5 sm:gap-4 items-stretch">
-          {/* Question mark pinned left (centered vertically, increased height, fully displaying the half question mark) */}
-          <div
-            className="flex-shrink-0 flex items-center"
-            style={{ marginLeft: "-16px" }}
-          >
-            <motion.img
-              src="/question mark2.webp"
-              alt="Question Mark"
-              className="h-[350px] sm:h-[420px] w-auto object-contain object-left select-none"
-              animate={{ rotateY: [-20, 20, -20] }}
-              transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut", repeatType: "mirror" }}
-            />
-          </div>
-
-          <div className="flex-1 flex flex-col gap-1.5 sm:gap-2.5 justify-between">
-            {reasons.map((item, index) => (
-              <motion.div
-                key={item.id}
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, ease: "easeOut", delay: index * 0.06 }}
-                className="flex items-center gap-1 sm:gap-2"
-              >
-                {/* Arrow pointing right */}
-                <div className="flex-shrink-0 flex items-center justify-center mx-1.5 sm:mx-2.5">
-                  <svg
-                    viewBox="0 0 40 24"
-                    fill="none"
-                    stroke="rgba(255,255,255,0.95)"
-                    strokeWidth="3.5"
-                    className="w-[18px] sm:w-[26px] h-6 flex-shrink-0"
-                  >
-                    <line x1="0" y1="12" x2="32" y2="12" />
-                    <polyline points="24 6 32 12 24 18" />
-                  </svg>
-                </div>
-
-                {/* Card component */}
-                <div
-                  className="flex-1 rounded-xl border border-[#f0c417]/40 p-1.5 sm:p-2 text-center transition-all duration-300 hover:border-[#f0c417]"
-                  style={{
-                    background: "gradient-to-b from-[#182335] to-[#0a0f18]",
-                    backgroundImage: "linear-gradient(135deg, #1a3a4a 0%, #0d2233 100%)",
-                  }}
-                >
-                  <p className="text-[#f0c417] font-bold italic text-[0.66rem] sm:text-[0.74rem] mb-0.5 leading-snug">
-                    {item.title}
-                  </p>
-                  <p className="text-slate-200 text-[0.58rem] sm:text-[0.66rem] italic leading-normal">
-                    {item.desc}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-
-
-        {/* DESKTOP VIEW */}
-        <div
-          className="hidden md:block"
-          style={{
-            position: "relative",
-            width: "100%",
-            height: "680px",
-            maxWidth: "900px",
-            margin: "0 auto",
-          }}
-        >
-          <svg
-            style={{ position: "absolute", inset: 0, width: "100%", height: "100%", zIndex: 1, pointerEvents: "none" }}
-            viewBox="0 0 100 100"
-            preserveAspectRatio="none"
-          >
-            <defs>
-              <marker id="arrowhead" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
-                <path d="M0,0 L0,6 L6,3 z" fill="rgba(255,255,255,0.6)" />
-              </marker>
-            </defs>
-            {Object.entries(arrows).map(([pos, pts]) => (
-              <line
-                key={pos}
-                x1={pts.x1} y1={pts.y1}
-                x2={pts.x2} y2={pts.y2}
-                stroke="rgba(255,255,255,0.55)"
-                strokeWidth="0.5"
-                markerEnd="url(#arrowhead)"
-              />
-            ))}
-          </svg>
-          <div style={{
-            position: "absolute",
-            top: "50%", left: "50%",
-            transform: "translate(-50%, -50%)",
-            zIndex: 2,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}>
-            <motion.img
-              src="/question mark1 (1).webp"
-              alt="Question Mark"
-              initial={{ rotateY: 360, opacity: 0, scale: 0.3 }}
-              whileInView={{ rotateY: 0, opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.9, ease: "easeOut" }}
-              style={{
-                width: "120px",
-                height: "auto",
-                display: "block",
-                userSelect: "none",
-              }}
-            />
-          </div>
-          {reasons.map((item) => (
-            <div
-              key={item.id}
-              style={{
-                position: "absolute",
-                ...positions[item.position],
-                zIndex: 3,
-                width: "220px",
-              }}
-            >
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, ease: "easeOut", delay: item.id * 0.05 }}
-                style={cardStyle}
-              >
-                <p style={{
-                  color: "#f0c417",
-                  fontWeight: "700",
-                  fontStyle: "italic",
-                  fontSize: "0.88rem",
-                  marginBottom: "8px",
-                  lineHeight: 1.3,
-                }}>
-                  {item.title}
-                </p>
-                <p style={{
-                  color: "#e2e8f0",
-                  fontSize: "0.8rem",
-                  fontStyle: "italic",
-                  lineHeight: 1.55,
-                  margin: 0,
-                }}>
-                  {item.desc}
-                </p>
-              </motion.div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
 export default Home;

@@ -93,7 +93,7 @@ const Blogs = () => {
 
   return (
     <div
-      className="min-h-screen text-white font-[Inter] relative overflow-hidden"
+      className="min-h-screen text-[#cc7722] font-[Inter] relative overflow-hidden"
       style={{
         backgroundColor: "#0a0a0a",
         backgroundImage: "radial-gradient(circle at 1px 1px, rgba(255,255,255,0.045) 1px, transparent 0)",
@@ -122,7 +122,7 @@ const Blogs = () => {
       {/* ── BLOGS SECTION ── */}
       <section className="max-w-7xl mx-auto px-6 py-12 md:py-20">
         <h2
-          className="text-4xl md:text-6xl font-black text-center text-[#f0c417] mb-16 tracking-tight"
+          className="text-4xl md:text-6xl font-black text-center text-[#cc7722] mb-16 tracking-tight"
           style={{ fontFamily: "Unbounded" }}
         >
           BLOGS
@@ -134,13 +134,13 @@ const Blogs = () => {
             return (
               <div
                 key={blog.id}
-                className="bg-[#111111] border-2 border-[#f0c417]/80 rounded-2xl p-6 sm:p-8 flex flex-col justify-between transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_8px_32px_rgba(240,196,23,0.15)]"
+                className="bg-[#1f3a58] rounded-xl p-6 sm:p-8 flex flex-col justify-between transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_8px_32px_rgba(240,196,23,0.15)]"
               >
                 <div className="flex flex-col gap-4">
-                  <h3 className="text-xl font-bold leading-snug text-white font-[Inter]">
+                  <h3 className="text-xl font-bold leading-snug text-[#cc7722] font-[Inter]">
                     {blog.title}
                   </h3>
-                  <p className="text-gray-300 text-sm italic leading-relaxed">
+                  <p className="text-white/90 text-sm leading-relaxed">
                     {blog.excerpt}
                   </p>
 
@@ -153,7 +153,7 @@ const Blogs = () => {
                         transition={{ duration: 0.35, ease: "easeInOut" }}
                         className="overflow-hidden"
                       >
-                        <div className="pt-4 mt-4 border-t border-[#f0c417]/20 flex flex-col gap-3 text-sm text-gray-300 leading-relaxed">
+                        <div className="pt-4 mt-4 border-t border-[#f0c417]/20 flex flex-col gap-3 text-sm text-white/90 leading-relaxed">
                           {blog.content.map((paragraph, idx) => (
                             <p key={idx}>{paragraph}</p>
                           ))}
@@ -162,7 +162,7 @@ const Blogs = () => {
                           {blog.tags.map((tag) => (
                             <span
                               key={tag}
-                              className="bg-[#f0c417]/10 border border-[#f0c417]/35 text-[#f0c417] rounded-full px-3 py-1 text-xs font-semibold tracking-wide"
+                              className="bg-[#f0c417]/10 border border-[#f0c417]/35 text-[#cc7722] rounded-full px-3 py-1 text-xs font-semibold tracking-wide"
                             >
                               {tag}
                             </span>
@@ -175,7 +175,7 @@ const Blogs = () => {
 
                 <button
                   onClick={() => toggleBlog(blog.id)}
-                  className="mt-6 flex items-center gap-2 text-sm text-white font-medium italic transition-colors duration-200 hover:text-[#f0c417] self-start"
+                  className="mt-6 flex items-center gap-2 text-sm text-white font-medium italic transition-colors duration-200 hover:text-[#cc7722] self-start"
                 >
                   <span>{isOpen ? "Read Less" : "Read More"}</span>
                   <ChevronDown
@@ -192,7 +192,7 @@ const Blogs = () => {
       {/* ── CASE STUDIES SECTION ── */}
       <section className="max-w-7xl mx-auto px-6 py-12 md:py-16">
         <h2
-          className="text-4xl md:text-6xl font-black text-center text-[#f0c417] mb-16 tracking-tight"
+          className="text-4xl md:text-6xl font-black text-center text-[#cc7722] mb-16 tracking-tight"
           style={{ fontFamily: "Unbounded" }}
         >
           CASE STUDIES
@@ -204,10 +204,10 @@ const Blogs = () => {
             return (
               <div
                 key={study.id}
-                className="bg-[#111111] border-2 border-[#f0c417]/80 rounded-2xl p-6 sm:p-8 flex flex-col justify-between transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_8px_32px_rgba(240,196,23,0.15)]"
+                className="bg-[#1f3a58] rounded-xl p-6 sm:p-8 flex flex-col justify-between transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_8px_32px_rgba(240,196,23,0.15)]"
               >
                 <div className="flex flex-col gap-4">
-                  <h3 className="text-xl font-bold leading-snug text-[#f0c417] font-[Inter]">
+                  <h3 className="text-xl font-bold leading-snug text-[#cc7722] font-[Inter]">
                     {study.title}
                   </h3>
 
@@ -226,7 +226,7 @@ const Blogs = () => {
                   <p className="text-sm font-semibold text-white leading-normal">
                     {study.subtitle}
                   </p>
-                  <p className="text-gray-300 text-sm italic leading-relaxed">
+                  <p className="text-white/90 text-sm leading-relaxed">
                     {study.excerpt}
                   </p>
 
@@ -239,7 +239,7 @@ const Blogs = () => {
                         transition={{ duration: 0.35, ease: "easeInOut" }}
                         className="overflow-hidden"
                       >
-                        <div className="pt-4 mt-4 border-t border-[#f0c417]/20 flex flex-col gap-3 text-sm text-gray-300 leading-relaxed">
+                        <div className="pt-4 mt-4 border-t border-[#f0c417]/20 flex flex-col gap-3 text-sm text-white/90 leading-relaxed">
                           {study.content.map((paragraph, idx) => (
                             <p key={idx}>{paragraph}</p>
                           ))}
@@ -248,7 +248,7 @@ const Blogs = () => {
                           {study.tags.map((tag) => (
                             <span
                               key={tag}
-                              className="bg-[#f0c417]/10 border border-[#f0c417]/35 text-[#f0c417] rounded-full px-3 py-1 text-xs font-semibold tracking-wide"
+                              className="bg-[#f0c417]/10 border border-[#f0c417]/35 text-[#cc7722] rounded-full px-3 py-1 text-xs font-semibold tracking-wide"
                             >
                               {tag}
                             </span>
@@ -261,7 +261,7 @@ const Blogs = () => {
 
                 <button
                   onClick={() => toggleCase(study.id)}
-                  className="mt-6 flex items-center gap-2 text-sm text-white font-medium italic transition-colors duration-200 hover:text-[#f0c417] self-start"
+                  className="mt-6 flex items-center gap-2 text-sm text-white font-medium italic transition-colors duration-200 hover:text-[#cc7722] self-start"
                 >
                   <span>{isOpen ? "Read Less" : "Read More"}</span>
                   <ChevronDown

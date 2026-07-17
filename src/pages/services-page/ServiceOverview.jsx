@@ -70,10 +70,10 @@ export default function ServiceOverview() {
   ];
 
   return (
-    <div className="relative min-h-[70vh] text-white py-12 px-6 overflow-hidden">
-      <div className="relative z-10 max-w-7xl mx-auto animate-fadeIn">
-        <h1 className="text-4xl md:text-5xl font-bold font-oswald text-center uppercase tracking-wider mb-16">
-          OUR <span className="text-[#f0c417]">SERVICES</span>
+    <div className="relative min-h-[70vh] py-12 px-6 overflow-hidden bg-white">
+      <div className="relative z-10 max-w-7xl lg:max-w-full lg:px-16 xl:px-24 mx-auto w-full animate-fadeIn">
+        <h1 className="text-4xl md:text-5xl font-bold font-oswald text-center uppercase tracking-wider mb-16 text-[#1b365d]">
+          OUR <span className="text-[#cc7722]">SERVICES</span>
         </h1>
 
         {/* 3 columns on desktop, 1 on mobile */}
@@ -88,25 +88,25 @@ export default function ServiceOverview() {
                 viewport: { once: true },
                 whileHover: {
                   scale: 1.03,
-                  boxShadow: "0px 0px 25px rgba(240, 196, 23, 0.35)",
+                  boxShadow: "0px 0px 25px rgba(204, 119, 34, 0.35)",
                 }
               })}
               onClick={() => navigate(segment.link)}
-              className="group bg-gradient-to-b from-[#182335] to-[#0a0f18] rounded-[24px] p-8 border-2 border-[#f0c417] flex flex-col justify-between h-[300px] cursor-pointer transition-all duration-300"
+              className="group bg-[#1f3a58] rounded-[24px] p-8 border-2 border-[#cc7722] flex flex-col justify-between h-[300px] cursor-pointer transition-all duration-300"
             >
               <div>
                 {/* Header: Icon + Title */}
                 <div className="flex items-center mb-5">
-                  <div className="w-10 h-10 rounded-full border-2 border-[#f0c417] bg-black flex items-center justify-center text-[#f0c417] shrink-0 mr-4">
+                  <div className="w-10 h-10 rounded-full border-2 border-[#cc7722] bg-[#f2eee0] flex items-center justify-center text-[#cc7722] shrink-0 mr-4">
                     <segment.icon className="w-5 h-5" />
                   </div>
-                  <h2 className="text-[#f0c417] font-oswald text-base md:text-lg font-bold uppercase tracking-wider">
+                  <h2 className="text-[#cc7722] font-oswald text-base md:text-lg font-bold uppercase tracking-wider">
                     {segment.title}
                   </h2>
                 </div>
 
                 {/* Description */}
-                <p className="text-white/80 text-sm leading-relaxed mb-6 font-inter font-light">
+                <p className="text-white text-sm leading-relaxed mb-6 font-inter font-light">
                   {segment.details}
                 </p>
               </div>
@@ -118,7 +118,7 @@ export default function ServiceOverview() {
                     e.stopPropagation(); // prevent card click triggers
                     navigate(segment.link);
                   }}
-                  className="bg-black hover:bg-[#f0c417] text-[#f0c417] hover:text-black border border-[#f0c417] font-bold tracking-wider uppercase text-[11px] rounded-full px-6 py-2.5 transition-all duration-300 cursor-pointer"
+                  className="bg-[#f2eee0] hover:bg-[#e6dfcb] text-[#1b365d] border border-[#cc7722] font-bold tracking-wider uppercase text-[11px] rounded-full px-6 py-2.5 transition-all duration-300 cursor-pointer"
                 >
                   {segment.buttonText}
                 </button>

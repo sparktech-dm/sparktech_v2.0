@@ -218,56 +218,60 @@ export default function Career() {
   const currentService = SERVICES.find(s => s.id === selectedServiceId);
 
   return (
-    <div className="w-full min-h-screen career-bg-pattern text-white font-inter px-8 py-16 pt-32 pb-16 flex flex-col items-center relative box-border">
-      {/* Centered Yellow Title */}
-      <div className="w-full max-w-[1200px] text-center mb-16">
-        <h1 className="font-inter font-extrabold text-3xl md:text-5xl lg:text-7xl text-brand-yellow tracking-[0.02em] m-0 leading-none">Career</h1>
-      </div>
+    <div className="w-full min-h-screen bg-white text-[#1b365d] font-inter pt-32 relative box-border">
+      <div className="w-full px-8 pb-16 flex flex-col items-center">
+        {/* Centered Yellow Title */}
+        <div className="w-full max-w-7xl lg:max-w-full lg:px-16 xl:px-24 mx-auto text-center mb-16">
+          <h1 className="font-inter font-extrabold text-3xl md:text-5xl lg:text-7xl text-[#cc7722] tracking-[0.02em] m-0 leading-none">Career</h1>
+        </div>
 
-      <div className="w-full max-w-[1200px] flex flex-col gap-14">
+        <div className="w-full max-w-7xl lg:max-w-full lg:px-16 xl:px-24 mx-auto flex flex-col gap-14">
         
         {/* TOP SECTION: Intro Info (Why Join, What we look for, Job info) - kept stacked as original */}
         <div className="flex flex-col gap-11">
           {/* Section 1: Why Join */}
           <div className="flex flex-col gap-5">
-            <h2 className="font-bebas text-[2.4rem] font-normal text-brand-yellow m-0 tracking-[0.03em] leading-[1.15]">
+            <h2 className="font-bebas text-[2.4rem] font-normal text-[#cc7722] m-0 tracking-[0.03em] leading-[1.15]">
               Why Join Sparktech Digital Marketing Team?
             </h2>
-            <p className="text-[1.05rem] leading-[1.8] font-light italic text-white/90 m-0 tracking-[0.01em]">
+            <p className="text-[1.05rem] leading-[1.8] font-light italic text-[#1b365d] m-0 tracking-[0.01em]">
               Looking for digital marketing jobs in Chennai? Sparktech is hiring dynamic, growth-oriented professionals who are ready to work on exciting projects for national and international clients. Whether you're an entry-level executive or a senior marketing strategist, we have a role for you. Sparktech is a performance-driven digital marketing agency based in Chennai. We specialize in using AI, data analytics, and precision-targeting to drive results. As part of our team, you'll work on Meta ads, Google campaigns, SEO projects, influencer marketing, and more.
             </p>
           </div>
 
-          {/* Section 2: What We Look For */}
-          <div className="flex flex-col gap-5">
-            <h2 className="font-bebas text-[2.4rem] font-normal text-brand-yellow m-0 tracking-[0.03em] leading-[1.15]">
-              What We Look For in Candidates
-            </h2>
-            <ul className="list-none p-0 m-0 flex flex-col gap-3.5">
-              <li className="relative pl-6 text-[1.05rem] italic font-light leading-normal text-white/90 before:content-['•'] before:absolute before:left-0 before:text-white before:text-2xl before:leading-[1.1]">Hands-on experience in digital marketing agency and tools</li>
-              <li className="relative pl-6 text-[1.05rem] italic font-light leading-normal text-white/90 before:content-['•'] before:absolute before:left-0 before:text-white before:text-2xl before:leading-[1.1]">Strong communication &amp; analytical skills</li>
-              <li className="relative pl-6 text-[1.05rem] italic font-light leading-normal text-white/90 before:content-['•'] before:absolute before:left-0 before:text-white before:text-2xl before:leading-[1.1]">Ability to work in a fast-paced, team-oriented environment</li>
-              <li className="relative pl-6 text-[1.05rem] italic font-light leading-normal text-white/90 before:content-['•'] before:absolute before:left-0 before:text-white before:text-2xl before:leading-[1.1]">Passion for learning and experimenting with new marketing techniques</li>
-            </ul>
-          </div>
+          {/* What We Look For & Job Info side-by-side on desktop */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-11 w-full">
+            {/* Section 2: What We Look For */}
+            <div className="flex flex-col gap-5">
+              <h2 className="font-bebas text-[2.4rem] font-normal text-[#cc7722] m-0 tracking-[0.03em] leading-[1.15]">
+                What We Look For in Candidates
+              </h2>
+              <ul className="list-none p-0 m-0 flex flex-col gap-3.5">
+                <li className="relative pl-6 text-[1.05rem] italic font-light leading-normal text-[#1b365d] before:content-['•'] before:absolute before:left-0 before:text-[#1b365d] before:text-2xl before:leading-[1.1]">Hands-on experience in digital marketing agency and tools</li>
+                <li className="relative pl-6 text-[1.05rem] italic font-light leading-normal text-[#1b365d] before:content-['•'] before:absolute before:left-0 before:text-[#1b365d] before:text-2xl before:leading-[1.1]">Strong communication &amp; analytical skills</li>
+                <li className="relative pl-6 text-[1.05rem] italic font-light leading-normal text-[#1b365d] before:content-['•'] before:absolute before:left-0 before:text-[#1b365d] before:text-2xl before:leading-[1.1]">Ability to work in a fast-paced, team-oriented environment</li>
+                <li className="relative pl-6 text-[1.05rem] italic font-light leading-normal text-[#1b365d] before:content-['•'] before:absolute before:left-0 before:text-[#1b365d] before:text-2xl before:leading-[1.1]">Passion for learning and experimenting with new marketing techniques</li>
+              </ul>
+            </div>
 
-          {/* Section 3: Job Information */}
-          <div className="flex flex-col gap-5">
-            <h2 className="font-bebas text-[2.4rem] font-normal text-brand-yellow m-0 tracking-[0.03em] leading-[1.15]">
-              Job Information
-            </h2>
-            <div className="flex flex-col gap-[1.1rem] mt-1">
-              <div className="flex items-center gap-[1.2rem]">
-                <Calendar className="text-white shrink-0" size={18} />
-                <span className="text-[1.05rem] italic font-light text-white/90">Mon to Fri</span>
-              </div>
-              <div className="flex items-center gap-[1.2rem]">
-                <Clock className="text-white shrink-0" size={18} />
-                <span className="text-[1.05rem] italic font-light text-white/90">Type: Full-Time</span>
-              </div>
-              <div className="flex items-center gap-[1.2rem]">
-                <Award className="text-white shrink-0" size={18} />
-                <span className="text-[1.05rem] italic font-light text-white/90">Certificate will be provided</span>
+            {/* Section 3: Job Information */}
+            <div className="flex flex-col gap-5">
+              <h2 className="font-bebas text-[2.4rem] font-normal text-[#cc7722] m-0 tracking-[0.03em] leading-[1.15]">
+                Job Information
+              </h2>
+              <div className="flex flex-col gap-[1.1rem] mt-1">
+                <div className="flex items-center gap-[1.2rem]">
+                  <Calendar className="text-white shrink-0" size={18} />
+                  <span className="text-[1.05rem] italic font-light text-[#1b365d]">Mon to Fri</span>
+                </div>
+                <div className="flex items-center gap-[1.2rem]">
+                  <Clock className="text-white shrink-0" size={18} />
+                  <span className="text-[1.05rem] italic font-light text-[#1b365d]">Type: Full-Time</span>
+                </div>
+                <div className="flex items-center gap-[1.2rem]">
+                  <Award className="text-white shrink-0" size={18} />
+                  <span className="text-[1.05rem] italic font-light text-[#1b365d]">Certificate will be provided</span>
+                </div>
               </div>
             </div>
           </div>
@@ -275,7 +279,7 @@ export default function Career() {
 
         {/* MIDDLE SECTION: Search Bar and Service Buttons (Full-Width) */}
         <div className="flex flex-col gap-6 pt-8 pb-10 border-t border-b border-white/10">
-          <h3 className="font-bebas text-[1.6rem] font-normal text-white m-0 uppercase tracking-[0.05em]">Recommended Positions</h3>
+          <h3 className="font-bebas text-[1.6rem] font-normal text-transparent m-0 uppercase tracking-[0.05em] hidden">Recommended Positions</h3>
           
           <div className="relative flex items-center w-full">
             <Search className="absolute left-[1.2rem] text-white/50 pointer-events-none" size={18} />
@@ -284,7 +288,7 @@ export default function Career() {
               placeholder="Search job title &amp; skill"
               value={query}
               onChange={e => setQuery(e.target.value)}
-              className="w-full py-3.5 pr-5 pl-12 rounded-md border border-white/20 bg-white/5 text-white text-base transition-all duration-300 outline-none focus:border-brand-yellow focus:bg-white/10 focus:shadow-[0_0_10px_rgba(255,204,0,0.15)]"
+              className="w-full py-3.5 pr-5 pl-12 rounded-md border border-[#1b365d] bg-[#1f3a58] text-white text-base placeholder:text-gray-300 transition-all duration-300 outline-none focus:border-brand-yellow focus:bg-white/10 focus:shadow-[0_0_10px_rgba(255,204,0,0.15)]"
             />
           </div>
 
@@ -293,10 +297,10 @@ export default function Career() {
               <button
                 key={svc.id}
                 type="button"
-                className={`px-5 py-2.5 text-[0.9rem] rounded cursor-pointer transition-all duration-250 border ${
+                className={`px-5 py-2.5 text-[0.9rem] font-bold uppercase rounded-full cursor-pointer transition-all duration-250 border ${
                   selectedServiceId === svc.id
-                    ? "bg-brand-yellow text-brand-dark border-brand-yellow font-semibold shadow-[0_4px_12px_rgba(255,204,0,0.2)]"
-                    : "bg-white/5 text-white/95 border-white/15 hover:bg-brand-yellow/15 hover:text-brand-yellow hover:border-brand-yellow"
+                    ? "bg-[#1b365d] text-white border-transparent shadow-md scale-105"
+                    : "bg-[#1f3a58] text-white border-transparent hover:bg-[#1b365d]"
                 }`}
                 onClick={() => handleServiceSelect(svc.id)}
               >
@@ -309,28 +313,28 @@ export default function Career() {
           </div>
         </div>
 
-        {/* BOTTOM SECTION: Two Column Grid (Service details left, Contact form right) */}
-        <div className="grid grid-cols-1 md:grid-cols-[1.4fr_1fr] gap-12 md:gap-16 items-start">
+        {/* BOTTOM SECTION */}
+        <div className="flex flex-col gap-12 items-center w-full mt-8">
           
-          {/* Left Column: Service Details / Content */}
-          <div className="flex flex-col gap-6 border-b border-white pb-12 md:border-b-0 md:pb-0 md:border-r md:pr-12 lg:pr-16">
-            {currentService ? (
-              <div className="bg-white/[0.03] border-l-4 border-l-brand-yellow rounded-lg p-9 animate-fadeIn shadow-[0_4px_20px_rgba(0,0,0,0.15)] border border-white/[0.02]">
-                <h3 className="font-bebas text-[1.6rem] text-brand-yellow mt-0 mb-2.5 tracking-[0.02em]">{currentService.name}</h3>
+          {/* Service Details / Content (Displayed at the top when selected) */}
+          {currentService && (
+            <div className="w-full max-w-7xl lg:max-w-full animate-fadeIn">
+              <div className="bg-[#1f3a58] border-none text-white rounded-xl p-9 shadow-[0_10px_30px_rgba(0,0,0,0.45)]">
+                <h3 className="font-bebas text-[1.6rem] text-[#cc7722] mt-0 mb-2.5 tracking-[0.02em]">{currentService.name}</h3>
                 
                 <div className="flex flex-wrap gap-[0.8rem] mb-5">
-                  <span className="bg-white/5 border border-white/10 px-3 py-1.5 rounded-full text-xs font-medium text-white/80 inline-flex items-center">💼 {currentService.experience}</span>
-                  <span className="bg-white/5 border border-white/10 px-3 py-1.5 rounded-full text-xs font-medium text-white/80 inline-flex items-center">📍 {currentService.location}</span>
+                  <span className="bg-transparent border-none px-3 py-1.5 text-xs font-medium text-white inline-flex items-center">💼 {currentService.experience}</span>
+                  <span className="bg-transparent border-none px-3 py-1.5 text-xs font-medium text-white inline-flex items-center">📍 {currentService.location}</span>
                 </div>
 
                 <p className="text-[0.95rem] leading-[1.65] text-white/85 m-0">{currentService.description}</p>
 
                 {currentService.responsibilities && (
                   <div className="mt-7">
-                    <h4 className="font-oswald text-[1.1rem] text-brand-yellow mt-0 mb-3 uppercase tracking-[0.03em]">Key Responsibilities</h4>
+                    <h4 className="font-oswald text-[1.1rem] text-[#cc7722] mt-0 mb-3 uppercase tracking-[0.03em]">Key Responsibilities</h4>
                     <ul className="list-none p-0 m-0 flex flex-col gap-3">
                       {currentService.responsibilities.map((item, idx) => (
-                        <li key={idx} className="relative pl-5 text-[0.9rem] leading-normal text-white/80 before:content-['•'] before:absolute before:left-0 before:text-brand-yellow before:text-lg before:leading-[1.1]">{item}</li>
+                        <li key={idx} className="relative pl-5 text-[0.9rem] leading-normal text-white/80 before:content-['•'] before:absolute before:left-0 before:text-[#cc7722] before:text-lg before:leading-[1.1]">{item}</li>
                       ))}
                     </ul>
                   </div>
@@ -338,29 +342,22 @@ export default function Career() {
 
                 {currentService.requirements && (
                   <div className="mt-7">
-                    <h4 className="font-oswald text-[1.1rem] text-brand-yellow mt-0 mb-3 uppercase tracking-[0.03em]">Skills &amp; Requirements</h4>
+                    <h4 className="font-oswald text-[1.1rem] text-[#cc7722] mt-0 mb-3 uppercase tracking-[0.03em]">Skills &amp; Requirements</h4>
                     <ul className="list-none p-0 m-0 flex flex-col gap-3">
                       {currentService.requirements.map((item, idx) => (
-                        <li key={idx} className="relative pl-5 text-[0.9rem] leading-normal text-white/80 before:content-['•'] before:absolute before:left-0 before:text-brand-yellow before:text-lg before:leading-[1.1]">{item}</li>
+                        <li key={idx} className="relative pl-5 text-[0.9rem] leading-normal text-white/80 before:content-['•'] before:absolute before:left-0 before:text-[#cc7722] before:text-lg before:leading-[1.1]">{item}</li>
                       ))}
                     </ul>
                   </div>
                 )}
               </div>
-            ) : (
-              <div className="bg-white/[0.02] border border-dashed border-white/15 rounded-lg p-10 text-center flex flex-col items-center justify-center min-h-[250px] box-border">
-                <h3 className="font-bebas text-[1.8rem] text-white/30 mt-0 mb-3 uppercase tracking-[0.05em]">Select a Position</h3>
-                <p className="text-[0.95rem] leading-[1.6] text-white/40 m-0 max-w-[320px]">
-                  Choose a position from the recommended list above to see details and responsibilities here.
-                </p>
-              </div>
-            )}
-          </div>
+            </div>
+          )}
 
-          {/* Right Column: Contact Form */}
-          <div className="md:sticky md:top-30 static">
-            <div className="bg-gradient-to-br from-[rgba(81,123,152,0.55)] via-[rgba(55,83,103,0.3)] to-[rgba(27,40,50,0.1)] backdrop-blur-md border border-white/15 rounded-xl p-9 shadow-[0_10px_30px_rgba(0,0,0,0.45)]">
-              <h2 className="font-bebas text-[2.2rem] text-brand-yellow mt-0 mb-1 tracking-[0.02em]">Join Our Team</h2>
+          {/* Contact Form: Wide layout, label on left, input on right */}
+          <div className="w-full flex justify-center">
+            <div className="w-full max-w-7xl lg:max-w-full bg-[#1f3a58] border-none text-white rounded-xl p-9 shadow-[0_10px_30px_rgba(0,0,0,0.45)] transition-all duration-500">
+              <h2 className="font-bebas text-[2.2rem] text-[#cc7722] mt-0 mb-1 tracking-[0.02em]">Join Our Team</h2>
               <p className="text-[0.9rem] text-white/60 mt-0 mb-8">Fill out the details below to apply for a role.</p>
               
               {isSubmitted ? (
@@ -369,68 +366,92 @@ export default function Career() {
                   <p className="text-white/85 text-[0.95rem] m-0 leading-relaxed">Thank you for choosing SparkTech. Our HR team will contact you shortly.</p>
                 </div>
               ) : (
-                <form className="flex flex-col gap-[1.3rem]" onSubmit={handleSubmit}>
-                  <div className="flex flex-col gap-1.5">
-                    <label htmlFor="name" className="text-[0.9rem] font-medium text-white/90 flex items-center gap-1.5"><User size={15} /> Name *</label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      required
-                      placeholder="Enter your full name"
-                      value={formData.name}
-                      onChange={handleInputChange}
-                      className="w-full px-4 py-3 rounded border border-white/15 bg-black/20 text-white text-[0.95rem] font-inter transition-all duration-300 outline-none focus:border-brand-yellow focus:bg-black/40 box-border"
-                    />
+                <form className="flex flex-col gap-6" onSubmit={handleSubmit}>
+                  {/* Grid for two columns (Left: Name & Phone, Right: Email & Role) */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
+                    {/* Left Column */}
+                    <div className="flex flex-col gap-6">
+                      {/* Name Field */}
+                      <div className="flex flex-col gap-2 w-full">
+                        <label htmlFor="name" className="text-[1.1rem] font-medium text-white flex items-center gap-1.5">
+                          <User size={16} /> Name
+                        </label>
+                        <input
+                          type="text"
+                          id="name"
+                          name="name"
+                          required
+                          placeholder="Enter your full name"
+                          value={formData.name}
+                          onChange={handleInputChange}
+                          className="w-full px-4 py-3 rounded-full border border-gray-400/50 bg-transparent text-white text-[0.95rem] font-inter transition-all duration-300 outline-none focus:border-brand-yellow focus:bg-black/40 box-border"
+                        />
+                      </div>
+
+                      {/* Phone Number Field */}
+                      <div className="flex flex-col gap-2 w-full">
+                        <label htmlFor="phone" className="text-[1.1rem] font-medium text-white flex items-center gap-1.5">
+                          <Phone size={16} /> Phone Number
+                        </label>
+                        <input
+                          type="tel"
+                          id="phone"
+                          name="phone"
+                          required
+                          placeholder="Enter phone number"
+                          value={formData.phone}
+                          onChange={handleInputChange}
+                          className="w-full px-4 py-3 rounded-full border border-gray-400/50 bg-transparent text-white text-[0.95rem] font-inter transition-all duration-300 outline-none focus:border-brand-yellow focus:bg-black/40 box-border"
+                        />
+                      </div>
+                    </div>
+
+                    {/* Right Column */}
+                    <div className="flex flex-col gap-6">
+                      {/* Email Field */}
+                      <div className="flex flex-col gap-2 w-full">
+                        <label htmlFor="email" className="text-[1.1rem] font-medium text-white flex items-center gap-1.5">
+                          <Mail size={16} /> Email
+                        </label>
+                        <input
+                          type="email"
+                          id="email"
+                          name="email"
+                          required
+                          placeholder="Enter your email address"
+                          value={formData.email}
+                          onChange={handleInputChange}
+                          className="w-full px-4 py-3 rounded-full border border-gray-400/50 bg-transparent text-white text-[0.95rem] font-inter transition-all duration-300 outline-none focus:border-brand-yellow focus:bg-black/40 box-border"
+                        />
+                      </div>
+
+                      {/* Role / Service Field */}
+                      <div className="flex flex-col gap-2 w-full">
+                        <label htmlFor="role" className="text-[1.1rem] font-medium text-white flex items-center gap-1.5">
+                          Role / Service
+                        </label>
+                        <select
+                          id="role"
+                          name="role"
+                          required
+                          value={formData.role}
+                          onChange={handleDropdownChange}
+                          className="w-full px-4 py-3 rounded-full border border-gray-400/50 bg-transparent text-white text-[0.95rem] font-inter transition-all duration-300 outline-none focus:border-brand-yellow focus:bg-black/40 box-border cursor-pointer"
+                        >
+                          <option value="" disabled className="bg-brand-dark text-white">Choose a role / service</option>
+                          {SERVICES.map(svc => (
+                            <option key={svc.id} value={svc.id} className="bg-brand-dark text-white">{svc.name}</option>
+                          ))}
+                        </select>
+                      </div>
+                    </div>
                   </div>
 
-                  <div className="flex flex-col gap-1.5">
-                    <label htmlFor="email" className="text-[0.9rem] font-medium text-white/90 flex items-center gap-1.5"><Mail size={15} /> Email *</label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      required
-                      placeholder="Enter your email address"
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      className="w-full px-4 py-3 rounded border border-white/15 bg-black/20 text-white text-[0.95rem] font-inter transition-all duration-300 outline-none focus:border-brand-yellow focus:bg-black/40 box-border"
-                    />
-                  </div>
-
-                  <div className="flex flex-col gap-1.5">
-                    <label htmlFor="phone" className="text-[0.9rem] font-medium text-white/90 flex items-center gap-1.5"><Phone size={15} /> Phone Number *</label>
-                    <input
-                      type="tel"
-                      id="phone"
-                      name="phone"
-                      required
-                      placeholder="Enter phone number"
-                      value={formData.phone}
-                      onChange={handleInputChange}
-                      className="w-full px-4 py-3 rounded border border-white/15 bg-black/20 text-white text-[0.95rem] font-inter transition-all duration-300 outline-none focus:border-brand-yellow focus:bg-black/40 box-border"
-                    />
-                  </div>
-
-                  <div className="flex flex-col gap-1.5">
-                    <label htmlFor="role" className="text-[0.9rem] font-medium text-white/90 flex items-center gap-1.5">Role / Service *</label>
-                    <select
-                      id="role"
-                      name="role"
-                      required
-                      value={formData.role}
-                      onChange={handleDropdownChange}
-                      className="w-full px-4 py-3 rounded border border-white/15 bg-black/20 text-white text-[0.95rem] font-inter transition-all duration-300 outline-none focus:border-brand-yellow focus:bg-black/40 box-border cursor-pointer"
-                    >
-                      <option value="" disabled className="bg-brand-dark text-white">Choose a role / service</option>
-                      {SERVICES.map(svc => (
-                        <option key={svc.id} value={svc.id} className="bg-brand-dark text-white">{svc.name}</option>
-                      ))}
-                    </select>
-                  </div>
-
-                  <div className="flex flex-col gap-1.5">
-                    <label htmlFor="message" className="text-[0.9rem] font-medium text-white/90 flex items-center gap-1.5"><MessageSquare size={15} /> Message</label>
+                  {/* Message Field (Full width) */}
+                  <div className="flex flex-col gap-2 w-full">
+                    <label htmlFor="message" className="text-[1.1rem] font-medium text-white flex items-center gap-1.5">
+                      <MessageSquare size={16} /> Message
+                    </label>
                     <textarea
                       id="message"
                       name="message"
@@ -438,29 +459,35 @@ export default function Career() {
                       placeholder="Enter your message"
                       value={formData.message}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 rounded border border-white/15 bg-black/20 text-white text-[0.95rem] font-inter transition-all duration-300 outline-none focus:border-brand-yellow focus:bg-black/40 box-border"
+                      className="w-full px-4 py-3 rounded-3xl border border-gray-400/50 bg-transparent text-white text-[0.95rem] font-inter transition-all duration-300 outline-none focus:border-brand-yellow focus:bg-black/40 box-border"
                     />
                   </div>
 
-                  <div className="flex flex-col gap-1.5 mt-1">
-                    <label htmlFor="resume" className="flex items-center justify-center gap-2 p-3 border border-dashed border-white/25 rounded-md cursor-pointer bg-white/2 text-[0.9rem] text-white/80 transition-all duration-300 hover:border-brand-yellow hover:bg-brand-yellow/5 hover:text-brand-yellow">
-                      <Upload size={15} />
-                      <span>{formData.resume ? formData.resume.name : "Upload Resume (PDF/Doc) *"}</span>
-                    </label>
-                    <input
-                      type="file"
-                      id="resume"
-                      name="resume"
-                      required
-                      accept=".pdf,.doc,.docx"
-                      onChange={handleFileChange}
-                      className="hidden"
-                    />
-                  </div>
+                  {/* Resume Upload & Submit Button (Side-by-side on desktop) */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full items-end pt-4">
+                    {/* Resume Upload Field */}
+                    <div className="flex flex-col w-full">
+                      <label htmlFor="resume" className="flex items-center justify-center gap-2 w-full px-4 py-3 rounded-full border border-gray-400/50 bg-transparent text-white text-[0.95rem] font-bold transition-all duration-300 cursor-pointer hover:bg-white/5">
+                        <span>{formData.resume ? formData.resume.name : "Upload Resume (PDF/ Docs)"}</span>
+                      </label>
+                      <input
+                        type="file"
+                        id="resume"
+                        name="resume"
+                        required
+                        accept=".pdf,.doc,.docx"
+                        onChange={handleFileChange}
+                        className="hidden"
+                      />
+                    </div>
 
-                  <button type="submit" className="bg-brand-yellow text-brand-dark border-none p-4 text-[1.05rem] font-bold rounded-md cursor-pointer transition-all duration-300 mt-[0.8rem] uppercase tracking-[0.03em] shadow-[0_4px_12px_rgba(255,204,0,0.15)] hover:bg-[#ffdb33] hover:-translate-y-0.5 hover:shadow-[0_6px_16px_rgba(255,204,0,0.3)] active:translate-y-0.5">
-                    Apply Now
-                  </button>
+                    {/* Submit Button */}
+                    <div className="w-full">
+                      <button type="submit" className="flex items-center justify-center w-full px-4 py-3 rounded-full border border-gray-400/50 bg-transparent text-white text-[0.95rem] font-bold transition-all duration-300 cursor-pointer uppercase hover:bg-white/5">
+                        APPLY NOW
+                      </button>
+                    </div>
+                  </div>
                 </form>
               )}
             </div>
@@ -470,8 +497,10 @@ export default function Career() {
 
       </div>
 
+      </div>
+
       {/* Footer Section */}
-      <div className="w-full max-w-[1200px] mt-24 md:mt-16">
+      <div className="pt-10">
         <Footer />
       </div>
     </div>

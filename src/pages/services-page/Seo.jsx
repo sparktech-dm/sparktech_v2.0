@@ -53,20 +53,15 @@ const SEO = () => {
   ];
 
   return (
-    <div className="min-h-screen text-white py-12 px-6">
+    <div className="min-h-screen py-12 px-6 bg-[#ffffff]">
       <section className="max-w-5xl mx-auto">
         {/* Title & Header */}
         <div className="text-center mb-16 animate-fadeIn">
-          <h1 className="text-3xl md:text-4xl font-extrabold uppercase tracking-widest text-[#f0c417] font-oswald mb-6">
-            SEARCH VISIBILITY & SEO
+          <h1 className="text-3xl md:text-4xl font-extrabold uppercase tracking-widest font-oswald mb-6">
+            <span className="text-[#cc7722]">SEARCH VISIBILITY </span>
+            <span className="text-[#1b365d]">& </span>
+            <span className="text-[#cc7722]">SEO</span>
           </h1>
-          <p className="text-white/80 font-light text-sm md:text-base leading-relaxed italic max-w-3xl mx-auto">
-            Unlock your website's full potential with smart SEO strategies. By
-            optimizing keywords, improving site speed, and building quality
-            backlinks, you can attract the right audience and boost your search
-            rankings. Stay ahead of competitors and drive consistent growth with
-            a strong digital presence.
-          </p>
         </div>
 
         {/* Offerings Grid - 6 cards */}
@@ -84,12 +79,12 @@ const SEO = () => {
                   boxShadow: "0px 0px 15px rgba(240, 196, 23, 0.25)",
                 }
               })}
-              className="bg-gradient-to-b from-[#182335] to-[#0a0f18] border-2 border-[#f0c417] p-8 rounded-2xl flex flex-col justify-center text-center h-[200px]"
+              className="bg-[#1f3a58] p-8 rounded-2xl flex flex-col justify-center text-center h-[200px]"
             >
-              <h3 className="text-[#f0c417] font-oswald text-base font-bold uppercase tracking-wider mb-3">
+              <h3 className="text-[#cc7722] font-oswald text-base font-bold uppercase tracking-wider mb-3">
                 {item.title}
               </h3>
-              <p className="text-white/80 text-xs md:text-sm font-light leading-relaxed">
+              <p className="text-white text-xs md:text-sm font-light leading-relaxed">
                 {item.desc}
               </p>
             </MotionDiv>
@@ -109,16 +104,16 @@ const SEO = () => {
               },
               transition: { duration: 0.5 }
             })}
-            className="w-full max-w-2xl bg-gradient-to-b from-[#182335] to-[#0a0f18] border-2 border-[#f0c417] p-8 rounded-2xl text-center"
+            className="w-full max-w-2xl bg-[#1f3a58] p-8 rounded-2xl text-center"
           >
-            <h2 className="text-lg md:text-xl font-bold font-oswald text-[#f0c417] uppercase tracking-wider mb-6">
+            <h2 className="text-lg md:text-xl font-bold font-oswald text-[#cc7722] uppercase tracking-wider mb-6">
               Why Choose Spark Tech for SEO?
             </h2>
             <ul className="space-y-4">
               {reasons.map((reason, idx) => (
                 <li
                   key={idx}
-                  className="text-white/95 text-xs md:text-sm font-light tracking-wide leading-relaxed"
+                  className="text-white text-xs md:text-sm font-light tracking-wide leading-relaxed"
                 >
                   {reason}
                 </li>
@@ -128,21 +123,14 @@ const SEO = () => {
         </div>
 
         {/* Bottom CTA Section */}
-        <div className="text-center max-w-3xl mx-auto">
-          <h3 className="text-2xl md:text-3xl font-extrabold uppercase font-oswald text-[#f0c417] tracking-wider mb-2">
+        <div className="text-center max-w-3xl mx-auto mt-16">
+          <h3 className="text-2xl md:text-3xl font-extrabold uppercase font-oswald text-[#cc7722] tracking-wider mb-8">
             SEO isn't just about being found
           </h3>
-          <h3 className="text-xl md:text-2xl font-bold uppercase font-oswald text-white tracking-wider mb-6">
-            -it's about being chosen.
-          </h3>
-          <p className="text-white/80 font-light text-sm leading-relaxed mb-8 max-w-2xl mx-auto">
-            Let's craft an SEO strategy that not only reaches the top but stays
-            there. Partner with us to scale your organic presence sustainably.
-          </p>
 
           <button
             onClick={() => navigate("/contact")}
-            className="px-8 py-3.5 bg-gradient-to-r from-[#172033] to-black hover:from-[#f0c417] hover:to-[#e1b514] text-[#f0c417] hover:text-black font-bold uppercase tracking-wider text-xs md:text-sm border-2 border-[#f0c417] rounded-full transition-all duration-300 shadow-md hover:shadow-[0_0_20px_rgba(240,196,23,0.4)] cursor-pointer"
+            className="px-8 py-3.5 bg-[#1f3a58] hover:bg-[#1b365d] text-white font-bold tracking-wider text-xs md:text-sm rounded-xl transition-all duration-300 shadow-md cursor-pointer"
           >
             Book a SEO consult
           </button>

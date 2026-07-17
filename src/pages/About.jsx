@@ -7,12 +7,6 @@ import Footer from "../components/Footer";
 
 const chevronPatternBg = {
   backgroundColor: "#0a0a0c",
-  backgroundImage: `
-    linear-gradient(45deg, #111115 25%, transparent 25%, transparent 75%, #111115 75%, #111115),
-    linear-gradient(45deg, #111115 25%, transparent 25%, transparent 75%, #111115 75%, #111115)
-  `,
-  backgroundSize: "8px 8px",
-  backgroundPosition: "0 0, 4px 4px",
 };
 
 const About = () => {
@@ -83,13 +77,13 @@ const About = () => {
     target: horizontalScrollRef,
     offset: ["start start", "end end"]
   });
-  
+
   const smoothProgress = useSpring(scrollYProgress, {
     stiffness: 100,
     damping: 30,
     restDelta: 0.001
   });
-  
+
   const horizontalX = useTransform(smoothProgress, [0, 1], ["0%", "-50%"]);
 
   const allSteps = useMemo(() => {
@@ -110,12 +104,12 @@ const About = () => {
           behavior: "smooth"
         });
         setActiveStepIndex(index);
-        
+
         const yearIndex = Math.floor(index / 4);
         if (journey[yearIndex]) {
           setActiveYear(journey[yearIndex].year);
         }
-        
+
         lastInteraction.current = Date.now();
       }
     }
@@ -127,7 +121,7 @@ const About = () => {
     const containerCenter = container.scrollLeft + container.clientWidth / 2;
     let minDiff = Infinity;
     let activeIndex = 0;
-    
+
     Array.from(container.children).forEach((child, index) => {
       const childCenter = child.offsetLeft + child.clientWidth / 2;
       const diff = Math.abs(containerCenter - childCenter);
@@ -139,7 +133,7 @@ const About = () => {
 
     const yearIndex = Math.floor(activeIndex / 4);
     const year = journey[yearIndex]?.year || journey[0].year;
-    
+
     setActiveStepIndex((prevIndex) => {
       if (prevIndex !== activeIndex) {
         return activeIndex;
@@ -153,7 +147,7 @@ const About = () => {
       }
       return prevYear;
     });
-    
+
     lastInteraction.current = Date.now();
   };
 
@@ -166,10 +160,10 @@ const About = () => {
 
       const currentYearIndex = journey.findIndex((r) => r.year === activeYear);
       if (currentYearIndex === -1) return;
-      
+
       const startIdx = currentYearIndex * 4;
       const endIdx = startIdx + 3;
-      
+
       const nextIndex = activeStepIndex >= endIdx || activeStepIndex < startIdx ? startIdx : activeStepIndex + 1;
       scrollToIndex(nextIndex);
     }, 1000);
@@ -184,19 +178,19 @@ const About = () => {
         description="Learn about the journey, values, and milestone of Spark Tech Digital as we build foundation and scale new heights."
       />
 
-      <div style={chevronPatternBg} className="min-h-screen text-white pt-32 pb-0 px-0 sm:px-6 md:px-12 lg:px-20 relative overflow-hidden">
+      <div className="min-h-screen pt-32 pb-0 relative overflow-hidden bg-white">
 
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-6 md:mb-10 px-4 sm:px-0"
+          className="text-center mb-10 md:mb-10 px-8 md:px-16"
         >
-          <h1 className="text-4xl md:text-6xl font-black text-[#f0c417] uppercase tracking-wider">
-            Our Journey
+          <h1 className="text-4xl md:text-6xl font-black text-[#1b365d] uppercase tracking-wider">
+            OUR <span className="text-[#cc7722]">JOURNEY</span>
           </h1>
-          <p className="text-slate-300 text-sm md:text-base font-semibold mt-3 max-w-2xl mx-auto italic">
+          <p className="text-[#1b365d] text-sm md:text-base font-semibold mt-3 max-w-2xl mx-auto italic">
             A journey of passion, teamwork and purpose - growing stronger with every step
           </p>
 
@@ -214,11 +208,10 @@ const About = () => {
                 scrollToIndex(startIndex);
                 lastInteraction.current = Date.now();
               }}
-              className={`px-6 py-2 md:px-8 md:py-3 rounded-full font-bold text-base md:text-lg transition-all duration-300 cursor-pointer ${
-                activeYear === row.year
-                  ? "bg-[#f0c417] text-black shadow-[0_0_15px_rgba(240,196,23,0.4)]"
-                  : "bg-[#111115] text-white border border-[#f0c417]/30 hover:border-[#f0c417] hover:bg-[#1a3a4a]"
-              }`}
+              className={`px-6 py-2 md:px-8 md:py-3 rounded-full font-bold text-base md:text-lg transition-all duration-300 cursor-pointer ${activeYear === row.year
+                ? "bg-[#1f3a58] text-white"
+                : "bg-[#f2eee0] text-[#1b365d] border border-[#cc7722] hover:bg-[#e6dfcb]"
+                }`}
             >
               {row.year}
             </button>
@@ -230,100 +223,132 @@ const About = () => {
           {journey
             .filter((row) => row.year === activeYear)
             .map((row) => (
-            <motion.div
-              key={row.year}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="rounded-[2rem] p-6 md:p-8"
-              style={{
-                border: "1.5px solid #f0c417",
-                background: "rgba(240,196,23,0.03)",
-              }}
-            >
-              <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-stretch relative">
+              <motion.div
+                key={row.year}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="rounded-[2rem] p-6 md:p-8"
+                style={{
+                  border: "1.5px solid #cc7722",
+                  background: "#ffffff",
+                }}
+              >
+                <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-stretch relative">
 
-                {/* Left Column: Year Card */}
-                <motion.div
-                  initial={{ opacity: 0, x: -30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.1 }}
-                  className="w-full lg:w-[260px] xl:w-[290px] flex-shrink-0 rounded-[1.5rem] p-8 border border-[#f0c417]/30 shadow-xl flex flex-col justify-center relative overflow-hidden group"
-                  style={{
-                    background: "linear-gradient(135deg, #1a3a4a 0%, #0d2233 100%)",
-                  }}
-                >
-                  {/* Background glow hover effect */}
-                  <div className="absolute top-0 right-0 w-24 h-24 bg-yellow-400/5 rounded-full blur-3xl -mr-10 -mt-10 group-hover:bg-yellow-400/10 transition-colors duration-500" />
+                  {/* Left Column: Year Card */}
+                  <motion.div
+                    initial={{ opacity: 0, x: -30 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    className="w-full lg:w-[260px] xl:w-[290px] flex-shrink-0 rounded-[1.5rem] p-8 shadow-xl flex flex-col justify-center relative overflow-hidden group bg-[#1f3a58]"
+                  >
+                    {/* Background glow hover effect */}
+                    <div className="absolute top-0 right-0 w-24 h-24 bg-[#cc7722]/10 rounded-full blur-3xl -mr-10 -mt-10 group-hover:bg-[#cc7722]/20 transition-colors duration-500" />
 
-                  <span className="text-white font-black text-5xl md:text-6xl tracking-tight whitespace-nowrap">
-                    {row.year}
-                  </span>
-                  <h3 className="text-yellow-400 font-extrabold text-lg md:text-xl mt-4 leading-snug">
-                    {row.title}
-                  </h3>
-                  <p className="text-slate-300 text-sm mt-4 leading-relaxed font-medium">
-                    {row.desc}
-                  </p>
-                </motion.div>
+                    <span className="text-white font-black text-5xl md:text-6xl tracking-tight whitespace-nowrap">
+                      {row.year}
+                    </span>
+                    <h3 className="text-[#cc7722] font-extrabold text-lg md:text-xl mt-4 leading-snug">
+                      {row.title}
+                    </h3>
+                    <p className="text-white text-sm mt-4 leading-relaxed font-medium">
+                      {row.desc}
+                    </p>
+                  </motion.div>
 
-                {/* Right Column: 4 Timeline Steps */}
-                <div className="flex-1 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 lg:gap-8 items-stretch relative">
-                  {/* Yellow connecting line through icons only (desktop) */}
-                  <div
-                    className="hidden xl:block absolute left-[12.5%] right-[12.5%] top-[28px] h-[2px] -z-0"
-                    style={{ background: "#ffffff" }}
-                  />
-                  {row.steps.map((step, stepIndex) => (
-                    <motion.div
-                      key={step.title}
-                      initial={{ opacity: 0, y: 30 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.5, delay: stepIndex * 0.1 }}
-                      className="flex flex-col items-center relative"
-                    >
-                      {/* Step Icon Badge - sits on top of the connecting line */}
-                      <div className="w-14 h-14 rounded-full border-2 border-[#f0c417] bg-[#0a0a0c] flex items-center justify-center text-[#f0c417] shadow-[0_0_18px_rgba(240,196,23,0.3)] hover:shadow-[0_0_28px_rgba(240,196,23,0.6)] hover:scale-105 transition-all duration-300 relative z-10">
-                        {step.icon}
-                      </div>
+                  {/* Right Column: 4 Timeline Steps */}
+                  <div className="flex-1 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 lg:gap-8 items-stretch relative">
+                    {/* Yellow connecting line through icons only (desktop) */}
+                    <div
+                      className="hidden xl:block absolute left-[12.5%] right-[12.5%] top-[28px] h-[2px] -z-0"
+                      style={{ background: "#1b365d" }}
+                    />
+                    {row.steps.map((step, stepIndex) => (
+                      <motion.div
+                        key={step.title}
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: stepIndex * 0.1 }}
+                        className="flex flex-col items-center relative"
+                      >
+                        {/* Step Icon Badge - sits on top of the connecting line */}
+                        <div className="w-14 h-14 rounded-full border-2 border-[#cc7722] bg-[#f2eee0] flex items-center justify-center text-[#cc7722] shadow-sm hover:shadow-[0_0_15px_rgba(204,119,34,0.4)] hover:scale-105 transition-all duration-300 relative z-10">
+                          {step.icon}
+                        </div>
 
-                      {/* Step Title */}
-                      <span className="text-slate-200 text-center font-bold text-xs uppercase tracking-wider mt-3 mb-4 max-w-[180px] min-h-[32px] flex items-center justify-center">
-                        {step.title}
-                      </span>
+                        {/* Step Title */}
+                        <span className="text-[#1b365d] text-center font-bold text-xs uppercase tracking-wider mt-3 mb-4 max-w-[180px] min-h-[32px] flex items-center justify-center">
+                          {step.title}
+                        </span>
 
-                      {/* Step Image */}
-                      <div className="w-full aspect-[4/3] rounded-2xl overflow-hidden border border-zinc-800/60 shadow-lg relative group/item">
-                        <img
-                          src={step.image}
-                          alt={step.title}
-                          className="w-full h-full object-cover transition-transform duration-500 group-hover/item:scale-110"
-                        />
-                        <div className="absolute inset-0 bg-black/30 group-hover/item:bg-black/10 transition-colors duration-300" />
-                      </div>
-                    </motion.div>
-                  ))}
+                        {/* Step Image */}
+                        <div className="w-full aspect-[4/3] rounded-2xl overflow-hidden border border-gray-200 shadow-lg relative group/item">
+                          <img
+                            src={step.image}
+                            alt={step.title}
+                            className="w-full h-full object-cover transition-transform duration-500 group-hover/item:scale-110"
+                          />
+                          <div className="absolute inset-0 bg-black/30 group-hover/item:bg-black/10 transition-colors duration-300" />
+                        </div>
+                      </motion.div>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            ))}
         </div>
 
         {/* Timeline Carousel (Mobile/Tablet View) */}
-        <div className="lg:hidden mx-auto relative">
+        <div className="lg:hidden mx-auto relative px-4 sm:px-8 md:px-16">
+          {/* Year selector badge */}
+          <div className="flex items-center justify-center gap-6 mb-8">
+            {activeYear === "2026" ? (
+              <button
+                onClick={() => scrollToIndex(0)}
+                className="text-[#1b365d] hover:text-[#cc7722] transition-colors duration-200 cursor-pointer"
+                aria-label="Go to 2025"
+              >
+                <FiChevronLeft size={28} />
+              </button>
+            ) : (
+              <div className="w-7 h-7" />
+            )}
+
+            <motion.div
+              key={activeYear}
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.3 }}
+              className="px-8 py-2 rounded-full border border-[#cc7722] bg-[#1f3a58] text-white font-extrabold text-xl italic tracking-wider shadow-sm"
+            >
+              {activeYear}
+            </motion.div>
+
+            {activeYear === "2025" ? (
+              <button
+                onClick={() => scrollToIndex(4)}
+                className="text-[#1b365d] hover:text-[#cc7722] transition-colors duration-200 cursor-pointer"
+                aria-label="Go to 2026"
+              >
+                <FiChevronRight size={28} />
+              </button>
+            ) : (
+              <div className="w-7 h-7" />
+            )}
+          </div>
+
           {/* Slider with flanking arrows */}
           <div className="flex items-center gap-1 px-1">
 
             {/* Left arrow - outside image */}
             <button
               onClick={() => activeStepIndex > 0 && scrollToIndex(activeStepIndex - 1)}
-              className={`flex-shrink-0 w-10 h-10 rounded-full border flex items-center justify-center transition-all duration-200 cursor-pointer shadow-md ${
-                activeStepIndex > 0
-                  ? "bg-black/70 border-[#f0c417]/60 text-[#f0c417] hover:bg-[#f0c417]/20"
-                  : "bg-black/20 border-zinc-700/40 text-zinc-600 cursor-default"
-              }`}
+              className={`flex-shrink-0 w-10 h-10 rounded-full border flex items-center justify-center transition-all duration-200 cursor-pointer shadow-md ${activeStepIndex > 0
+                ? "bg-[#f2eee0] border-[#cc7722] text-[#cc7722] hover:bg-[#e6dfcb]"
+                : "bg-gray-100 border-gray-300 text-gray-400 cursor-default"
+                }`}
               aria-label="Previous step"
               disabled={activeStepIndex === 0}
             >
@@ -345,20 +370,18 @@ const About = () => {
                 return (
                   <div
                     key={`${step.year}-${step.title}`}
-                    className={`flex-shrink-0 w-full snap-center transition-all duration-400 flex flex-col items-center ${
-                      isActive ? "opacity-100" : "opacity-40"
-                    }`}
+                    className={`flex-shrink-0 w-full snap-center transition-all duration-400 flex flex-col items-center ${isActive ? "opacity-100" : "opacity-40"
+                      }`}
                   >
                     {/* Step Title */}
-                    <span className="text-slate-200 text-center font-bold text-xs uppercase tracking-wider mb-3 min-h-[28px] flex items-center justify-center">
+                    <span className="text-[#1b365d] text-center font-bold text-xs uppercase tracking-wider mb-3 min-h-[28px] flex items-center justify-center">
                       {step.title}
                     </span>
 
                     {/* Step Image - bigger, full width */}
                     <div
-                      className={`w-full aspect-[4/3] rounded-[1.25rem] overflow-hidden border-2 transition-all duration-300 relative ${
-                        isActive ? "border-[#f0c417] shadow-[0_0_24px_rgba(240,196,23,0.35)]" : "border-zinc-800/60 shadow-lg"
-                      }`}
+                      className={`w-full aspect-[4/3] rounded-[1.25rem] overflow-hidden border-2 transition-all duration-300 relative ${isActive ? "border-[#cc7722] shadow-[0_0_24px_rgba(204,119,34,0.25)]" : "border-gray-200 shadow-sm"
+                        }`}
                     >
                       <img
                         src={step.image}
@@ -375,11 +398,10 @@ const About = () => {
             {/* Right arrow - outside image */}
             <button
               onClick={() => activeStepIndex < allSteps.length - 1 && scrollToIndex(activeStepIndex + 1)}
-              className={`flex-shrink-0 w-10 h-10 rounded-full border flex items-center justify-center transition-all duration-200 cursor-pointer shadow-md ${
-                activeStepIndex < allSteps.length - 1
-                  ? "bg-black/70 border-[#f0c417]/60 text-[#f0c417] hover:bg-[#f0c417]/20"
-                  : "bg-black/20 border-zinc-700/40 text-zinc-600 cursor-default"
-              }`}
+              className={`flex-shrink-0 w-10 h-10 rounded-full border flex items-center justify-center transition-all duration-200 cursor-pointer shadow-md ${activeStepIndex < allSteps.length - 1
+                ? "bg-[#f2eee0] border-[#cc7722] text-[#cc7722] hover:bg-[#e6dfcb]"
+                : "bg-gray-100 border-gray-300 text-gray-400 cursor-default"
+                }`}
               aria-label="Next step"
               disabled={activeStepIndex === allSteps.length - 1}
             >
@@ -392,69 +414,108 @@ const About = () => {
       </div>
 
       {/* ── WHY SPARKTECH EXIST SECTION ── */}
-      <section className="relative w-full py-24 px-6 lg:px-12 bg-[#0a0a0c] border-y border-white/5 overflow-hidden">
-        {/* Abstract Glowing Shapes */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#f0c417]/5 blur-[150px] rounded-full pointer-events-none" />
-        
-        <div className="relative z-10 max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12 lg:gap-20">
-          
-          <motion.div 
+      <section className="relative w-full py-16 md:py-24 px-6 lg:px-12 bg-[#ffffff] overflow-hidden font-sans">
+        <div className="relative z-10 max-w-6xl mx-auto flex flex-col md:flex-row items-stretch justify-center gap-8 lg:gap-12">
+
+          {/* Left Column */}
+          <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
-            className="w-full md:w-1/2 flex flex-col items-start text-left"
+            className="w-full md:w-[35%] flex flex-col justify-center items-center md:items-end"
           >
-            <div className="mb-4 inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#f0c417]/30 bg-[#f0c417]/10">
-              <span className="w-2 h-2 rounded-full bg-[#f0c417] animate-pulse" />
-              <span className="text-[#f0c417] text-xs font-bold tracking-widest uppercase">Our Purpose</span>
-            </div>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-none mb-6">
-              WHY <br/>
-              <span className="text-[#f0c417] italic">SPARKTECH</span> <br/>
-              EXISTS
+            <h2 className="text-[2.75rem] sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl font-black leading-[1.05] uppercase text-center tracking-tighter">
+              <span className="text-[#1b365d] block">WHY</span>
+              <span className="text-[#cc7722] block">SPARKTECH</span>
+              <span className="text-[#1b365d] block">EXIST</span>
             </h2>
           </motion.div>
 
-          <motion.div 
+          {/* Middle Column (Divider) - Desktop */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.1 }}
+            className="hidden md:flex flex-col items-center justify-center w-16 lg:w-24 shrink-0 py-8"
+          >
+            <div className="w-[2px] flex-1 bg-[#cc7722]" />
+            <div className="py-6">
+              <div className="w-16 h-16 lg:w-[80px] lg:h-[80px] rounded-full border-[1.5px] border-[#cc7722] flex items-center justify-center">
+                 <div className="w-12 h-12 lg:w-[68px] lg:h-[68px] rounded-full bg-[#1b365d] flex items-center justify-center relative shadow-sm">
+                    <svg className="w-7 h-7 lg:w-10 lg:h-10" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12 1.5C12 1.5 12 9.5 22.5 12C22.5 12 12.5 13 12 22.5C12 22.5 12 13 1.5 12C1.5 12 9.5 12 12 1.5Z" fill="#cc7722"/>
+                      <path d="M18.5 4.5C18.5 4.5 18.5 6.5 21 7C21 7 19 7.5 18.5 9.5C18.5 9.5 18.5 7.5 16 7C16 7 17.5 7 18.5 4.5Z" fill="#cc7722"/>
+                    </svg>
+                 </div>
+              </div>
+            </div>
+            <div className="w-[2px] flex-1 bg-[#cc7722]" />
+          </motion.div>
+
+          {/* Mobile Divider */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.1 }}
+            className="flex md:hidden items-center justify-center w-full py-6"
+          >
+              <div className="h-[2px] flex-1 bg-[#cc7722]" />
+              <div className="px-5">
+                <div className="w-16 h-16 rounded-full border-[1.5px] border-[#cc7722] flex items-center justify-center">
+                   <div className="w-12 h-12 rounded-full bg-[#1b365d] flex items-center justify-center relative shadow-sm">
+                      <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 1.5C12 1.5 12 9.5 22.5 12C22.5 12 12.5 13 12 22.5C12 22.5 12 13 1.5 12C1.5 12 9.5 12 12 1.5Z" fill="#cc7722"/>
+                        <path d="M18.5 4.5C18.5 4.5 18.5 6.5 21 7C21 7 19 7.5 18.5 9.5C18.5 9.5 18.5 7.5 16 7C16 7 17.5 7 18.5 4.5Z" fill="#cc7722"/>
+                      </svg>
+                   </div>
+                </div>
+              </div>
+              <div className="h-[2px] flex-1 bg-[#cc7722]" />
+          </motion.div>
+
+          {/* Right Column */}
+          <motion.div
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="w-full md:w-1/2"
+            className="w-full md:w-[55%] flex flex-col justify-center gap-5 text-[#1b365d] text-[15px] md:text-base lg:text-[17px] font-semibold leading-relaxed"
           >
-            <div className="p-8 md:p-10 rounded-[2rem] bg-[#111115]/60 backdrop-blur-md border border-white/10 shadow-[0_10px_40px_rgba(0,0,0,0.5)] relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-[#f0c417]/10 rounded-bl-full blur-2xl" />
-              <p className="text-white/90 text-lg leading-relaxed mb-6 font-medium italic relative z-10 border-l-2 border-[#f0c417] pl-4">
-                "We realized that too many businesses were forced to choose between stunning creative design and rigorous technical functionality. SparkTech was born to bridge that gap."
-              </p>
-              <p className="text-white/70 text-base leading-relaxed relative z-10">
-                We exist to empower brands with digital solutions that don't just look incredible, but actually solve complex business problems. Our core belief is that every brand has a unique spark—our job is to fan it into a flame that dominates the digital landscape.
-              </p>
-            </div>
+            <p>
+              At SparkTech, we believe innovation should create measurable value. Our purpose is to help organizations embrace digital transformation with confidence, combining strategy, technology, and creativity to deliver solutions that drive sustainable growth and long-term success.
+            </p>
+            <p>
+              At SparkTech, we believe innovation should create measurable value. Our purpose is to help organizations embrace digital transformation with confidence, combining strategy, technology, and creativity to deliver solutions that drive sustainable growth and long-term success.
+            </p>
+            <p>
+              At SparkTech, we believe innovation should create measurable value. Our purpose is to help organizations embrace digital transformation with confidence.
+            </p>
           </motion.div>
-          
+
         </div>
       </section>
 
       {/* ── VISION & MISSION SECTION (Horizontal Scroll) ── */}
-      <section ref={horizontalScrollRef} style={chevronPatternBg} className="relative h-[200vh]">
+      <section ref={horizontalScrollRef} className="relative h-[200vh] bg-white">
         <div className="sticky top-0 flex h-screen items-center overflow-hidden">
-          
+
           {/* Static Heading */}
           <div className="absolute top-12 sm:top-16 md:top-32 left-0 w-full text-center z-20 px-4">
-            <motion.h2 
+            <motion.h2
               initial={{ opacity: 0, y: -20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              className="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight"
+              className="text-3xl sm:text-4xl md:text-5xl font-black text-[#1b365d] tracking-tight uppercase"
             >
-              Vision <span className="text-[#f0c417]">&amp;</span> Mission
+              VISION <span className="text-[#cc7722]">AND</span> MISSION
             </motion.h2>
           </div>
 
           {/* Scrolling Container */}
           <motion.div style={{ x: horizontalX }} className="flex w-[200vw] items-center h-full pt-24 sm:pt-28 md:pt-16">
-            
+
             {/* ── OUR VISION CARD ── */}
             <div className="w-[100vw] flex-shrink-0 px-5 sm:px-8 md:px-16 lg:px-24 flex items-center justify-center">
               <div className="max-w-6xl w-full flex flex-col md:flex-row items-center gap-5 sm:gap-8 md:gap-16">
@@ -476,13 +537,13 @@ const About = () => {
                   transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
                   className="w-full md:w-1/2 text-center md:text-left"
                 >
-                  <h3 className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-3 sm:mb-4 md:mb-6 leading-tight">
-                    Our <span className="text-[#f0c417]">Vision</span>
+                  <h3 className="text-3xl sm:text-4xl md:text-5xl font-black text-[#1b365d] mb-3 sm:mb-4 md:mb-6 leading-tight">
+                    Our <span className="text-[#cc7722]">Vision</span>
                   </h3>
-                  <p className="text-slate-300 text-sm sm:text-base md:text-lg leading-relaxed mb-3 md:mb-4 italic">
+                  <p className="text-[#1b365d] text-sm sm:text-base md:text-lg leading-relaxed mb-3 md:mb-4">
                     To reshape digital into a space where data meets depth — and brands grow through clarity, not chaos.
                   </p>
-                  <p className="text-slate-300 text-sm sm:text-base md:text-lg leading-relaxed italic">
+                  <p className="text-[#1b365d] text-sm sm:text-base md:text-lg leading-relaxed">
                     At Spark Tech, our vision is to fuse creativity with clarity, building bold ideas on a bedrock of insight and intention.
                   </p>
                 </motion.div>
@@ -511,19 +572,101 @@ const About = () => {
                   transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
                   className="w-full md:w-1/2 text-center md:text-left"
                 >
-                  <h3 className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-3 sm:mb-4 md:mb-6 leading-tight">
-                    Our <span className="text-[#f0c417]">Mission</span>
+                  <h3 className="text-3xl sm:text-4xl md:text-5xl font-black text-[#1b365d] mb-3 sm:mb-4 md:mb-6 leading-tight">
+                    Our <span className="text-[#cc7722]">Mission</span>
                   </h3>
-                  <p className="text-slate-300 text-sm sm:text-base md:text-lg leading-relaxed mb-3 md:mb-4">
+                  <p className="text-[#1b365d] text-sm sm:text-base md:text-lg leading-relaxed mb-3 md:mb-4">
                     We dig deep before we move fast. Every strategy we craft is backed by research, sharpened by data, and brought to life through storytelling that connects.
                   </p>
-                  <p className="text-slate-300 text-sm sm:text-base md:text-lg leading-relaxed">
+                  <p className="text-[#1b365d] text-sm sm:text-base md:text-lg leading-relaxed">
                     Helping brands grow with purpose is what drives Spark Tech — a digital marketing agency in Chennai that believes in data-backed decisions and content with conviction.
                   </p>
                 </motion.div>
               </div>
             </div>
 
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ── FOUNDER SECTION ── */}
+      <section className="bg-[#fffdfa] py-16 md:py-28 overflow-hidden relative border-t border-gray-100">
+        <div className="max-w-7xl mx-auto px-6 md:px-16 flex flex-col md:flex-row items-center gap-12 lg:gap-20">
+          <div className="w-full md:w-5/12 flex justify-center">
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="relative"
+            >
+              <div className="absolute inset-0 bg-[#cc7722]/10 rounded-full blur-3xl transform -translate-y-10 scale-110 -z-10"></div>
+              <img
+                src="/CEO.png"
+                alt="Founder & CEO"
+                className="w-full max-w-[280px] lg:max-w-[340px] object-contain drop-shadow-[0_20px_30px_rgba(27,54,93,0.2)]"
+              />
+            </motion.div>
+          </div>
+          <div className="w-full md:w-7/12">
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+            >
+              <h2 className="text-4xl md:text-6xl font-black text-[#1b365d] mb-4 tracking-tight uppercase" style={{ fontFamily: "Unbounded" }}>
+                MEET OUR <span className="text-[#cc7722]">FOUNDER</span>
+              </h2>
+              <h3 className="text-xl md:text-2xl font-bold text-[#cc7722] mb-6 tracking-wide">
+                FOUNDER <span className="text-[#1b365d] font-medium">& CEO</span>
+              </h3>
+              <div className="w-16 h-1 bg-[#cc7722] rounded-full mb-8"></div>
+              <p className="text-[#1b365d]/90 text-base md:text-lg leading-relaxed mb-6 font-medium">
+                "We don't just build marketing campaigns; we build partnerships. Our goal is to bridge the gap between your brand's vision and your audience's needs, using data-driven strategies and creative storytelling."
+              </p>
+              <p className="text-[#1b365d]/80 text-base md:text-lg leading-relaxed">
+                Every brand has a story worth telling and I started Sparktech to help those stories spark action.<br/>
+<br/>
+I come from a mix of tech and business — a B.Tech in IT, an MBA in Marketing from LIBA, and certifications in Cybersecurity, SAP, and Penetration Testing. That background gave me a simple perspective: creativity shines brightest when it’s backed by systems that are secure, scalable, and smart.<br/>
+<br/>
+Before Spark Tech, I had the privilege of working with brands like BMW, creating IPL-themed campaigns and digital strategies. Those experiences taught me that good marketing doesn’t shout — it connects.<br/>
+<br/>
+For us, every campaign is personal. Every idea is sharpened by data. And every success belongs just as much to our clients as it does to us.
+
+
+              </p>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── TEAM SECTION ── */}
+      <section className="bg-white py-16 md:py-24 overflow-hidden relative">
+        <div className="max-w-7xl lg:max-w-full mx-auto px-6 md:px-16 text-center flex flex-col items-center">
+          <motion.h2
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="text-4xl md:text-6xl font-black text-[#1b365d] mb-12 tracking-tight uppercase"
+            style={{ fontFamily: "Unbounded" }}
+          >
+            OUR CORE <span className="text-[#cc7722]">TEAM</span>
+          </motion.h2>
+          
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9, y: 30 }}
+            whileInView={{ opacity: 1, scale: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+            className="w-full flex justify-center"
+          >
+            <img
+              src="/Team Section final.png"
+              alt="Spark Tech Team"
+              className="w-full max-w-[1200px] h-auto object-contain"
+            />
           </motion.div>
         </div>
       </section>

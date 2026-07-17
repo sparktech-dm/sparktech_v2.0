@@ -45,19 +45,13 @@ const AdCreativesCampaigns = () => {
   ];
 
   return (
-    <div className="min-h-screen text-white py-12 px-6">
+    <div className="min-h-screen py-12 px-6 bg-[#ffffff]">
       <section className="max-w-5xl mx-auto">
         {/* Title & Header */}
         <div className="text-center mb-16 animate-fadeIn">
-          <h1 className="text-3xl md:text-4xl font-extrabold uppercase tracking-widest text-[#f0c417] font-oswald mb-6">
+          <h1 className="text-3xl md:text-4xl font-extrabold uppercase tracking-widest font-oswald mb-6">
             ADS CREATIVE & CAMPAIGN
           </h1>
-          <p className="text-white/80 font-light text-sm md:text-base leading-relaxed italic max-w-3xl mx-auto">
-            Supercharge your conversion rates with creative, data-driven advertising
-            campaigns. By matching high-impact copy, engaging visual creatives, and
-            technical campaign audits, we ensure you gain qualified customers at lower costs.
-            Stay ahead of competitors and scale your business with paid campaigns that work.
-          </p>
         </div>
 
         {/* Offerings Grid - 4 cards */}
@@ -75,12 +69,12 @@ const AdCreativesCampaigns = () => {
                   boxShadow: "0px 0px 15px rgba(240, 196, 23, 0.25)",
                 }
               })}
-              className="bg-gradient-to-b from-[#182335] to-[#0a0f18] border-2 border-[#f0c417] p-8 rounded-2xl flex flex-col justify-center text-center h-[200px]"
+              className="bg-[#1f3a58] p-8 rounded-2xl flex flex-col justify-center text-center h-[200px]"
             >
-              <h3 className="text-[#f0c417] font-oswald text-base font-bold uppercase tracking-wider mb-3">
+              <h3 className="text-[#cc7722] font-oswald text-base font-bold uppercase tracking-wider mb-3">
                 {item.title}
               </h3>
-              <p className="text-white/80 text-xs md:text-sm font-light leading-relaxed">
+              <p className="text-white text-xs md:text-sm font-light leading-relaxed">
                 {item.desc}
               </p>
             </MotionDiv>
@@ -100,16 +94,16 @@ const AdCreativesCampaigns = () => {
               },
               transition: { duration: 0.5 }
             })}
-            className="w-full max-w-2xl bg-gradient-to-b from-[#182335] to-[#0a0f18] border-2 border-[#f0c417] p-8 rounded-2xl text-center"
+            className="w-full max-w-2xl bg-[#1f3a58] p-8 rounded-2xl text-center"
           >
-            <h2 className="text-lg md:text-xl font-bold font-oswald text-[#f0c417] uppercase tracking-wider mb-6">
+            <h2 className="text-lg md:text-xl font-bold font-oswald text-[#cc7722] uppercase tracking-wider mb-6">
               Why Brands Trust Spark Tech for Ad Campaigns
             </h2>
             <ul className="space-y-4">
               {reasons.map((reason, idx) => (
                 <li
                   key={idx}
-                  className="text-white/95 text-xs md:text-sm font-light tracking-wide leading-relaxed"
+                  className="text-white text-xs md:text-sm font-light tracking-wide leading-relaxed"
                 >
                   {reason}
                 </li>
@@ -119,20 +113,14 @@ const AdCreativesCampaigns = () => {
         </div>
 
         {/* Bottom CTA Section */}
-        <div className="text-center max-w-3xl mx-auto">
-          <h3 className="text-2xl md:text-3xl font-extrabold uppercase font-oswald text-[#f0c417] tracking-wider mb-2">
+        <div className="text-center max-w-3xl mx-auto mt-16">
+          <h3 className="text-2xl md:text-3xl font-extrabold uppercase font-oswald text-[#cc7722] tracking-wider mb-8">
             Ads should be an investment, not an expense
           </h3>
-          <h3 className="text-xl md:text-2xl font-bold uppercase font-oswald text-white tracking-wider mb-6">
-            -Turn clicks into profitable customers.
-          </h3>
-          <p className="text-white/80 font-light text-sm leading-relaxed mb-8 max-w-2xl mx-auto">
-            Partner with a team that understands both scroll-stopping creative and the mathematics of profitable media buying.
-          </p>
 
           <button
             onClick={() => navigate("/contact")}
-            className="px-8 py-3.5 bg-gradient-to-r from-[#172033] to-black hover:from-[#f0c417] hover:to-[#e1b514] text-[#f0c417] hover:text-black font-bold uppercase tracking-wider text-xs md:text-sm border-2 border-[#f0c417] rounded-full transition-all duration-300 shadow-md hover:shadow-[0_0_20px_rgba(240,196,23,0.4)] cursor-pointer"
+            className="px-8 py-3.5 bg-[#1f3a58] hover:bg-[#1b365d] text-white font-bold tracking-wider text-xs md:text-sm rounded-xl transition-all duration-300 shadow-md cursor-pointer"
           >
             Book an Ads consult
           </button>

@@ -42,18 +42,18 @@ const ContactPage = () => {
   };
 
   return (
-    <div className="min-h-screen text-white font-sans career-bg-pattern pt-15">
+    <div className="min-h-screen bg-white text-[#1b365d] font-sans pt-15">
       {/* ── SECTION 1: "Let's Spark Together" + Info Cards ── */}
       <section className="px-8 md:px-16 py-16">
         {/* Heading */}
         <div className="text-center mb-14">
           <h1
-            className="text-yellow-400 font-extrabold text-5xl not-italic"
+            className="text-[#cc7722] font-extrabold text-5xl not-italic"
             style={{ fontFamily: "'Anton', sans-serif", fontSize: "48px", fontWeight: 400 }}
           >
             Let's Spark Together
           </h1>
-          <p className="text-gray-300 font-poppins italic mt-5 max-w-xl mx-auto text-base leading-relaxed">
+          <p className="text-[#1b365d] font-poppins mt-5 max-w-xl mx-auto text-base leading-relaxed">
             Need help with branding, social media growth, SEO, website design, or digital campaigns?
             Share your idea and our team will turn it into results.
           </p>
@@ -62,17 +62,17 @@ const ContactPage = () => {
         {/* Info Cards */}
         <div className="flex flex-col md:flex-row justify-between gap-6 md:gap-8">
           {/* Map */}
-          <div className="border-2 border-yellow-400 rounded-2xl p-7 bg-black hover:bg-yellow-400/5 transition-all duration-300 w-full md:w-[29%]">
+          <div className="border-2 border-[#cc7722] rounded-2xl p-7 bg-[#f2eee0] transition-all duration-300 w-full md:w-[29%]">
             <div className="flex items-center justify-between gap-6 mb-4">
-              <h3 className="text-yellow-400 font-extrabold text-2xl">We're on map</h3>
-              <span className="text-yellow-400">
+              <h3 className="text-[#cc7722] font-extrabold text-2xl">We're on map</h3>
+              <span className="text-[#cc7722]">
                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
                   <circle cx="12" cy="10" r="3"></circle>
                 </svg>
               </span>
             </div>
-            <p className="text-gray-300 text-sm leading-relaxed">
+            <p className="text-[#1b365d] text-sm leading-relaxed">
               C1, Honey tone Apartments,<br />
               Shankarapuram 1st Street,<br />
               Choolaimedu, Chennai 600094
@@ -80,10 +80,10 @@ const ContactPage = () => {
           </div>
 
           {/* Call */}
-          <div className="border-2 border-yellow-400 rounded-2xl p-7 bg-black hover:bg-yellow-400/5 transition-all duration-300 flex flex-col justify-between w-full md:w-[29%]">
+          <div className="border-2 border-[#cc7722] rounded-2xl p-7 bg-[#f2eee0] transition-all duration-300 flex flex-col justify-between w-full md:w-[29%]">
             <div className="flex items-center justify-between gap-6 mb-4">
-              <h3 className="text-yellow-400 font-extrabold text-2xl">Get us a call</h3>
-              <span className="text-yellow-400">
+              <h3 className="text-[#cc7722] font-extrabold text-2xl">Get us a call</h3>
+              <span className="text-[#cc7722]">
                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
                   <path d="M14.05 2a9 9 0 0 1 8 7.94"></path>
@@ -91,38 +91,38 @@ const ContactPage = () => {
                 </svg>
               </span>
             </div>
-            <p className="text-gray-200 text-lg font-semibold">+91 8939892219</p>
+            <p className="text-[#1b365d] text-lg font-semibold">+91 8939892219</p>
           </div>
 
           {/* Email */}
-          <div className="border-2 border-yellow-400 rounded-2xl p-7 bg-black hover:bg-yellow-400/5 transition-all duration-300 flex flex-col justify-between w-full md:w-[29%]">
+          <div className="border-2 border-[#cc7722] rounded-2xl p-7 bg-[#f2eee0] transition-all duration-300 flex flex-col justify-between w-full md:w-[29%]">
             <div className="flex items-center justify-between gap-6 mb-4">
-              <h3 className="text-yellow-400 font-extrabold text-2xl">Send us email</h3>
-              <span className="text-yellow-400">
+              <h3 className="text-[#cc7722] font-extrabold text-2xl">Send us email</h3>
+              <span className="text-[#cc7722]">
                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                   <line x1="22" y1="2" x2="11" y2="13"></line>
                   <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
                 </svg>
               </span>
             </div>
-            <p className="text-gray-200 text-base font-semibold">sparktechdm@gmail.com</p>
+            <p className="text-[#1b365d] text-base font-semibold">sparktechdm@gmail.com</p>
           </div>
         </div>
       </section>
 
       {/* ── SECTION 2: "Let's Get Connect" Contact Form ── */}
       <section className="px-8 md:px-16 py-12">
-        <div className="bg-black border-2 border-yellow-400 rounded-[40px] p-8 md:p-12 lg:p-16 grid grid-cols-1 md:grid-cols-2 gap-12 items-start shadow-2xl">
+        <div className="bg-[#1f3a58] rounded-[20px] p-8 md:p-12 lg:p-16 grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
           {/* Left: Form */}
         <div className="flex flex-col gap-6">
           <div>
             <p className="text-white text-3xl font-bold">Let's Get</p>
-            <p className="text-yellow-400 text-5xl font-extrabold italic">Connect !</p>
+            <p className="text-[#cc7722] text-5xl font-extrabold italic">Connect !</p>
           </div>
 
           <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-5 mt-2">
             <div>
-              <label className="text-yellow-400 italic font-semibold text-lg mb-2 block">Name <span className="text-red-500">*</span></label>
+              <label className="text-[#cc7722] italic font-semibold text-lg mb-2 block">Name <span className="text-red-500">*</span></label>
               <input
                 type="text"
                 name="name"
@@ -136,7 +136,7 @@ const ContactPage = () => {
             </div>
 
             <div>
-              <label className="text-yellow-400 italic font-semibold text-lg mb-2 block">Email <span className="text-red-500">*</span></label>
+              <label className="text-[#cc7722] italic font-semibold text-lg mb-2 block">Email <span className="text-red-500">*</span></label>
               <input
                 type="email"
                 name="email"
@@ -150,7 +150,7 @@ const ContactPage = () => {
             </div>
 
             <div>
-              <label className="text-yellow-400 italic font-semibold text-lg mb-2 block">Phone <span className="text-red-500">*</span></label>
+              <label className="text-[#cc7722] italic font-semibold text-lg mb-2 block">Phone <span className="text-red-500">*</span></label>
               <input
                 type="tel"
                 name="phone"
@@ -164,20 +164,20 @@ const ContactPage = () => {
             </div>
 
             <div>
-              <label className="text-yellow-400 italic font-semibold text-lg mb-2 block">Message</label>
+              <label className="text-[#cc7722] italic font-semibold text-lg mb-2 block">Message</label>
               <textarea
                 name="message"
                 value={formData.message}
                 onChange={handleChange}
                 rows={5}
-                className="w-full bg-transparent border border-yellow-400 rounded-2xl px-5 py-3 text-white outline-none focus:border-yellow-300 focus:ring-1 focus:ring-yellow-400 transition-all resize-none"
+                className="w-full bg-transparent border border-gray-400/50 rounded-3xl px-5 py-3 text-white outline-none focus:border-white focus:ring-1 focus:ring-white transition-all resize-none"
               />
             </div>
 
             <div className="flex justify-center mt-2">
               <button
                 type="submit"
-                className="border-2 border-yellow-400 text-yellow-400 font-bold tracking-widest px-14 py-3 rounded-full hover:bg-yellow-400 hover:text-black transition-all duration-300 text-base"
+                className="border-2 border-yellow-400 text-[#cc7722] font-bold tracking-widest px-14 py-3 rounded-full hover:bg-yellow-400 hover:text-black transition-all duration-300 text-base"
               >
                 {submitted ? "✓ SENT!" : "SUBMIT"}
               </button>
