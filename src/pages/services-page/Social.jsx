@@ -34,7 +34,7 @@ const SocialMediaMarketing = () => {
   ];
 
   return (
-    <div className="min-h-screen py-12 px-6 bg-[#ffffff]">
+    <div className="min-h-screen pt-32 pb-12 px-6 bg-[#ffffff]">
       <section className="max-w-5xl mx-auto">
         {/* Title & Header */}
         <div className="text-center mb-16 animate-fadeIn">

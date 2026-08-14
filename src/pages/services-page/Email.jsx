@@ -45,12 +45,13 @@ const EmailMarketing = () => {
   ];
 
   return (
-    <div className="min-h-screen py-12 px-6 bg-[#ffffff]">
+    <div className="min-h-screen pt-32 pb-12 px-6 bg-[#ffffff]">
       <section className="max-w-5xl mx-auto">
         {/* Title & Header */}
         <div className="text-center mb-16 animate-fadeIn">
           <h1 className="text-3xl md:text-4xl font-extrabold uppercase tracking-widest font-oswald mb-6">
-            AUTOMATE EMAIL FLOW
+            <span className="text-[#cc7722]">AUTOMATE </span>
+            <span className="text-[#1b365d]">EMAIL FLOW</span>
           </h1>
         </div>
 

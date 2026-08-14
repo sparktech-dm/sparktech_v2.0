@@ -197,7 +197,7 @@ const About = () => {
         </motion.div>
 
         {/* Year Toggle Tabs */}
-        <div className="flex justify-center gap-3 md:gap-6 mb-12 flex-wrap px-4 max-w-4xl mx-auto">
+        <div className="hidden lg:flex justify-center gap-3 md:gap-6 mb-12 flex-wrap px-4 max-w-4xl mx-auto">
           {journey.map((row, index) => (
             <button
               key={row.year}
@@ -590,9 +590,11 @@ const About = () => {
       </section>
 
       {/* ── FOUNDER SECTION ── */}
-      <section className="bg-[#fffdfa] py-16 md:py-28 overflow-hidden relative border-t border-gray-100">
-        <div className="max-w-7xl mx-auto px-6 md:px-16 flex flex-col md:flex-row items-center gap-12 lg:gap-20">
-          <div className="w-full md:w-5/12 flex justify-center">
+      <section className="bg-[#fffdfa] py-12 md:py-28 overflow-hidden relative border-t border-gray-100">
+        <div className="max-w-7xl mx-auto px-6 md:px-16 flex flex-col md:flex-row items-center gap-6 md:gap-12 lg:gap-20">
+          
+          {/* Desktop Image (Hidden on Mobile) */}
+          <div className="hidden md:flex w-full md:w-5/12 justify-center">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -604,28 +606,48 @@ const About = () => {
               <img
                 src="/CEO.png"
                 alt="Founder & CEO"
-                className="w-full max-w-[280px] lg:max-w-[340px] object-contain drop-shadow-[0_20px_30px_rgba(27,54,93,0.2)]"
+                className="w-full md:max-w-[280px] lg:max-w-[340px] object-contain drop-shadow-[0_20px_30px_rgba(27,54,93,0.2)]"
               />
             </motion.div>
           </div>
-          <div className="w-full md:w-7/12">
+
+          <div className="w-full md:w-7/12 text-center md:text-left">
             <motion.div
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
             >
-              <h2 className="text-4xl md:text-6xl font-black text-[#1b365d] mb-4 tracking-tight uppercase" style={{ fontFamily: "Unbounded" }}>
+              <h2 className="text-3xl sm:text-4xl md:text-6xl font-black text-[#1b365d] mb-3 md:mb-4 tracking-tight uppercase" style={{ fontFamily: "Unbounded" }}>
                 MEET OUR <span className="text-[#cc7722]">FOUNDER</span>
               </h2>
-              <h3 className="text-xl md:text-2xl font-bold text-[#cc7722] mb-6 tracking-wide">
+
+              {/* Mobile Image (Visible only on Mobile, right after heading) */}
+              <div className="flex md:hidden w-full justify-center my-6">
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, ease: "easeOut" }}
+                  className="relative"
+                >
+                  <div className="absolute inset-0 bg-[#cc7722]/10 rounded-full blur-3xl transform -translate-y-5 scale-110 -z-10"></div>
+                  <img
+                    src="/CEO.png"
+                    alt="Founder & CEO"
+                    className="w-full max-w-[140px] sm:max-w-[160px] object-contain drop-shadow-[0_15px_25px_rgba(27,54,93,0.2)]"
+                  />
+                </motion.div>
+              </div>
+
+              <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-[#cc7722] mb-5 md:mb-6 tracking-wide">
                 FOUNDER <span className="text-[#1b365d] font-medium">& CEO</span>
               </h3>
-              <div className="w-16 h-1 bg-[#cc7722] rounded-full mb-8"></div>
-              <p className="text-[#1b365d]/90 text-base md:text-lg leading-relaxed mb-6 font-medium">
+              <div className="w-12 md:w-16 h-1 bg-[#cc7722] rounded-full mx-auto md:mx-0 mb-6 md:mb-8"></div>
+              <p className="text-[#1b365d]/90 text-sm sm:text-base md:text-lg leading-relaxed mb-5 md:mb-6 font-medium">
                 "We don't just build marketing campaigns; we build partnerships. Our goal is to bridge the gap between your brand's vision and your audience's needs, using data-driven strategies and creative storytelling."
               </p>
-              <p className="text-[#1b365d]/80 text-base md:text-lg leading-relaxed">
+              <p className="text-[#1b365d]/80 text-sm sm:text-base md:text-lg leading-relaxed">
                 Every brand has a story worth telling and I started Sparktech to help those stories spark action.<br/>
 <br/>
 I come from a mix of tech and business — a B.Tech in IT, an MBA in Marketing from LIBA, and certifications in Cybersecurity, SAP, and Penetration Testing. That background gave me a simple perspective: creativity shines brightest when it’s backed by systems that are secure, scalable, and smart.<br/>
@@ -633,8 +655,6 @@ I come from a mix of tech and business — a B.Tech in IT, an MBA in Marketing f
 Before Spark Tech, I had the privilege of working with brands like BMW, creating IPL-themed campaigns and digital strategies. Those experiences taught me that good marketing doesn’t shout — it connects.<br/>
 <br/>
 For us, every campaign is personal. Every idea is sharpened by data. And every success belongs just as much to our clients as it does to us.
-
-
               </p>
             </motion.div>
           </div>
