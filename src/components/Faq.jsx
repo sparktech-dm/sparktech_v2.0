@@ -9,41 +9,41 @@ export const Faq = () => {
 
   const faqs = [
     {
-      question: "What is SEO and why is it important?",
+      question: "What services does SparkTech provide?",
       answer:
-        "SEO (Search Engine Optimization) is the practice of optimizing your website to increase its visibility and ranking in search engine results pages.",
+        "We offer SEO, website development, Google Ads, social media marketing, branding, UI/UX design, performance marketing, and other digital solutions tailored to business goals.",
     },
     {
-      question: "How long does it take to see results from SEO?",
+      question: "How long does SEO take to show results?",
       answer:
-        "SEO results typically take 3-6 months to show significant improvements, depending on competition and optimization efforts.",
+        "SEO is a long-term strategy. Many businesses begin seeing measurable improvements within a few months, although timelines vary depending on competition, website quality, and industry.",
     },
     {
-      question: "What are the key factors that influence SEO rankings?",
+      question: "Can you redesign my existing website?",
       answer:
-        "Key factors include content quality, keyword optimization, site speed, mobile-friendliness, backlinks, and user experience.",
+        "Yes. We can improve your existing website with a modern design, better user experience, and performance enhancements while preserving important content where appropriate.",
     },
     {
-      question: "Do I need to hire an SEO agency, or can I do SEO myself?",
+      question: "Do you work with small businesses?",
       answer:
-        "While basic SEO can be done yourself, professional agencies bring expertise, tools, and time that can significantly improve results.",
+        "Yes. We work with startups, local businesses, and growing companies, creating strategies that fit their goals and budget.",
     },
     {
-      question: "How much does SEO cost?",
+      question: "How do I get started?",
       answer:
-        "SEO costs vary widely based on scope and provider, ranging from $500-$5000+ monthly for professional services.",
+        "Simply contact us through our website, and we'll discuss your business goals before recommending the most suitable services.",
     },
-    {
-      question: "Can I rank #1 on Google for any keyword?",
-      answer:
-        "While possible, ranking #1 depends on competition, relevance, authority, and ongoing optimization efforts. Realistic expectations are important.",
-    },
-    {
-      question:
-        "Is SEO a one-time effort, or does it require ongoing maintenance?",
-      answer:
-        "SEO requires ongoing maintenance as search algorithms evolve, competitors adapt, and fresh content needs to be created regularly.",
-    },
+    // {
+    //   question: "Can I rank #1 on Google for any keyword?",
+    //   answer:
+    //     "While possible, ranking #1 depends on competition, relevance, authority, and ongoing optimization efforts. Realistic expectations are important.",
+    // },
+    // {
+    //   question:
+    //     "Is SEO a one-time effort, or does it require ongoing maintenance?",
+    //   answer:
+    //     "SEO requires ongoing maintenance as search algorithms evolve, competitors adapt, and fresh content needs to be created regularly.",
+    // },
   ];
 
   const toggleFAQ = (index) => {
@@ -72,9 +72,9 @@ export const Faq = () => {
               lineHeight: "38px",
             }}
           >
-            Got <span className="text-[#cc7722]">Questions?</span>
+            Everything <span className="text-[#cc7722]">You</span>
             <br />
-            We've Got  <span className="text-[#cc7722]">Answers!</span>
+            Need to <span className="text-[#cc7722]">Know!</span>
           </h2>
         </div>
 

@@ -18,19 +18,20 @@ const SocialMediaMarketing = () => {
   const MotionDiv = isMobile ? "div" : motion.div;
 
   const offerings = [
-    { title: "Content Strategy & Planning", desc: "We build a plan that resonates with your audience insights and brand tone, aligned with growth goals." },
-    { title: "Content Creation", desc: "From punchy captions to powerful reels — our creative team builds content that cuts through the noise." },
-    { title: "Social Media Management", desc: "We handle your social day-to-day — scheduling, community management, engagement, and optimizations." },
-    { title: "Influencer Marketing", desc: "We partner with influencers who fit your brand — not just follow counts." },
-    { title: "Paid Social Integration", desc: "We align your content and ad strategy across platforms to drive reach, clicks, and conversions." }
+    { title: "CONTENT STRATEGY & PLANNING", desc: "Every successful social media campaign begins with a clear strategy. We develop content plans based on your business goals, target audience, and industry trends to ensure every post supports your brand's growth." },
+    { title: "CREATIVE CONTENT DEVELOPMENT", desc: "Our creative team produces engaging social media content, including graphics, videos, reels, captions, and stories that reflect your brand identity and encourage audience interaction." },
+    { title: "SOCIAL MEDIA MANAGEMENT", desc: "We manage your social media presence by scheduling posts, responding to customer interactions, monitoring performance, and maintaining consistent brand communication across all platforms." },
+    { title: "INFLUENCER MARKETING", desc: "Expand your brand's reach by collaborating with trusted influencers who genuinely connect with your target audience. We identify the right partnerships to build credibility and increase engagement." },
+    { title: "PAID SOCIAL MEDIA ADVERTISING", desc: "Reach more potential customers with targeted advertising campaigns across Facebook, Instagram, LinkedIn, and other social platforms. We optimize every campaign to maximize reach, engagement, and conversions." }
   ];
 
   const reasons = [
-    "Strategy-first approach, not post-first panic",
-    "Consistent brand voice across platforms",
-    "Native content built for each platform’s culture",
-    "Strong eye for design, storytelling, and timing",
-    "Seamless integration with performance marketing"
+    "Customized Social Media Strategies",
+    "Creative Content That Engages Audiences",
+    "Consistent Brand Communication",
+    "Community Management & Customer Engagement",
+    "Performance Tracking & Campaign Optimization",
+    "Integration with Digital Marketing Strategies"
   ];
 
   return (
@@ -59,7 +60,7 @@ const SocialMediaMarketing = () => {
                   boxShadow: "0px 0px 15px rgba(240, 196, 23, 0.25)",
                 }
               })}
-              className="bg-[#1f3a58] p-8 rounded-2xl flex flex-col justify-center text-center h-[200px]"
+              className="bg-[#1f3a58] p-8 rounded-2xl flex flex-col justify-center text-center h-auto min-h-[280px]"
             >
               <h3 className="text-[#cc7722] font-oswald text-base font-bold uppercase tracking-wider mb-3">
                 {item.title}
@@ -86,16 +87,19 @@ const SocialMediaMarketing = () => {
             })}
             className="w-full max-w-2xl bg-[#1f3a58] p-8 rounded-2xl text-center"
           >
-            <h2 className="text-lg md:text-xl font-bold font-oswald text-[#cc7722] uppercase tracking-wider mb-6">
-              Why Brands Trust Spark Tech with Their Socials
+            <h2 className="text-lg md:text-xl font-bold font-oswald text-[#cc7722] uppercase tracking-wider mb-2">
+              WHY BUSINESSES CHOOSE SPARKTECH
             </h2>
-            <ul className="space-y-4">
+            <p className="text-white text-xs md:text-sm font-light mb-6">
+              We create social media strategies that build lasting relationships and deliver measurable results.
+            </p>
+            <ul className="space-y-4 inline-block text-left">
               {reasons.map((reason, idx) => (
                 <li
                   key={idx}
-                  className="text-white text-xs md:text-sm font-light tracking-wide leading-relaxed"
+                  className="text-white text-xs md:text-sm font-light tracking-wide leading-relaxed flex items-start"
                 >
-                  {reason}
+                  <span className="text-[#cc7722] mr-2">✔</span> {reason}
                 </li>
               ))}
             </ul>
@@ -104,15 +108,18 @@ const SocialMediaMarketing = () => {
 
         {/* Bottom CTA Section */}
         <div className="text-center max-w-3xl mx-auto mt-16">
-          <h3 className="text-2xl md:text-3xl font-extrabold uppercase font-oswald text-[#cc7722] tracking-wider mb-8">
-            Social that sparks lead magnets
+          <h3 className="text-2xl md:text-3xl font-extrabold uppercase font-oswald text-[#cc7722] tracking-wider mb-4">
+            READY TO GROW YOUR BRAND ON SOCIAL MEDIA?
           </h3>
+          <p className="text-white text-sm font-light leading-relaxed mb-8">
+            Whether you're building your brand from the ground up or looking to strengthen your online presence, SparkTech is here to help. Let's create meaningful social media experiences that engage your audience and support long-term business growth.
+          </p>
 
           <button
             onClick={() => navigate("/contact")}
             className="px-8 py-3.5 bg-[#1f3a58] hover:bg-[#1b365d] text-white font-bold tracking-wider text-xs md:text-sm rounded-xl transition-all duration-300 shadow-md cursor-pointer"
           >
-            Book a Strategy Call
+            Book a Free Social Media Consultation
           </button>
         </div>
       </section>

@@ -13,26 +13,26 @@ const About = () => {
   const journey = [
     {
       year: "2025",
-      title: "The foundation and first steps",
-      desc: "We built the foundation, earned trust and turned our vision into real impact",
+      title: "Building the Foundation ",
+      desc: "We turned our vision into reality by building strong client relationships and delivering reliable digital solutions. ",
       steps: [
         {
-          title: "Getting started",
+          title: "Company Launch",
           icon: <FiUsers size={22} />,
           image: "/history 2025 img 1.webp",
         },
         {
-          title: "Building momentum",
+          title: "First Client Success",
           icon: <FiTrendingUp size={22} />,
           image: "/IMG_4402 (1) (1).webp",
         },
         {
-          title: "Growing stronger",
+          title: "Building Trust",
           icon: <FaRocket size={20} />,
           image: "/history 2025 img 3.webp",
         },
         {
-          title: "Scaling new heights",
+          title: "Strong Foundation",
           icon: <FiTarget size={22} />,
           image: "/2025 img 4.webp",
         },
@@ -40,8 +40,8 @@ const About = () => {
     },
     {
       year: "2026",
-      title: "Expanding impact and future ready",
-      desc: "We're scaling our impact, expanding our reach and building a future of endless possibilities",
+      title: "Expanding Impact & Future Ready ",
+      desc: "We continue to grow by expanding our services, embracing innovation, and helping businesses succeed in the digital world.",
       steps: [
         {
           title: "Expanding our capabilities",
@@ -191,7 +191,8 @@ const About = () => {
             OUR <span className="text-[#cc7722]">JOURNEY</span>
           </h1>
           <p className="text-[#1b365d] text-sm md:text-base font-semibold mt-3 max-w-2xl mx-auto italic">
-            A journey of passion, teamwork and purpose - growing stronger with every step
+           A journey driven by innovation, collaboration, and a passion for helping 
+businesses grow through digital excellence. 
           </p>
 
         </motion.div>
@@ -485,13 +486,21 @@ const About = () => {
             className="w-full md:w-[55%] flex flex-col justify-center gap-5 text-[#1b365d] text-[15px] md:text-base lg:text-[17px] font-semibold leading-relaxed"
           >
             <p>
-              At SparkTech, we believe innovation should create measurable value. Our purpose is to help organizations embrace digital transformation with confidence, combining strategy, technology, and creativity to deliver solutions that drive sustainable growth and long-term success.
+              At SparkTech, we believe every business deserves the opportunity to grow 
+in the digital world. Our purpose is to help businesses build a strong online 
+presence by combining creativity, technology, and data-driven strategies 
+that deliver measurable results and sustainable business growth. 
             </p>
             <p>
-              At SparkTech, we believe innovation should create measurable value. Our purpose is to help organizations embrace digital transformation with confidence, combining strategy, technology, and creativity to deliver solutions that drive sustainable growth and long-term success.
+              We work with businesses of all sizes to create websites, strengthen brand 
+identity, improve search visibility, and generate quality leads through 
+digital marketing. Every solution we deliver is designed around our clients' 
+goals and long-term success. 
             </p>
             <p>
-              At SparkTech, we believe innovation should create measurable value. Our purpose is to help organizations embrace digital transformation with confidence.
+              Our commitment is simple—to transform ideas into meaningful digital 
+experiences that build trust, create opportunities, and help businesses grow 
+with confidence in an ever-evolving digital landscape.
             </p>
           </motion.div>
 
@@ -541,10 +550,14 @@ const About = () => {
                     Our <span className="text-[#cc7722]">Vision</span>
                   </h3>
                   <p className="text-[#1b365d] text-sm sm:text-base md:text-lg leading-relaxed mb-3 md:mb-4">
-                    To reshape digital into a space where data meets depth — and brands grow through clarity, not chaos.
+                    To become a trusted digital growth partner by helping businesses build 
+stronger brands, embrace innovation, and achieve sustainable success 
+through creative, technology-driven digital solutions.
                   </p>
                   <p className="text-[#1b365d] text-sm sm:text-base md:text-lg leading-relaxed">
-                    At Spark Tech, our vision is to fuse creativity with clarity, building bold ideas on a bedrock of insight and intention.
+                    Our vision is to create a future where businesses of every size can 
+confidently compete online using smart strategies, modern technology, and 
+meaningful customer experiences.
                   </p>
                 </motion.div>
               </div>
@@ -576,10 +589,15 @@ const About = () => {
                     Our <span className="text-[#cc7722]">Mission</span>
                   </h3>
                   <p className="text-[#1b365d] text-sm sm:text-base md:text-lg leading-relaxed mb-3 md:mb-4">
-                    We dig deep before we move fast. Every strategy we craft is backed by research, sharpened by data, and brought to life through storytelling that connects.
+                    We believe successful digital marketing starts with understanding people, 
+not just platforms. Every strategy we create is backed by research, 
+creativity, and a commitment to delivering measurable business outcomes.
                   </p>
                   <p className="text-[#1b365d] text-sm sm:text-base md:text-lg leading-relaxed">
-                    Helping brands grow with purpose is what drives Spark Tech — a digital marketing agency in Chennai that believes in data-backed decisions and content with conviction.
+                    As a Digital Marketing Agency in Chennai, our mission is to help 
+businesses grow through website development, search engine 
+optimization, branding, Google Ads, social media marketing, and 
+performance-driven digital solutions that create long-term value.
                   </p>
                 </motion.div>
               </div>
@@ -594,7 +612,7 @@ const About = () => {
         <div className="max-w-7xl mx-auto px-6 md:px-16 flex flex-col md:flex-row items-center gap-6 md:gap-12 lg:gap-20">
           
           {/* Desktop Image (Hidden on Mobile) */}
-          <div className="hidden md:flex w-full md:w-5/12 justify-center">
+          <div className="hidden md:flex w-full md:w-5/12 justify-center ">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -645,16 +663,30 @@ const About = () => {
               </h3>
               <div className="w-12 md:w-16 h-1 bg-[#cc7722] rounded-full mx-auto md:mx-0 mb-6 md:mb-8"></div>
               <p className="text-[#1b365d]/90 text-sm sm:text-base md:text-lg leading-relaxed mb-5 md:mb-6 font-medium">
-                "We don't just build marketing campaigns; we build partnerships. Our goal is to bridge the gap between your brand's vision and your audience's needs, using data-driven strategies and creative storytelling."
+                "We don't just create websites or marketing campaigns—we build lasting 
+partnerships. Our mission is to help businesses turn ideas into measurable 
+digital success through innovation, creativity, and trust." 
               </p>
               <p className="text-[#1b365d]/80 text-sm sm:text-base md:text-lg leading-relaxed">
-                Every brand has a story worth telling and I started Sparktech to help those stories spark action.<br/>
-<br/>
-I come from a mix of tech and business — a B.Tech in IT, an MBA in Marketing from LIBA, and certifications in Cybersecurity, SAP, and Penetration Testing. That background gave me a simple perspective: creativity shines brightest when it’s backed by systems that are secure, scalable, and smart.<br/>
-<br/>
-Before Spark Tech, I had the privilege of working with brands like BMW, creating IPL-themed campaigns and digital strategies. Those experiences taught me that good marketing doesn’t shout — it connects.<br/>
-<br/>
-For us, every campaign is personal. Every idea is sharpened by data. And every success belongs just as much to our clients as it does to us.
+                Every successful business begins with a vision, and SparkTech was 
+founded to help businesses transform that vision into meaningful digital 
+growth. <br/>
+With a B.Tech in Information Technology, an MBA in Marketing from 
+LIBA, and professional certifications in Cybersecurity, SAP, and 
+Penetration Testing, our founder combines technical expertise with 
+strategic marketing knowledge to deliver practical, future-ready digital 
+solutions. <br/>
+Before launching SparkTech, he had the opportunity to contribute to 
+digital campaigns for leading brands, including BMW, where he worked 
+on IPL-themed marketing campaigns and brand-focused digital strategies. 
+These experiences reinforced one important belief—great marketing isn't 
+about making the loudest impression; it's about creating meaningful 
+connections that inspire trust and deliver measurable results. <br/>
+Today, every SparkTech project reflects that philosophy. Every strategy is 
+built on research, every campaign is guided by data, and every success is 
+shared with our clients. Our goal is not simply to deliver services but to 
+build long-term partnerships that help businesses grow with confidence in 
+the digital world.
               </p>
             </motion.div>
           </div>

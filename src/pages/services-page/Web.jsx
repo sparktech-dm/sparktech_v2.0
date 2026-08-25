@@ -19,29 +19,30 @@ const WebDevelopment = () => {
 
   const offerings = [
     {
-      title: "Website Strategy & UX Mapping",
-      desc: "Before we build, we map — aligning user needs with brand goals to create journeys that work.",
+      title: "WEBSITE STRATEGY & PLANNING",
+      desc: "Every successful website begins with a clear strategy. We understand your business, audience, and goals before planning a website structure that delivers a smooth user experience and supports long-term growth.",
     },
     {
-      title: "Custom Website Design (UI/UX)",
-      desc: "We create designs that don’t just look good but feel right. Every pixel is placed with purpose.",
+      title: "CUSTOM WEBSITE DESIGN (UI/UX)",
+      desc: "We create clean, modern, and user-friendly website designs that reflect your brand identity. Every design is focused on improving usability, increasing engagement, and encouraging visitors to take action.",
     },
     {
-      title: "Website Development",
-      desc: "From lightweight landing pages to robust sites — we build clean, scalable, optimised for speed, SEO-centric, and fully responsive websites.",
+      title: "WEBSITE DEVELOPMENT",
+      desc: "Our development team builds fast, secure, scalable, and fully responsive websites using modern technologies. Every website is optimized for performance, search engines, and future business growth.",
     },
     {
-      title: "Mobile & Responsive First",
-      desc: "We ensure your site looks and performs perfectly across all devices, from massive desktop monitors to the smallest smartphones.",
+      title: "MOBILE-FIRST & RESPONSIVE DESIGN",
+      desc: "Your website should deliver a consistent experience on every device. We ensure it performs seamlessly across smartphones, tablets, laptops, and desktops, providing users with fast loading speeds and smooth navigation.",
     },
   ];
 
   const reasons = [
-    "We think long-term — your site won’t just launch, it’ll last.",
-    "We blend design and functionality, not one over the other.",
-    "We build with SEO, performance, and user behaviour in mind.",
-    "We avoid cookie-cutter templates — every site is custom.",
-    "We collaborate closely to ensure every click counts.",
+    "Custom Website Design Tailored to Your Brand",
+    "Fast, Secure & Fully Responsive Development",
+    "SEO-Friendly Website Structure",
+    "User-Focused UI/UX Design",
+    "Scalable Solutions for Future Growth",
+    "Ongoing Support & Website Maintenance",
   ];
 
   return (
@@ -97,16 +98,19 @@ const WebDevelopment = () => {
             })}
             className="w-full max-w-2xl bg-[#1f3a58] p-8 rounded-2xl text-center"
           >
-            <h2 className="text-lg md:text-xl font-bold font-oswald text-[#cc7722] uppercase tracking-wider mb-6">
-              Why Brands Trust Spark Tech to Build Their Sites
+            <h2 className="text-lg md:text-xl font-bold font-oswald text-[#cc7722] uppercase tracking-wider mb-2">
+              WHY BUSINESSES CHOOSE SPARKTECH
             </h2>
-            <ul className="space-y-4">
+            <p className="text-white text-xs md:text-sm font-light mb-6">
+              We build websites that combine creativity, performance, and long-term value.
+            </p>
+            <ul className="space-y-4 inline-block text-left">
               {reasons.map((reason, idx) => (
                 <li
                   key={idx}
-                  className="text-white text-xs md:text-sm font-light tracking-wide leading-relaxed"
+                  className="text-white text-xs md:text-sm font-light tracking-wide leading-relaxed flex items-start"
                 >
-                  {reason}
+                  <span className="text-[#cc7722] mr-2">✔</span> {reason}
                 </li>
               ))}
             </ul>
@@ -116,14 +120,14 @@ const WebDevelopment = () => {
         {/* Bottom CTA Section */}
         <div className="text-center max-w-3xl mx-auto mt-16">
           <h3 className="text-2xl md:text-3xl font-extrabold uppercase font-oswald text-[#cc7722] tracking-wider mb-8">
-            Because your website isn’t just a presence
+            READY TO BUILD YOUR NEXT WEBSITE?
           </h3>
 
           <button
             onClick={() => navigate("/contact")}
             className="px-8 py-3.5 bg-[#1f3a58] hover:bg-[#1b365d] text-white font-bold tracking-wider text-xs md:text-sm rounded-xl transition-all duration-300 shadow-md cursor-pointer"
           >
-            Book a Web consult
+            Book a Free Website Consultation
           </button>
         </div>
       </section>

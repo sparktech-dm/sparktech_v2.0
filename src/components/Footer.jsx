@@ -23,9 +23,10 @@ const Footer = () => {
               </span>
             </div>
             <p className="text-[#395c7a] mb-6 max-w-md leading-relaxed text-[15px]">
-              At Spark Tech, we blend insight with imagination to create digital stories that matter.
-              From SEO to branding, our work is rooted in clarity, action, and measurable growth.
-              Your trusted digital marketing agency in Chennai.
+              SparkTech helps businesses grow through thoughtful digital strategies, 
+creative design, and reliable technology solutions. Our goal is to build 
+meaningful online experiences that help brands connect with the right 
+audience and achieve sustainable growth.
             </p>
             <div className="flex space-x-4">
               {socialLinks.map((social, index) => (
@@ -133,7 +134,7 @@ const Footer = () => {
         {/* Bottom Section */}
         <div className="border-t border-[#ca9e72] mt-12 pt-8 text-left">
           <p className="text-[#395c7a] text-sm">
-            © 2025 Sparktech. All rights reserved.
+            © 2026 Sparktech. All rights reserved.
           </p>
         </div>
 

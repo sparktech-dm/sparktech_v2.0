@@ -19,29 +19,30 @@ const AdCreativesCampaigns = () => {
 
   const offerings = [
     {
-      title: "Data-Driven Ad Creatives",
-      desc: "We design eye-catching visuals and videos specifically engineered to lower CPA and increase click-through rates.",
+      title: "AD CREATIVE DESIGN",
+      desc: "We design engaging ad creatives, including display banners, social media ads, and video advertisements that capture attention, communicate your message clearly, and encourage users to take action.",
     },
     {
-      title: "Omnichannel Campaigns",
-      desc: "Strategic ad placements across Meta, Google, LinkedIn, and TikTok to reach your audience wherever they are.",
+      title: "MULTI-PLATFORM ADVERTISING",
+      desc: "Reach your audience across Google Ads, Meta (Facebook & Instagram), LinkedIn, and other leading advertising platforms with campaigns tailored to your business goals and target market.",
     },
     {
-      title: "A/B Testing & Optimization",
-      desc: "Continuous testing of hooks, copy, and creatives to scale what works and cut what doesn't.",
+      title: "CAMPAIGN OPTIMIZATION",
+      desc: "We continuously monitor campaign performance, test different ad variations, optimize keywords, bidding strategies, and audience targeting to improve results while reducing advertising costs.",
     },
     {
-      title: "Retargeting Strategies",
-      desc: "Smart campaigns designed to re-engage warm audiences and push them over the finish line.",
+      title: "REMARKETING & RETARGETING",
+      desc: "Reconnect with people who have already shown interest in your business. Our remarketing campaigns help bring potential customers back to your website and increase conversion opportunities.",
     },
   ];
 
   const reasons = [
-    "We base our creatives on performance data, not just aesthetics.",
-    "Deep understanding of platform-specific algorithms.",
-    "Relentless optimization to improve your bottom line.",
-    "End-to-end management from concept to conversion.",
-    "Transparent reporting so you always know your ROI.",
+    "Strategic Google Ads Campaign Management",
+    "High-Converting Ad Creative Design",
+    "Audience Research & Targeting",
+    "Continuous Performance Optimization",
+    "Transparent Reporting & Analytics",
+    "ROI-Focused Advertising Strategies",
   ];
 
   return (
@@ -70,7 +71,7 @@ const AdCreativesCampaigns = () => {
                   boxShadow: "0px 0px 15px rgba(240, 196, 23, 0.25)",
                 }
               })}
-              className="bg-[#1f3a58] p-8 rounded-2xl flex flex-col justify-center text-center h-[200px]"
+              className="bg-[#1f3a58] p-8 rounded-2xl flex flex-col justify-center text-center h-auto min-h-[260px]"
             >
               <h3 className="text-[#cc7722] font-oswald text-base font-bold uppercase tracking-wider mb-3">
                 {item.title}
@@ -97,16 +98,19 @@ const AdCreativesCampaigns = () => {
             })}
             className="w-full max-w-2xl bg-[#1f3a58] p-8 rounded-2xl text-center"
           >
-            <h2 className="text-lg md:text-xl font-bold font-oswald text-[#cc7722] uppercase tracking-wider mb-6">
-              Why Brands Trust Spark Tech for Ad Campaigns
+            <h2 className="text-lg md:text-xl font-bold font-oswald text-[#cc7722] uppercase tracking-wider mb-2">
+              WHY BUSINESSES CHOOSE SPARKTECH
             </h2>
-            <ul className="space-y-4">
+            <p className="text-white text-xs md:text-sm font-light mb-6">
+              We create advertising campaigns focused on measurable business growth.
+            </p>
+            <ul className="space-y-4 inline-block text-left">
               {reasons.map((reason, idx) => (
                 <li
                   key={idx}
-                  className="text-white text-xs md:text-sm font-light tracking-wide leading-relaxed"
+                  className="text-white text-xs md:text-sm font-light tracking-wide leading-relaxed flex items-start"
                 >
-                  {reason}
+                  <span className="text-[#cc7722] mr-2">✔</span> {reason}
                 </li>
               ))}
             </ul>
@@ -116,14 +120,14 @@ const AdCreativesCampaigns = () => {
         {/* Bottom CTA Section */}
         <div className="text-center max-w-3xl mx-auto mt-16">
           <h3 className="text-2xl md:text-3xl font-extrabold uppercase font-oswald text-[#cc7722] tracking-wider mb-8">
-            Ads should be an investment, not an expense
+            READY TO GROW WITH PAID ADVERTISING?
           </h3>
 
           <button
             onClick={() => navigate("/contact")}
             className="px-8 py-3.5 bg-[#1f3a58] hover:bg-[#1b365d] text-white font-bold tracking-wider text-xs md:text-sm rounded-xl transition-all duration-300 shadow-md cursor-pointer"
           >
-            Book an Ads consult
+            Book a Free Google Ads Consultation
           </button>
         </div>
       </section>

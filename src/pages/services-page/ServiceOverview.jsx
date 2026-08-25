@@ -22,49 +22,49 @@ export default function ServiceOverview() {
     {
       title: "Website Development",
       details:
-        "At Spark Tech, we offer website development services that go beyond code and templates. We craft digital experiences that perform.",
+        "Build a fast, secure, and responsive website that reflects your brand, delivers a great user experience, and helps convert visitors into customers. ",
       link: "/services/website-development",
-      buttonText: "DISCOVER WEB SOLUTIONS",
+      buttonText: "Explore Website Development",
       icon: Rss,
     },
     {
       title: "Lead Generation",
       details:
-        "At Spark Tech, we design automated lead generation systems and high-converting funnels to capture prospects and turn clicks into revenue.",
+        "Generate high-quality leads through customized digital strategies, optimized landing pages, and conversion-focused campaigns that support business growth. ",
       link: "/services/content-creation",
-      buttonText: "CAPTURE LEADS",
+      buttonText: "Explore Lead Generation",
       icon: Target,
     },
     {
-      title: "Ads Creative & Campaign",
+      title: "GOOGLE ADS & PPC ",
       details:
-        "At Spark Tech, we build high-performing ad creatives and manage data-driven campaigns that maximize your ROI and lower acquisition costs.",
+        "Reach your ideal customers with data-driven Google Ads campaigns designed to increase visibility, maximize return on investment, and generate quality leads.",
       link: "/services/video-editing",
-      buttonText: "LAUNCH CAMPAIGN",
+      buttonText: "Explore Google Ads & PPC",
       icon: Megaphone,
     },
     {
       title: "Social Media Marketing",
       details:
-        "At Spark Tech, we craft high-impact social media strategies that elevate your brand voice, engage audiences, and build active communities.",
+        "Strengthen your brand through engaging social media strategies that build trust, increase audience engagement, and grow your online community. ",
       link: "/services/social-media-marketing",
-      buttonText: "DRIVE SOCIAL SUCCESS",
+      buttonText: "Explore Social Media Marketing",
       icon: Zap,
     },
     {
       title: "Automate Email Flow",
       details:
-        "At Spark Tech, we deploy intelligent email automation and nurturing flows that drive customer loyalty and repeat business on autopilot.",
+        "Build lasting customer relationships with personalized email campaigns and marketing automation that improve engagement and encourage repeat business. ",
       link: "/services/email-marketing",
-      buttonText: "AUTOMATE YOUR GROWTH",
+      buttonText: "Explore Automate Email Flow",
       icon: Send,
     },
     {
       title: "Search Visibility & SEO",
       details:
-        "At Spark Tech, we implement technical search engine optimization that elevates your search visibility, ranking you higher to dominate results.",
+        "Improve your website's visibility with SEO strategies that increase organic traffic, strengthen search rankings, and help customers find your business.",
       link: "/services/seo",
-      buttonText: "BOOST YOUR SEO",
+      buttonText: "Explore SEO Services",
       icon: Search,
     },
   ];

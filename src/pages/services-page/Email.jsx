@@ -19,29 +19,30 @@ const EmailMarketing = () => {
 
   const offerings = [
     {
-      title: "Welcome Flows & Automations",
-      desc: "Turn new subscribers into loyal customers with automated, perfectly-timed email sequences that build trust.",
+      title: "EMAIL AUTOMATION & WELCOME FLOWS",
+      desc: "Create a strong first impression with automated welcome emails that introduce your brand, build customer confidence, and guide subscribers toward meaningful actions.",
     },
     {
-      title: "Newsletter Management",
-      desc: "Keep your audience engaged with high-quality, readable newsletters that provide value and drive consistent clicks.",
+      title: "NEWSLETTER MANAGEMENT",
+      desc: "Keep your audience informed and engaged with professionally designed newsletters that share valuable updates, promotions, and industry insights while strengthening customer relationships.",
     },
     {
-      title: "E-commerce Retention",
-      desc: "Recover abandoned carts, encourage repeat purchases, and maximize customer lifetime value with targeted flows.",
+      title: "CUSTOMER RETENTION & RE-ENGAGEMENT",
+      desc: "Encourage repeat purchases and reconnect with inactive customers through personalized email campaigns that increase customer loyalty and maximize lifetime value.",
     },
     {
-      title: "Campaign Optimization",
-      desc: "We track open rates, click-throughs, and conversions, A/B testing every variable to ensure peak performance.",
+      title: "EMAIL CAMPAIGN OPTIMIZATION",
+      desc: "We continuously monitor campaign performance, analyze key metrics such as open rates, click-through rates, and conversions, and optimize every campaign to improve results.",
     },
   ];
 
   const reasons = [
-    "We don't just send emails, we build relationships.",
-    "Deep segmentation for maximum relevance.",
-    "Data-driven A/B testing on subject lines.",
-    "Beautiful, responsive, and accessible templates.",
-    "Deliverability strategies so you never hit the spam folder.",
+    "Personalized Email Marketing Campaigns",
+    "Marketing Automation & Welcome Flows",
+    "Customer Retention Strategies",
+    "Performance Tracking & Analytics",
+    "Mobile-Friendly Email Designs",
+    "Continuous Campaign Optimization",
   ];
 
   return (
@@ -70,7 +71,7 @@ const EmailMarketing = () => {
                   boxShadow: "0px 0px 15px rgba(240, 196, 23, 0.25)",
                 }
               })}
-              className="bg-[#1f3a58] p-8 rounded-2xl flex flex-col justify-center text-center h-[200px]"
+              className="bg-[#1f3a58] p-8 rounded-2xl flex flex-col justify-center text-center h-auto min-h-[260px]"
             >
               <h3 className="text-[#cc7722] font-oswald text-base font-bold uppercase tracking-wider mb-3">
                 {item.title}
@@ -97,16 +98,19 @@ const EmailMarketing = () => {
             })}
             className="w-full max-w-2xl bg-[#1f3a58] p-8 rounded-2xl text-center"
           >
-            <h2 className="text-lg md:text-xl font-bold font-oswald text-[#cc7722] uppercase tracking-wider mb-6">
-              Why Choose Spark Tech for Email?
+            <h2 className="text-lg md:text-xl font-bold font-oswald text-[#cc7722] uppercase tracking-wider mb-2">
+              WHY BUSINESSES CHOOSE SPARKTECH
             </h2>
-            <ul className="space-y-4">
+            <p className="text-white text-xs md:text-sm font-light mb-6">
+              We create email marketing strategies that build lasting customer relationships and deliver measurable business results.
+            </p>
+            <ul className="space-y-4 inline-block text-left">
               {reasons.map((reason, idx) => (
                 <li
                   key={idx}
-                  className="text-white text-xs md:text-sm font-light tracking-wide leading-relaxed"
+                  className="text-white text-xs md:text-sm font-light tracking-wide leading-relaxed flex items-start"
                 >
-                  {reason}
+                  <span className="text-[#cc7722] mr-2">✔</span> {reason}
                 </li>
               ))}
             </ul>
@@ -116,14 +120,14 @@ const EmailMarketing = () => {
         {/* Bottom CTA Section */}
         <div className="text-center max-w-3xl mx-auto mt-16">
           <h3 className="text-2xl md:text-3xl font-extrabold uppercase font-oswald text-[#cc7722] tracking-wider mb-8">
-            Stop blasting audiences
+            READY TO GROW WITH EMAIL MARKETING?
           </h3>
 
           <button
             onClick={() => navigate("/contact")}
             className="px-8 py-3.5 bg-[#1f3a58] hover:bg-[#1b365d] text-white font-bold tracking-wider text-xs md:text-sm rounded-xl transition-all duration-300 shadow-md cursor-pointer"
           >
-            Book an Email consult
+            Book a Free Email Marketing Consultation
           </button>
         </div>
       </section>

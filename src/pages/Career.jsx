@@ -17,103 +17,145 @@ const SERVICES = [
   {
     id: "ui-ux-designer",
     name: "UI/UX Designer",
-    description: "Design intuitive and beautiful user interfaces and experiences for websites and web applications. Conduct user research, build wireframes, prototype flows, and collaborate closely with developers to craft seamless digital products.",
-    experience: "1 - 3 Years",
+    description: "Design intuitive, engaging, and user-friendly interfaces for websites and web applications. Work closely with developers and project managers to create digital experiences that are visually appealing, responsive, and easy to use.",
+    experience: "1–3 Years",
     location: "Chennai (On-site)",
     responsibilities: [
-      "Create user-centered designs by understanding business requirements and user feedback.",
-      "Design wireframes, user journeys, and mockups optimized for a wide range of devices.",
-      "Develop interactive prototypes in Figma or Adobe XD to demonstrate interaction flows."
+      "Design user interfaces for websites and web applications.",
+      "Create wireframes, user flows, and interactive prototypes.",
+      "Conduct basic user research and usability improvements.",
+      "Collaborate with developers to ensure accurate implementation.",
+      "Maintain consistency across design systems and brand guidelines.",
+      "Improve user experience through testing and feedback."
     ],
     requirements: [
-      "Proven experience as a UI/UX Designer with a strong portfolio of design projects.",
-      "Proficient in Figma, Adobe XD, Photoshop, and Illustrator.",
-      "Strong understanding of visual design principles, typography, color theory, and layout."
+      "Experience with Figma or Adobe XD.",
+      "Understanding of UI/UX principles and responsive design.",
+      "Knowledge of typography, color theory, spacing, and layouts.",
+      "Basic knowledge of Photoshop or Illustrator is an advantage.",
+      "Strong creativity and attention to detail.",
+      "Portfolio showcasing previous design work."
     ]
   },
   {
     id: "web-developer",
     name: "Web Developer",
-    description: "Develop and maintain high-performance, responsive websites and web applications. Implement modern front-end technologies (React, Vite, Tailwind CSS) and ensure smooth transitions, pixel-perfect layouts, and top-tier load speeds.",
-    experience: "1 - 3 Years",
+    description: "Develop responsive, fast, and SEO-friendly websites using modern web technologies while ensuring excellent performance across all devices.",
+    experience: "1–3 Years",
     location: "Chennai (On-site)",
     responsibilities: [
-      "Build clean, maintainable, and interactive front-end components using React and Vite.",
-      "Ensure cross-browser compatibility and responsive design across mobile, tablet, and desktop.",
-      "Collaborate with designers to implement pixel-perfect user interfaces and micro-animations."
+      "Build responsive websites.",
+      "Maintain and improve existing websites.",
+      "Optimize website speed and performance.",
+      "Integrate APIs and CMS platforms.",
+      "Collaborate with UI/UX designers."
     ],
     requirements: [
-      "Proven work experience as a Web Developer or Front-End Developer.",
-      "Strong proficiency in JavaScript, React, HTML5, CSS3, and Tailwind CSS.",
-      "Familiarity with Git/GitHub, package managers (npm), and build tools like Vite."
+      "HTML5, CSS3, JavaScript.",
+      "Bootstrap, React (preferred).",
+      "PHP or Node.js (basic knowledge is a plus).",
+      "Git & GitHub.",
+      "Basic SEO knowledge."
     ]
   },
   {
     id: "content-creator",
     name: "Content Creator",
-    description: "Produce highly engaging digital content across social platforms, blogs, and email marketing campaigns. Research trends, write persuasive copy, generate graphic ideas, and execute content plans that build audience engagement.",
-    experience: "1 - 2 Years",
+    description: "Create engaging content for websites, blogs, social media, and marketing campaigns while maintaining the brand voice.",
+    experience: "0–2 Years",
     location: "Chennai (On-site)",
     responsibilities: [
-      "Develop and schedule content calendars for LinkedIn, Instagram, and Facebook.",
-      "Write engaging copy for social media posts, blog headers, and marketing emails.",
-      "Monitor trending topics and adapt them to brand messaging."
+      "Write blogs and website content.",
+      "Create social media captions.",
+      "Research industry trends.",
+      "Collaborate with the marketing team."
     ],
     requirements: [
-      "Proven portfolio of social media content creation, blog posts, or marketing campaigns.",
-      "Excellent written and verbal communication skills in English.",
-      "Basic design awareness and experience using Canva or similar tools."
+      "Excellent English writing skills.",
+      "Basic SEO knowledge.",
+      "Creative thinking.",
+      "Content planning ability."
     ]
   },
   {
     id: "video-editor",
     name: "Video Editor",
-    description: "Edit and assemble raw video footage into highly engaging Reels, YouTube shorts, promotional videos, and advertisements. Apply professional transitions, color grading, sound design, and text graphics to elevate the content.",
-    experience: "1 - 3 Years",
+    description: "Create high-quality videos for social media, advertisements, branding, and marketing campaigns.",
+    experience: "1–3 Years",
     location: "Chennai (On-site)",
     responsibilities: [
-      "Trim and assemble footage into short-form content (Reels, TikToks, Shorts) and long-form videos.",
-      "Incorporate typography, motion graphics, audio mixing, and sound effects.",
-      "Ensure visual brand consistency and export videos in optimized formats."
+      "Edit promotional videos.",
+      "Create reels and short-form videos.",
+      "Add transitions, motion graphics, and sound effects.",
+      "Collaborate with designers and marketers."
     ],
     requirements: [
-      "Strong portfolio showing professional video editing work (specifically short-form Reels).",
-      "Proficiency in Premiere Pro, After Effects, DaVinci Resolve, or Final Cut Pro.",
-      "A solid sense of rhythm, timing, pacing, and modern editing trends."
+      "Adobe Premiere Pro.",
+      "After Effects (preferred).",
+      "CapCut or DaVinci Resolve.",
+      "Motion graphics knowledge."
     ]
   },
   {
-    id: "ads-analyst",
-    name: "Meta & Google Ads Analyst",
-    description: "Plan, execute, and monitor paid marketing campaigns across Meta (Facebook & Instagram) and Google Ads platforms. Track metrics, manage daily budgets, set up retargeting funnels, and optimize layouts to scale conversions.",
-    experience: "2 - 4 Years",
+    id: "seo-executive",
+    name: "SEO Executive",
+    description: "Improve website visibility through search engine optimization, keyword research, technical SEO, and content optimization.",
+    experience: "1–2 Years",
     location: "Chennai (On-site)",
     responsibilities: [
-      "Set up, run, and optimize paid traffic campaigns on Meta Ads Manager and Google Ads.",
-      "Analyze key metrics (CTR, CPC, CPA, ROAS) and compile performance dashboards.",
-      "Conduct audience targeting research and set up tracking pixels/conversions."
+      "Perform keyword research.",
+      "Optimize website content.",
+      "Build SEO strategies.",
+      "Monitor rankings and website performance.",
+      "Prepare SEO reports."
     ],
     requirements: [
-      "Proven track record of managing profitable Meta and Google campaigns.",
-      "Strong analytical skills and hands-on experience with GA4 (Google Analytics).",
-      "Google Ads and Meta Blueprint certifications are a big plus."
+      "Google Search Console.",
+      "Google Analytics.",
+      "Keyword research tools.",
+      "On-page & Technical SEO.",
+      "Basic link-building knowledge."
+    ]
+  },
+  {
+    id: "ads-specialist",
+    name: "Google Ads & Meta Ads Specialist",
+    description: "Plan, launch, and optimize paid advertising campaigns that generate quality leads and maximize return on investment.",
+    experience: "1–3 Years",
+    location: "Chennai (On-site)",
+    responsibilities: [
+      "Manage Google Ads campaigns.",
+      "Create Meta Ads campaigns.",
+      "Optimize audience targeting.",
+      "Monitor campaign performance.",
+      "Generate monthly reports."
+    ],
+    requirements: [
+      "Google Ads.",
+      "Meta Ads Manager.",
+      "Google Analytics.",
+      "Conversion Tracking.",
+      "Campaign Optimization."
     ]
   },
   {
     id: "graphic-designer",
     name: "Graphic Designer",
-    description: "Create stunning visual identities, marketing materials, social media creatives, and digital assets. Develop cohesive layouts that represent the brand's voice and grab potential clients' attention.",
-    experience: "1 - 3 Years",
+    description: "Design creative visuals for branding, websites, social media, and digital marketing campaigns.",
+    experience: "1–3 Years",
     location: "Chennai (On-site)",
     responsibilities: [
-      "Design high-converting social media posts, display ads, banners, and brochures.",
-      "Collaborate with the content team to turn marketing concepts into powerful visuals.",
-      "Maintain brand guidelines across all digital and print mediums."
+      "Create social media creatives.",
+      "Design marketing materials.",
+      "Develop branding assets.",
+      "Maintain visual consistency."
     ],
     requirements: [
-      "Proven design experience supported by a strong digital design portfolio.",
-      "Expert knowledge of Photoshop, Illustrator, and Figma.",
-      "Excellent attention to detail and strong creative layout skills."
+      "Adobe Photoshop.",
+      "Illustrator.",
+      "Figma.",
+      "Canva (optional).",
+      "Strong creativity."
     ]
   }
 ];
@@ -231,11 +273,11 @@ export default function Career() {
         <div className="flex flex-col gap-11">
           {/* Section 1: Why Join */}
           <div className="flex flex-col gap-5">
-            <h2 className="font-bebas text-[2.4rem] font-normal text-[#cc7722] m-0 tracking-[0.03em] leading-[1.15]">
-              Why Join Sparktech Digital Marketing Team?
+            <h2 className="font-bebas text-[2.4rem] font-normal text-[#cc7722] m-0 tracking-[0.03em] leading-[1.15] uppercase">
+              Why Join SparkTech?
             </h2>
             <p className="text-[1.05rem] leading-[1.8] font-light italic text-[#1b365d] m-0 tracking-[0.01em]">
-              Looking for digital marketing jobs in Chennai? Sparktech is hiring dynamic, growth-oriented professionals who are ready to work on exciting projects for national and international clients. Whether you're an entry-level executive or a senior marketing strategist, we have a role for you. Sparktech is a performance-driven digital marketing agency based in Chennai. We specialize in using AI, data analytics, and precision-targeting to drive results. As part of our team, you'll work on Meta ads, Google campaigns, SEO projects, influencer marketing, and more.
+              Working at SparkTech means being part of a collaborative environment where creativity, technology, and continuous learning come together. We encourage new ideas, support professional growth, and provide opportunities to work on real-world digital projects across multiple industries.
             </p>
           </div>
 
@@ -243,34 +285,40 @@ export default function Career() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-11 w-full">
             {/* Section 2: What We Look For */}
             <div className="flex flex-col gap-5">
-              <h2 className="font-bebas text-[2.4rem] font-normal text-[#cc7722] m-0 tracking-[0.03em] leading-[1.15]">
-                What We Look For in Candidates
+              <h2 className="font-bebas text-[2.4rem] font-normal text-[#cc7722] m-0 tracking-[0.03em] leading-[1.15] uppercase">
+                What We Look For
               </h2>
               <ul className="list-none p-0 m-0 flex flex-col gap-3.5">
-                <li className="relative pl-6 text-[1.05rem] italic font-light leading-normal text-[#1b365d] before:content-['•'] before:absolute before:left-0 before:text-[#1b365d] before:text-2xl before:leading-[1.1]">Hands-on experience in digital marketing agency and tools</li>
-                <li className="relative pl-6 text-[1.05rem] italic font-light leading-normal text-[#1b365d] before:content-['•'] before:absolute before:left-0 before:text-[#1b365d] before:text-2xl before:leading-[1.1]">Strong communication &amp; analytical skills</li>
-                <li className="relative pl-6 text-[1.05rem] italic font-light leading-normal text-[#1b365d] before:content-['•'] before:absolute before:left-0 before:text-[#1b365d] before:text-2xl before:leading-[1.1]">Ability to work in a fast-paced, team-oriented environment</li>
-                <li className="relative pl-6 text-[1.05rem] italic font-light leading-normal text-[#1b365d] before:content-['•'] before:absolute before:left-0 before:text-[#1b365d] before:text-2xl before:leading-[1.1]">Passion for learning and experimenting with new marketing techniques</li>
+                <li className="relative pl-6 text-[1.05rem] italic font-light leading-normal text-[#1b365d] before:content-['✔'] before:absolute before:left-0 before:text-[#cc7722] before:text-[1rem] before:leading-[1.4]">Passion for learning and continuous improvement</li>
+                <li className="relative pl-6 text-[1.05rem] italic font-light leading-normal text-[#1b365d] before:content-['✔'] before:absolute before:left-0 before:text-[#cc7722] before:text-[1rem] before:leading-[1.4]">Strong communication and teamwork skills</li>
+                <li className="relative pl-6 text-[1.05rem] italic font-light leading-normal text-[#1b365d] before:content-['✔'] before:absolute before:left-0 before:text-[#cc7722] before:text-[1rem] before:leading-[1.4]">Creative thinking and problem-solving ability</li>
+                <li className="relative pl-6 text-[1.05rem] italic font-light leading-normal text-[#1b365d] before:content-['✔'] before:absolute before:left-0 before:text-[#cc7722] before:text-[1rem] before:leading-[1.4]">Basic or professional knowledge in your field</li>
+                <li className="relative pl-6 text-[1.05rem] italic font-light leading-normal text-[#1b365d] before:content-['✔'] before:absolute before:left-0 before:text-[#cc7722] before:text-[1rem] before:leading-[1.4]">Willingness to adapt to new technologies</li>
+                <li className="relative pl-6 text-[1.05rem] italic font-light leading-normal text-[#1b365d] before:content-['✔'] before:absolute before:left-0 before:text-[#cc7722] before:text-[1rem] before:leading-[1.4]">Positive attitude and responsibility</li>
               </ul>
             </div>
 
             {/* Section 3: Job Information */}
             <div className="flex flex-col gap-5">
-              <h2 className="font-bebas text-[2.4rem] font-normal text-[#cc7722] m-0 tracking-[0.03em] leading-[1.15]">
+              <h2 className="font-bebas text-[2.4rem] font-normal text-[#cc7722] m-0 tracking-[0.03em] leading-[1.15] uppercase">
                 Job Information
               </h2>
               <div className="flex flex-col gap-[1.1rem] mt-1">
                 <div className="flex items-center gap-[1.2rem]">
-                  <Calendar className="text-white shrink-0" size={18} />
-                  <span className="text-[1.05rem] italic font-light text-[#1b365d]">Mon to Fri</span>
+                  <Calendar className="text-[#cc7722] shrink-0" size={18} />
+                  <span className="text-[1.05rem] italic font-light text-[#1b365d]"><strong>Working Days:</strong> Monday – Friday</span>
                 </div>
                 <div className="flex items-center gap-[1.2rem]">
-                  <Clock className="text-white shrink-0" size={18} />
-                  <span className="text-[1.05rem] italic font-light text-[#1b365d]">Type: Full-Time</span>
+                  <Clock className="text-[#cc7722] shrink-0" size={18} />
+                  <span className="text-[1.05rem] italic font-light text-[#1b365d]"><strong>Employment Type:</strong> Full-Time</span>
                 </div>
                 <div className="flex items-center gap-[1.2rem]">
-                  <Award className="text-white shrink-0" size={18} />
-                  <span className="text-[1.05rem] italic font-light text-[#1b365d]">Certificate will be provided</span>
+                  <User className="text-[#cc7722] shrink-0" size={18} />
+                  <span className="text-[1.05rem] italic font-light text-[#1b365d]"><strong>Work Location:</strong> Chennai (On-site)</span>
+                </div>
+                <div className="flex items-center gap-[1.2rem]">
+                  <Award className="text-[#cc7722] shrink-0" size={18} />
+                  <span className="text-[1.05rem] italic font-light text-[#1b365d]"><strong>Internship Certificate:</strong> Provided for eligible internship programs</span>
                 </div>
               </div>
             </div>

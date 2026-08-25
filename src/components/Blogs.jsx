@@ -6,168 +6,168 @@ import Footer from "./Footer";
 const blogData = [
   {
     id: "blog-1",
-    title: "Building Scalable Business Growth Through Digital",
-    image: "/Digital Marketing Foundations You Can't Ignore.webp",
-    fallbackText: "Digital Marketing Growth",
-    excerpt: "Digital marketing has become a core driver of business growth in 2026, enabling brands to reach targeted audiences through SEO.",
+    title: "Grow Your Business with Digital Marketing Strategies",
+    subtitle: "SEO & Digital Marketing",
+    image: "/Digital Marketing Foundations You Can’t Ignore.webp",
+    fallbackText: "SEO & Digital Marketing",
+    excerpt: "Digital marketing has become one of the most effective ways for businesses to reach new customers and build a strong online presence.",
     content: [
-      "In today's hyper-connected digital landscape, businesses that leverage multi-channel strategies experience significantly higher growth rates than those relying on a single platform. From Google Ads to organic social, the key is building an integrated funnel.",
-      "Scalable growth requires data-driven decisions—tracking customer acquisition costs, lifetime value, and conversion rates at every stage. Companies that invest in marketing automation and CRM tools see 3x more leads with 50% less effort.",
-      "At Spark Tech, we've helped Chennai-based businesses scale from local presence to nationwide reach by combining SEO, paid."
+      "Digital marketing has become one of the most effective ways for businesses to reach new customers and build a strong online presence. By combining SEO, social media marketing, Google Ads, and content marketing, businesses can attract qualified leads and improve brand visibility.",
+      "A successful digital marketing strategy focuses on understanding customer behavior, creating valuable content, and continuously optimizing campaigns based on performance data. Whether you're a startup or an established business, investing in the right digital strategy helps drive long-term growth and measurable results."
     ],
-    tags: ["Digital Marketing", "Growth Strategy", "SEO", "Automation"]
+    tags: ["Digital Marketing", "Business Growth", "Online Marketing", "SEO"]
   },
   {
     id: "blog-2",
-    title: "Improving Search Engine Visibility with SEO Strategies",
+    title: "Improve Website Rankings with Search Engine Optimization (SEO)",
+    subtitle: "SEARCH ENGINE OPTIMIZATION",
     image: "/576953402309831560.webp",
-    fallbackText: "SEO Strategies",
-    excerpt: "Digital marketing has become a core driver of business growth in 2026, enabling brands to reach targeted audiences through SEO.",
+    fallbackText: "SEARCH ENGINE OPTIMIZATION",
+    excerpt: "Search Engine Optimization (SEO) helps businesses increase their visibility on search engines and attract organic traffic.",
     content: [
-      "Search Engine Optimization in 2026 goes far beyond keywords. Google's AI-driven algorithms now prioritize E-E-A-T (Experience, Expertise, Authoritativeness, Trustworthiness), meaning content quality and domain authority matter more than ever.",
-      "Technical SEO fundamentals—Core Web Vitals, structured data, mobile-first indexing—form the backbone of any successful campaign. Without a solid technical foundation, even the best content will struggle to rank.",
-      "Our SEO teams at Spark Tech conduct deep site audits, competitor gap analyses, and content strategies that consistently push clients to page 1 within 90 days."
+      "Search Engine Optimization (SEO) helps businesses increase their visibility on search engines and attract organic traffic. Effective SEO includes keyword research, technical optimization, high-quality content, and link building to improve website performance.",
+      "By focusing on user experience and search intent, businesses can achieve sustainable rankings and reach potential customers without relying entirely on paid advertising."
     ],
-    tags: ["SEO", "Technical SEO", "Content Strategy", "Rankings"]
+    tags: ["SEO", "Organic Traffic", "Keyword Research", "Website Ranking"]
   },
   {
     id: "blog-3",
-    title: "Building Strong Brand Presence Across Social",
+    title: "Build a Website That Converts Visitors into Customers",
+    subtitle: "WEBSITE DEVELOPMENT",
     image: "/Advanced SEO Strategy_ Magnifying Data for Digital Success.webp",
-    fallbackText: "Social Media Branding",
-    excerpt: "Digital marketing has become a core driver of business growth in 2026, enabling brands to reach targeted audiences through SEO.",
+    fallbackText: "WEBSITE DEVELOPMENT",
+    excerpt: "A website is no longer just a digital brochure—it’s the interactive foundation of your online presence, working 24/7 to build trust and tell your story.",
     content: [
-      "Brand presence isn't just about posting consistently—it's about creating a distinctive voice and visual identity that resonates across Instagram, LinkedIn, YouTube, and emerging platforms like Threads and BeReal.",
-      "The most effective social strategies in 2026 blend organic storytelling with paid amplification. User-generated content, influencer collaborations, and community-driven campaigns generate authentic engagement that paid ads alone can't replicate.",
-      "Spark Tech's social media team crafts platform-specific content calendars, manages brand reputation, and runs targeted ad campaigns that turn follower."
+      "A website is more than an online brochure—it's the foundation of your digital presence. Fast loading speeds, responsive design, intuitive navigation, and SEO-friendly development all contribute to better user experiences and higher conversion rates.",
+      "A professionally developed website builds trust, improves engagement, and supports your overall marketing strategy."
     ],
-    tags: ["Social Media", "Branding", "Content Creation", "Instagram"]
+    tags: ["Website Development", "UI/UX", "Responsive Design", "Web Design"]
   },
   {
     id: "blog-4",
-    title: "Building Scalable Business Growth Through Digital",
-    image: "/Digital Marketing Foundations You Can't Ignore.webp",
-    fallbackText: "Digital Marketing Growth",
-    excerpt: "Digital marketing has become a core driver of business growth in 2026, enabling brands to reach targeted audiences through SEO.",
+    title: "Maximize ROI with Google Ads Campaigns",
+    subtitle: "GOOGLE ADS & PPC",
+    image: "/Digital Marketing Foundations You Can’t Ignore.webp",
+    fallbackText: "GOOGLE ADS & PPC",
+    excerpt: "Google Ads allows businesses to reach customers at the exact moment they are searching for products or services.",
     content: [
-      "In today's hyper-connected digital landscape, businesses that leverage multi-channel strategies experience significantly higher growth rates than those relying on a single platform. From Google Ads to organic social, the key is building an integrated funnel.",
-      "Scalable growth requires data-driven decisions—tracking customer acquisition costs, lifetime value, and conversion rates at every stage. Companies that invest in marketing automation and CRM tools see 3x more leads with 50% less effort.",
-      "At Spark Tech, we've helped Chennai-based businesses scale from local presence to nationwide reach by combining SEO, paid."
+      "Google Ads allows businesses to reach customers at the exact moment they are searching for products or services. Well-structured campaigns, targeted keywords, compelling ad copy, and continuous optimization help improve conversions while reducing advertising costs.",
+      "Combining paid advertising with SEO creates a balanced strategy for long term business growth."
     ],
-    tags: ["Digital Marketing", "Growth Strategy", "SEO", "Automation"]
+    tags: ["Google Ads", "PPC", "Paid Advertising", "Lead Generation"]
   },
   {
     id: "blog-5",
-    title: "Improving Search Engine Visibility with SEO Strategies",
+    title: "Build Strong Customer Relationships Through Social Media",
+    subtitle: "SOCIAL MEDIA MARKETING",
     image: "/576953402309831560.webp",
-    fallbackText: "SEO Strategies",
-    excerpt: "Digital marketing has become a core driver of business growth in 2026, enabling brands to reach targeted audiences through SEO.",
+    fallbackText: "SOCIAL MEDIA MARKETING",
+    excerpt: "Social media marketing helps businesses connect with their audience, increase brand awareness, and build customer trust.",
     content: [
-      "Search Engine Optimization in 2026 goes far beyond keywords. Google's AI-driven algorithms now prioritize E-E-A-T (Experience, Expertise, Authoritativeness, Trustworthiness), meaning content quality and domain authority matter more than ever.",
-      "Technical SEO fundamentals—Core Web Vitals, structured data, mobile-first indexing—form the backbone of any successful campaign. Without a solid technical foundation, even the best content will struggle to rank.",
-      "Our SEO teams at Spark Tech conduct deep site audits, competitor gap analyses, and content strategies that consistently push clients to page 1 within 90 days."
+      "Social media marketing helps businesses connect with their audience, increase brand awareness, and build customer trust. Creating valuable content, engaging with followers, and maintaining a consistent brand voice are key to long-term success.",
+      "A strategic approach to social media helps businesses generate leads while strengthening customer relationships."
     ],
-    tags: ["SEO", "Technical SEO", "Content Strategy", "Rankings"]
+    tags: ["Social Media Marketing", "Branding", "Instagram Marketing", "Customer Engagement"]
   },
   {
     id: "blog-6",
-    title: "Building Strong Brand Presence Across Social",
+    title: "Why Quality Content Matters for SEO and Brand Growth",
+    subtitle: "CONTENT MARKETING",
     image: "/Advanced SEO Strategy_ Magnifying Data for Digital Success.webp",
-    fallbackText: "Social Media Branding",
-    excerpt: "Digital marketing has become a core driver of business growth in 2026, enabling brands to reach targeted audiences through SEO.",
+    fallbackText: "CONTENT MARKETING",
+    excerpt: "Content marketing is one of the most valuable long-term investments for any business.",
     content: [
-      "Brand presence isn't just about posting consistently—it's about creating a distinctive voice and visual identity that resonates across Instagram, LinkedIn, YouTube, and emerging platforms like Threads and BeReal.",
-      "The most effective social strategies in 2026 blend organic storytelling with paid amplification. User-generated content, influencer collaborations, and community-driven campaigns generate authentic engagement that paid ads alone can't replicate.",
-      "Spark Tech's social media team crafts platform-specific content calendars, manages brand reputation, and runs targeted ad campaigns that turn followers."
+      "Content marketing is one of the most valuable long-term investments for any business. Publishing informative blogs, helpful guides, and engaging website content improves search visibility while building trust with potential customers.",
+      "High-quality content supports SEO, answers customer questions, and positions your business as an industry expert."
     ],
-    tags: ["Social Media", "Branding", "Content Creation", "Instagram"]
+    tags: ["Content Marketing", "SEO", "Content Strategy", "Business Growth"]
   }
 ];
 
 const caseStudyData = [
   {
     id: "case-1",
-    title: "How AI is Transforming Digital Marketing",
-    subtitle: "Artificial Intelligence in Modern Marketing",
-    image: "/Digital Marketing Foundations You Can't Ignore.webp",
-    fallbackText: "AI & Digital Marketing",
-    excerpt: "AI tools are reshaping how brands analyze data, personalize experiences, and automate campaigns at scale.",
+    title: "How SEO Helps Businesses Build Long-Term Organic Growth",
+    subtitle: "SEO & WEBSITE GROWTH",
+    image: "/Digital Marketing Foundations You Can’t Ignore.webp",
+    fallbackText: "SEO & WEBSITE GROWTH",
+    excerpt: "Search Engine Optimization is one of the most effective digital marketing strategies for building sustainable online visibility.",
     content: [
-      "Artificial Intelligence has moved from buzzword to essential business tool. In digital marketing, AI powers predictive analytics, dynamic ad creative, chatbots, and hyper-personalized email sequences—all running 24/7.",
-      "Machine learning models can now identify high-value audience segments, predict customer churn, and optimize ad bids in real time. Brands using AI-powered marketing see an average 40% improvement.",
-      "Case study: We helped a Chennai e-commerce brand implement AI-based product recommendation engines, resulting in a 65% increase in average order value."
+      "Search Engine Optimization is one of the most effective digital marketing strategies for building sustainable online visibility. A well-optimized website improves search rankings, attracts qualified visitors, and creates long-term business growth without relying solely on paid advertising.",
+      "Technical SEO, quality content, keyword research, and user experience work together to help businesses reach the right audience at the right time. Companies that continuously optimize their websites often experience increased traffic, better engagement, and higher conversion rates over time.",
+      "At SparkTech, we believe successful SEO is about understanding search intent, improving website performance, and creating valuable content that delivers lasting results."
     ],
-    tags: ["AI", "Automation", "Machine Learning"]
+    tags: ["SEO", "Organic Growth", "Website Ranking"]
   },
   {
     id: "case-2",
-    title: "Importance of UI Design in Digital Marketing",
-    subtitle: "Enhancing User Experience to Drive-",
+    title: "Building Websites That Turn Visitors into Customers",
+    subtitle: "WEBSITE DEVELOPMENT",
     image: "/576953402309831560.webp",
-    fallbackText: "UI/UX Design",
-    excerpt: "Great UI isn't just aesthetics—it directly impacts conversion rates, bounce rates, and customer retention.",
+    fallbackText: "WEBSITE DEVELOPMENT",
+    excerpt: "A website is often the very first impression customers have of a business. It sets the tone for your brand.",
     content: [
-      "User Interface design bridges the gap between a brand's message and its audience. A well-designed landing page can boost conversions by up to 200%, while a poor UX can drain your ad spend with zero returns.",
-      "Key principles include clear visual hierarchy, fast load times, mobile-first design, and strategic CTA placement. Every pixel on a marketing page should have a purpose—guiding the user toward a desired action.",
-      "Spark Tech's design team has redesigned over 50 marketing funnels, consistently achieving 30–80% conversion rate improvements through data-informed."
+      "A website is often the first impression customers have of a business. Modern website development focuses on responsive design, fast loading speeds, clear navigation, and conversion-focused layouts that improve user experience.",
+      "Businesses with professionally developed websites build greater customer trust, reduce bounce rates, and encourage visitors to take action. Every design decision should support business goals while providing a seamless browsing experience across all devices.",
+      "At SparkTech, we create websites that combine creativity, performance, and functionality to support long-term business success."
     ],
-    tags: ["UI/UX", "Conversion", "Web Design"]
+    tags: ["Website Development", "UI/UX", "Responsive Design"]
   },
   {
     id: "case-3",
-    title: "Google Ads vs Facebook Ads: A Complete Comparison",
-    subtitle: "Choosing the Right Paid Advertising",
+    title: "Maximizing Business Growth Through Google Ads",
+    subtitle: "GOOGLE ADS & PPC",
     image: "/Advanced SEO Strategy_ Magnifying Data for Digital Success.webp",
-    fallbackText: "Google Ads vs Facebook Ads",
-    excerpt: "Understanding when to use Google Ads versus Facebook Ads can make or break your paid media ROI.",
+    fallbackText: "GOOGLE ADS & PPC",
+    excerpt: "Google Ads allows businesses to connect with customers who are actively searching for products and services.",
     content: [
-      "Google Ads captures demand—users actively searching for a product or service. Facebook Ads creates demand by targeting users based on interests, behaviors, and demographics before they're even aware they need you.",
-      "For high-intent purchases (legal, medical, home services), Google Search ads typically yield superior ROI. For brand awareness, product discovery, and retargeting, Meta's ad ecosystem is unmatched.",
-      "Our media buyers at Spark Tech run both platforms simultaneously, using cross-channel attribution to determine the optimal budget split often achieving."
+      "Google Ads allows businesses to connect with customers who are actively searching for products and services. A successful campaign requires keyword research, compelling ad copy, strategic bidding, and continuous optimization to improve return on investment.",
+      "Performance tracking and audience analysis help businesses make informed decisions while reducing advertising costs. Combining paid campaigns with strong landing pages creates better conversion opportunities and measurable business growth.",
+      "SparkTech focuses on creating advertising strategies that deliver quality leads and long-term value."
     ],
-    tags: ["GoogleAds", "FacebookAds", "ROAS"]
+    tags: ["Google Ads", "PPC", "Lead Generation"]
   },
   {
     id: "case-4",
-    title: "How AI is Transforming Digital Marketing",
-    subtitle: "Artificial Intelligence in Modern Marketing",
-    image: "/Digital Marketing Foundations You Can't Ignore.webp",
-    fallbackText: "AI & Digital Marketing",
-    excerpt: "AI tools are reshaping how brands analyze data, personalize experiences, and automate campaigns at scale.",
+    title: "Building Strong Brands Through Social Media Marketing",
+    subtitle: "SOCIAL MEDIA MARKETING",
+    image: "/Digital Marketing Foundations You Can’t Ignore.webp",
+    fallbackText: "SOCIAL MEDIA MARKETING",
+    excerpt: "Social media platforms provide businesses with opportunities to engage customers, increase brand awareness, and build lasting relationships.",
     content: [
-      "Artificial Intelligence has moved from buzzword to essential business tool. In digital marketing, AI powers predictive analytics, dynamic ad creative, chatbots, and hyper-personalized email sequences—all running 24/7.",
-      "Machine learning models can now identify high-value audience segments, predict customer churn, and optimize ad bids in real time. Brands using AI-powered marketing see an average 40% improvement.",
-      "Case study: We helped a Chennai e-commerce brand implement AI-based product recommendation engines, resulting in a 65% increase in average order value."
+      "Social media platforms provide businesses with opportunities to engage customers, increase brand awareness, and build lasting relationships. Consistent content, creative storytelling, and meaningful interactions help brands establish credibility in competitive markets.",
+      "Successful social media marketing combines organic content with paid campaigns to increase reach, encourage engagement, and generate business opportunities.",
+      "SparkTech develops customized social media strategies designed to connect businesses with the audiences that matter most."
     ],
-    tags: ["AI", "Automation", "Machine Learning"]
+    tags: ["Social Media", "Branding", "Engagement"]
   },
   {
     id: "case-5",
-    title: "Importance of UI Design in Digital Marketing",
-    subtitle: "Enhancing User Experience to Drive-",
+    title: "Using Data to Improve Marketing Performance",
+    subtitle: "PERFORMANCE MARKETING",
     image: "/576953402309831560.webp",
-    fallbackText: "UI/UX Design",
-    excerpt: "Great UI isn't just aesthetics—it directly impacts conversion rates, bounce rates, and customer retention.",
+    fallbackText: "PERFORMANCE MARKETING",
+    excerpt: "Performance marketing focuses on measurable business outcomes such as leads, sales, and return on investment.",
     content: [
-      "User Interface design bridges the gap between a brand's message and its audience. A well-designed landing page can boost conversions by up to 200%, while a poor UX can drain your ad spend with zero returns.",
-      "Key principles include clear visual hierarchy, fast load times, mobile-first design, and strategic CTA placement. Every pixel on a marketing page should have a purpose—guiding the user toward a desired action.",
-      "Spark Tech's design team has redesigned over 50 marketing funnels, consistently achieving 30–80% conversion rate improvements through data-informed."
+      "Performance marketing focuses on measurable business outcomes such as leads, sales, and return on investment. Every campaign is monitored using real-time analytics, allowing businesses to optimize budgets and improve overall marketing performance.",
+      "Understanding customer behavior, tracking conversions, and analyzing campaign data help businesses make smarter marketing decisions and achieve consistent growth.",
+      "SparkTech believes data-driven strategies create better results and stronger customer relationships."
     ],
-    tags: ["UI/UX", "Conversion", "Web Design"]
+    tags: ["Performance Marketing", "Analytics", "ROI"]
   },
   {
     id: "case-6",
-    title: "Google Ads vs Facebook Ads: A Complete Comparison",
-    subtitle: "Choosing the Right Paid Advertising",
+    title: "Creating Memorable Brands in the Digital World",
+    subtitle: "BRANDING & DIGITAL STRATEGY",
     image: "/Advanced SEO Strategy_ Magnifying Data for Digital Success.webp",
-    fallbackText: "Google Ads vs Facebook Ads",
-    excerpt: "Understanding when to use Google Ads versus Facebook Ads can make or break your paid media ROI.",
+    fallbackText: "BRANDING & DIGITAL STRATEGY",
+    excerpt: "Strong branding helps businesses communicate their values, build customer trust, and stand out from competitors.",
     content: [
-      "Google Ads captures demand—users actively searching for a product or service. Facebook Ads creates demand by targeting users based on interests, behaviors, and demographics before they're even aware they need you.",
-      "For high-intent purchases (legal, medical, home services), Google Search ads typically yield superior ROI. For brand awareness, product discovery, and retargeting, Meta's ad ecosystem is unmatched.",
-      "Our media buyers at Spark Tech run both platforms simultaneously, using cross-channel attribution to determine the optimal budget split often achieving."
+      "Strong branding helps businesses communicate their values, build customer trust, and stand out from competitors. From logo design and visual identity to messaging and digital strategy, every element contributes to a consistent brand experience.",
+      "A well-defined brand creates stronger customer recognition, improves credibility, and supports long-term business growth across digital platforms.",
+      "SparkTech helps businesses build meaningful brands that inspire confidence and create lasting impressions."
     ],
-    tags: ["GoogleAds", "FacebookAds", "ROAS"]
+    tags: ["Branding", "Digital Strategy", "Business Growth"]
   }
 ];
 
@@ -402,6 +402,9 @@ const Blogs = () => {
                         }}
                       />
                     </div>
+                    {blog.subtitle && (
+                      <p className="text-sm font-semibold text-white leading-normal">{blog.subtitle}</p>
+                    )}
                     <p className="text-white/90 text-sm leading-relaxed">{blog.excerpt}</p>
                     <AnimatePresence initial={false}>
                       {isOpen && (

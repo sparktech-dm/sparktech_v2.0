@@ -62,20 +62,20 @@ export function GrowingBrands({
           <div className="flex flex-col items-center lg:items-start text-center lg:text-left space-y-6">
             <div className="relative inline-flex flex-col items-center lg:items-start">
               <span className="text-[#395c7a] font-bold text-xs md:text-sm tracking-wider uppercase block mb-1 italic lg:not-italic">
-                TRUSTED BY
+                DIGITAL GROWTH PARTNER
               </span>
               <h2 className="text-5xl md:text-7xl font-extrabold leading-none tracking-tight flex flex-row flex-wrap justify-center lg:justify-start gap-x-3 gap-y-1">
-                <span className="text-[#cc7722]">GROWING</span>
+                <span className="text-[#cc7722]">SCALING</span>
                 <span className="text-[#1b365d]">
-                  BRANDS
+                  BUSINESSES
                 </span>
               </h2>
             </div>
             <p className="hidden lg:block text-[#395c7a] text-base md:text-lg max-w-md pt-6 leading-relaxed">
-              We partner with ambitious businesses to create powerful digital experiences that drive real results.
+              From SEO and web development to targeted marketing and branding, we create powerful digital solutions that generate quality leads and long-term growth.
             </p>
             <p className="block lg:hidden text-[#395c7a] text-sm sm:text-base leading-relaxed max-w-2xl pt-4">
-              We partner with ambitious businesses to create powerful digital experiences that drive real results. By combining strategic thinking, creative execution, and data-driven marketing, we help brands strengthen their online presence, engage their target audience, and achieve sustainable business growth. Our tailored solutions are designed to deliver measurable outcomes that support long-term success.
+              From SEO and web development to targeted marketing and branding, we create powerful digital solutions that generate quality leads and long-term growth.
             </p>
             <div className="pt-4">
               <button
@@ -401,7 +401,7 @@ function Home() {
                 className="text-[#1b365d] text-5xl md:text-4xl lg:text-5xl font-extrabold mb-1 leading-snug"
                 style={{ fontFamily: "'Georgia', serif", fontStyle: "italic" }}
               >
-                Struggling to get
+                Looking for a proven
               </p>
             </div>
             <h1
@@ -412,13 +412,13 @@ function Home() {
                 letterSpacing: "-0.5px",
               }}
             >
-              Consistent Leads?
+              Digital Marketing Agency?
             </h1>
             <p
               className="text-[#1b365d] font-extrabold text-lg md:text-4xl mb-8"
               style={{ fontFamily: "'Georgia', serif", fontStyle: "italic" }}
             >
-              We fix that.
+              We turn your traffic into consistent, qualified leads.
             </p>
 
             <button
@@ -700,26 +700,26 @@ export function BusinessProblem() {
   const problems = [
     {
       id: 1,
-      title: "Invisible Brand Identity",
-      desc: "Struggling to stand out in a crowded market where competitors look identical.",
+      title: "Limited Online Visibility",
+      desc: "If customers can't find your business online, they can't choose your services. We improve your visibility through SEO and targeted digital marketing strategies.",
       icon: <FiTarget className="w-8 h-8 text-[#cc7722]" />
     },
     {
       id: 2,
-      title: "Low Digital Footprint",
-      desc: "Missing out on organic online visibility, leading to lost traffic and potential leads.",
+      title: "Low Website Conversions ",
+      desc: "A website should do more than look good. We create user-focused experiences that encourage visitors to take action.",
       icon: <FiBarChart2 className="w-8 h-8 text-[#cc7722]" />
     },
     {
       id: 3,
-      title: "Outdated Tech Stacks",
-      desc: "Inefficient and slow workflows that bottleneck scaling and limit business growth.",
+      title: "Ineffective Marketing Campaigns ",
+      desc: "Running ads without a clear strategy often wastes time and budget. We build campaigns designed to reach the right audience and deliver measurable results.",
       icon: <FiZap className="w-8 h-8 text-[#cc7722]" />
     },
     {
       id: 4,
-      title: "Poor User Experience",
-      desc: "Customers bouncing from clunky, unoptimized interfaces before converting.",
+      title: "Inconsistent Brand Presence ",
+      desc: "Your brand should communicate a clear and consistent message across every platform. We help create a professional identity that customers remember. ",
       icon: <FiSmile className="w-8 h-8 text-[#cc7722]" />
     }
   ];
@@ -743,7 +743,7 @@ export function BusinessProblem() {
             <span className="text-[#cc7722]">Business Problems</span>
           </h2>
           <p className="text-[#1b365d] max-w-2xl mx-auto text-base md:text-lg leading-relaxed">
-            Marketing isn't broken. The system around it is.
+            Common Problems. Practical Solutions. 
           </p>
         </motion.div>
 
