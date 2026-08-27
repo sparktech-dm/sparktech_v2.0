@@ -1,6 +1,7 @@
 import React from 'react';
 import { Mail, Phone, MapPin, Instagram, Linkedin } from 'lucide-react';
 import { Link } from "react-router-dom";
+import Logo from '../assets/Logo.png';
 
 const Footer = () => {
   const socialLinks = [
@@ -17,7 +18,7 @@ const Footer = () => {
           {/* Brand Section */}
           <div className="lg:col-span-2 pr-8">
             <div className="flex items-center space-x-2 mb-6">
-              <img src="/Logo.png" alt="Sparktech Logo" className="h-8 w-8" />
+              <img src={Logo} alt="Sparktech Logo" className="h-8 w-8" />
               <span className="text-2xl font-bold text-[#c9742a]">
                 Spark Tech
               </span>

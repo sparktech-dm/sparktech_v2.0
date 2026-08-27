@@ -111,7 +111,7 @@ const ContactPage = () => {
       </section>
 
       {/* ── SECTION 2: "Let's Get Connect" Contact Form ── */}
-      <section className="px-8 md:px-16 py-12">
+      <section id="contact-form" className="px-8 md:px-16 py-12">
         <div className="bg-[#1f3a58] rounded-[20px] p-8 md:p-12 lg:p-16 grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
           {/* Left: Form */}
         <div className="flex flex-col gap-6">

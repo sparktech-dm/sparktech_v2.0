@@ -8,7 +8,7 @@ const blogData = [
     id: "blog-1",
     title: "Grow Your Business with Digital Marketing Strategies",
     subtitle: "SEO & Digital Marketing",
-    image: "/Digital Marketing Foundations You Can’t Ignore.webp",
+    image: "/Blog1.webp",
     fallbackText: "SEO & Digital Marketing",
     excerpt: "Digital marketing has become one of the most effective ways for businesses to reach new customers and build a strong online presence.",
     content: [
@@ -21,7 +21,7 @@ const blogData = [
     id: "blog-2",
     title: "Improve Website Rankings with Search Engine Optimization (SEO)",
     subtitle: "SEARCH ENGINE OPTIMIZATION",
-    image: "/576953402309831560.webp",
+    image: "/Blog2.webp",
     fallbackText: "SEARCH ENGINE OPTIMIZATION",
     excerpt: "Search Engine Optimization (SEO) helps businesses increase their visibility on search engines and attract organic traffic.",
     content: [
@@ -34,7 +34,7 @@ const blogData = [
     id: "blog-3",
     title: "Build a Website That Converts Visitors into Customers",
     subtitle: "WEBSITE DEVELOPMENT",
-    image: "/Advanced SEO Strategy_ Magnifying Data for Digital Success.webp",
+    image: "/Blog3.webp",
     fallbackText: "WEBSITE DEVELOPMENT",
     excerpt: "A website is no longer just a digital brochure—it’s the interactive foundation of your online presence, working 24/7 to build trust and tell your story.",
     content: [
@@ -47,7 +47,7 @@ const blogData = [
     id: "blog-4",
     title: "Maximize ROI with Google Ads Campaigns",
     subtitle: "GOOGLE ADS & PPC",
-    image: "/Digital Marketing Foundations You Can’t Ignore.webp",
+    image: "/Blog4.webp",
     fallbackText: "GOOGLE ADS & PPC",
     excerpt: "Google Ads allows businesses to reach customers at the exact moment they are searching for products or services.",
     content: [
@@ -60,7 +60,7 @@ const blogData = [
     id: "blog-5",
     title: "Build Strong Customer Relationships Through Social Media",
     subtitle: "SOCIAL MEDIA MARKETING",
-    image: "/576953402309831560.webp",
+    image: "/Blog5.webp",
     fallbackText: "SOCIAL MEDIA MARKETING",
     excerpt: "Social media marketing helps businesses connect with their audience, increase brand awareness, and build customer trust.",
     content: [
@@ -73,7 +73,7 @@ const blogData = [
     id: "blog-6",
     title: "Why Quality Content Matters for SEO and Brand Growth",
     subtitle: "CONTENT MARKETING",
-    image: "/Advanced SEO Strategy_ Magnifying Data for Digital Success.webp",
+    image: "/Blog6.webp",
     fallbackText: "CONTENT MARKETING",
     excerpt: "Content marketing is one of the most valuable long-term investments for any business.",
     content: [
@@ -89,7 +89,7 @@ const caseStudyData = [
     id: "case-1",
     title: "How SEO Helps Businesses Build Long-Term Organic Growth",
     subtitle: "SEO & WEBSITE GROWTH",
-    image: "/Digital Marketing Foundations You Can’t Ignore.webp",
+    image: "/Case1.webp",
     fallbackText: "SEO & WEBSITE GROWTH",
     excerpt: "Search Engine Optimization is one of the most effective digital marketing strategies for building sustainable online visibility.",
     content: [
@@ -103,7 +103,7 @@ const caseStudyData = [
     id: "case-2",
     title: "Building Websites That Turn Visitors into Customers",
     subtitle: "WEBSITE DEVELOPMENT",
-    image: "/576953402309831560.webp",
+    image: "/Case2.webp",
     fallbackText: "WEBSITE DEVELOPMENT",
     excerpt: "A website is often the very first impression customers have of a business. It sets the tone for your brand.",
     content: [
@@ -117,7 +117,7 @@ const caseStudyData = [
     id: "case-3",
     title: "Maximizing Business Growth Through Google Ads",
     subtitle: "GOOGLE ADS & PPC",
-    image: "/Advanced SEO Strategy_ Magnifying Data for Digital Success.webp",
+    image: "/Case3.webp",
     fallbackText: "GOOGLE ADS & PPC",
     excerpt: "Google Ads allows businesses to connect with customers who are actively searching for products and services.",
     content: [
@@ -131,7 +131,7 @@ const caseStudyData = [
     id: "case-4",
     title: "Building Strong Brands Through Social Media Marketing",
     subtitle: "SOCIAL MEDIA MARKETING",
-    image: "/Digital Marketing Foundations You Can’t Ignore.webp",
+    image: "/Case4.webp",
     fallbackText: "SOCIAL MEDIA MARKETING",
     excerpt: "Social media platforms provide businesses with opportunities to engage customers, increase brand awareness, and build lasting relationships.",
     content: [
@@ -145,7 +145,7 @@ const caseStudyData = [
     id: "case-5",
     title: "Using Data to Improve Marketing Performance",
     subtitle: "PERFORMANCE MARKETING",
-    image: "/576953402309831560.webp",
+    image: "/Case5.webp",
     fallbackText: "PERFORMANCE MARKETING",
     excerpt: "Performance marketing focuses on measurable business outcomes such as leads, sales, and return on investment.",
     content: [
@@ -159,7 +159,7 @@ const caseStudyData = [
     id: "case-6",
     title: "Creating Memorable Brands in the Digital World",
     subtitle: "BRANDING & DIGITAL STRATEGY",
-    image: "/Advanced SEO Strategy_ Magnifying Data for Digital Success.webp",
+    image: "/Case6.webp",
     fallbackText: "BRANDING & DIGITAL STRATEGY",
     excerpt: "Strong branding helps businesses communicate their values, build customer trust, and stand out from competitors.",
     content: [
@@ -341,13 +341,21 @@ const Blogs = () => {
   const [expandedCases, setExpandedCases] = useState({});
   const [blogStartIndex, setBlogStartIndex] = useState(0);
   const [caseStartIndex, setCaseStartIndex] = useState(0);
+  const [blogDirection, setBlogDirection] = useState(1);
+  const [caseDirection, setCaseDirection] = useState(1);
 
   const toggleBlog = (id) => setExpandedBlogs((prev) => ({ ...prev, [id]: !prev[id] }));
   const toggleCase = (id) => setExpandedCases((prev) => ({ ...prev, [id]: !prev[id] }));
-  const nextBlogs = () => setBlogStartIndex((prev) => prev + 3);
-  const prevBlogs = () => setBlogStartIndex((prev) => prev - 3);
-  const nextCases = () => setCaseStartIndex((prev) => prev + 3);
-  const prevCases = () => setCaseStartIndex((prev) => prev - 3);
+  const nextBlogs = () => { setBlogDirection(1); setBlogStartIndex((prev) => prev + 3); };
+  const prevBlogs = () => { setBlogDirection(-1); setBlogStartIndex((prev) => prev - 3); };
+  const nextCases = () => { setCaseDirection(1); setCaseStartIndex((prev) => prev + 3); };
+  const prevCases = () => { setCaseDirection(-1); setCaseStartIndex((prev) => prev - 3); };
+
+  const slideVariants = {
+    enter: (direction) => ({ x: direction > 0 ? 50 : -50, opacity: 0 }),
+    center: { x: 0, opacity: 1 },
+    exit: (direction) => ({ x: direction < 0 ? 50 : -50, opacity: 0 })
+  };
 
   const currentBlogs = blogData.slice(blogStartIndex, blogStartIndex + 3);
   const currentCases = caseStudyData.slice(caseStartIndex, caseStartIndex + 3);
@@ -362,7 +370,13 @@ const Blogs = () => {
       <div className="absolute bottom-1/3 right-1/4 w-[600px] h-[600px] bg-indigo-500/5 rounded-full blur-[150px] -z-10 pointer-events-none" />
 
       {/* ── BLOGS SECTION ── */}
-      <section className="max-w-7xl lg:max-w-full mx-auto px-4 sm:px-6 lg:px-16 pt-20 sm:pt-24 md:pt-28 pb-10 md:pb-20">
+      <motion.section 
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.1 }}
+        transition={{ duration: 0.8 }}
+        className="max-w-7xl lg:max-w-full mx-auto px-4 sm:px-6 lg:px-16 pt-20 sm:pt-24 md:pt-28 pb-10 md:pb-20"
+      >
         <h2
           className="text-3xl sm:text-4xl md:text-6xl font-black text-center text-[#cc7722] mb-10 md:mb-16 tracking-tight"
           style={{ fontFamily: "Unbounded" }}
@@ -384,8 +398,19 @@ const Blogs = () => {
               </button>
             )}
           </div>
-          <div className="flex-1 grid grid-cols-3 gap-8 items-start">
-            {currentBlogs.map((blog) => {
+          <div className="flex-1 overflow-hidden p-2 -m-2 min-h-[500px]">
+            <AnimatePresence mode="wait" custom={blogDirection}>
+              <motion.div
+                key={blogStartIndex}
+                custom={blogDirection}
+                variants={slideVariants}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+                className="grid grid-cols-3 gap-8 items-start"
+              >
+                {currentBlogs.map((blog) => {
               const isOpen = !!expandedBlogs[blog.id];
               return (
                 <div key={blog.id} className={cardBase + " cursor-pointer"} onClick={() => toggleBlog(blog.id)}>
@@ -437,6 +462,8 @@ const Blogs = () => {
                 </div>
               );
             })}
+              </motion.div>
+            </AnimatePresence>
           </div>
           <div className="flex-shrink-0 w-11">
             {blogStartIndex + 3 < blogData.length && (
@@ -446,10 +473,16 @@ const Blogs = () => {
             )}
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* ── CASE STUDIES SECTION ── */}
-      <section className="max-w-7xl lg:max-w-full mx-auto px-4 sm:px-6 lg:px-16 py-10 md:py-16">
+      <motion.section 
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.1 }}
+        transition={{ duration: 0.8 }}
+        className="max-w-7xl lg:max-w-full mx-auto px-4 sm:px-6 lg:px-16 py-10 md:py-16"
+      >
         <h2
           className="text-3xl sm:text-4xl md:text-6xl font-black text-center text-[#cc7722] mb-10 md:mb-16 tracking-tight"
           style={{ fontFamily: "Unbounded" }}
@@ -471,8 +504,19 @@ const Blogs = () => {
               </button>
             )}
           </div>
-          <div className="flex-1 grid grid-cols-3 gap-8 items-start">
-            {currentCases.map((study) => {
+          <div className="flex-1 overflow-hidden p-2 -m-2 min-h-[500px]">
+            <AnimatePresence mode="wait" custom={caseDirection}>
+              <motion.div
+                key={caseStartIndex}
+                custom={caseDirection}
+                variants={slideVariants}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+                className="grid grid-cols-3 gap-8 items-start"
+              >
+                {currentCases.map((study) => {
               const isOpen = !!expandedCases[study.id];
               return (
                 <div key={study.id} className={cardBase + " cursor-pointer"} onClick={() => toggleCase(study.id)}>
@@ -522,6 +566,8 @@ const Blogs = () => {
                 </div>
               );
             })}
+              </motion.div>
+            </AnimatePresence>
           </div>
           <div className="flex-shrink-0 w-11">
             {caseStartIndex + 3 < caseStudyData.length && (
@@ -531,7 +577,7 @@ const Blogs = () => {
             )}
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Footer */}
       <div className="pt-10">

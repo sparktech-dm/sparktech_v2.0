@@ -47,7 +47,7 @@ const blogData = [
     id: "blog-4",
     title: "Maximize ROI with Google Ads Campaigns",
     subtitle: "GOOGLE ADS & PPC",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500&q=80",
+    image: "https://images.unsplash.com/photo-1432888622747-4eb9a8f2c1d9?w=500&q=80",
     fallbackText: "GOOGLE ADS & PPC",
     excerpt: "Google Ads allows businesses to reach customers at the exact moment they are searching for products or services.",
     content: [
@@ -60,7 +60,7 @@ const blogData = [
     id: "blog-5",
     title: "Build Strong Customer Relationships Through Social Media",
     subtitle: "SOCIAL MEDIA MARKETING",
-    image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=500&q=80",
+    image: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=500&q=80",
     fallbackText: "SOCIAL MEDIA MARKETING",
     excerpt: "Social media marketing helps businesses connect with their audience, increase brand awareness, and build customer trust.",
     content: [
@@ -73,7 +73,7 @@ const blogData = [
     id: "blog-6",
     title: "Why Quality Content Matters for SEO and Brand Growth",
     subtitle: "CONTENT MARKETING",
-    image: "https://images.unsplash.com/photo-1455390582262-044cdead2708?w=500&q=80",
+    image: "https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?w=500&q=80",
     fallbackText: "CONTENT MARKETING",
     excerpt: "Content marketing is one of the most valuable long-term investments for any business.",
     content: [
@@ -131,7 +131,7 @@ const caseStudyData = [
     id: "case-4",
     title: "Building Strong Brands Through Social Media Marketing",
     subtitle: "SOCIAL MEDIA MARKETING",
-    image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=500&q=80",
+    image: "https://images.unsplash.com/photo-1516245834210-c4c14271731e?w=500&q=80",
     fallbackText: "SOCIAL MEDIA MARKETING",
     excerpt: "Social media platforms provide businesses with opportunities to engage customers, increase brand awareness, and build lasting relationships.",
     content: [
@@ -145,7 +145,7 @@ const caseStudyData = [
     id: "case-5",
     title: "Using Data to Improve Marketing Performance",
     subtitle: "PERFORMANCE MARKETING",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&q=80",
+    image: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=500&q=80",
     fallbackText: "PERFORMANCE MARKETING",
     excerpt: "Performance marketing focuses on measurable business outcomes such as leads, sales, and return on investment.",
     content: [
@@ -159,7 +159,7 @@ const caseStudyData = [
     id: "case-6",
     title: "Creating Memorable Brands in the Digital World",
     subtitle: "BRANDING & DIGITAL STRATEGY",
-    image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=500&q=80",
+    image: "https://images.unsplash.com/photo-1542744094-3a31f272c490?w=500&q=80",
     fallbackText: "BRANDING & DIGITAL STRATEGY",
     excerpt: "Strong branding helps businesses communicate their values, build customer trust, and stand out from competitors.",
     content: [
@@ -235,7 +235,13 @@ const Blogs = () => {
       </section>
 
       {/* ── BLOGS SECTION ── */}
-      <section className="max-w-7xl mx-auto px-6 py-12 md:py-20">
+      <motion.section 
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.1 }}
+        transition={{ duration: 0.8 }}
+        className="max-w-7xl mx-auto px-6 py-12 md:py-20"
+      >
         <div className="flex flex-col md:flex-row justify-between items-center mb-16 gap-6">
           <h2
             className="text-4xl md:text-6xl font-black text-[#cc7722] tracking-tight"
@@ -341,10 +347,16 @@ const Blogs = () => {
           })}
           </AnimatePresence>
         </div>
-      </section>
+      </motion.section>
 
       {/* ── CASE STUDIES SECTION ── */}
-      <section className="max-w-7xl mx-auto px-6 py-12 md:py-16">
+      <motion.section 
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.1 }}
+        transition={{ duration: 0.8 }}
+        className="max-w-7xl mx-auto px-6 py-12 md:py-16"
+      >
         <div className="flex flex-col md:flex-row justify-between items-center mb-16 gap-6">
           <h2
             className="text-4xl md:text-6xl font-black text-[#cc7722] tracking-tight"
@@ -443,7 +455,7 @@ const Blogs = () => {
           })}
           </AnimatePresence>
         </div>
-      </section>
+      </motion.section>
 
       {/* Footer */}
       <div className="pt-10">

@@ -42,15 +42,19 @@ const Navbar = () => {
   }, [location.pathname]);
 
   useEffect(() => {
-    if (location.pathname === '/' && location.state?.scrollTo) {
-      scroller.scrollTo(location.state.scrollTo, {
-        duration: 800,
-        smooth: 'easeInOutQuart',
-      });
+    if (location.state?.scrollTo) {
+      setTimeout(() => {
+        scroller.scrollTo(location.state.scrollTo, {
+          duration: 800,
+          smooth: 'easeInOutQuart',
+        });
+      }, 100);
       navigate(location.pathname, { replace: true, state: {} });
     }
-    if (location.pathname === '/' && location.state?.scrollToTop) {
-      scroll.scrollToTop({ duration: 800, smooth: 'easeInOutQuart' });
+    if (location.state?.scrollToTop) {
+      setTimeout(() => {
+        scroll.scrollToTop({ duration: 800, smooth: 'easeInOutQuart' });
+      }, 100);
       navigate(location.pathname, { replace: true, state: {} });
     }
   }, [location, navigate]);
@@ -72,7 +76,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="w-full fixed top-0 z-50 font-[Inter] bg-[#f2eee0] shadow-sm">
+    <div className="w-full fixed top-0 z-50 font-[Inter] bg-[#f2eee0]/85 backdrop-blur-lg border-b border-black/5 shadow-[0_4px_30px_rgba(0,0,0,0.03)] transition-all duration-300">
 
       {/* ══════════════ DESKTOP NAVBAR ══════════════ */}
       <header className="hidden md:flex w-full h-[76px] items-center justify-between px-10 lg:px-12 xl:px-20 2xl:px-24">
@@ -96,12 +100,12 @@ const Navbar = () => {
                     onClick={() => setActive(item.name)}
                     className={`
                       inline-flex items-center justify-center
-                      px-5 py-[7px] rounded-full
-                      text-[14px] font-black tracking-[0.02em] uppercase
+                      px-5 py-[8px] rounded-full
+                      text-[14px] font-bold tracking-[0.03em] uppercase
                       transition-all duration-300 select-none
                       ${isActive
-                        ? 'text-[#23425e]'
-                        : 'text-[#395c7a] hover:text-[#23425e]'
+                        ? 'text-[#cc7722] bg-[#cc7722]/10 shadow-[inset_0_0_0_1px_rgba(204,119,34,0.2)]'
+                        : 'text-[#395c7a] hover:text-[#cc7722] hover:bg-black/5'
                       }
                     `}
                   >
@@ -116,10 +120,11 @@ const Navbar = () => {
         {/* Right: CTA Button */}
         <div className="relative flex justify-center items-center">
           <button
-            onClick={() => navigate('/contact')}
-            className="text-white text-[13px] font-extrabold uppercase tracking-[0.06em] px-8 py-3 rounded-full
-                       border-[5px] border-[#92143c] bg-black
-                       transition duration-300 hover:bg-[#92143c]/20"
+            onClick={() => navigate('/contact', { state: { scrollTo: 'contact-form' } })}
+            className="relative flex items-center justify-center text-white text-[13px] font-extrabold uppercase tracking-[0.06em] px-8 py-3 rounded-full
+                       bg-[#cc7722] border-2 border-[#cc7722] shadow-[0_4px_20px_rgba(204,119,34,0.5)]
+                       transition-all duration-300 
+                       hover:bg-white hover:text-[#cc7722] hover:shadow-[0_6px_25px_rgba(204,119,34,0.6)] hover:-translate-y-1 active:scale-95"
           >
             Get More Leads
           </button>

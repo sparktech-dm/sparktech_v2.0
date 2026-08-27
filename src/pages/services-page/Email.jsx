@@ -71,7 +71,7 @@ const EmailMarketing = () => {
                   boxShadow: "0px 0px 15px rgba(240, 196, 23, 0.25)",
                 }
               })}
-              className="bg-[#1f3a58] p-8 rounded-2xl flex flex-col justify-center text-center h-auto min-h-[260px]"
+              className="bg-[#2a4d75] border border-[#395c7a] shadow-lg hover:shadow-[0_15px_40px_rgba(204,119,34,0.4)] transition-all duration-300 p-8 rounded-2xl flex flex-col justify-center text-center h-auto min-h-[260px]"
             >
               <h3 className="text-[#cc7722] font-oswald text-base font-bold uppercase tracking-wider mb-3">
                 {item.title}
@@ -96,7 +96,7 @@ const EmailMarketing = () => {
               },
               transition: { duration: 0.5 }
             })}
-            className="w-full max-w-2xl bg-[#1f3a58] p-8 rounded-2xl text-center"
+            className="w-full max-w-2xl bg-[#2a4d75] border border-[#395c7a] shadow-lg hover:shadow-[0_15px_40px_rgba(204,119,34,0.4)] transition-all duration-300 p-8 rounded-2xl text-center"
           >
             <h2 className="text-lg md:text-xl font-bold font-oswald text-[#cc7722] uppercase tracking-wider mb-2">
               WHY BUSINESSES CHOOSE SPARKTECH

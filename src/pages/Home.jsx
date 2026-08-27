@@ -46,8 +46,8 @@ export function GrowingBrands({
 
   const stats = [
     { id: 1, value: yearsValue, label: yearsText, icon: <FiUsers className="w-10 h-10 text-[#cc7722]" /> },
-    { id: 2, value: "50+", label: "Happy clients", icon: <FiSmile className="w-10 h-10 text-[#cc7722]" /> },
-    { id: 3, value: "100+", label: "Projects", icon: <img src="/rocket-removebg-preview.webp" alt="Projects" className="w-10 h-10 object-contain brightness-0" style={{ filter: "invert(48%) sepia(85%) saturate(1450%) hue-rotate(345deg) brightness(91%) contrast(85%)" }} /> },
+    { id: 2, value: "15+", label: "Happy clients", icon: <FiSmile className="w-10 h-10 text-[#cc7722]" /> },
+    { id: 3, value: "25+", label: "Projects", icon: <img src="/rocket-removebg-preview.webp" alt="Projects" className="w-10 h-10 object-contain brightness-0" style={{ filter: "invert(48%) sepia(85%) saturate(1450%) hue-rotate(345deg) brightness(91%) contrast(85%)" }} /> },
     { id: 4, value: "20+", label: "Team members", icon: <FiTrendingUp className="w-10 h-10 text-[#cc7722]" /> }
   ];
 
@@ -152,12 +152,6 @@ const mobileLogos = [
 
 // ─── TESTIMONIALS DATA ───────────────────────────────────────────────
 const allTestimonials = [
-  {
-    text: `"Within 3 months, our organic traffic doubled and qualified leads started coming consistently. Their SEO strategy, Google Ads optimization, and conversion-focused landing pages completely changed our digital presence."`,
-    author: "Radio Mirchi",
-    logo: "/Radiomirchi.webp",
-    rating: 5,
-  },
   {
     text: `"Working with this team completely changed our online presence. Within 3 months, our website traffic increased, leads became more consistent, and the overall brand image finally looked professional. Their communication and execution were on point from day one."`,
     author: "Radio Mirchi",
@@ -605,10 +599,13 @@ function Home() {
           </button>
 
           {/* Cards */}
-          <div className="flex-1 flex flex-row gap-12 items-stretch justify-center animate-fadeIn" key={`desktop-${desktopIdx}`}>
+          <div className="flex-1 flex flex-row gap-12 items-stretch justify-start animate-fadeIn" key={`desktop-${desktopIdx}`}>
             {currentDesktopPair.map((testimonial, idx) => (
               <TestimonialCard key={`desktop-card-${idx}`} testimonial={testimonial} />
             ))}
+            {currentDesktopPair.length === 1 && (
+              <div className="flex-1 min-w-0 pointer-events-none" aria-hidden="true"></div>
+            )}
           </div>
 
           {/* Right Nav */}

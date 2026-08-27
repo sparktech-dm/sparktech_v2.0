@@ -191,8 +191,8 @@ const About = () => {
             OUR <span className="text-[#cc7722]">JOURNEY</span>
           </h1>
           <p className="text-[#1b365d] text-sm md:text-base font-semibold mt-3 max-w-2xl mx-auto italic">
-           A journey driven by innovation, collaboration, and a passion for helping 
-businesses grow through digital excellence. 
+            A journey driven by innovation, collaboration, and a passion for helping
+            businesses grow through digital excellence.
           </p>
 
         </motion.div>
@@ -444,12 +444,12 @@ businesses grow through digital excellence.
             <div className="w-[2px] flex-1 bg-[#cc7722]" />
             <div className="py-6">
               <div className="w-16 h-16 lg:w-[80px] lg:h-[80px] rounded-full border-[1.5px] border-[#cc7722] flex items-center justify-center">
-                 <div className="w-12 h-12 lg:w-[68px] lg:h-[68px] rounded-full bg-[#1b365d] flex items-center justify-center relative shadow-sm">
-                    <svg className="w-7 h-7 lg:w-10 lg:h-10" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M12 1.5C12 1.5 12 9.5 22.5 12C22.5 12 12.5 13 12 22.5C12 22.5 12 13 1.5 12C1.5 12 9.5 12 12 1.5Z" fill="#cc7722"/>
-                      <path d="M18.5 4.5C18.5 4.5 18.5 6.5 21 7C21 7 19 7.5 18.5 9.5C18.5 9.5 18.5 7.5 16 7C16 7 17.5 7 18.5 4.5Z" fill="#cc7722"/>
-                    </svg>
-                 </div>
+                <div className="w-12 h-12 lg:w-[68px] lg:h-[68px] rounded-full bg-[#1b365d] flex items-center justify-center relative shadow-sm">
+                  <svg className="w-7 h-7 lg:w-10 lg:h-10" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 1.5C12 1.5 12 9.5 22.5 12C22.5 12 12.5 13 12 22.5C12 22.5 12 13 1.5 12C1.5 12 9.5 12 12 1.5Z" fill="#cc7722" />
+                    <path d="M18.5 4.5C18.5 4.5 18.5 6.5 21 7C21 7 19 7.5 18.5 9.5C18.5 9.5 18.5 7.5 16 7C16 7 17.5 7 18.5 4.5Z" fill="#cc7722" />
+                  </svg>
+                </div>
               </div>
             </div>
             <div className="w-[2px] flex-1 bg-[#cc7722]" />
@@ -463,18 +463,18 @@ businesses grow through digital excellence.
             transition={{ duration: 0.7, delay: 0.1 }}
             className="flex md:hidden items-center justify-center w-full py-6"
           >
-              <div className="h-[2px] flex-1 bg-[#cc7722]" />
-              <div className="px-5">
-                <div className="w-16 h-16 rounded-full border-[1.5px] border-[#cc7722] flex items-center justify-center">
-                   <div className="w-12 h-12 rounded-full bg-[#1b365d] flex items-center justify-center relative shadow-sm">
-                      <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 1.5C12 1.5 12 9.5 22.5 12C22.5 12 12.5 13 12 22.5C12 22.5 12 13 1.5 12C1.5 12 9.5 12 12 1.5Z" fill="#cc7722"/>
-                        <path d="M18.5 4.5C18.5 4.5 18.5 6.5 21 7C21 7 19 7.5 18.5 9.5C18.5 9.5 18.5 7.5 16 7C16 7 17.5 7 18.5 4.5Z" fill="#cc7722"/>
-                      </svg>
-                   </div>
+            <div className="h-[2px] flex-1 bg-[#cc7722]" />
+            <div className="px-5">
+              <div className="w-16 h-16 rounded-full border-[1.5px] border-[#cc7722] flex items-center justify-center">
+                <div className="w-12 h-12 rounded-full bg-[#1b365d] flex items-center justify-center relative shadow-sm">
+                  <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 1.5C12 1.5 12 9.5 22.5 12C22.5 12 12.5 13 12 22.5C12 22.5 12 13 1.5 12C1.5 12 9.5 12 12 1.5Z" fill="#cc7722" />
+                    <path d="M18.5 4.5C18.5 4.5 18.5 6.5 21 7C21 7 19 7.5 18.5 9.5C18.5 9.5 18.5 7.5 16 7C16 7 17.5 7 18.5 4.5Z" fill="#cc7722" />
+                  </svg>
                 </div>
               </div>
-              <div className="h-[2px] flex-1 bg-[#cc7722]" />
+            </div>
+            <div className="h-[2px] flex-1 bg-[#cc7722]" />
           </motion.div>
 
           {/* Right Column */}
@@ -486,21 +486,21 @@ businesses grow through digital excellence.
             className="w-full md:w-[55%] flex flex-col justify-center gap-5 text-[#1b365d] text-[15px] md:text-base lg:text-[17px] font-semibold leading-relaxed"
           >
             <p>
-              At SparkTech, we believe every business deserves the opportunity to grow 
-in the digital world. Our purpose is to help businesses build a strong online 
-presence by combining creativity, technology, and data-driven strategies 
-that deliver measurable results and sustainable business growth. 
+              At SparkTech, we believe every business deserves the opportunity to grow
+              in the digital world. Our purpose is to help businesses build a strong online
+              presence by combining creativity, technology, and data-driven strategies
+              that deliver measurable results and sustainable business growth.
             </p>
             <p>
-              We work with businesses of all sizes to create websites, strengthen brand 
-identity, improve search visibility, and generate quality leads through 
-digital marketing. Every solution we deliver is designed around our clients' 
-goals and long-term success. 
+              We work with businesses of all sizes to create websites, strengthen brand
+              identity, improve search visibility, and generate quality leads through
+              digital marketing. Every solution we deliver is designed around our clients'
+              goals and long-term success.
             </p>
             <p>
-              Our commitment is simple—to transform ideas into meaningful digital 
-experiences that build trust, create opportunities, and help businesses grow 
-with confidence in an ever-evolving digital landscape.
+              Our commitment is simple—to transform ideas into meaningful digital
+              experiences that build trust, create opportunities, and help businesses grow
+              with confidence in an ever-evolving digital landscape.
             </p>
           </motion.div>
 
@@ -550,14 +550,14 @@ with confidence in an ever-evolving digital landscape.
                     Our <span className="text-[#cc7722]">Vision</span>
                   </h3>
                   <p className="text-[#1b365d] text-sm sm:text-base md:text-lg leading-relaxed mb-3 md:mb-4">
-                    To become a trusted digital growth partner by helping businesses build 
-stronger brands, embrace innovation, and achieve sustainable success 
-through creative, technology-driven digital solutions.
+                    To become a trusted digital growth partner by helping businesses build
+                    stronger brands, embrace innovation, and achieve sustainable success
+                    through creative, technology-driven digital solutions.
                   </p>
                   <p className="text-[#1b365d] text-sm sm:text-base md:text-lg leading-relaxed">
-                    Our vision is to create a future where businesses of every size can 
-confidently compete online using smart strategies, modern technology, and 
-meaningful customer experiences.
+                    Our vision is to create a future where businesses of every size can
+                    confidently compete online using smart strategies, modern technology, and
+                    meaningful customer experiences.
                   </p>
                 </motion.div>
               </div>
@@ -589,15 +589,15 @@ meaningful customer experiences.
                     Our <span className="text-[#cc7722]">Mission</span>
                   </h3>
                   <p className="text-[#1b365d] text-sm sm:text-base md:text-lg leading-relaxed mb-3 md:mb-4">
-                    We believe successful digital marketing starts with understanding people, 
-not just platforms. Every strategy we create is backed by research, 
-creativity, and a commitment to delivering measurable business outcomes.
+                    We believe successful digital marketing starts with understanding people,
+                    not just platforms. Every strategy we create is backed by research,
+                    creativity, and a commitment to delivering measurable business outcomes.
                   </p>
                   <p className="text-[#1b365d] text-sm sm:text-base md:text-lg leading-relaxed">
-                    As a Digital Marketing Agency in Chennai, our mission is to help 
-businesses grow through website development, search engine 
-optimization, branding, Google Ads, social media marketing, and 
-performance-driven digital solutions that create long-term value.
+                    As a Digital Marketing Agency in Chennai, our mission is to help
+                    businesses grow through website development, search engine
+                    optimization, branding, Google Ads, social media marketing, and
+                    performance-driven digital solutions that create long-term value.
                   </p>
                 </motion.div>
               </div>
@@ -610,7 +610,7 @@ performance-driven digital solutions that create long-term value.
       {/* ── FOUNDER SECTION ── */}
       <section className="bg-[#fffdfa] py-12 md:py-28 overflow-hidden relative border-t border-gray-100">
         <div className="max-w-7xl mx-auto px-6 md:px-16 flex flex-col md:flex-row items-center gap-6 md:gap-12 lg:gap-20">
-          
+
           {/* Desktop Image (Hidden on Mobile) */}
           <div className="hidden md:flex w-full md:w-5/12 justify-center ">
             <motion.div
@@ -663,30 +663,30 @@ performance-driven digital solutions that create long-term value.
               </h3>
               <div className="w-12 md:w-16 h-1 bg-[#cc7722] rounded-full mx-auto md:mx-0 mb-6 md:mb-8"></div>
               <p className="text-[#1b365d]/90 text-sm sm:text-base md:text-lg leading-relaxed mb-5 md:mb-6 font-medium">
-                "We don't just create websites or marketing campaigns—we build lasting 
-partnerships. Our mission is to help businesses turn ideas into measurable 
-digital success through innovation, creativity, and trust." 
+                "We don't just create websites or marketing campaigns—we build lasting
+                partnerships. Our mission is to help businesses turn ideas into measurable
+                digital success through innovation, creativity, and trust."
               </p>
               <p className="text-[#1b365d]/80 text-sm sm:text-base md:text-lg leading-relaxed">
-                Every successful business begins with a vision, and SparkTech was 
-founded to help businesses transform that vision into meaningful digital 
-growth. <br/>
-With a B.Tech in Information Technology, an MBA in Marketing from 
-LIBA, and professional certifications in Cybersecurity, SAP, and 
-Penetration Testing, our founder combines technical expertise with 
-strategic marketing knowledge to deliver practical, future-ready digital 
-solutions. <br/>
-Before launching SparkTech, he had the opportunity to contribute to 
-digital campaigns for leading brands, including BMW, where he worked 
-on IPL-themed marketing campaigns and brand-focused digital strategies. 
-These experiences reinforced one important belief—great marketing isn't 
-about making the loudest impression; it's about creating meaningful 
-connections that inspire trust and deliver measurable results. <br/>
-Today, every SparkTech project reflects that philosophy. Every strategy is 
-built on research, every campaign is guided by data, and every success is 
-shared with our clients. Our goal is not simply to deliver services but to 
-build long-term partnerships that help businesses grow with confidence in 
-the digital world.
+                Every successful business begins with a vision, and SparkTech was
+                founded to help businesses transform that vision into meaningful digital
+                growth. <br />
+                With a B.Tech in Information Technology, an MBA in Marketing from
+                LIBA, and professional certifications in Cybersecurity, SAP, and
+                Penetration Testing, our founder combines technical expertise with
+                strategic marketing knowledge to deliver practical, future-ready digital
+                solutions. <br />
+                Before launching SparkTech, he had the opportunity to contribute to
+                digital campaigns for leading brands, including BMW, where he worked
+                on IPL-themed marketing campaigns and brand-focused digital strategies.
+                These experiences reinforced one important belief—great marketing isn't
+                about making the loudest impression; it's about creating meaningful
+                connections that inspire trust and deliver measurable results. <br />
+                Today, every SparkTech project reflects that philosophy. Every strategy is
+                built on research, every campaign is guided by data, and every success is
+                shared with our clients. Our goal is not simply to deliver services but to
+                build long-term partnerships that help businesses grow with confidence in
+                the digital world.
               </p>
             </motion.div>
           </div>
@@ -706,7 +706,7 @@ the digital world.
           >
             OUR CORE <span className="text-[#cc7722]">TEAM</span>
           </motion.h2>
-          
+
           <motion.div
             initial={{ opacity: 0, scale: 0.9, y: 30 }}
             whileInView={{ opacity: 1, scale: 1, y: 0 }}
