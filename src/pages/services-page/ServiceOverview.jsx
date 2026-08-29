@@ -92,7 +92,7 @@ export default function ServiceOverview() {
                 }
               })}
               onClick={() => navigate(segment.link)}
-              className="group bg-[#1f3a58] rounded-[24px] p-8 border-2 border-[#cc7722] flex flex-col justify-between h-[300px] cursor-pointer transition-all duration-300"
+              className="group bg-[#1f3a58] rounded-[24px] p-8 border-2 border-[#cc7722] flex flex-col justify-between h-full min-h-[300px] cursor-pointer transition-all duration-300"
             >
               <div>
                 {/* Header: Icon + Title */}

@@ -4,6 +4,7 @@ import { FiUsers, FiTrendingUp, FiTarget, FiZap, FiShield, FiChevronLeft, FiChev
 import { FaRocket } from "react-icons/fa";
 import Seo from "../components/Seo";
 import Footer from "../components/Footer";
+import PremiumTeamSection from "../components/PremiumTeamSection";
 
 const chevronPatternBg = {
   backgroundColor: "#0a0a0c",
@@ -693,7 +694,8 @@ const About = () => {
         </div>
       </section>
 
-      {/* ── TEAM SECTION ── */}
+      {/* ── TEAM SECTION (HIDDEN) ── */}
+      {/* 
       <section className="bg-white py-16 md:py-24 overflow-hidden relative">
         <div className="max-w-7xl lg:max-w-full mx-auto px-6 md:px-16 text-center flex flex-col items-center">
           <motion.h2
@@ -720,6 +722,28 @@ const About = () => {
               className="w-full max-w-[1200px] h-auto object-contain"
             />
           </motion.div>
+        </div>
+      </section>
+      */}
+
+      {/* Team Section from ProjectsSection */}
+      <section className="bg-white py-16 md:py-24 overflow-hidden relative">
+        <div className="max-w-7xl mx-auto text-center px-6">
+          <div className="inline-flex items-center px-4 py-1.5 rounded-full border border-[#cc7722] bg-[#f2eee0] mb-6">
+            <span className="text-[#cc7722] text-xs font-black uppercase tracking-widest">
+              Creative Minds
+            </span>
+          </div>
+          <h2 className="text-4xl sm:text-5xl font-black text-[#1b365d] mb-6 uppercase tracking-tight" style={{ fontFamily: "Unbounded" }}>
+            The Team Behind <span className="text-[#cc7722]">the Spark</span>
+          </h2>
+          <p className="text-[#1b365d]/80 text-lg max-w-2xl mx-auto mb-16 font-medium">
+            A collective of strategists, designers, and developers dedicated to transforming your digital presence.
+          </p>
+          
+          <div className="flex justify-center w-full">
+            <PremiumTeamSection />
+          </div>
         </div>
       </section>
 

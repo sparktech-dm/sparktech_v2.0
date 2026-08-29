@@ -46,8 +46,21 @@ const AdCreativesCampaigns = () => {
   ];
 
   return (
-    <div className="min-h-screen pt-32 pb-12 px-6 bg-[#ffffff]">
+    <div className="min-h-screen pt-24 pb-12 px-6 md:pt-8 bg-[#ffffff]">
       <section className="max-w-5xl mx-auto">
+        {/* Back Button */}
+        <div className="mb-8 md:mb-10">
+          <button
+            onClick={() => navigate("/services")}
+            className="group flex items-center gap-2 px-5 py-2.5 bg-[#f2eee0] hover:bg-[#1b365d] text-[#1b365d] hover:text-[#cc7722] border border-[#cc7722] rounded-full transition-all duration-300 font-bold text-xs md:text-sm uppercase tracking-wider shadow-sm hover:shadow-md cursor-pointer"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 md:h-5 md:w-5 transform group-hover:-translate-x-1.5 transition-transform duration-300" viewBox="0 0 20 20" fill="currentColor">
+              <path fillRule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clipRule="evenodd" />
+            </svg>
+            Back to Services
+          </button>
+        </div>
+
         {/* Title & Header */}
         <div className="text-center mb-16 animate-fadeIn">
           <h1 className="text-3xl md:text-4xl font-extrabold uppercase tracking-widest font-oswald mb-6">
