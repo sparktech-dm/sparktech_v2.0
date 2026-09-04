@@ -609,11 +609,11 @@ const About = () => {
       </section>
 
       {/* ── FOUNDER SECTION ── */}
-      <section className="bg-[#fffdfa] py-12 md:py-28 overflow-hidden relative border-t border-gray-100">
-        <div className="max-w-7xl mx-auto px-6 md:px-16 flex flex-col md:flex-row items-center gap-6 md:gap-12 lg:gap-20">
+      {/* <section className="bg-[#fffdfa] py-12 md:py-28 overflow-hidden relative border-t border-gray-100">
+        <div className="max-w-7xl mx-auto px-6 md:px-16 flex flex-col md:flex-row items-center gap-6 md:gap-12 lg:gap-20"> */}
 
           {/* Desktop Image (Hidden on Mobile) */}
-          <div className="hidden md:flex w-full md:w-5/12 justify-center ">
+          {/* <div className="hidden md:flex w-full md:w-5/12 justify-center ">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -639,10 +639,10 @@ const About = () => {
             >
               <h2 className="text-3xl sm:text-4xl md:text-6xl font-black text-[#1b365d] mb-3 md:mb-4 tracking-tight uppercase" style={{ fontFamily: "Unbounded" }}>
                 MEET OUR <span className="text-[#cc7722]">FOUNDER</span>
-              </h2>
+              </h2> */}
 
               {/* Mobile Image (Visible only on Mobile, right after heading) */}
-              <div className="flex md:hidden w-full justify-center my-6">
+              {/* <div className="flex md:hidden w-full justify-center my-6">
                 <motion.div
                   initial={{ opacity: 0, scale: 0.9 }}
                   whileInView={{ opacity: 1, scale: 1 }}
@@ -692,7 +692,7 @@ const About = () => {
             </motion.div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* ── TEAM SECTION (HIDDEN) ── */}
       {/* 
