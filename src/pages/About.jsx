@@ -5,6 +5,7 @@ import { FaRocket } from "react-icons/fa";
 import Seo from "../components/Seo";
 import Footer from "../components/Footer";
 import PremiumTeamSection from "../components/PremiumTeamSection";
+import { Helmet } from 'react-helmet-async';
 
 const chevronPatternBg = {
   backgroundColor: "#0a0a0c",
@@ -174,6 +175,24 @@ const About = () => {
 
   return (
     <>
+      <Helmet>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "name": "About Us - Spark Tech Digital",
+            "url": "https://www.sparktechdm.com/about",
+            "description": "Learn about the journey, values, and milestone of Spark Tech Digital as we build foundation and scale new heights.",
+            "breadcrumb": {
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.sparktechdm.com/" },
+                { "@type": "ListItem", "position": 2, "name": "About Us" }
+              ]
+            }
+          })}
+        </script>
+      </Helmet>
       <Seo
         title="About Us | Spark Tech Digital"
         description="Learn about the journey, values, and milestone of Spark Tech Digital as we build foundation and scale new heights."

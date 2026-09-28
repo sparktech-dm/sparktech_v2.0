@@ -12,6 +12,7 @@ import {
   Upload 
 } from "lucide-react";
 import Footer from "../components/Footer";
+import { Helmet } from 'react-helmet-async';
 
 const SERVICES = [
   {
@@ -260,6 +261,26 @@ export default function Career() {
   const currentService = SERVICES.find(s => s.id === selectedServiceId);
 
   return (
+
+    <>
+    <Helmet>
+  <script type="application/ld+json">
+    {JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Careers - Spark Tech Digital",
+      "url": "https://www.sparktechdm.com/career",
+      "description": "Join the team at Spark Tech Digital. We are always looking for passionate digital marketing, SEO, and web development professionals.",
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.sparktechdm.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Career" }
+        ]
+      }
+    })}
+  </script>
+</Helmet>
     <div className="w-full min-h-screen bg-white text-[#1b365d] font-inter pt-32 relative box-border">
       <div className="w-full px-8 pb-16 flex flex-col items-center">
         {/* Centered Yellow Title */}
@@ -318,7 +339,7 @@ export default function Career() {
                 </div>
                 <div className="flex items-center gap-[1.2rem]">
                   <Award className="text-[#cc7722] shrink-0" size={18} />
-                  <span className="text-[1.05rem] italic font-light text-[#1b365d]"><strong>Internship Certificate:</strong> Provided for eligible internship programs</span>
+                  <span className="text-[1.05rem] italic font-light text-[#1b365d]"><strong>Interns are also welcome!</strong></span>
                 </div>
               </div>
             </div>
@@ -552,5 +573,6 @@ export default function Career() {
         <Footer />
       </div>
     </div>
+    </>
   );
 }

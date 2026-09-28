@@ -5,10 +5,15 @@ import { BrowserRouter } from 'react-router-dom';
 import App from './App.jsx';
 import './global.css';
 import Analytics from './components/Analytics.jsx';
+import { HelmetProvider } from 'react-helmet-async'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <BrowserRouter>
-    <Analytics />
-    <App />
-  </BrowserRouter>
+  <React.StrictMode>
+    <HelmetProvider>
+      <BrowserRouter>
+        <Analytics />
+        <App />
+      </BrowserRouter>
+    </HelmetProvider>
+  </React.StrictMode>,
 );

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Footer from "./Footer";
+import { Helmet } from "react-helmet-async";
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({ name: "", email: "", phone: "", message: "" });
@@ -42,6 +43,25 @@ const ContactPage = () => {
   };
 
   return (
+    <>
+    <Helmet>
+  <script type="application/ld+json">
+    {JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Contact Us - Spark Tech Digital",
+      "url": "https://www.sparktechdm.com/contact",
+      "description": "Get in touch with Spark Tech Digital in Chennai. Contact us today for digital marketing solutions, consultations, and project inquiries.",
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.sparktechdm.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Contact Us" }
+        ]
+      }
+    })}
+  </script>
+</Helmet>
     <div className="min-h-screen bg-white text-[#1b365d] font-sans pt-15">
       {/* ── SECTION 1: "Let's Spark Together" + Info Cards ── */}
       <section className="px-8 md:px-16 py-16">
@@ -199,6 +219,7 @@ const ContactPage = () => {
       {/* ── FOOTER ── */}
       <Footer />
     </div>
+    </>
   );
 };
 

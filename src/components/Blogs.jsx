@@ -2,14 +2,21 @@ import React, { useState, useRef } from "react";
 import { ChevronDown, ChevronRight, ChevronLeft } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Footer from "./Footer";
+import {Helmet} from 'react-helmet-async';
 
-const blogData = [
+export const blogData = [
   {
     id: "blog-1",
+    slug: "grow-your-business-with-digital-marketing-strategies",
     title: "Grow Your Business with Digital Marketing Strategies",
     subtitle: "SEO & Digital Marketing",
     image: "/Blog1.webp",
     fallbackText: "SEO & Digital Marketing",
+    author: {
+      name: "Spark Tech Digital"
+    },
+    datePublished: "2025-01-15T09:00:00.000Z",
+    dateModified: "2025-01-15T09:00:00.000Z",
     excerpt: "Digital marketing has become one of the most effective ways for businesses to reach new customers and build a strong online presence.",
     content: [
       "Digital marketing has become one of the most effective ways for businesses to reach new customers and build a strong online presence. By combining SEO, social media marketing, Google Ads, and content marketing, businesses can attract qualified leads and improve brand visibility.",
@@ -19,10 +26,16 @@ const blogData = [
   },
   {
     id: "blog-2",
+    slug: "improve-website-rankings-with-seo",
     title: "Improve Website Rankings with Search Engine Optimization (SEO)",
     subtitle: "SEARCH ENGINE OPTIMIZATION",
     image: "/Blog2.webp",
     fallbackText: "SEARCH ENGINE OPTIMIZATION",
+    author: {
+      name: "Spark Tech Digital"
+    },
+    datePublished: "2025-01-22T10:00:00.000Z",
+    dateModified: "2025-01-22T10:00:00.000Z",
     excerpt: "Search Engine Optimization (SEO) helps businesses increase their visibility on search engines and attract organic traffic.",
     content: [
       "Search Engine Optimization (SEO) helps businesses increase their visibility on search engines and attract organic traffic. Effective SEO includes keyword research, technical optimization, high-quality content, and link building to improve website performance.",
@@ -32,10 +45,16 @@ const blogData = [
   },
   {
     id: "blog-3",
+    slug: "build-website-that-converts-visitors-into-customers",
     title: "Build a Website That Converts Visitors into Customers",
     subtitle: "WEBSITE DEVELOPMENT",
     image: "/Blog3.webp",
     fallbackText: "WEBSITE DEVELOPMENT",
+    author: {
+      name: "Spark Tech Digital"
+    },
+    datePublished: "2025-02-05T11:30:00.000Z",
+    dateModified: "2025-02-05T11:30:00.000Z",
     excerpt: "A website is no longer just a digital brochure—it’s the interactive foundation of your online presence, working 24/7 to build trust and tell your story.",
     content: [
       "A website is more than an online brochure—it's the foundation of your digital presence. Fast loading speeds, responsive design, intuitive navigation, and SEO-friendly development all contribute to better user experiences and higher conversion rates.",
@@ -45,10 +64,16 @@ const blogData = [
   },
   {
     id: "blog-4",
+    slug: "maximize-roi-with-google-ads-campaigns",
     title: "Maximize ROI with Google Ads Campaigns",
     subtitle: "GOOGLE ADS & PPC",
     image: "/Blog4.webp",
     fallbackText: "GOOGLE ADS & PPC",
+    author: {
+      name: "Spark Tech Digital"
+    },
+    datePublished: "2025-02-18T14:00:00.000Z",
+    dateModified: "2025-02-18T14:00:00.000Z",
     excerpt: "Google Ads allows businesses to reach customers at the exact moment they are searching for products or services.",
     content: [
       "Google Ads allows businesses to reach customers at the exact moment they are searching for products or services. Well-structured campaigns, targeted keywords, compelling ad copy, and continuous optimization help improve conversions while reducing advertising costs.",
@@ -58,10 +83,16 @@ const blogData = [
   },
   {
     id: "blog-5",
+    slug: "build-strong-customer-relationships-through-social-media",
     title: "Build Strong Customer Relationships Through Social Media",
     subtitle: "SOCIAL MEDIA MARKETING",
     image: "/Blog5.webp",
     fallbackText: "SOCIAL MEDIA MARKETING",
+    author: {
+      name: "Spark Tech Digital"
+    },
+    datePublished: "2025-03-01T08:30:00.000Z",
+    dateModified: "2025-03-01T08:30:00.000Z",
     excerpt: "Social media marketing helps businesses connect with their audience, increase brand awareness, and build customer trust.",
     content: [
       "Social media marketing helps businesses connect with their audience, increase brand awareness, and build customer trust. Creating valuable content, engaging with followers, and maintaining a consistent brand voice are key to long-term success.",
@@ -71,10 +102,16 @@ const blogData = [
   },
   {
     id: "blog-6",
+    slug: "why-quality-content-matters-for-seo-and-brand-growth",
     title: "Why Quality Content Matters for SEO and Brand Growth",
     subtitle: "CONTENT MARKETING",
     image: "/Blog6.webp",
     fallbackText: "CONTENT MARKETING",
+    author: {
+      name: "Spark Tech Digital"
+    },
+    datePublished: "2025-03-10T09:45:00.000Z",
+    dateModified: "2025-03-10T09:45:00.000Z",
     excerpt: "Content marketing is one of the most valuable long-term investments for any business.",
     content: [
       "Content marketing is one of the most valuable long-term investments for any business. Publishing informative blogs, helpful guides, and engaging website content improves search visibility while building trust with potential customers.",
@@ -221,6 +258,7 @@ const MobileCarousel = ({ data, cardType }) => {
   const isBlog = cardType === "blog";
 
   return (
+    
     <div className="flex items-center gap-3 w-full">
       {/* LEFT arrow → previous card */}
       <div className="flex-shrink-0 w-10">
@@ -364,7 +402,26 @@ const Blogs = () => {
   const arrowBtn = "flex items-center justify-center w-11 h-11 rounded-xl border-2 border-[#cc7722] text-[#cc7722] bg-[#111111] hover:bg-[#cc7722]/10 active:bg-[#cc7722]/20 transition-all duration-200 shadow-[0_4px_12px_rgba(240,196,23,0.15)]";
 
   return (
-    <div className="min-h-screen bg-white text-black font-[Inter] relative overflow-hidden">
+    <>
+      <Helmet>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "name": "Blogs & Insights - Spark Tech Digital",
+            "url": "https://www.sparktechdm.com/blogs",
+            "description": "Read the latest insights, strategies, and industry news on digital marketing, SEO, and web development from the Spark Tech Digital team.",
+            "breadcrumb": {
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.sparktechdm.com/" },
+                { "@type": "ListItem", "position": 2, "name": "Blogs" }
+              ]
+            }
+          })}
+        </script>
+      </Helmet>
+      <div className="min-h-screen bg-white text-black font-[Inter] relative overflow-hidden">
       {/* Ambient glow blobs */}
       <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-[#cc7722]/5 rounded-full blur-[120px] -z-10 pointer-events-none" />
       <div className="absolute bottom-1/3 right-1/4 w-[600px] h-[600px] bg-indigo-500/5 rounded-full blur-[150px] -z-10 pointer-events-none" />
@@ -584,6 +641,7 @@ const Blogs = () => {
         <Footer />
       </div>
     </div>
+    </>
   );
 };
 

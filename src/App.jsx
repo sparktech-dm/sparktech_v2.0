@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar";
 import Home, { GrowingBrands, LetsTalkSection } from "./pages/Home";
 import Services from "./pages/Services"; // make sure this page has nested <Routes>
 import BlogsPage from "./components/Blogs";
+import BlogPost from "./pages/BlogPost";
 import About from "./pages/About";
 import ChatBot from "./components/Chat";
 import Top from "./components/Top";
@@ -15,6 +16,7 @@ import ContactForm1 from "./components/ContactForm1";
 import Career from "./pages/Career";
 import { Faq } from "./components/Faq";
 import Footer from "./components/Footer";
+import CanonicalTag from "./components/CanonicalTag";
 
 
 
@@ -77,7 +79,7 @@ const App = () => {
       /> */}
 
       <div className="relative z-10 text-white overflow-x-clip min-h-screen bg-cover bg-center bg-fixed bg-black">
-
+        <CanonicalTag />
         <Navbar />
         <ChatBot />
         <Top />
@@ -90,6 +92,7 @@ const App = () => {
           <Route path="/about" element={<About />} />
           {/* <Route path="/projects" element={<ProjectsSection />} /> */}
           <Route path="/blogs" element={<BlogsPage />} />
+          <Route path="/blogs/:id" element={<BlogPost />} />
           <Route path="/services/*" element={<Services />} />
           <Route path="/contact" element={<ContactForm1 />} />
           <Route path="/career" element={<Career />} />

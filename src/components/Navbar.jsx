@@ -38,6 +38,8 @@ const Navbar = () => {
       else if (path.startsWith('/services')) setActive('services');
       else if (path.startsWith('/about')) setActive('about');
       else if (path.startsWith('/career')) setActive('career');
+      else if (path.startsWith('/contact')) setActive('contact');
+      else setActive('');
     }
   }, [location.pathname]);
 
@@ -74,6 +76,8 @@ const Navbar = () => {
       scroll.scrollToTop({ duration: 800, smooth: 'easeInOutQuart' });
     }
   };
+
+  const isContactActive = active === 'contact' || location.pathname.startsWith('/contact');
 
   return (
     <div className="w-full fixed top-0 z-50 font-[Inter] bg-[#f2eee0]/85 backdrop-blur-lg border-b border-black/5 shadow-[0_4px_30px_rgba(0,0,0,0.03)] transition-all duration-300">
@@ -120,11 +124,17 @@ const Navbar = () => {
         {/* Right: CTA Button */}
         <div className="relative flex justify-center items-center">
           <button
-            onClick={() => navigate('/contact', { state: { scrollTo: 'contact-form' } })}
-            className="relative flex items-center justify-center text-white text-[13px] font-extrabold uppercase tracking-[0.06em] px-8 py-3 rounded-full
-                       bg-[#cc7722] border-2 border-[#cc7722] shadow-[0_4px_20px_rgba(204,119,34,0.5)]
-                       transition-all duration-300 
-                       hover:bg-white hover:text-[#cc7722] hover:shadow-[0_6px_25px_rgba(204,119,34,0.6)] hover:-translate-y-1 active:scale-95"
+            onClick={() => {
+              setActive('contact');
+              navigate('/contact', { state: { scrollTo: 'contact-form' } });
+            }}
+            aria-current={isContactActive ? 'page' : undefined}
+            className={`relative flex items-center justify-center text-[13px] font-extrabold uppercase tracking-[0.06em] px-8 py-3 rounded-full
+                       border-2 border-[#cc7722] transition-all duration-300 select-none
+                       ${isContactActive
+                         ? 'bg-white text-[#cc7722] shadow-[0_0_20px_rgba(204,119,34,0.5)] ring-2 ring-[#cc7722] hover:-translate-y-0.5'
+                         : 'bg-[#cc7722] text-white shadow-[0_4px_20px_rgba(204,119,34,0.5)] hover:bg-white hover:text-[#cc7722] hover:shadow-[0_6px_25px_rgba(204,119,34,0.6)] hover:-translate-y-1'
+                       } active:scale-95`}
           >
             Get More Leads
           </button>

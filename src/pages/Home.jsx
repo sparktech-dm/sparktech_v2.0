@@ -5,6 +5,8 @@ import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { FiUsers, FiSmile, FiTrendingUp, FiTarget, FiZap, FiShield, FiBarChart2, FiHeart, FiPhoneCall } from "react-icons/fi";
 import Faq from "../components/Faq";
 import Footer from "../components/Footer";
+import { Helmet } from 'react-helmet-async';
+import { Link } from "react-router-dom";
 
 const Counter = ({ value, duration = 2 }) => {
   const [count, setCount] = useState(0);
@@ -53,6 +55,25 @@ export function GrowingBrands({
 
   return (
     <>
+    <Helmet>
+  <title>Digital Marketing Company in Chennai | SparkTech Digital</title>
+  <meta name="description" content="SparkTech is a leading digital marketing company in Chennai offering expert SEO, web development, and performance marketing services to grow your business." />
+  <script type="application/ld+json">
+    {JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Best Digital Marketing Company in Chennai | SparkTech",
+      "url": "https://www.sparktechdm.com/",
+      "description": "SparkTech is a premier digital marketing company in Chennai offering expert SEO, web development, and performance marketing services to grow your business.",
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.sparktechdm.com/" }
+        ]
+      }
+    })}
+  </script>
+</Helmet>
       {/* ── TRUSTED BY GROWING BRANDS ── */}
       <section
         style={chevronPatternBg}
@@ -72,10 +93,10 @@ export function GrowingBrands({
               </h2>
             </div>
             <p className="hidden lg:block text-[#395c7a] text-base md:text-lg max-w-md pt-6 leading-relaxed">
-              From SEO and web development to targeted marketing and branding, we create powerful digital solutions that generate quality leads and long-term growth.
+              From SEO and web development to targeted marketing and branding, we create powerful digital solutions that generate quality leads and long-term growth. Partnering with a top-rated Digital Marketing Company in Chennai means you get localized strategies mixed with global best practices. Our dedicated team closely monitors every metric, refining campaigns to ensure that your business stays ahead of the competition and achieves sustainable profitability.
             </p>
             <p className="block lg:hidden text-[#395c7a] text-sm sm:text-base leading-relaxed max-w-2xl pt-4">
-              From SEO and web development to targeted marketing and branding, we create powerful digital solutions that generate quality leads and long-term growth.
+              From SEO and web development to targeted marketing and branding, we create powerful digital solutions that generate quality leads and long-term growth. Partnering with a top-rated Digital Marketing Company in Chennai means you get localized strategies mixed with global best practices. Our dedicated team closely monitors every metric, refining campaigns to ensure that your business stays ahead of the competition and achieves sustainable profitability.
             </p>
             <div className="pt-4">
               <button
@@ -391,12 +412,12 @@ function Home() {
           {/* LEFT: Text Content (Left Aligned) */}
           <div className="flex-1 flex flex-col justify-center pl-[40px] lg:pl-[60px] xl:pl-[80px] pr-8 py-16 xl:pr-16">
             <div className="relative inline-block w-fit">
-              <p
-                className="text-[#1b365d] text-5xl md:text-4xl lg:text-5xl font-extrabold mb-1 leading-snug"
+              <span
+                className="text-[#1b365d] text-5xl md:text-4xl lg:text-5xl font-extrabold mb-1 leading-snug block mt-40"
                 style={{ fontFamily: "'Georgia', serif", fontStyle: "italic" }}
               >
                 Looking for a proven
-              </p>
+              </span>
             </div>
             <h1
               className="text-[#cc7722] font-medium leading-tight mb-3"
@@ -406,22 +427,17 @@ function Home() {
                 letterSpacing: "-0.5px",
               }}
             >
-              Digital Marketing Agency?
+              Digital Marketing Company in Chennai
             </h1>
             <p
-              className="text-[#1b365d] font-extrabold text-lg md:text-4xl mb-8"
+              className="text-[#1b365d] font-extrabold text-lg md:text-4xl mb-4"
               style={{ fontFamily: "'Georgia', serif", fontStyle: "italic" }}
             >
               We turn your traffic into consistent, qualified leads.
             </p>
-
-            <button
-              ref={buttonRef}
-              onClick={handleExploreClick}
-              className="w-fit inline-flex font-['Impact','Arial_Black',sans-serif] font-extrabold text-[25px] tracking-[1px] text-white px-9 py-3 border border-[#1b365d] rounded-full bg-[#1b365d] hover:bg-[#152a48] shadow-[0_8px_25px_rgba(27,54,93,0.3)] hover:scale-105 transition-all duration-300"
-            >
-              BOOST YOUR GROWTH
-            </button>
+            <p className="font-inter text-sm md:text-base text-[#395c7a] leading-relaxed max-w-lg mb-8">
+              Welcome to SparkTech Digital, the most trusted Digital Marketing Company in Chennai. We specialize in providing end-to-end digital solutions that include cutting-edge web development, targeted Google Ads campaigns, and strategic social media marketing. Whether you need to enhance your local SEO, build a robust online <Link to="/about" className="text-[#cc7722] underline font-medium hover:text-[#1b365d] transition-colors">about us</Link> presence, or drive high-quality traffic to your website, our data-driven approach ensures maximum ROI. Discover our full range of <Link to="/services" className="text-[#cc7722] underline font-medium hover:text-[#1b365d] transition-colors">services</Link> tailored for your brand, and read more on how we transform businesses on our verified <a href="https://share.google/O7ogNW2wfoCwk2QyC" target="_blank" rel="noopener noreferrer" className="text-[#cc7722] underline font-medium hover:text-[#1b365d] transition-colors">Google Business Profile</a>.
+            </p>
           </div>
 
           {/* RIGHT: Laptop container */}
@@ -441,6 +457,17 @@ function Home() {
                 />
               </div>
             </motion.div>
+
+            {/* Moved Button */}
+            <div className="absolute -bottom-8 flex justify-center w-full">
+              <button
+                ref={buttonRef}
+                onClick={handleExploreClick}
+                className="w-fit inline-flex font-['Impact','Arial_Black',sans-serif] font-extrabold text-[25px] tracking-[1px] text-white px-9 py-3 border border-[#1b365d] rounded-full bg-[#1b365d] hover:bg-[#152a48] shadow-[0_8px_25px_rgba(27,54,93,0.3)] hover:scale-105 transition-all duration-300"
+              >
+                BOOST YOUR GROWTH
+              </button>
+            </div>
           </div>
         </div>
 
@@ -480,10 +507,10 @@ function Home() {
 
           {/* 4. Fourth: Content (4-5 sentences) */}
           <p className="font-inter text-sm sm:text-base text-[#395c7a] leading-relaxed max-w-md">
-            At SparkTech, we craft high-impact digital marketing strategies that connect your brand with the right audience.
+            At SparkTech, we craft high-impact digital marketing strategies that connect your brand with the right audience. As a premier Digital Marketing Company in Chennai, we understand local and global market dynamics perfectly.
             Through targeted ads, scroll-stopping creatives, and optimized conversion funnels, we turn casual clicks into loyal customers.
             Our data-driven approach ensures your marketing budget is spent where it matters most, driving measurable return on investment.
-            Let us handle your digital growth while you focus on scaling your business operations to new heights.
+            Let us handle your digital growth while you focus on scaling your business operations to new heights. Learn more <Link to="/about" className="text-[#cc7722] underline font-medium">about</Link> our journey or explore our comprehensive <Link to="/services" className="text-[#cc7722] underline font-medium">services</Link>. Feel free to <Link to="/contact" className="text-[#cc7722] underline font-medium">contact</Link> us directly.
           </p>
         </div>
 
