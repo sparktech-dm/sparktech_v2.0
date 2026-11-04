@@ -1,5 +1,5 @@
 import React, { useRef, useState, useLayoutEffect } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home, { GrowingBrands, LetsTalkSection } from "./pages/Home";
 import Services from "./pages/Services"; // make sure this page has nested <Routes>
@@ -88,7 +88,7 @@ const App = () => {
         {/* <Wuc/> */}
         <Routes>
           <Route path="/" element={<AppHome />} />
-          <Route path="/home" element={<AppHome />} />
+          <Route path="/home" element={<Navigate to="/" replace />} />
           <Route path="/about" element={<About />} />
           {/* <Route path="/projects" element={<ProjectsSection />} /> */}
           <Route path="/blogs" element={<BlogsPage />} />

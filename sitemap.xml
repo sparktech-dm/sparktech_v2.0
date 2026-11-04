@@ -1,4 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Core Pages -->
   <url>
     <loc>https://www.sparktechdm.com/</loc>
     <priority>1.00</priority>
@@ -21,6 +23,56 @@
   </url>
   <url>
     <loc>https://www.sparktechdm.com/blogs</loc>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- Service Pages (Verified & Content-Matched) -->
+  <url>
+    <loc>https://www.sparktechdm.com/services/seo</loc>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://www.sparktechdm.com/services/website-development</loc>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://www.sparktechdm.com/services/social-media-marketing</loc>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://www.sparktechdm.com/services/email-marketing</loc>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- Blog Articles (Canonical Routes with Verified Modification Dates) -->
+  <url>
+    <loc>https://www.sparktechdm.com/blogs/grow-your-business-with-digital-marketing-strategies</loc>
+    <lastmod>2025-01-15</lastmod>
     <priority>0.70</priority>
   </url>
-</urlset>
+  <url>
+    <loc>https://www.sparktechdm.com/blogs/improve-website-rankings-with-seo</loc>
+    <lastmod>2025-01-22</lastmod>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://www.sparktechdm.com/blogs/build-website-that-converts-visitors-into-customers</loc>
+    <lastmod>2025-02-05</lastmod>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://www.sparktechdm.com/blogs/maximize-roi-with-google-ads-campaigns</loc>
+    <lastmod>2025-02-18</lastmod>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://www.sparktechdm.com/blogs/build-strong-customer-relationships-through-social-media</loc>
+    <lastmod>2025-03-01</lastmod>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://www.sparktechdm.com/blogs/why-quality-content-matters-for-seo-and-brand-growth</loc>
+    <lastmod>2025-03-10</lastmod>
+    <priority>0.70</priority>
+  </url>
+</urlset>

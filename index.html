@@ -39,7 +39,9 @@ fbq('track', 'PageView');
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-CNYK1BCL7Y');
+      gtag('config', 'G-CNYK1BCL7Y', {
+        send_page_view: false
+      });
     </script>
     <!-- Microsoft Clarity -->
     <script type="text/javascript">
