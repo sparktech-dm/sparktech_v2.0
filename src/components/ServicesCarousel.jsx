@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 
 const segments = [
@@ -124,15 +124,15 @@ const ServiceCard = ({ segment }) => {
             <p className="text-white/80 text-sm leading-relaxed mb-6">
               {segment.details}
             </p>
-            <button
+            <Link
+              to={segment.link}
               onClick={(e) => {
                 e.stopPropagation();
-                navigate(segment.link);
               }}
               className="px-6 py-2 rounded-full bg-yellow-400 text-black text-sm font-bold shadow hover:bg-white hover:scale-105 transition-all w-max mx-auto relative z-20"
-            >
+             inline-block text-center>
               Learn More →
-            </button>
+            </Link>
           </div>
         )}
       </CardContent>

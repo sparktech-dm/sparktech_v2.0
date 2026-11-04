@@ -1,6 +1,7 @@
 import React from "react";
 import { useParams, Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import Seo from "../components/Seo";
 import { ArrowLeft, Calendar, User, Tag } from "lucide-react";
 import { blogData } from "../components/Blogs";
 import Footer from "../components/Footer";
@@ -68,15 +69,16 @@ export default function BlogPost({ post: propPost }) {
     "description": post.excerpt || post.subtitle || "",
     "image": [imageUrl],
     "author": {
-      "@type": "Person",
-      "name": authorName
+      "@type": "Organization",
+      "name": "Spark Tech Digital",
+      "url": "https://www.sparktechdm.com/"
     },
     "publisher": {
       "@type": "Organization",
       "name": "Spark Tech Digital",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://www.sparktechdm.com/assets/logo.png"
+        "url": "https://www.sparktechdm.com/Logo.png"
       }
     },
     "datePublished": datePublished,
@@ -85,15 +87,18 @@ export default function BlogPost({ post: propPost }) {
 
   return (
     <>
-      <Helmet>
-        <title>{`${post.title} | Spark Tech Digital`}</title>
-        <meta name="description" content={post.excerpt} />
-
-        {/* BlogPosting JSON-LD Schema */}
+      <Seo
+        title={`${post.title} | SparkTech Digital`}
+        description={post.excerpt || post.subtitle || ""}
+        keywords={post.tags?.join(", ")}
+        ogType="article"
+        ogImage={imageUrl}
+        canonicalUrl={canonicalUrl}
+      >
         <script type="application/ld+json">
           {JSON.stringify(blogPostingSchema)}
         </script>
-      </Helmet>
+      </Seo>
 
       <div className="min-h-screen bg-white text-[#1b365d] font-inter pt-32 pb-16">
         <article className="max-w-4xl mx-auto px-6">
@@ -155,7 +160,20 @@ export default function BlogPost({ post: propPost }) {
               </p>
             )}
 
-            {Array.isArray(post.content) ? (
+            {post.sections && post.sections.length > 0 ? (
+              post.sections.map((section, sIdx) => (
+                <div key={sIdx} className="mb-8">
+                  <h2 className="text-xl sm:text-2xl font-bold font-oswald text-[#1b365d] uppercase tracking-wide mb-4">
+                    {section.heading}
+                  </h2>
+                  {section.paragraphs.map((para, pIdx) => (
+                    <p key={pIdx} className="text-base md:text-lg text-[#1f3a58] leading-relaxed mb-4">
+                      {para}
+                    </p>
+                  ))}
+                </div>
+              ))
+            ) : Array.isArray(post.content) ? (
               post.content.map((para, idx) => (
                 <p key={idx} className="text-base md:text-lg text-[#1f3a58] leading-relaxed">
                   {para}
@@ -166,6 +184,24 @@ export default function BlogPost({ post: propPost }) {
                 {post.content}
               </p>
             )}
+
+            {/* Contextual In-Article CTA */}
+            <div className="my-10 p-6 md:p-8 bg-[#f2eee0] border-2 border-[#cc7722] rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-6 shadow-sm">
+              <div>
+                <h3 className="text-lg md:text-xl font-bold font-oswald text-[#1b365d] uppercase mb-2">
+                  Accelerate Your Digital Growth in Chennai
+                </h3>
+                <p className="text-sm text-[#395c7a]">
+                  Partner with SparkTech Digital for data-driven SEO, custom web development, and performance advertising.
+                </p>
+              </div>
+              <Link
+                to="/contact"
+                className="px-6 py-3 bg-[#1f3a58] hover:bg-[#1b365d] text-white text-xs md:text-sm font-bold uppercase tracking-wider rounded-xl transition-all duration-300 shadow-md shrink-0 cursor-pointer"
+              >
+                Schedule Consultation
+              </Link>
+            </div>
           </div>
 
           {/* Tags */}
@@ -185,6 +221,54 @@ export default function BlogPost({ post: propPost }) {
             </div>
           )}
         </article>
+
+        {/* Related Articles */}
+          <section className="mt-16 pt-12 border-t border-gray-200">
+            <h2 className="text-2xl sm:text-3xl font-extrabold font-oswald text-[#1b365d] uppercase tracking-wide mb-8">
+              Related Articles & Insights
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {blogData
+                .filter((item) => item.id !== post.id)
+                .slice(0, 3)
+                .map((related) => (
+                  <div
+                    key={related.id}
+                    className="bg-[#fcfaf7] border border-[#cc7722]/30 rounded-2xl overflow-hidden flex flex-col justify-between p-5 shadow-sm hover:shadow-md transition-all duration-300"
+                  >
+                    <div>
+                      <div className="relative h-36 rounded-lg overflow-hidden mb-4 bg-gray-100">
+                        <img
+                          src={related.image}
+                          alt={related.title}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      <span className="text-[11px] font-bold uppercase text-[#cc7722] tracking-wider block mb-1">
+                        {related.subtitle}
+                      </span>
+                      <h3 className="text-base font-bold text-[#1b365d] leading-snug mb-2 font-oswald">
+                        <Link
+                          to={`/blogs/${related.slug || related.id}`}
+                          className="hover:text-[#cc7722] transition-colors"
+                        >
+                          {related.title}
+                        </Link>
+                      </h3>
+                      <p className="text-xs text-gray-600 line-clamp-3 leading-relaxed mb-4">
+                        {related.excerpt}
+                      </p>
+                    </div>
+                    <Link
+                      to={`/blogs/${related.slug || related.id}`}
+                      className="text-xs font-bold text-[#cc7722] hover:underline uppercase tracking-wider inline-flex items-center gap-1"
+                    >
+                      Read Article &rarr;
+                    </Link>
+                  </div>
+                ))}
+            </div>
+          </section>
 
         {/* Footer */}
         <Footer />

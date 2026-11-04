@@ -12,7 +12,7 @@ import {
   Upload 
 } from "lucide-react";
 import Footer from "../components/Footer";
-import { Helmet } from 'react-helmet-async';
+import Seo from '../components/Seo';
 
 const SERVICES = [
   {
@@ -263,7 +263,11 @@ export default function Career() {
   return (
 
     <>
-    <Helmet>
+    <Seo
+  title="Careers at SparkTech | Digital Marketing & Tech Jobs in Chennai"
+  description="Join our team in Chennai. Explore exciting career opportunities in UI/UX design, web development, SEO, and digital marketing at SparkTech."
+  keywords="careers at sparktech, digital marketing jobs chennai, web developer jobs chennai, seo specialist jobs chennai, ui ux designer jobs chennai"
+>
   <script type="application/ld+json">
     {JSON.stringify({
       "@context": "https://schema.org",
@@ -280,12 +284,12 @@ export default function Career() {
       }
     })}
   </script>
-</Helmet>
+</Seo>
     <div className="w-full min-h-screen bg-white text-[#1b365d] font-inter pt-32 relative box-border">
       <div className="w-full px-8 pb-16 flex flex-col items-center">
         {/* Centered Yellow Title */}
         <div className="w-full max-w-7xl lg:max-w-full lg:px-16 xl:px-24 mx-auto text-center mb-16">
-          <h1 className="font-inter font-extrabold text-3xl md:text-5xl lg:text-7xl text-[#cc7722] tracking-[0.02em] m-0 leading-none">Career</h1>
+          <h1 className="font-inter font-extrabold text-3xl md:text-5xl lg:text-7xl text-[#cc7722] tracking-[0.02em] m-0 leading-none">Careers at SparkTech Digital</h1>
         </div>
 
         <div className="w-full max-w-7xl lg:max-w-full lg:px-16 xl:px-24 mx-auto flex flex-col gap-14">

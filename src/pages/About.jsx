@@ -194,8 +194,9 @@ const About = () => {
         </script>
       </Helmet>
       <Seo
-        title="About Us | Spark Tech Digital"
-        description="Learn about the journey, values, and milestone of Spark Tech Digital as we build foundation and scale new heights."
+        title="About Us | SparkTech Digital Marketing Agency Chennai"
+        description="Learn about SparkTech Digital, our expert team, core values, and milestones as a leading digital marketing company in Chennai helping businesses scale online."
+        keywords="about sparktech, digital marketing company in chennai, sparktech digital marketing, digital marketing agency choolaimedu"
       />
 
       <div className="min-h-screen pt-32 pb-0 relative overflow-hidden bg-white">
@@ -208,7 +209,7 @@ const About = () => {
           className="text-center mb-10 md:mb-10 px-8 md:px-16"
         >
           <h1 className="text-4xl md:text-6xl font-black text-[#1b365d] uppercase tracking-wider">
-            OUR <span className="text-[#cc7722]">JOURNEY</span>
+            ABOUT US: OUR <span className="text-[#cc7722]">JOURNEY</span>
           </h1>
           <p className="text-[#1b365d] text-sm md:text-base font-semibold mt-3 max-w-2xl mx-auto italic">
             A journey driven by innovation, collaboration, and a passion for helping
@@ -270,9 +271,9 @@ const About = () => {
                     <span className="text-white font-black text-5xl md:text-6xl tracking-tight whitespace-nowrap">
                       {row.year}
                     </span>
-                    <h3 className="text-[#cc7722] font-extrabold text-lg md:text-xl mt-4 leading-snug">
+                    <h2 className="text-[#cc7722] font-extrabold text-lg md:text-xl mt-4 leading-snug">
                       {row.title}
-                    </h3>
+                    </h2>
                     <p className="text-white text-sm mt-4 leading-relaxed font-medium">
                       {row.desc}
                     </p>

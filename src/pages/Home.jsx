@@ -49,7 +49,7 @@ export function GrowingBrands({
   const stats = [
     { id: 1, value: yearsValue, label: yearsText, icon: <FiUsers className="w-10 h-10 text-[#cc7722]" /> },
     { id: 2, value: "15+", label: "Happy clients", icon: <FiSmile className="w-10 h-10 text-[#cc7722]" /> },
-    { id: 3, value: "25+", label: "Projects", icon: <img src="/rocket-removebg-preview.webp" alt="Projects" className="w-10 h-10 object-contain brightness-0" style={{ filter: "invert(48%) sepia(85%) saturate(1450%) hue-rotate(345deg) brightness(91%) contrast(85%)" }} /> },
+    { id: 3, value: "25+", label: "Projects", icon: <img src="/rocket-removebg-preview.webp" alt="Completed Digital Marketing Projects" className="w-10 h-10 object-contain brightness-0" style={{ filter: "invert(48%) sepia(85%) saturate(1450%) hue-rotate(345deg) brightness(91%) contrast(85%)" }} /> },
     { id: 4, value: "20+", label: "Team members", icon: <FiTrendingUp className="w-10 h-10 text-[#cc7722]" /> }
   ];
 
@@ -57,7 +57,17 @@ export function GrowingBrands({
     <>
     <Helmet>
   <title>Digital Marketing Company in Chennai | SparkTech Digital</title>
-  <meta name="description" content="SparkTech is a leading digital marketing company in Chennai offering expert SEO, web development, and performance marketing services to grow your business." />
+  <meta name="description" content="SparkTech is a premier digital marketing company in Chennai offering expert SEO, web development, and performance marketing services to grow your business." />
+  <meta property="og:title" content="Digital Marketing Company in Chennai | SparkTech Digital" />
+  <meta property="og:description" content="SparkTech is a premier digital marketing company in Chennai offering expert SEO, web development, and performance marketing services to grow your business." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.sparktechdm.com/" />
+  <meta property="og:image" content="https://www.sparktechdm.com/Logo.png" />
+  <meta property="og:site_name" content="SparkTech Digital Marketing" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Digital Marketing Company in Chennai | SparkTech Digital" />
+  <meta name="twitter:description" content="SparkTech is a premier digital marketing company in Chennai offering expert SEO, web development, and performance marketing services to grow your business." />
+  <meta name="twitter:image" content="https://www.sparktechdm.com/Logo.png" />
   <script type="application/ld+json">
     {JSON.stringify({
       "@context": "https://schema.org",
@@ -436,7 +446,7 @@ function Home() {
               We turn your traffic into consistent, qualified leads.
             </p>
             <p className="font-inter text-sm md:text-base text-[#395c7a] leading-relaxed max-w-lg mb-8">
-              Welcome to SparkTech Digital, the most trusted Digital Marketing Company in Chennai. We specialize in providing end-to-end digital solutions that include cutting-edge web development, targeted Google Ads campaigns, and strategic social media marketing. Whether you need to enhance your local SEO, build a robust online <Link to="/about" className="text-[#cc7722] underline font-medium hover:text-[#1b365d] transition-colors">about us</Link> presence, or drive high-quality traffic to your website, our data-driven approach ensures maximum ROI. Discover our full range of <Link to="/services" className="text-[#cc7722] underline font-medium hover:text-[#1b365d] transition-colors">services</Link> tailored for your brand, and read more on how we transform businesses on our verified <a href="https://share.google/O7ogNW2wfoCwk2QyC" target="_blank" rel="noopener noreferrer" className="text-[#cc7722] underline font-medium hover:text-[#1b365d] transition-colors">Google Business Profile</a>.
+              Welcome to SparkTech Digital, the most trusted Digital Marketing Company in Chennai. We specialize in providing end-to-end digital solutions that include cutting-edge <Link to="/services/website-development" className="text-[#cc7722] underline font-medium hover:text-[#1b365d] transition-colors">web development</Link>, targeted Google Ads campaigns, and strategic <Link to="/services/social-media-marketing" className="text-[#cc7722] underline font-medium hover:text-[#1b365d] transition-colors">social media marketing</Link>. Whether you need to enhance your <Link to="/services/seo" className="text-[#cc7722] underline font-medium hover:text-[#1b365d] transition-colors">local SEO</Link>, build a robust online <Link to="/about" className="text-[#cc7722] underline font-medium hover:text-[#1b365d] transition-colors">about us</Link> presence, or drive high-quality traffic to your website, our data-driven approach ensures maximum ROI. Discover our full range of <Link to="/services" className="text-[#cc7722] underline font-medium hover:text-[#1b365d] transition-colors">services</Link> tailored for your brand, and read more on how we transform businesses on our verified <a href="https://share.google/O7ogNW2wfoCwk2QyC" target="_blank" rel="noopener noreferrer" className="text-[#cc7722] underline font-medium hover:text-[#1b365d] transition-colors">Google Business Profile</a>.
             </p>
           </div>
 
@@ -452,7 +462,7 @@ function Home() {
               <div className="animate-hero-bob">
                 <img
                   src="/laptop-removebg-preview.webp"
-                  alt="Digital Marketing Laptop"
+                  alt="SparkTech Digital Marketing Agency Workspace in Chennai"
                   className="w-full max-w-[650px] lg:max-w-[780px] h-auto block drop-shadow-[0_25px_60px_rgba(0,0,0,0.7)]"
                 />
               </div>
@@ -490,7 +500,7 @@ function Home() {
               <div className="animate-hero-bob">
                 <img
                   src="/laptop-removebg-preview.webp"
-                  alt="Digital Marketing Laptop"
+                  alt="SparkTech Digital Marketing Agency Workspace in Chennai"
                   className="w-[280px] sm:w-[380px] h-auto block relative z-20 drop-shadow-[0_15px_35px_rgba(0,0,0,0.6)]"
                 />
               </div>

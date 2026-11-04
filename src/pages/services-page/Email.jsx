@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import Seo from "../../components/Seo";
 
 const EmailMarketing = () => {
   const navigate = useNavigate();
@@ -47,6 +48,11 @@ const EmailMarketing = () => {
 
   return (
     <div className="min-h-screen pt-24 pb-12 px-6 md:pt-8 bg-[#ffffff]">
+      <Seo
+        title="Email Marketing & Automation Services in Chennai | SparkTech"
+        description="Automate customer engagement and increase conversions with personalized email marketing workflows, lifecycle sequences, and targeted newsletters."
+        keywords="email marketing services in chennai, marketing automation chennai, email workflows, customer retention email campaigns"
+      />
       <section className="max-w-5xl mx-auto">
         {/* Back Button */}
         <div className="mb-8 md:mb-10">
@@ -64,8 +70,8 @@ const EmailMarketing = () => {
         {/* Title & Header */}
         <div className="text-center mb-16 animate-fadeIn">
           <h1 className="text-3xl md:text-4xl font-extrabold uppercase tracking-widest font-oswald mb-6">
-            <span className="text-[#cc7722]">AUTOMATE </span>
-            <span className="text-[#1b365d]">EMAIL FLOW</span>
+            <span className="text-[#cc7722]">AUTOMATED </span>
+            <span className="text-[#1b365d]">EMAIL MARKETING & FLOWS</span>
           </h1>
         </div>
 
@@ -86,9 +92,9 @@ const EmailMarketing = () => {
               })}
               className="bg-[#2a4d75] border border-[#395c7a] shadow-lg hover:shadow-[0_15px_40px_rgba(204,119,34,0.4)] transition-all duration-300 p-8 rounded-2xl flex flex-col justify-center text-center h-auto min-h-[260px]"
             >
-              <h3 className="text-[#cc7722] font-oswald text-base font-bold uppercase tracking-wider mb-3">
+              <h2 className="text-[#cc7722] font-oswald text-base font-bold uppercase tracking-wider mb-3">
                 {item.title}
-              </h3>
+              </h2>
               <p className="text-white text-xs md:text-sm font-light leading-relaxed">
                 {item.desc}
               </p>
@@ -132,9 +138,9 @@ const EmailMarketing = () => {
 
         {/* Bottom CTA Section */}
         <div className="text-center max-w-3xl mx-auto mt-16">
-          <h3 className="text-2xl md:text-3xl font-extrabold uppercase font-oswald text-[#cc7722] tracking-wider mb-8">
+          <h2 className="text-2xl md:text-3xl font-extrabold uppercase font-oswald text-[#cc7722] tracking-wider mb-8">
             READY TO GROW WITH EMAIL MARKETING?
-          </h3>
+          </h2>
 
           <button
             onClick={() => navigate("/contact")}

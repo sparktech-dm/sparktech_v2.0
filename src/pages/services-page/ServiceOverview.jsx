@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { Rss, Target, Megaphone, Zap, Send, Search } from "lucide-react";
-import { Helmet } from 'react-helmet-async';
+import Seo from "../../components/Seo";
 export default function ServiceOverview() {
   const navigate = useNavigate();
   const [isMobile, setIsMobile] = useState(() => typeof window !== "undefined" ? window.innerWidth < 768 : false);
@@ -71,7 +71,11 @@ export default function ServiceOverview() {
 
   return (
     <>
-      <Helmet>
+      <Seo
+        title="Digital Marketing Services in Chennai | SparkTech Digital"
+        description="Explore results-driven digital marketing services in Chennai by SparkTech Digital, including SEO, custom web development, PPC Google Ads, social media marketing, and email automation."
+        keywords="digital marketing services in chennai, seo services chennai, web development chennai, google ads agency chennai, social media marketing chennai"
+      >
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -88,11 +92,11 @@ export default function ServiceOverview() {
             }
           })}
         </script>
-      </Helmet>
+      </Seo>
       <div className="relative min-h-[70vh] py-12 px-6 overflow-hidden bg-white">
         <div className="relative z-10 max-w-7xl lg:max-w-full lg:px-16 xl:px-24 mx-auto w-full animate-fadeIn">
           <h1 className="text-4xl md:text-5xl font-bold font-oswald text-center uppercase tracking-wider mb-16 text-[#1b365d]">
-            OUR <span className="text-[#cc7722]">SERVICES</span>
+            OUR DIGITAL MARKETING <span className="text-[#cc7722]">SERVICES</span>
           </h1>
 
           {/* 3 columns on desktop, 1 on mobile */}
@@ -132,15 +136,16 @@ export default function ServiceOverview() {
 
                 {/* Pill Button at Bottom Center */}
                 <div className="flex justify-center">
-                  <button
+                  <Link
+                    to={segment.link}
                     onClick={(e) => {
                       e.stopPropagation(); // prevent card click triggers
-                      navigate(segment.link);
+                      // click handled by Link
                     }}
-                    className="bg-[#f2eee0] hover:bg-[#e6dfcb] text-[#1b365d] border border-[#cc7722] font-bold tracking-wider uppercase text-[11px] rounded-full px-6 py-2.5 transition-all duration-300 cursor-pointer"
+                    className="bg-[#f2eee0] hover:bg-[#e6dfcb] text-[#1b365d] border border-[#cc7722] font-bold tracking-wider uppercase text-[11px] rounded-full px-6 py-2.5 transition-all duration-300 cursor-pointer inline-block text-center"
                   >
                     {segment.buttonText}
-                  </button>
+                  </Link>
                 </div>
               </CardComponent>
             ))}

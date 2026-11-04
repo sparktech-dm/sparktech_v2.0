@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Footer from "./Footer";
-import { Helmet } from "react-helmet-async";
+import Seo from "./Seo";
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({ name: "", email: "", phone: "", message: "" });
@@ -44,7 +44,11 @@ const ContactPage = () => {
 
   return (
     <>
-    <Helmet>
+    <Seo
+  title="Contact SparkTech | Digital Marketing Office in Choolaimedu, Chennai"
+  description="Get in touch with SparkTech Digital Marketing in Choolaimedu, Chennai. Request a free digital strategy consultation or call us at +91 8939892219."
+  keywords="contact sparktech, digital marketing company in choolaimedu, digital marketing company in chennai, seo consultation chennai"
+>
   <script type="application/ld+json">
     {JSON.stringify({
       "@context": "https://schema.org",
@@ -61,9 +65,9 @@ const ContactPage = () => {
       }
     })}
   </script>
-</Helmet>
+</Seo>
     <div className="min-h-screen bg-white text-[#1b365d] font-sans pt-15">
-      {/* ── SECTION 1: "Let's Spark Together" + Info Cards ── */}
+      {/* ── SECTION 1: "CONTACT SPARKTECH DIGITAL" + Info Cards ── */}
       <section className="px-8 md:px-16 py-16">
         {/* Heading */}
         <div className="text-center mb-14">
@@ -209,7 +213,7 @@ const ContactPage = () => {
         <div className="hidden md:flex items-start justify-center relative min-h-[480px] mt-32">
           <img
             src="/BOY FINAL.webp"
-            alt="Contact Illustration"
+            alt="Contact SparkTech Digital Marketing Chennai"
             className="w-full max-w-[500px] object-contain rounded-[10px]"
           />
         </div>

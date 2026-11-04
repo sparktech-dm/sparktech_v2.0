@@ -87,7 +87,7 @@ const Navbar = () => {
 
         {/* Left: Logo */}
         <div onClick={handleScrollTop} className="cursor-pointer flex-shrink-0">
-          <img src={Logo} alt="Logo" className="h-[52px] w-auto object-contain" />
+          <img src={Logo} alt="SparkTech Digital Marketing Logo" className="h-[52px] w-auto object-contain" />
         </div>
 
         {/* Center: Nav Items */}
@@ -123,11 +123,10 @@ const Navbar = () => {
 
         {/* Right: CTA Button */}
         <div className="relative flex justify-center items-center">
-          <button
-            onClick={() => {
-              setActive('contact');
-              navigate('/contact', { state: { scrollTo: 'contact-form' } });
-            }}
+          <RouterLink
+            to="/contact"
+            state={{ scrollTo: 'contact-form' }}
+            onClick={() => setActive('contact')}
             aria-current={isContactActive ? 'page' : undefined}
             className={`relative flex items-center justify-center text-[13px] font-extrabold uppercase tracking-[0.06em] px-8 py-3 rounded-full
                        border-2 border-[#cc7722] transition-all duration-300 select-none
@@ -137,7 +136,7 @@ const Navbar = () => {
                        } active:scale-95`}
           >
             Get More Leads
-          </button>
+          </RouterLink>
         </div>
       </header>
 
@@ -145,7 +144,7 @@ const Navbar = () => {
       <div className='md:hidden flex justify-between items-center px-5 h-[80px] w-full backdrop-blur bg-gray-600/40 relative z-40'>
         <RouterLink to='/' onClick={handleScrollTop}>
           <div className='w-[50px] h-[50px] cursor-pointer'>
-            <img src={Logo} alt='Logo' className='w-full h-full object-contain' />
+            <img src={Logo} alt='SparkTech Digital Marketing Logo' className='w-full h-full object-contain' />
           </div>
         </RouterLink>
         <button className='text-white text-2xl' onClick={() => setMenuOpen(true)}>

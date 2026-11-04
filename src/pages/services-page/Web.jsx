@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import Seo from "../../components/Seo";
 
 const WebDevelopment = () => {
   const navigate = useNavigate();
@@ -47,6 +48,11 @@ const WebDevelopment = () => {
 
   return (
     <div className="min-h-screen pt-24 pb-12 px-6 md:pt-8 bg-[#ffffff]">
+      <Seo
+        title="Web Development Company in Chennai | Custom Web Design | SparkTech"
+        description="Fast, secure, responsive, and SEO-friendly website design and web development services in Chennai tailored to scale your brand."
+        keywords="web development company in chennai, website design chennai, custom web development chennai, responsive web design chennai"
+      />
       <section className="max-w-5xl mx-auto">
         {/* Back Button */}
         <div className="mb-8 md:mb-10">
@@ -65,7 +71,7 @@ const WebDevelopment = () => {
         <div className="text-center mb-16 animate-fadeIn">
           <h1 className="text-3xl md:text-4xl font-extrabold uppercase tracking-widest font-oswald mb-6">
             <span className="text-[#cc7722]">WEBSITE </span>
-            <span className="text-[#1b365d]">DEVELOPMENT</span>
+            <span className="text-[#1b365d]">DEVELOPMENT & UI/UX DESIGN</span>
           </h1>
         </div>
 
@@ -86,9 +92,9 @@ const WebDevelopment = () => {
               })}
               className="bg-[#2a4d75] border border-[#395c7a] shadow-lg hover:shadow-[0_15px_40px_rgba(204,119,34,0.4)] transition-all duration-300 p-8 rounded-2xl flex flex-col justify-center text-center h-[200px]"
             >
-              <h3 className="text-[#cc7722] font-oswald text-base font-bold uppercase tracking-wider mb-3">
+              <h2 className="text-[#cc7722] font-oswald text-base font-bold uppercase tracking-wider mb-3">
                 {item.title}
-              </h3>
+              </h2>
               <p className="text-white text-xs md:text-sm font-light leading-relaxed">
                 {item.desc}
               </p>
@@ -132,9 +138,9 @@ const WebDevelopment = () => {
 
         {/* Bottom CTA Section */}
         <div className="text-center max-w-3xl mx-auto mt-16">
-          <h3 className="text-2xl md:text-3xl font-extrabold uppercase font-oswald text-[#cc7722] tracking-wider mb-8">
+          <h2 className="text-2xl md:text-3xl font-extrabold uppercase font-oswald text-[#cc7722] tracking-wider mb-8">
             READY TO BUILD YOUR NEXT WEBSITE?
-          </h3>
+          </h2>
 
           <button
             onClick={() => navigate("/contact")}

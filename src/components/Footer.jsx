@@ -18,7 +18,7 @@ const Footer = () => {
           {/* Brand Section */}
           <div className="lg:col-span-2 pr-8">
             <div className="flex items-center space-x-2 mb-6">
-              <img src={Logo} alt="Sparktech Logo" className="h-8 w-8" />
+              <img src={Logo} alt="SparkTech Digital Marketing Logo" className="h-8 w-8" />
               <span className="text-2xl font-bold text-[#c9742a]">
                 Spark Tech
               </span>
@@ -82,7 +82,7 @@ audience and achieve sustainable growth.
               </li>
               <li>
                 <Link
-                  to="/Career"
+                  to="/career"
                   className="text-[#395c7a] text-[15px] font-medium hover:text-[#c9742a] transition-colors"
                   style={{ fontFamily: 'Satoshi, "Satoshi Placeholder", sans-serif' }}
                 >
@@ -91,7 +91,7 @@ audience and achieve sustainable growth.
               </li>
               <li>
                 <Link
-                  to="/Blogs"
+                  to="/blogs"
                   className="text-[#395c7a] text-[15px] font-medium hover:text-[#c9742a] transition-colors"
                   style={{ fontFamily: 'Satoshi, "Satoshi Placeholder", sans-serif' }}
                 >

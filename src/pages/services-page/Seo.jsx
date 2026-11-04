@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import Seo from "../../components/Seo";
 
 const SEO = () => {
   const navigate = useNavigate();
@@ -55,6 +56,11 @@ const SEO = () => {
 
   return (
     <div className="min-h-screen pt-24 pb-12 px-6 md:pt-8 bg-[#ffffff]">
+      <Seo
+        title="SEO Services in Chennai | Search Engine Optimization | SparkTech"
+        description="Drive organic traffic, improve Google rankings, and gain qualified leads with expert technical, on-page, off-page, and local SEO services in Chennai."
+        keywords="seo services in chennai, search engine optimization chennai, local seo chennai, technical seo agency chennai"
+      />
       <section className="max-w-5xl mx-auto">
         {/* Back Button */}
         <div className="mb-8 md:mb-10">
@@ -74,7 +80,7 @@ const SEO = () => {
           <h1 className="text-3xl md:text-4xl font-extrabold uppercase tracking-widest font-oswald mb-6">
             <span className="text-[#cc7722]">SEARCH VISIBILITY </span>
             <span className="text-[#1b365d]">& </span>
-            <span className="text-[#cc7722]">SEO</span>
+            <span className="text-[#cc7722]">SEO SERVICES</span>
           </h1>
         </div>
 
@@ -95,9 +101,9 @@ const SEO = () => {
               })}
               className="bg-[#2a4d75] border border-[#395c7a] shadow-lg hover:shadow-[0_15px_40px_rgba(204,119,34,0.4)] transition-all duration-300 p-8 rounded-2xl flex flex-col justify-center text-center h-auto min-h-[320px]"
             >
-              <h3 className="text-[#cc7722] font-oswald text-base font-bold uppercase tracking-wider mb-3">
+              <h2 className="text-[#cc7722] font-oswald text-base font-bold uppercase tracking-wider mb-3">
                 {item.title}
-              </h3>
+              </h2>
               <p className="text-white text-xs md:text-sm font-light leading-relaxed">
                 {item.desc}
               </p>
@@ -141,9 +147,9 @@ const SEO = () => {
 
         {/* Bottom CTA Section */}
         <div className="text-center max-w-3xl mx-auto mt-16">
-          <h3 className="text-2xl md:text-3xl font-extrabold uppercase font-oswald text-[#cc7722] tracking-wider mb-8">
+          <h2 className="text-2xl md:text-3xl font-extrabold uppercase font-oswald text-[#cc7722] tracking-wider mb-8">
             READY TO GROW YOUR ORGANIC TRAFFIC?
-          </h3>
+          </h2>
 
           <button
             onClick={() => navigate("/contact")}
