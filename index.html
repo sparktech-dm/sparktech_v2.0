@@ -6,6 +6,9 @@
     <!--Google Search Console-->>
     <meta name="google-site-verification" content="gV8ZTTHl4nXIUP_l7tXkgoliw8sPLLdoscue5dY-Bgo" />
 
+    <!-- Canonical Tag (Static Fallback for Non-JS Crawlers) -->
+    <link rel="canonical" href="https://www.sparktechdm.com/" data-rh="true" />
+
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="/Logo.png" />
 
@@ -35,24 +38,9 @@
     <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
 
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;700&display=swap" rel="stylesheet">
-    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Inter:wght@400;500;600;700&family=Oswald:wght@500;700&family=Unbounded:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
 
-    <!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1490577659132923');
-fbq('track', 'PageView');
-</script>
-<!-- End Meta Pixel Code -->
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-CNYK1BCL7Y"></script>
     <script>
@@ -72,11 +60,53 @@ fbq('track', 'PageView');
     })(window, document, "clarity", "script", "vf0686gwxb");
 </script>
 
+      <!-- Schema.org JSON-LD (Static Organization & WebSite for Non-JS Crawlers) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://www.sparktechdm.com/#organization",
+          "name": "SparkTech Digital",
+          "url": "https://www.sparktechdm.com/",
+          "logo": "https://www.sparktechdm.com/Logo.png",
+          "image": "https://www.sparktechdm.com/Logo.png",
+          "email": "sparktechdm@gmail.com",
+          "telephone": "+91 8939892219",
+          "sameAs": [
+            "https://www.instagram.com/sparktech.dm?igsh=MTA5dzFmNW9uYzVlMg==",
+            "https://in.linkedin.com/company/sparktech-dm",
+            "https://maps.app.goo.gl/4sYLYqWiS9KQRijP8"
+          ],
+          "contactPoint": [
+            {
+              "@type": "ContactPoint",
+              "telephone": "+91 8939892219",
+              "contactType": "customer service",
+              "email": "sparktechdm@gmail.com",
+              "areaServed": "IN",
+              "availableLanguage": ["English", "Tamil"]
+            }
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://www.sparktechdm.com/#website",
+          "name": "SparkTech Digital",
+          "url": "https://www.sparktechdm.com/",
+          "publisher": {
+            "@id": "https://www.sparktechdm.com/#organization"
+          }
+        }
+      ]
+    }
+    </script>
   </head>
 
   <body>
 <!-- Meta Pixel Code -->
-    <noscript><img height="1" width="1" style="display:none" alt=""
+    <noscript><img height="1" width="1" style="display:none" alt="Meta Pixel"
 src="https://www.facebook.com/tr?id=1490577659132923&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
@@ -87,5 +117,19 @@ src="https://www.facebook.com/tr?id=1490577659132923&ev=PageView&noscript=1"
 
     <!-- Vite entry point -->
     <script type="module" src="/src/main.jsx"></script>
+      <!-- Meta Pixel Code (Deferred Bootstrap) -->
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '1490577659132923');
+      fbq('track', 'PageView');
+    </script>
+    <!-- End Meta Pixel Code -->
   </body>
 </html>
