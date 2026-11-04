@@ -643,7 +643,7 @@ const About = () => {
             >
               <div className="absolute inset-0 bg-[#cc7722]/10 rounded-full blur-3xl transform -translate-y-10 scale-110 -z-10"></div>
               <img
-                src="/CEO.png"
+                src="/CEO.webp" loading="lazy" decoding="async"
                 alt="Founder & CEO"
                 className="w-full md:max-w-[280px] lg:max-w-[340px] object-contain drop-shadow-[0_20px_30px_rgba(27,54,93,0.2)]"
               />
@@ -672,7 +672,7 @@ const About = () => {
                 >
                   <div className="absolute inset-0 bg-[#cc7722]/10 rounded-full blur-3xl transform -translate-y-5 scale-110 -z-10"></div>
                   <img
-                    src="/CEO.png"
+                    src="/CEO.webp" loading="lazy" decoding="async"
                     alt="Founder & CEO"
                     className="w-full max-w-[140px] sm:max-w-[160px] object-contain drop-shadow-[0_15px_25px_rgba(27,54,93,0.2)]"
                   />
@@ -737,7 +737,7 @@ const About = () => {
             className="w-full flex justify-center"
           >
             <img
-              src="/Team Section final.png"
+              src="/Team Section final.webp" loading="lazy" decoding="async"
               alt="Spark Tech Team"
               className="w-full max-w-[1200px] h-auto object-contain"
             />

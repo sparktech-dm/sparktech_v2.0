@@ -2,15 +2,15 @@ import React from "react";
 import { motion } from "framer-motion";
 
 // Importing team member images based on confirmed available assets
-import Sanjay from "../assets/team/Sanjay.jpeg";
-import Yukesh from "../assets/team/yukesh.png";
-import Yashwanth from "../assets/team/yash.png";
-import Dominic from "../assets/team/Domnic.png";
-import Varshini from "../assets/team/varshini.png";
-import Nivethika from "../assets/team/nivethika.png";
+import Sanjay from "../assets/team/Sanjay.webp";
+import Yukesh from "../assets/team/yukesh.webp";
+import Yashwanth from "../assets/team/yash.webp";
+import Dominic from "../assets/team/Domnic.webp";
+import Varshini from "../assets/team/varshini.webp";
+import Nivethika from "../assets/team/nivethika.webp";
 import Pertisha from "../assets/team/pertisha.webp";
-import Praveen from "../assets/team/Praveen.png"
-import Nancy from "../assets/team/nancy.png"
+import Praveen from "../assets/team/Praveen.webp"
+import Nancy from "../assets/team/nancy.webp"
 
 const teamMembers = [
   {
@@ -99,6 +99,8 @@ const TeamCardContent = ({ member, isMobile }) => (
       <img
         src={member.image}
         alt={member.name}
+        loading="lazy"
+        decoding="async"
         className={`w-full h-full object-cover filter transition-all duration-700 ease-in-out transform group-hover:scale-110 ${isMobile ? "grayscale-0" : "grayscale-[60%] group-hover:grayscale-0"}`}
       />
     </div>

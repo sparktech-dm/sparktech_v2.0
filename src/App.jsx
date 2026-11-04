@@ -1,25 +1,19 @@
-import React, { useRef, useState, useLayoutEffect } from "react";
+import React, { Suspense, lazy } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import Home, { GrowingBrands, LetsTalkSection } from "./pages/Home";
-import Services from "./pages/Services"; // make sure this page has nested <Routes>
-import BlogsPage from "./components/Blogs";
-import BlogPost from "./pages/BlogPost";
-import About from "./pages/About";
+import Home, { GrowingBrands } from "./pages/Home";
 import ChatBot from "./components/Chat";
 import Top from "./components/Top";
-import * as THREE from "three";
-import NET from "vanta/dist/vanta.net.min";
-window.THREE = THREE; // Required for Vanta effects
 import ScrollToTop from "./components/ScrollToTop";
-import ContactForm1 from "./components/ContactForm1";
-import Career from "./pages/Career";
-import { Faq } from "./components/Faq";
-import Footer from "./components/Footer";
 import CanonicalTag from "./components/CanonicalTag";
 
-
-
+// Route-level code splitting
+const About = lazy(() => import("./pages/About"));
+const Services = lazy(() => import("./pages/Services"));
+const BlogsPage = lazy(() => import("./components/Blogs"));
+const BlogPost = lazy(() => import("./pages/BlogPost"));
+const ContactForm1 = lazy(() => import("./components/ContactForm1"));
+const Career = lazy(() => import("./pages/Career"));
 
 const AppHome = () => (
   <>
@@ -31,37 +25,6 @@ const AppHome = () => (
 );
 
 const App = () => {
-  const vantaRef = useRef(null);
-  const [vantaEffect, setVantaEffect] = useState(null);
-
-  useLayoutEffect(() => {
-    if (!vantaEffect && vantaRef.current) {
-      const effect = NET({
-        el: vantaRef.current,
-        THREE,
-        mouseControls: true,
-        touchControls: true,
-        gyroControls: false,
-        minHeight: 200,
-        minWidth: 200,
-        scale: 1.0,
-        scaleMobile: 1,
-        points: 6.0,
-        maxDistance: 18.0,
-        spacing: 20.0,
-        color: 0xe1e0e0,
-        backgroundColor: 0x666666,
-      });
-
-      setVantaEffect(effect);
-      window.dispatchEvent(new Event("resize")); // fix initial canvas sizing
-    }
-
-    return () => {
-      if (vantaEffect) vantaEffect.destroy();
-    };
-  }, [vantaEffect]);
-
   function NotFound() {
     return (
       <div className="flex flex-col items-center justify-center h-screen text-center">
@@ -72,25 +35,18 @@ const App = () => {
   }
 
   return (
-    <>
-      {/* <div
-        ref={vantaRef}
-        className="fixed inset-0 w-screen h-screen -z-10 overflow-hidden"
-      /> */}
+    <div className="relative z-10 text-white overflow-x-clip min-h-screen bg-cover bg-center bg-fixed bg-black">
+      <CanonicalTag />
+      <Navbar />
+      <ChatBot />
+      <Top />
+      <ScrollToTop />
 
-      <div className="relative z-10 text-white overflow-x-clip min-h-screen bg-cover bg-center bg-fixed bg-black">
-        <CanonicalTag />
-        <Navbar />
-        <ChatBot />
-        <Top />
-        <ScrollToTop />
-
-        {/* <Wuc/> */}
+      <Suspense fallback={<div className="min-h-screen bg-white" />}>
         <Routes>
           <Route path="/" element={<AppHome />} />
           <Route path="/home" element={<Navigate to="/" replace />} />
           <Route path="/about" element={<About />} />
-          {/* <Route path="/projects" element={<ProjectsSection />} /> */}
           <Route path="/blogs" element={<BlogsPage />} />
           <Route path="/blogs/:id" element={<BlogPost />} />
           <Route path="/services/*" element={<Services />} />
@@ -98,8 +54,8 @@ const App = () => {
           <Route path="/career" element={<Career />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
-      </div>
-    </>
+      </Suspense>
+    </div>
   );
 };
 
