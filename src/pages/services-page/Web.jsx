@@ -52,7 +52,61 @@ const WebDevelopment = () => {
         title="Web Development Company in Chennai | Custom Web Design | SparkTech"
         description="Fast, secure, responsive, and SEO-friendly website design and web development services in Chennai tailored to scale your brand."
         keywords="web development company in chennai, website design chennai, custom web development chennai, responsive web design chennai"
-      />
+      >
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@graph": [
+              {
+                "@type": "Service",
+                "@id": "https://www.sparktechdm.com/services/website-development#service",
+                "name": "Website Development & UI/UX Design Services",
+                "url": "https://www.sparktechdm.com/services/website-development",
+                "serviceType": "Web Development",
+                "description": "Fast, secure, responsive, and SEO-friendly website design and web development services in Chennai tailored to scale your brand.",
+                "provider": {
+                  "@type": "Organization",
+                  "@id": "https://www.sparktechdm.com/#organization",
+                  "name": "SparkTech Digital",
+                  "url": "https://www.sparktechdm.com/"
+                },
+                "areaServed": [
+                  {
+                    "@type": "City",
+                    "name": "Chennai"
+                  },
+                  {
+                    "@type": "Country",
+                    "name": "India"
+                  }
+                ]
+              },
+              {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                  {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Home",
+                    "item": "https://www.sparktechdm.com/"
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Services",
+                    "item": "https://www.sparktechdm.com/services"
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 3,
+                    "name": "Website Development"
+                  }
+                ]
+              }
+            ]
+          })}
+        </script>
+      </Seo>
       <section className="max-w-5xl mx-auto">
         {/* Back Button */}
         <div className="mb-8 md:mb-10">

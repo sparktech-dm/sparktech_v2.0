@@ -52,7 +52,61 @@ const EmailMarketing = () => {
         title="Email Marketing & Automation Services in Chennai | SparkTech"
         description="Automate customer engagement and increase conversions with personalized email marketing workflows, lifecycle sequences, and targeted newsletters."
         keywords="email marketing services in chennai, marketing automation chennai, email workflows, customer retention email campaigns"
-      />
+      >
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@graph": [
+              {
+                "@type": "Service",
+                "@id": "https://www.sparktechdm.com/services/email-marketing#service",
+                "name": "Email Marketing & Marketing Automation Services",
+                "url": "https://www.sparktechdm.com/services/email-marketing",
+                "serviceType": "Email Marketing",
+                "description": "Automate customer engagement and increase conversions with personalized email marketing workflows, lifecycle sequences, and targeted newsletters.",
+                "provider": {
+                  "@type": "Organization",
+                  "@id": "https://www.sparktechdm.com/#organization",
+                  "name": "SparkTech Digital",
+                  "url": "https://www.sparktechdm.com/"
+                },
+                "areaServed": [
+                  {
+                    "@type": "City",
+                    "name": "Chennai"
+                  },
+                  {
+                    "@type": "Country",
+                    "name": "India"
+                  }
+                ]
+              },
+              {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                  {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Home",
+                    "item": "https://www.sparktechdm.com/"
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Services",
+                    "item": "https://www.sparktechdm.com/services"
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 3,
+                    "name": "Email Marketing"
+                  }
+                ]
+              }
+            ]
+          })}
+        </script>
+      </Seo>
       <section className="max-w-5xl mx-auto">
         {/* Back Button */}
         <div className="mb-8 md:mb-10">

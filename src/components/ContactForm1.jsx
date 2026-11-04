@@ -52,17 +52,56 @@ const ContactPage = () => {
   <script type="application/ld+json">
     {JSON.stringify({
       "@context": "https://schema.org",
-      "@type": "WebPage",
-      "name": "Contact Us - Spark Tech Digital",
-      "url": "https://www.sparktechdm.com/contact",
-      "description": "Get in touch with Spark Tech Digital in Chennai. Contact us today for digital marketing solutions, consultations, and project inquiries.",
-      "breadcrumb": {
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.sparktechdm.com/" },
-          { "@type": "ListItem", "position": 2, "name": "Contact Us" }
-        ]
-      }
+      "@graph": [
+        {
+          "@type": "ProfessionalService",
+          "@id": "https://www.sparktechdm.com/#localbusiness",
+          "name": "SparkTech Digital",
+          "url": "https://www.sparktechdm.com/",
+          "image": "https://www.sparktechdm.com/Logo.png",
+          "telephone": "+91 8939892219",
+          "email": "sparktechdm@gmail.com",
+          "hasMap": "https://maps.app.goo.gl/4sYLYqWiS9KQRijP8",
+          "parentOrganization": {
+            "@type": "Organization",
+            "@id": "https://www.sparktechdm.com/#organization",
+            "name": "SparkTech Digital",
+            "url": "https://www.sparktechdm.com/"
+          },
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "C1, Honey tone Apartments, Shankarapuram 1st Street",
+            "addressLocality": "Choolaimedu",
+            "addressRegion": "Tamil Nadu",
+            "postalCode": "600094",
+            "addressCountry": "IN"
+          },
+          "areaServed": [
+            {
+              "@type": "City",
+              "name": "Chennai"
+            },
+            {
+              "@type": "AdministrativeArea",
+              "name": "Choolaimedu"
+            }
+          ]
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://www.sparktechdm.com/contact#webpage",
+          "name": "Contact Us - SparkTech Digital",
+          "url": "https://www.sparktechdm.com/contact",
+          "description": "Get in touch with SparkTech Digital in Chennai. Contact us today for digital marketing solutions, consultations, and project inquiries.",
+          "breadcrumb": {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.sparktechdm.com/" },
+              { "@type": "ListItem", "position": 2, "name": "Contact Us" }
+            ]
+          }
+        }
+      ]
     })}
   </script>
 </Seo>

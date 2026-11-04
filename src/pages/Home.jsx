@@ -71,16 +71,92 @@ export function GrowingBrands({
   <script type="application/ld+json">
     {JSON.stringify({
       "@context": "https://schema.org",
-      "@type": "WebPage",
-      "name": "Best Digital Marketing Company in Chennai | SparkTech",
-      "url": "https://www.sparktechdm.com/",
-      "description": "SparkTech is a premier digital marketing company in Chennai offering expert SEO, web development, and performance marketing services to grow your business.",
-      "breadcrumb": {
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.sparktechdm.com/" }
-        ]
-      }
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://www.sparktechdm.com/#organization",
+          "name": "SparkTech Digital",
+          "url": "https://www.sparktechdm.com/",
+          "logo": "https://www.sparktechdm.com/Logo.png",
+          "image": "https://www.sparktechdm.com/Logo.png",
+          "email": "sparktechdm@gmail.com",
+          "telephone": "+91 8939892219",
+          "sameAs": [
+            "https://www.instagram.com/sparktech.dm?igsh=MTA5dzFmNW9uYzVlMg==",
+            "https://in.linkedin.com/company/sparktech-dm",
+            "https://maps.app.goo.gl/4sYLYqWiS9KQRijP8"
+          ],
+          "contactPoint": [
+            {
+              "@type": "ContactPoint",
+              "telephone": "+91 8939892219",
+              "contactType": "customer service",
+              "email": "sparktechdm@gmail.com",
+              "areaServed": "IN",
+              "availableLanguage": ["English", "Tamil"]
+            }
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://www.sparktechdm.com/#website",
+          "name": "SparkTech Digital",
+          "url": "https://www.sparktechdm.com/",
+          "publisher": {
+            "@id": "https://www.sparktechdm.com/#organization"
+          }
+        },
+        {
+          "@type": "ProfessionalService",
+          "@id": "https://www.sparktechdm.com/#localbusiness",
+          "name": "SparkTech Digital",
+          "url": "https://www.sparktechdm.com/",
+          "image": "https://www.sparktechdm.com/Logo.png",
+          "telephone": "+91 8939892219",
+          "email": "sparktechdm@gmail.com",
+          "hasMap": "https://maps.app.goo.gl/4sYLYqWiS9KQRijP8",
+          "parentOrganization": {
+            "@id": "https://www.sparktechdm.com/#organization"
+          },
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "C1, Honey tone Apartments, Shankarapuram 1st Street",
+            "addressLocality": "Choolaimedu",
+            "addressRegion": "Tamil Nadu",
+            "postalCode": "600094",
+            "addressCountry": "IN"
+          },
+          "areaServed": [
+            {
+              "@type": "City",
+              "name": "Chennai"
+            },
+            {
+              "@type": "AdministrativeArea",
+              "name": "Choolaimedu"
+            }
+          ]
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://www.sparktechdm.com/#webpage",
+          "name": "Digital Marketing Company in Chennai | SparkTech Digital",
+          "url": "https://www.sparktechdm.com/",
+          "description": "SparkTech is a premier digital marketing company in Chennai offering expert SEO, web development, and performance marketing services to grow your business.",
+          "isPartOf": {
+            "@id": "https://www.sparktechdm.com/#website"
+          },
+          "about": {
+            "@id": "https://www.sparktechdm.com/#organization"
+          },
+          "breadcrumb": {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.sparktechdm.com/" }
+            ]
+          }
+        }
+      ]
     })}
   </script>
 </Helmet>

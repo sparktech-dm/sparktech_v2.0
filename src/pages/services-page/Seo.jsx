@@ -60,7 +60,61 @@ const SEO = () => {
         title="SEO Services in Chennai | Search Engine Optimization | SparkTech"
         description="Drive organic traffic, improve Google rankings, and gain qualified leads with expert technical, on-page, off-page, and local SEO services in Chennai."
         keywords="seo services in chennai, search engine optimization chennai, local seo chennai, technical seo agency chennai"
-      />
+      >
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@graph": [
+              {
+                "@type": "Service",
+                "@id": "https://www.sparktechdm.com/services/seo#service",
+                "name": "Search Engine Optimization (SEO) Services",
+                "url": "https://www.sparktechdm.com/services/seo",
+                "serviceType": "Search Engine Optimization",
+                "description": "Drive organic traffic, improve Google rankings, and gain qualified leads with expert technical, on-page, off-page, and local SEO services in Chennai.",
+                "provider": {
+                  "@type": "Organization",
+                  "@id": "https://www.sparktechdm.com/#organization",
+                  "name": "SparkTech Digital",
+                  "url": "https://www.sparktechdm.com/"
+                },
+                "areaServed": [
+                  {
+                    "@type": "City",
+                    "name": "Chennai"
+                  },
+                  {
+                    "@type": "Country",
+                    "name": "India"
+                  }
+                ]
+              },
+              {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                  {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Home",
+                    "item": "https://www.sparktechdm.com/"
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Services",
+                    "item": "https://www.sparktechdm.com/services"
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 3,
+                    "name": "SEO Services"
+                  }
+                ]
+              }
+            ]
+          })}
+        </script>
+      </Seo>
       <section className="max-w-5xl mx-auto">
         {/* Back Button */}
         <div className="mb-8 md:mb-10">

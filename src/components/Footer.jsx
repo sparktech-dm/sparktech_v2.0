@@ -7,7 +7,7 @@ const Footer = () => {
   const socialLinks = [
     { icon: MapPin, href: 'https://maps.app.goo.gl/4sYLYqWiS9KQRijP8', color: 'hover:text-[#f0c417]' },
     { icon: Instagram, href: 'https://www.instagram.com/sparktech.dm?igsh=MTA5dzFmNW9uYzVlMg==', color: 'hover:text-[#f0c417]' },
-    { icon: Linkedin, href: 'https://www.linkedin.com/company/112620752/admin/dashboard/', color: 'hover:text-[#f0c417]' }
+    { icon: Linkedin, href: 'https://in.linkedin.com/company/sparktech-dm', color: 'hover:text-[#f0c417]' }
   ];
 
   return (

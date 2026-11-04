@@ -41,7 +41,61 @@ const SocialMediaMarketing = () => {
         title="Social Media Marketing Agency in Chennai | SMM Services | SparkTech"
         description="Build brand awareness, engage your audience, and generate qualified leads with data-backed social media marketing campaigns on Meta, LinkedIn, and Instagram."
         keywords="social media marketing agency in chennai, smm services chennai, social media management chennai, instagram marketing chennai"
-      />
+      >
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@graph": [
+              {
+                "@type": "Service",
+                "@id": "https://www.sparktechdm.com/services/social-media-marketing#service",
+                "name": "Social Media Marketing (SMM) Services",
+                "url": "https://www.sparktechdm.com/services/social-media-marketing",
+                "serviceType": "Social Media Marketing",
+                "description": "Build brand awareness, engage your audience, and generate qualified leads with data-backed social media marketing campaigns on Meta, LinkedIn, and Instagram.",
+                "provider": {
+                  "@type": "Organization",
+                  "@id": "https://www.sparktechdm.com/#organization",
+                  "name": "SparkTech Digital",
+                  "url": "https://www.sparktechdm.com/"
+                },
+                "areaServed": [
+                  {
+                    "@type": "City",
+                    "name": "Chennai"
+                  },
+                  {
+                    "@type": "Country",
+                    "name": "India"
+                  }
+                ]
+              },
+              {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                  {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Home",
+                    "item": "https://www.sparktechdm.com/"
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Services",
+                    "item": "https://www.sparktechdm.com/services"
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 3,
+                    "name": "Social Media Marketing"
+                  }
+                ]
+              }
+            ]
+          })}
+        </script>
+      </Seo>
       <section className="max-w-5xl mx-auto">
         {/* Back Button */}
         <div className="mb-8 md:mb-10">
