@@ -121,6 +121,68 @@ export function GrowingBrands({
               { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.sparktechdm.com/" }
             ]
           }
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://www.sparktechdm.com/#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What is SparkTech Digital Marketing?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "SparkTech Digital Marketing is a premier digital growth agency in Chennai, specializing in data-driven search engine optimization (SEO), custom website development, targeted Google Ads (PPC), social media marketing, and automated email marketing."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Where is SparkTech Digital Marketing located?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Our office is located at C1, Honey tone Apartments, Shankarapuram 1st Street, Choolaimedu, Chennai, Tamil Nadu 600094, India."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does SparkTech provide SEO services in Chennai?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, SparkTech delivers comprehensive technical, on-page, off-page, and local SEO services designed to help Chennai businesses rank higher on Google, capture high-intent organic search traffic, and outrank regional competitors."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does SparkTech offer website development and UI/UX design?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, we build modern, fast-loading, mobile-responsive websites utilizing React and performance-optimized architectures to ensure seamless user experience and maximum lead conversion."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does SparkTech provide social media marketing?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, we create and execute data-backed social media campaigns across Meta, Instagram, and LinkedIn to build brand authority, foster community engagement, and generate qualified leads."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does SparkTech serve businesses in Choolaimedu and across Chennai?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, we partner with startups, growing brands, and established enterprises in Choolaimedu, Kodambakkam, Nungambakkam, and throughout the greater Chennai metropolitan area, as well as clients across India."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How can businesses contact SparkTech Digital?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "You can reach our team by phone at +91 8939892219, email us at sparktechdm@gmail.com, visit our Choolaimedu office in Chennai, or request a free consultation through our website contact form."
+              }
+            }
+          ]
         }
       ]
     })}

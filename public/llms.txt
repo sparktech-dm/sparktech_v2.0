@@ -1,0 +1,32 @@
+# SparkTech Digital Marketing
+
+> Premier digital marketing, SEO, web development, and performance growth partner in Chennai, Tamil Nadu, India.
+
+## Business Entity Summary
+- **Organization Name**: SparkTech Digital Marketing
+- **Headquarters**: C1, Honey tone Apartments, Shankarapuram 1st Street, Choolaimedu, Chennai, Tamil Nadu – 600094, India
+- **Phone**: +91 8939892219
+- **Email**: sparktechdm@gmail.com
+- **Website**: https://www.sparktechdm.com/
+- **Google Maps**: https://maps.app.goo.gl/4sYLYqWiS9KQRijP8
+- **LinkedIn**: https://in.linkedin.com/company/sparktech-dm
+- **Instagram**: https://www.instagram.com/sparktech.dm/
+
+## Core Services
+- [Search Engine Optimization (SEO)](https://www.sparktechdm.com/services/seo): Technical SEO audits, local SEO in Chennai and Choolaimedu, on-page content optimization, high-intent keyword ranking, and link building.
+- [Website Development & UI/UX Design](https://www.sparktechdm.com/services/website-development): High-performance, modern, mobile-responsive custom websites built with React and modern front-end technologies for optimal lead conversion.
+- [Social Media Marketing (SMM)](https://www.sparktechdm.com/services/social-media-marketing): Targeted audience engagement, Meta/Instagram paid ad campaigns, and community growth.
+- [Automated Email Marketing](https://www.sparktechdm.com/services/email-marketing): Customer lifecycle nurture flows, automated sales funnels, and retention marketing.
+
+## Primary Pages & Resources
+- [Homepage](https://www.sparktechdm.com/): Overview of services, verified customer metrics, and agency capabilities.
+- [About Us](https://www.sparktechdm.com/about): 2+ years of business journey, 15+ happy clients, 25+ completed projects, and team in Chennai.
+- [Services Portfolio](https://www.sparktechdm.com/services): Complete listing of digital growth solutions.
+- [Digital Marketing Insights & Blog](https://www.sparktechdm.com/blogs): Expert analysis on digital marketing strategies, SEO techniques, conversion-focused design, and customer retention.
+- [Careers](https://www.sparktechdm.com/career): Open digital marketing, SEO, and web development roles in Chennai.
+- [Contact Us](https://www.sparktechdm.com/contact): Inquiries, office directions, and free project consultation.
+
+## Machine-Readable Resources
+- XML Sitemap: https://www.sparktechdm.com/sitemap.xml
+- Robots Directive: https://www.sparktechdm.com/robots.txt
+
