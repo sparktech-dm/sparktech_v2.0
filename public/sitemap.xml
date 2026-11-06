@@ -43,6 +43,18 @@
     <loc>https://www.sparktechdm.com/services/email-marketing</loc>
     <priority>0.80</priority>
   </url>
+  <url>
+    <loc>https://www.sparktechdm.com/services/content-creation</loc>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://www.sparktechdm.com/services/video-editing</loc>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://www.sparktechdm.com/services/graphics-designing</loc>
+    <priority>0.80</priority>
+  </url>
 
   <!-- Blog Articles (Canonical Routes with Verified Modification Dates) -->
   <url>

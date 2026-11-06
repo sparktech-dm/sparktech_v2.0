@@ -12,10 +12,10 @@ const segments = [
   },
   {
     number: "02",
-    title: "Content Creation",
-    details: "Creative and high-quality content tailored to your audience.",
+    title: "Lead Generation",
+    details: "Customized digital funnels and high-converting landing pages to acquire quality leads.",
     link: "/services/content-creation",
-    icon: "✍️",
+    icon: "🎯",
   },
   {
     number: "03",
@@ -26,10 +26,10 @@ const segments = [
   },
   {
     number: "04",
-    title: "Video Editing",
-    details: "Professional video editing to tell your story effectively.",
+    title: "Google Ads & PPC",
+    details: "High-ROI paid search campaigns, ad creatives, and multi-platform advertising.",
     link: "/services/video-editing",
-    icon: "🎬",
+    icon: "📢",
   },
   {
     number: "05",

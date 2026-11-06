@@ -49,9 +49,9 @@ const WebDevelopment = () => {
   return (
     <div className="min-h-screen pt-24 pb-12 px-6 md:pt-8 bg-[#ffffff]">
       <Seo
-        title="Web Development Company in Chennai | Custom Web Design | SparkTech"
-        description="Fast, secure, responsive, and SEO-friendly website design and web development services in Chennai tailored to scale your brand."
-        keywords="web development company in chennai, website design chennai, custom web development chennai, responsive web design chennai"
+        title="Website Development Company in Chennai | UI/UX Design | SparkTech"
+        description="Build fast, responsive, and SEO-friendly websites with SparkTech Digital Marketing. Expert web development, custom UI/UX design, and CMS solutions in Chennai."
+        keywords="website development company in chennai, web development chennai, custom website design chennai, ui ux design chennai"
       >
         <script type="application/ld+json">
           {JSON.stringify({

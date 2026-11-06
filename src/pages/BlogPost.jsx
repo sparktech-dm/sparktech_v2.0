@@ -12,18 +12,24 @@ export default function BlogPost({ post: propPost }) {
   // Find post from props or URL params (supports matching by id or slug)
   const post =
     propPost ||
-    blogData.find(
-      (item) => item.id === id || item.slug === id
-    ) ||
-    blogData[0]; // Graceful fallback if testing without parameters
+    (id
+      ? blogData.find((item) => item.id === id || item.slug === id)
+      : null);
 
   if (!post) {
     return (
       <div className="min-h-screen bg-white text-[#1b365d] flex flex-col items-center justify-center p-8">
-        <h1 className="text-3xl font-bold mb-4">Post Not Found</h1>
+        <Helmet>
+          <title>404: Post Not Found | SparkTech Digital</title>
+          <meta name="robots" content="noindex, nofollow" />
+        </Helmet>
+        <h1 className="text-3xl font-bold mb-4 font-oswald text-[#cc7722]">Post Not Found</h1>
+        <p className="text-gray-600 mb-6 max-w-md text-center">
+          The blog article you are looking for does not exist, has been removed, or is temporarily unavailable.
+        </p>
         <Link
           to="/blogs"
-          className="text-[#cc7722] hover:underline flex items-center gap-2"
+          className="text-[#cc7722] hover:underline flex items-center gap-2 font-medium"
         >
           <ArrowLeft size={18} /> Back to Blogs
         </Link>

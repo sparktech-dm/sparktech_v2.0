@@ -52,7 +52,61 @@ const AdCreativesCampaigns = () => {
         title="Google Ads & PPC Campaign Management in Chennai | SparkTech"
         description="Maximize your advertising ROI with high-converting Google Ads, PPC search campaigns, display ads, and creative ad assets managed by SparkTech."
         keywords="google ads company in chennai, ppc management chennai, pay per click advertising chennai, ad creatives chennai"
-      />
+      >
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@graph": [
+              {
+                "@type": "Service",
+                "@id": "https://www.sparktechdm.com/services/video-editing#service",
+                "name": "Google Ads & PPC Campaign Management Services",
+                "url": "https://www.sparktechdm.com/services/video-editing",
+                "serviceType": "PPC Advertising",
+                "description": "Maximize your advertising ROI with high-converting Google Ads, PPC search campaigns, display ads, and creative ad assets managed by SparkTech.",
+                "provider": {
+                  "@type": "Organization",
+                  "@id": "https://www.sparktechdm.com/#organization",
+                  "name": "SparkTech Digital",
+                  "url": "https://www.sparktechdm.com/"
+                },
+                "areaServed": [
+                  {
+                    "@type": "City",
+                    "name": "Chennai"
+                  },
+                  {
+                    "@type": "Country",
+                    "name": "India"
+                  }
+                ]
+              },
+              {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                  {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Home",
+                    "item": "https://www.sparktechdm.com/"
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Services",
+                    "item": "https://www.sparktechdm.com/services"
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 3,
+                    "name": "Google Ads & PPC"
+                  }
+                ]
+              }
+            ]
+          })}
+        </script>
+      </Seo>
       <section className="max-w-5xl mx-auto">
         {/* Back Button */}
         <div className="mb-8 md:mb-10">

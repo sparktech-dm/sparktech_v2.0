@@ -18,10 +18,10 @@ const CurvedScrollCards = () => {
 
   const cardData = [
     { id: 1, title: "Search Visibility & SEO", description: "Technical and content-based optimization to dominate organic search results.", icon: "🔍", frontImage: "linear-gradient(135deg, #1e293b 0%, #0f172a 100%)", backColor: "#16213E", link: "/services/seo" },
-    { id: 2, title: "Lead Generation Systems", description: "Data-led campaigns that convert curiosity into consistent revenue.", icon: "📈", frontImage: "linear-gradient(135deg, #0d5c3a 0%, #062e1c 100%)", backColor: "#16213E", link: "/services/email-marketing" },
+    { id: 2, title: "Lead Generation Systems", description: "Data-led campaigns that convert curiosity into consistent revenue.", icon: "📈", frontImage: "linear-gradient(135deg, #0d5c3a 0%, #062e1c 100%)", backColor: "#16213E", link: "/services/content-creation" },
     { id: 3, title: "Social Media Marketing", description: "Boost your brand presence across platforms with engaging strategies.", icon: "📱", frontImage: "linear-gradient(135deg, #581c87 0%, #2e1065 100%)", backColor: "#16213E", link: "/services/social-media-marketing" },
-    { id: 4, title: "Ad Creatives & Campaigns", description: "We turn clicks into customers with scroll-stopping visuals and copy.", icon: "✍️", frontImage: "linear-gradient(135deg, #701a75 0%, #3b0764 100%)", backColor: "#16213E", link: "/services/content-creation" },
-    { id: 5, title: "Automated Email Flows", description: "Nurture leads and drive repeat business with automated email sequences.", icon: "🎨", frontImage: "linear-gradient(135deg, #0369a1 0%, #0c4a6e 100%)", backColor: "#16213E", link: "/services/video-editing" },
+    { id: 4, title: "Ad Creatives & Campaigns", description: "We turn clicks into customers with scroll-stopping visuals and copy.", icon: "✍️", frontImage: "linear-gradient(135deg, #701a75 0%, #3b0764 100%)", backColor: "#16213E", link: "/services/video-editing" },
+    { id: 5, title: "Automated Email Flows", description: "Nurture leads and drive repeat business with automated email sequences.", icon: "🎨", frontImage: "linear-gradient(135deg, #0369a1 0%, #0c4a6e 100%)", backColor: "#16213E", link: "/services/email-marketing" },
     { id: 6, title: "Website Development", description: "High-performance, custom websites designed to convert and scale.", icon: "💻", frontImage: "linear-gradient(135deg, #1b233d 0%, #0c101a 100%)", backColor: "#16213E", link: "/services/website-development" },
   ];
 

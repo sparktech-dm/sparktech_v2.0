@@ -184,8 +184,8 @@ const pages = [
   {
     url: '/about',
     outputPath: 'about/index.html',
-    title: 'About Us | SparkTech Digital - Premier Digital Agency in Chennai',
-    description: 'Learn about SparkTech Digital\'s journey, team, and mission to deliver cutting-edge SEO, web design, and digital growth solutions for businesses in Chennai.',
+    title: 'About Us | SparkTech Digital Marketing Agency Chennai',
+    description: 'Learn about SparkTech Digital, our expert team, core values, and milestones as a leading digital marketing company in Chennai helping businesses scale online.',
     keywords: 'about sparktech digital, digital marketing team chennai, marketing agency journey, web development agency chennai',
     schemaJson: {
       "@context": "https://schema.org",
@@ -442,7 +442,7 @@ const pages = [
   {
     url: '/services/social-media-marketing',
     outputPath: 'services/social-media-marketing/index.html',
-    title: 'Social Media Marketing Agency in Chennai | SparkTech Digital',
+    title: 'Social Media Marketing Agency in Chennai | SMM Services | SparkTech',
     description: 'Engage your target audience, build brand loyalty, and drive conversions with data-driven social media marketing campaigns across Meta, Instagram, and LinkedIn in Chennai.',
     keywords: 'social media marketing agency in chennai, smm services chennai, instagram marketing chennai, meta ads agency chennai',
     schemaJson: {
@@ -504,7 +504,7 @@ const pages = [
   {
     url: '/services/email-marketing',
     outputPath: 'services/email-marketing/index.html',
-    title: 'Email Marketing Services & Automation in Chennai | SparkTech',
+    title: 'Email Marketing & Automation Services in Chennai | SparkTech',
     description: 'Nurture leads, retain customers, and drive recurring revenue with personalized automated email marketing workflows and campaigns by SparkTech Digital.',
     keywords: 'email marketing services in chennai, automated email flows chennai, lifecycle marketing, drip campaigns chennai',
     schemaJson: {
@@ -566,7 +566,7 @@ const pages = [
   {
     url: '/career',
     outputPath: 'career/index.html',
-    title: 'Careers at SparkTech Digital | Job Openings in Chennai',
+    title: 'Careers at SparkTech | Digital Marketing & Tech Jobs in Chennai',
     description: 'Join our dynamic team of digital marketers, SEO specialists, developers, and designers at SparkTech Digital in Chennai. Explore open job roles and apply today.',
     keywords: 'careers at sparktech, digital marketing jobs chennai, seo job vacancies chennai, web developer hiring chennai',
     schemaJson: {
@@ -879,7 +879,7 @@ blogArticles.forEach(b => {
   pages.push({
     url: `/blogs/${b.slug}`,
     outputPath: `blogs/${b.slug}/index.html`,
-    title: `${b.title} | SparkTech Blog`,
+    title: `${b.title} | SparkTech Digital`,
     description: b.excerpt,
     keywords: b.tags.join(', '),
     ogImage: `https://www.sparktechdm.com${b.image}`,
