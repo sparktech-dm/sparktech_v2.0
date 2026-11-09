@@ -18,11 +18,37 @@ if (!fs.existsSync(templatePath)) {
 
 const baseTemplate = fs.readFileSync(templatePath, 'utf8');
 
-// Extract Blog Data from source
+// Extract Blog Data from source dynamically
 const blogsSource = fs.readFileSync(path.join(projectRoot, 'src/components/Blogs.jsx'), 'utf8');
-const blogLines = blogsSource.split('\n');
-const blogDataCode = blogLines.slice(8, 268).join('\n').replace('export const blogData =', '').replace(/;\s*$/, '');
+const blogMarker = 'export const blogData =';
+const blogStartIdx = blogsSource.indexOf(blogMarker);
+if (blogStartIdx === -1) {
+  throw new Error('Could not find blogData export in Blogs.jsx');
+}
+const arrayStartIdx = blogsSource.indexOf('[', blogStartIdx);
+let depth = 0;
+let arrayEndIdx = -1;
+for (let i = arrayStartIdx; i < blogsSource.length; i++) {
+  if (blogsSource[i] === '[') depth++;
+  else if (blogsSource[i] === ']') {
+    depth--;
+    if (depth === 0) {
+      arrayEndIdx = i;
+      break;
+    }
+  }
+}
+if (arrayEndIdx === -1) {
+  throw new Error('Could not determine end of blogData array in Blogs.jsx');
+}
+const blogDataCode = blogsSource.substring(arrayStartIdx, arrayEndIdx + 1);
 const blogArticles = eval('(' + blogDataCode + ')');
+
+// Helper to convert markdown-style links [Anchor Text](/url) to HTML <a>
+function formatParagraphHtml(str) {
+  if (!str) return '';
+  return str.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>');
+}
 
 // Common navigation header HTML
 const commonHeader = `
@@ -184,9 +210,9 @@ const pages = [
   {
     url: '/about',
     outputPath: 'about/index.html',
-    title: 'About Us | SparkTech Digital Marketing Agency Chennai',
+    title: 'About SparkTech Digital | Digital Marketing Agency Chennai',
     description: 'Learn about SparkTech Digital, our expert team, core values, and milestones as a leading digital marketing company in Chennai helping businesses scale online.',
-    keywords: 'about sparktech digital, digital marketing team chennai, marketing agency journey, web development agency chennai',
+    keywords: 'about sparktech, digital marketing agency chennai, digital marketing company in chennai, sparktech digital marketing, digital marketing agency choolaimedu',
     schemaJson: {
       "@context": "https://schema.org",
       "@graph": [
@@ -211,7 +237,7 @@ const pages = [
     mainHtml: `
         <article class="content-container">
           <p class="eyebrow">OUR STORY & GROWTH</p>
-          <h1>About Us: Our Journey & Vision</h1>
+          <h1>About SparkTech Digital: Our Journey & Vision</h1>
           <p class="lead">SparkTech Digital Marketing is a results-driven agency in Chennai dedicated to transforming ambitious businesses into market leaders through modern web technology, strategic SEO, and high-impact digital campaigns.</p>
           
           <section>
@@ -253,7 +279,7 @@ const pages = [
     outputPath: 'services/index.html',
     title: 'Digital Marketing Services in Chennai | SparkTech Digital',
     description: 'Explore results-driven digital marketing services in Chennai by SparkTech Digital, including SEO, custom web development, PPC Google Ads, social media marketing, and email automation.',
-    keywords: 'digital marketing services in chennai, seo services chennai, web development chennai, google ads agency chennai, social media marketing chennai',
+    keywords: 'digital marketing services in chennai, seo services chennai, web development chennai, google ads agency chennai, social media marketing chennai, graphic design chennai',
     schemaJson: {
       "@context": "https://schema.org",
       "@graph": [
@@ -278,7 +304,7 @@ const pages = [
     mainHtml: `
         <article class="content-container">
           <p class="eyebrow">WHAT WE DELIVER</p>
-          <h1>Our Digital Marketing Services</h1>
+          <h1>Our Digital Marketing Services in Chennai</h1>
           <p class="lead">At SparkTech Digital, we design and execute data-backed growth strategies tailored to the unique demands of businesses in Chennai, India, and global markets.</p>
 
           <section>
@@ -317,16 +343,16 @@ const pages = [
   {
     url: '/services/seo',
     outputPath: 'services/seo/index.html',
-    title: 'SEO Services in Chennai | Search Engine Optimization | SparkTech',
+    title: 'SEO Services in Chennai | Search Engine Optimization Agency | SparkTech',
     description: 'Drive organic traffic, improve Google rankings, and gain qualified leads with expert technical, on-page, off-page, and local SEO services in Chennai.',
-    keywords: 'seo services in chennai, search engine optimization chennai, local seo chennai, technical seo agency chennai',
+    keywords: 'seo services in chennai, seo company chennai, search engine optimization chennai, local seo chennai, technical seo agency chennai',
     schemaJson: {
       "@context": "https://schema.org",
       "@graph": [
         {
           "@type": "Service",
           "@id": "https://www.sparktechdm.com/services/seo#service",
-          "name": "Search Engine Optimization (SEO) Services",
+          "name": "Search Engine Optimization (SEO) Services in Chennai",
           "url": "https://www.sparktechdm.com/services/seo",
           "serviceType": "Search Engine Optimization",
           "description": "Drive organic traffic, improve Google rankings, and gain qualified leads with expert technical, on-page, off-page, and local SEO services in Chennai.",
@@ -355,7 +381,7 @@ const pages = [
     mainHtml: `
         <article class="content-container">
           <p class="eyebrow">ORGANIC SEARCH DOMINANCE</p>
-          <h1>Search Visibility & SEO Services in Chennai</h1>
+          <h1>SEO Services in Chennai</h1>
           <p class="lead">Capture high-intent customer demand when potential buyers search for your products and services. SparkTech provides end-to-end technical, on-page, and local SEO services designed to outrank regional competitors.</p>
 
           <section>
@@ -380,8 +406,8 @@ const pages = [
   {
     url: '/services/website-development',
     outputPath: 'services/website-development/index.html',
-    title: 'Website Development Company in Chennai | UI/UX Design | SparkTech',
-    description: 'Build fast, responsive, and SEO-friendly websites with SparkTech Digital. Custom web development, UI/UX design, and web applications tailored for growth in Chennai.',
+    title: 'Website Development Company in Chennai | Custom Web Design | SparkTech',
+    description: 'Build fast, responsive, and SEO-friendly websites with SparkTech Digital. Expert web development, custom UI/UX design, and CMS solutions in Chennai.',
     keywords: 'website development company in chennai, web design agency chennai, custom react web development, ui ux design chennai',
     schemaJson: {
       "@context": "https://schema.org",
@@ -389,7 +415,7 @@ const pages = [
         {
           "@type": "Service",
           "@id": "https://www.sparktechdm.com/services/website-development#service",
-          "name": "Website Development & UI/UX Design Services",
+          "name": "Website Development & UI/UX Design Services in Chennai",
           "url": "https://www.sparktechdm.com/services/website-development",
           "serviceType": "Web Development",
           "description": "Fast, secure, responsive, and SEO-friendly website development and UI/UX design built with modern frameworks to convert visitors into customers.",
@@ -443,7 +469,7 @@ const pages = [
     url: '/services/social-media-marketing',
     outputPath: 'services/social-media-marketing/index.html',
     title: 'Social Media Marketing Agency in Chennai | SMM Services | SparkTech',
-    description: 'Engage your target audience, build brand loyalty, and drive conversions with data-driven social media marketing campaigns across Meta, Instagram, and LinkedIn in Chennai.',
+    description: 'Grow your brand with data-driven social media marketing in Chennai. Expert Instagram, LinkedIn, and Meta campaign management for active customer engagement.',
     keywords: 'social media marketing agency in chennai, smm services chennai, instagram marketing chennai, meta ads agency chennai',
     schemaJson: {
       "@context": "https://schema.org",
@@ -479,7 +505,7 @@ const pages = [
     mainHtml: `
         <article class="content-container">
           <p class="eyebrow">AUDIENCE ENGAGEMENT & BRAND AUTHORITY</p>
-          <h1>Social Media Marketing & Brand Engagement in Chennai</h1>
+          <h1>Social Media Marketing Agency in Chennai</h1>
           <p class="lead">Build an enduring community around your brand and capture qualified leads across Meta, Instagram, and LinkedIn through strategic creative content and targeted paid social ads.</p>
 
           <section>
@@ -504,8 +530,8 @@ const pages = [
   {
     url: '/services/email-marketing',
     outputPath: 'services/email-marketing/index.html',
-    title: 'Email Marketing & Automation Services in Chennai | SparkTech',
-    description: 'Nurture leads, retain customers, and drive recurring revenue with personalized automated email marketing workflows and campaigns by SparkTech Digital.',
+    title: 'Email Marketing Services in Chennai | Email Automation Agency | SparkTech',
+    description: 'Automate lead nurturing and boost customer retention with targeted email marketing campaigns, drip flows, and newsletter automation in Chennai.',
     keywords: 'email marketing services in chennai, automated email flows chennai, lifecycle marketing, drip campaigns chennai',
     schemaJson: {
       "@context": "https://schema.org",
@@ -566,8 +592,8 @@ const pages = [
   {
     url: '/career',
     outputPath: 'career/index.html',
-    title: 'Careers at SparkTech | Digital Marketing & Tech Jobs in Chennai',
-    description: 'Join our dynamic team of digital marketers, SEO specialists, developers, and designers at SparkTech Digital in Chennai. Explore open job roles and apply today.',
+    title: 'Digital Marketing Jobs in Chennai | Careers at SparkTech',
+    description: 'Explore career opportunities and internships in digital marketing, SEO, web development, graphic design, and content creation at SparkTech in Choolaimedu, Chennai.',
     keywords: 'careers at sparktech, digital marketing jobs chennai, seo job vacancies chennai, web developer hiring chennai',
     schemaJson: {
       "@context": "https://schema.org",
@@ -618,7 +644,7 @@ const pages = [
   {
     url: '/contact',
     outputPath: 'contact/index.html',
-    title: 'Contact SparkTech | Digital Marketing Office in Choolaimedu, Chennai',
+    title: 'Contact SparkTech Digital | Digital Marketing Agency Chennai',
     description: 'Get in touch with SparkTech Digital Marketing in Choolaimedu, Chennai. Request a free digital strategy consultation or call us at +91 8939892219.',
     keywords: 'contact sparktech, digital marketing company in choolaimedu, digital marketing company in chennai, seo consultation chennai',
     schemaJson: {
@@ -695,16 +721,16 @@ const pages = [
   {
     url: '/blogs',
     outputPath: 'blogs/index.html',
-    title: 'Digital Marketing Blogs & Insights | SparkTech Digital',
+    title: 'Digital Marketing & SEO Blogs | SparkTech Digital Marketing',
     description: 'Actionable insights, proven strategies, and industry guides on SEO, web development, Google Ads, and social media marketing from SparkTech Digital.',
-    keywords: 'digital marketing blogs, seo tips chennai, web development insights, marketing strategy articles',
+    keywords: 'digital marketing blog, seo tips chennai, google ads guides, web development insights',
     schemaJson: {
       "@context": "https://schema.org",
       "@graph": [
         {
           "@type": "WebPage",
           "@id": "https://www.sparktechdm.com/blogs#webpage",
-          "name": "Digital Marketing Blogs & Insights | SparkTech Digital",
+          "name": "Digital Marketing & SEO Blogs | SparkTech Digital Marketing",
           "url": "https://www.sparktechdm.com/blogs",
           "description": "Actionable insights, proven strategies, and industry guides on SEO, web development, Google Ads, and social media marketing from SparkTech Digital.",
           "isPartOf": { "@id": "https://www.sparktechdm.com/#website" },
@@ -775,16 +801,16 @@ const pages = [
   {
     url: '/services/content-creation',
     outputPath: 'services/content-creation/index.html',
-    title: 'B2B & B2C Lead Generation Services in Chennai | SparkTech',
-    description: 'Capture and convert high-intent prospects with targeted lead generation funnels, optimized landing pages, and multi-channel acquisition campaigns.',
-    keywords: 'lead generation chennai, b2b lead generation, acquisition funnels chennai',
+    title: 'Lead Generation Services in Chennai | Sales Funnel Agency | SparkTech',
+    description: 'Capture high-intent B2B and B2C prospects with customized lead generation funnels, conversion landing pages, and automated acquisition systems in Chennai.',
+    keywords: 'lead generation services in chennai, b2b lead generation chennai, sales funnel agency chennai, inbound lead acquisition, performance lead gen',
     schemaJson: {
       "@context": "https://schema.org",
       "@graph": [
         {
           "@type": "Service",
           "@id": "https://www.sparktechdm.com/services/content-creation#service",
-          "name": "Lead Generation & Funnel Strategy Services",
+          "name": "Lead Generation & Funnel Strategy Services in Chennai",
           "url": "https://www.sparktechdm.com/services/content-creation",
           "serviceType": "Lead Generation",
           "description": "Capture and convert high-intent prospects with targeted lead generation funnels, optimized landing pages, and multi-channel acquisition campaigns.",
@@ -795,7 +821,7 @@ const pages = [
     mainHtml: `
         <article class="content-container">
           <p class="eyebrow">INBOUND ACQUISITION</p>
-          <h1>Lead Generation Strategy & Funnels in Chennai</h1>
+          <h1>Lead Generation Services in Chennai</h1>
           <p class="lead">Turn web traffic into sales conversations with customized lead generation funnels, high-converting landing pages, and automated qualification systems.</p>
           <section>
             <h2>Proven Inbound Lead Generation</h2>
@@ -809,16 +835,16 @@ const pages = [
   {
     url: '/services/video-editing',
     outputPath: 'services/video-editing/index.html',
-    title: 'Google Ads & PPC Campaign Management in Chennai | SparkTech',
-    description: 'Maximize your advertising ROI with high-converting Google Ads, PPC search campaigns, display ads, and creative ad assets managed by SparkTech.',
-    keywords: 'google ads agency chennai, ppc campaign management chennai, ad creative chennai',
+    title: 'Google Ads Agency in Chennai | PPC Management Services | SparkTech',
+    description: 'Maximize your ROI with certified Google Ads management in Chennai. High-converting search ads, PPC campaigns, display advertising, and remarketing.',
+    keywords: 'google ads agency in chennai, ppc company in chennai, pay per click advertising chennai, google ads management chennai, performance marketing chennai',
     schemaJson: {
       "@context": "https://schema.org",
       "@graph": [
         {
           "@type": "Service",
           "@id": "https://www.sparktechdm.com/services/video-editing#service",
-          "name": "Google Ads & PPC Campaign Management Services",
+          "name": "Google Ads Agency & PPC Campaign Management Services in Chennai",
           "url": "https://www.sparktechdm.com/services/video-editing",
           "serviceType": "PPC Advertising",
           "description": "Maximize your advertising ROI with high-converting Google Ads, PPC search campaigns, display ads, and creative ad assets managed by SparkTech.",
@@ -829,7 +855,7 @@ const pages = [
     mainHtml: `
         <article class="content-container">
           <p class="eyebrow">HIGH-ROI PAID SEARCH</p>
-          <h1>Ads Creative & PPC Campaign Management in Chennai</h1>
+          <h1>Google Ads Agency & PPC Services in Chennai</h1>
           <p class="lead">Stop wasting marketing spend. SparkTech creates, optimizes, and scales Google Ads campaigns that capture high-intent search queries with maximum return on investment.</p>
           <section>
             <h2>Strategic Paid Search & Video Advertising</h2>
@@ -843,16 +869,16 @@ const pages = [
   {
     url: '/services/graphics-designing',
     outputPath: 'services/graphics-designing/index.html',
-    title: 'Graphic Design & Creative Brand Identity in Chennai | SparkTech',
-    description: 'Elevate your brand presence with stunning graphic design, corporate branding, social media creatives, and marketing collateral by SparkTech.',
-    keywords: 'graphic design agency chennai, branding design chennai, creative visual identity',
+    title: 'Graphic Design Services in Chennai | Branding & Creative Agency | SparkTech',
+    description: 'Elevate your brand presence with stunning graphic design, corporate branding, social media creatives, and marketing collateral in Chennai by SparkTech.',
+    keywords: 'graphic design services in chennai, graphic design agency chennai, branding design chennai, logo design chennai, marketing collateral chennai',
     schemaJson: {
       "@context": "https://schema.org",
       "@graph": [
         {
           "@type": "Service",
           "@id": "https://www.sparktechdm.com/services/graphics-designing#service",
-          "name": "Graphic Design & Branding Services",
+          "name": "Graphic Design & Branding Services in Chennai",
           "url": "https://www.sparktechdm.com/services/graphics-designing",
           "serviceType": "Graphic Design",
           "description": "Elevate your brand presence with stunning graphic design, corporate branding, social media creatives, and marketing collateral by SparkTech.",
@@ -863,7 +889,7 @@ const pages = [
     mainHtml: `
         <article class="content-container">
           <p class="eyebrow">CREATIVE VISUAL IDENTITY</p>
-          <h1>Graphic Designing & Brand Identity in Chennai</h1>
+          <h1>Graphic Design Services in Chennai</h1>
           <p class="lead">Distinguish your business with cohesive, high-impact graphic design assets across digital and print touchpoints.</p>
           <section>
             <h2>Design That Inspires & Converts</h2>
@@ -934,12 +960,12 @@ blogArticles.forEach(b => {
             <img src="${b.image}" alt="${b.title}" width="700" height="350" fetchpriority="high" />
           </div>
 
-          ${b.content ? b.content.map(p => `<p>${p}</p>`).join('\n') : ''}
+          ${b.content ? b.content.map(p => `<p>${formatParagraphHtml(p)}</p>`).join('\n') : ''}
 
           ${b.sections ? b.sections.map(sec => `
           <section>
             <h2>${sec.heading}</h2>
-            ${sec.paragraphs.map(p => `<p>${p}</p>`).join('\n')}
+            ${sec.paragraphs.map(p => `<p>${formatParagraphHtml(p)}</p>`).join('\n')}
           </section>`).join('\n') : ''}
 
           <section>

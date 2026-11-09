@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useNavigate, Link } from "react-router-dom";
-import { Rss, Target, Megaphone, Zap, Send, Search } from "lucide-react";
+import { Rss, Target, Megaphone, Zap, Send, Search, Palette } from "lucide-react";
 import Seo from "../../components/Seo";
 export default function ServiceOverview() {
   const navigate = useNavigate();
@@ -67,6 +67,14 @@ export default function ServiceOverview() {
       buttonText: "Explore SEO Services",
       icon: Search,
     },
+    {
+      title: "Graphic Design & Branding",
+      details:
+        "Craft compelling visual identities, brand guidelines, social media creatives, and marketing collateral that distinguish your business and captivate audiences in Chennai.",
+      link: "/services/graphics-designing",
+      buttonText: "Explore Graphic Design",
+      icon: Palette,
+    },
   ];
 
   return (
@@ -74,13 +82,13 @@ export default function ServiceOverview() {
       <Seo
         title="Digital Marketing Services in Chennai | SparkTech Digital"
         description="Explore results-driven digital marketing services in Chennai by SparkTech Digital, including SEO, custom web development, PPC Google Ads, social media marketing, and email automation."
-        keywords="digital marketing services in chennai, seo services chennai, web development chennai, google ads agency chennai, social media marketing chennai"
+        keywords="digital marketing services in chennai, seo services chennai, web development chennai, google ads agency chennai, social media marketing chennai, graphic design chennai"
       >
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "WebPage",
-            "name": "Our Services - Spark Tech Digital",
+            "name": "Digital Marketing Services in Chennai - SparkTech Digital",
             "url": "https://www.sparktechdm.com/services",
             "description": "Explore our comprehensive digital marketing, SEO, web development, and branding services tailored to grow your business online.",
             "breadcrumb": {
@@ -95,9 +103,14 @@ export default function ServiceOverview() {
       </Seo>
       <div className="relative min-h-[70vh] py-12 px-6 overflow-hidden bg-white">
         <div className="relative z-10 max-w-7xl lg:max-w-full lg:px-16 xl:px-24 mx-auto w-full animate-fadeIn">
-          <h1 className="text-4xl md:text-5xl font-bold font-oswald text-center uppercase tracking-wider mb-16 text-[#1b365d]">
-            OUR DIGITAL MARKETING <span className="text-[#cc7722]">SERVICES</span>
-          </h1>
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h1 className="text-4xl md:text-5xl font-bold font-oswald uppercase tracking-wider mb-6 text-[#1b365d]">
+              OUR DIGITAL MARKETING <span className="text-[#cc7722]">SERVICES IN CHENNAI</span>
+            </h1>
+            <p className="text-[#395c7a] font-inter text-base md:text-lg leading-relaxed">
+              SparkTech Digital provides comprehensive, ROI-focused digital marketing solutions designed to help ambitious businesses build authority and scale revenue. From high-converting web architecture and organic search visibility (SEO) to strategic Google Ads PPC, B2B lead generation, social media management, automated email flows, and creative graphic design, our team in Choolaimedu crafts growth systems tailored to your goals.
+            </p>
+          </div>
 
           {/* 3 columns on desktop, 1 on mobile */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">

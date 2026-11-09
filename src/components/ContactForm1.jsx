@@ -45,9 +45,9 @@ const ContactPage = () => {
   return (
     <>
     <Seo
-  title="Contact SparkTech | Digital Marketing Office in Choolaimedu, Chennai"
+  title="Contact SparkTech Digital | Digital Marketing Agency Chennai"
   description="Get in touch with SparkTech Digital Marketing in Choolaimedu, Chennai. Request a free digital strategy consultation or call us at +91 8939892219."
-  keywords="contact sparktech, digital marketing company in choolaimedu, digital marketing company in chennai, seo consultation chennai"
+  keywords="contact sparktech, digital marketing company in chennai, digital marketing agency choolaimedu, seo consultation chennai, web design inquiry chennai"
 >
   <script type="application/ld+json">
     {JSON.stringify({

@@ -264,9 +264,9 @@ export default function Career() {
 
     <>
     <Seo
-  title="Careers at SparkTech | Digital Marketing & Tech Jobs in Chennai"
-  description="Join our team in Chennai. Explore exciting career opportunities in UI/UX design, web development, SEO, and digital marketing at SparkTech."
-  keywords="careers at sparktech, digital marketing jobs chennai, web developer jobs chennai, seo specialist jobs chennai, ui ux designer jobs chennai"
+  title="Digital Marketing Jobs in Chennai | Careers at SparkTech"
+  description="Explore career opportunities and internships in digital marketing, SEO, web development, graphic design, and content creation at SparkTech in Choolaimedu, Chennai."
+  keywords="digital marketing jobs in chennai, careers at sparktech, seo jobs chennai, web developer jobs chennai, graphic designer jobs chennai, digital marketing internship chennai"
 >
   <script type="application/ld+json">
     {JSON.stringify({
@@ -289,7 +289,7 @@ export default function Career() {
       <div className="w-full px-8 pb-16 flex flex-col items-center">
         {/* Centered Yellow Title */}
         <div className="w-full max-w-7xl lg:max-w-full lg:px-16 xl:px-24 mx-auto text-center mb-16">
-          <h1 className="font-inter font-extrabold text-3xl md:text-5xl lg:text-7xl text-[#cc7722] tracking-[0.02em] m-0 leading-none">Careers at SparkTech Digital</h1>
+          <h1 className="font-inter font-extrabold text-3xl md:text-5xl lg:text-7xl text-[#cc7722] tracking-[0.02em] m-0 leading-none">Digital Marketing Jobs & Careers in Chennai</h1>
         </div>
 
         <div className="w-full max-w-7xl lg:max-w-full lg:px-16 xl:px-24 mx-auto flex flex-col gap-14">

@@ -194,9 +194,9 @@ const About = () => {
         </script>
       </Helmet>
       <Seo
-        title="About Us | SparkTech Digital Marketing Agency Chennai"
+        title="About SparkTech Digital | Digital Marketing Agency Chennai"
         description="Learn about SparkTech Digital, our expert team, core values, and milestones as a leading digital marketing company in Chennai helping businesses scale online."
-        keywords="about sparktech, digital marketing company in chennai, sparktech digital marketing, digital marketing agency choolaimedu"
+        keywords="about sparktech, digital marketing agency chennai, digital marketing company in chennai, sparktech digital marketing, digital marketing agency choolaimedu"
       />
 
       <div className="min-h-screen pt-32 pb-0 relative overflow-hidden bg-white">
@@ -209,11 +209,10 @@ const About = () => {
           className="text-center mb-10 md:mb-10 px-8 md:px-16"
         >
           <h1 className="text-4xl md:text-6xl font-black text-[#1b365d] uppercase tracking-wider">
-            ABOUT US: OUR <span className="text-[#cc7722]">JOURNEY</span>
+            ABOUT SPARKTECH DIGITAL: OUR <span className="text-[#cc7722]">JOURNEY</span>
           </h1>
           <p className="text-[#1b365d] text-sm md:text-base font-semibold mt-3 max-w-2xl mx-auto italic">
-            A journey driven by innovation, collaboration, and a passion for helping
-            businesses grow through digital excellence.
+            Founded in Choolaimedu, Chennai, SparkTech Digital is driven by innovation, technical rigor, and a passion for turning ambitious businesses into dominant market leaders through data-backed marketing.
           </p>
 
         </motion.div>

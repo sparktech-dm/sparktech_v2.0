@@ -6,6 +6,53 @@ import { ArrowLeft, Calendar, User, Tag } from "lucide-react";
 import { blogData } from "../components/Blogs";
 import Footer from "../components/Footer";
 
+// Helper to render inline markdown links [Anchor Text](/url) as React Router Links
+function renderParagraphWithLinks(text) {
+  if (typeof text !== "string") return text;
+  const regex = /\[([^\]]+)\]\(([^)]+)\)/g;
+  const parts = [];
+  let lastIndex = 0;
+  let match;
+  while ((match = regex.exec(text)) !== null) {
+    if (match.index > lastIndex) {
+      parts.push(text.substring(lastIndex, match.index));
+    }
+    const linkText = match[1];
+    const linkUrl = match[2];
+    if (linkUrl.startsWith("http")) {
+      parts.push(
+        <a
+          key={match.index}
+          href={linkUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-[#cc7722] underline font-medium hover:text-[#1b365d] transition-colors"
+        >
+          {linkText}
+        </a>
+      );
+    } else {
+      parts.push(
+        <Link
+          key={match.index}
+          to={linkUrl}
+          className="text-[#cc7722] underline font-medium hover:text-[#1b365d] transition-colors"
+        >
+          {linkText}
+        </Link>
+      );
+    }
+    lastIndex = regex.lastIndex;
+  }
+  if (lastIndex === 0) {
+    return text;
+  }
+  if (lastIndex < text.length) {
+    parts.push(text.substring(lastIndex));
+  }
+  return parts;
+}
+
 export default function BlogPost({ post: propPost }) {
   const { id } = useParams();
 
@@ -174,7 +221,7 @@ export default function BlogPost({ post: propPost }) {
                   </h2>
                   {section.paragraphs.map((para, pIdx) => (
                     <p key={pIdx} className="text-base md:text-lg text-[#1f3a58] leading-relaxed mb-4">
-                      {para}
+                      {renderParagraphWithLinks(para)}
                     </p>
                   ))}
                 </div>
@@ -182,12 +229,12 @@ export default function BlogPost({ post: propPost }) {
             ) : Array.isArray(post.content) ? (
               post.content.map((para, idx) => (
                 <p key={idx} className="text-base md:text-lg text-[#1f3a58] leading-relaxed">
-                  {para}
+                  {renderParagraphWithLinks(para)}
                 </p>
               ))
             ) : (
               <p className="text-base md:text-lg text-[#1f3a58] leading-relaxed">
-                {post.content}
+                {renderParagraphWithLinks(post.content)}
               </p>
             )}
 
