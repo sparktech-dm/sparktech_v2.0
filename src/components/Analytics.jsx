@@ -7,7 +7,13 @@ export default function Analytics() {
   const location = useLocation();
 
   useEffect(() => {
-    if (window.gtag) {
+    if (typeof window !== "undefined") {
+      window.dataLayer = window.dataLayer || [];
+      if (!window.gtag) {
+        window.gtag = function () {
+          window.dataLayer.push(arguments);
+        };
+      }
       window.gtag("config", GA_ID, {
         page_path: location.pathname + location.search,
       });
