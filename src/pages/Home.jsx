@@ -62,12 +62,12 @@ export function GrowingBrands({
   <meta property="og:description" content="SparkTech is a premier digital marketing company in Chennai offering expert SEO, web development, and performance marketing services to grow your business." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.sparktechdm.com/" />
-  <meta property="og:image" content="https://www.sparktechdm.com/Logo.png" />
+  <meta property="og:image" content="https://www.sparktechdm.com/logo-512x512.png" />
   <meta property="og:site_name" content="SparkTech Digital Marketing" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Digital Marketing Company in Chennai | SparkTech Digital" />
   <meta name="twitter:description" content="SparkTech is a premier digital marketing company in Chennai offering expert SEO, web development, and performance marketing services to grow your business." />
-  <meta name="twitter:image" content="https://www.sparktechdm.com/Logo.png" />
+  <meta name="twitter:image" content="https://www.sparktechdm.com/logo-512x512.png" />
   <script type="application/ld+json">
     {JSON.stringify({
       "@context": "https://schema.org",
@@ -77,7 +77,7 @@ export function GrowingBrands({
           "@id": "https://www.sparktechdm.com/#localbusiness",
           "name": "SparkTech Digital",
           "url": "https://www.sparktechdm.com/",
-          "image": "https://www.sparktechdm.com/Logo.png",
+          "image": "https://www.sparktechdm.com/logo-512x512.png",
           "telephone": "+91 8939892219",
           "email": "sparktechdm@gmail.com",
           "hasMap": "https://maps.app.goo.gl/4sYLYqWiS9KQRijP8",

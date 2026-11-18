@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import { Link as RouterLink, useLocation, useNavigate } from 'react-router-dom';
 import { scroller, animateScroll as scroll } from 'react-scroll';
-import Logo from '../assets/Logo.png';
+import Logo from '../assets/logo.webp';
 
 const Navbar = () => {
   const [active, setActive] = useState('home');
@@ -87,7 +87,7 @@ const Navbar = () => {
 
         {/* Left: Logo */}
         <div onClick={handleScrollTop} className="cursor-pointer flex-shrink-0">
-          <img src={Logo} alt="SparkTech Digital Marketing Logo" className="h-[52px] w-auto object-contain" />
+          <img src={Logo} alt="SparkTech Digital Marketing Logo" width={50} height={52} className="h-[52px] w-auto object-contain" loading="eager" fetchPriority="high" />
         </div>
 
         {/* Center: Nav Items */}
@@ -144,7 +144,7 @@ const Navbar = () => {
       <div className='md:hidden flex justify-between items-center px-5 h-[80px] w-full backdrop-blur bg-gray-600/40 relative z-40'>
         <RouterLink to='/' onClick={handleScrollTop}>
           <div className='w-[50px] h-[50px] cursor-pointer'>
-            <img src={Logo} alt='SparkTech Digital Marketing Logo' className='w-full h-full object-contain' />
+            <img src={Logo} alt='SparkTech Digital Marketing Logo' width={50} height={50} className='w-full h-full object-contain' loading="eager" fetchPriority="high" />
           </div>
         </RouterLink>
         <button className='text-white text-2xl' onClick={() => setMenuOpen(true)}>

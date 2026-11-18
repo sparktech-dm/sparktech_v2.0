@@ -2,7 +2,7 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
 
-const DEFAULT_IMAGE = "https://www.sparktechdm.com/Logo.png";
+const DEFAULT_IMAGE = "https://www.sparktechdm.com/logo-512x512.png";
 const SITE_NAME = "SparkTech Digital Marketing";
 
 const Seo = ({

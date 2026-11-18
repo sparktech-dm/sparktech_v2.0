@@ -1,7 +1,7 @@
 import React from 'react';
 import { Mail, Phone, MapPin, Instagram, Linkedin } from 'lucide-react';
 import { Link } from "react-router-dom";
-import Logo from '../assets/Logo.png';
+import Logo from '../assets/logo.webp';
 
 const Footer = () => {
   const socialLinks = [
@@ -18,7 +18,7 @@ const Footer = () => {
           {/* Brand Section */}
           <div className="lg:col-span-2 pr-8">
             <div className="flex items-center space-x-2 mb-6">
-              <img src={Logo} alt="SparkTech Digital Marketing Logo" className="h-8 w-8" />
+              <img src={Logo} alt="SparkTech Digital Marketing Logo" width={32} height={32} className="h-8 w-8 object-contain" loading="lazy" />
               <span className="text-2xl font-bold text-[#c9742a]">
                 Spark Tech
               </span>

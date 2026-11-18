@@ -131,7 +131,7 @@ export default function BlogPost({ post: propPost }) {
       "name": "Spark Tech Digital",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://www.sparktechdm.com/Logo.png"
+        "url": "https://www.sparktechdm.com/logo-512x512.png"
       }
     },
     "datePublished": datePublished,

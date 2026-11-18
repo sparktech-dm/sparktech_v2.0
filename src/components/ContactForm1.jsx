@@ -58,7 +58,7 @@ const ContactPage = () => {
           "@id": "https://www.sparktechdm.com/#localbusiness",
           "name": "SparkTech Digital",
           "url": "https://www.sparktechdm.com/",
-          "image": "https://www.sparktechdm.com/Logo.png",
+          "image": "https://www.sparktechdm.com/logo-512x512.png",
           "telephone": "+91 8939892219",
           "email": "sparktechdm@gmail.com",
           "hasMap": "https://maps.app.goo.gl/4sYLYqWiS9KQRijP8",

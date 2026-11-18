@@ -55,7 +55,7 @@ const commonHeader = `
       <header class="static-site-header">
         <nav aria-label="Main Navigation">
           <a href="/" aria-label="SparkTech Digital Home">
-            <img src="/Logo.png" alt="SparkTech Digital Marketing Logo" width="160" height="40" />
+            <img src="/logo.webp" alt="SparkTech Digital Marketing Logo" width="50" height="52" loading="eager" fetchpriority="high" />
           </a>
           <ul>
             <li><a href="/services">Services</a></li>
@@ -81,7 +81,7 @@ function buildPageHtml({
   description,
   keywords,
   schemaJson,
-  ogImage = 'https://www.sparktechdm.com/Logo.png',
+  ogImage = 'https://www.sparktechdm.com/logo-512x512.png',
   is404 = false,
   mainHtml
 }) {
@@ -163,8 +163,8 @@ const pages = [
           "name": "SparkTech Digital",
           "legalName": "SparkTech Digital Marketing",
           "url": "https://www.sparktechdm.com/",
-          "logo": "https://www.sparktechdm.com/Logo.png",
-          "image": "https://www.sparktechdm.com/Logo.png",
+          "logo": "https://www.sparktechdm.com/logo-512x512.png",
+          "image": "https://www.sparktechdm.com/logo-512x512.png",
           "description": "SparkTech Digital Marketing is a premier digital growth agency in Chennai providing SEO, web development, Google Ads, social media marketing, and email automation.",
           "email": "sparktechdm@gmail.com",
           "telephone": "+91 8939892219",
@@ -260,7 +260,7 @@ const pages = [
             <h2>Meet the SparkTech Team</h2>
             <p>Our multidisciplinary team brings together skilled developers, seasoned SEO analysts, creative copywriters, and paid media strategists who take ownership of your growth metrics.</p>
             <div>
-              <img src="/Logo.png" alt="SparkTech Digital Marketing Logo" width="160" height="40" loading="lazy" />
+              <img src="/logo.webp" alt="SparkTech Digital Marketing Logo" width="50" height="52" loading="lazy" />
               <img src="/rocket-removebg-preview.webp" alt="SparkTech Growth Projects Icon" width="40" height="40" loading="lazy" />
             </div>
             <p>Interested in joining our forward-thinking team? Check our open roles on our <a href="/career">Careers page</a>.</p>
@@ -655,7 +655,7 @@ const pages = [
           "@id": "https://www.sparktechdm.com/#localbusiness",
           "name": "SparkTech Digital",
           "url": "https://www.sparktechdm.com/",
-          "image": "https://www.sparktechdm.com/Logo.png",
+          "image": "https://www.sparktechdm.com/logo-512x512.png",
           "telephone": "+91 8939892219",
           "email": "sparktechdm@gmail.com",
           "hasMap": "https://maps.app.goo.gl/4sYLYqWiS9KQRijP8",
@@ -934,7 +934,7 @@ blogArticles.forEach(b => {
             "name": "SparkTech Digital",
             "logo": {
               "@type": "ImageObject",
-              "url": "https://www.sparktechdm.com/Logo.png"
+              "url": "https://www.sparktechdm.com/logo-512x512.png"
             }
           },
           "datePublished": b.datePublished,
